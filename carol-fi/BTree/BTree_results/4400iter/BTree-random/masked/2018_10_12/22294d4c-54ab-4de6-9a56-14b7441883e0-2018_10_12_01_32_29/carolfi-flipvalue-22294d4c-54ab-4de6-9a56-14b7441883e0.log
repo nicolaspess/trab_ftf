@@ -1,0 +1,55 @@
+[INFO -- 2018-10-12 01:32:28]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 01:32:28]
+Initialization strings:
+[INFO -- 2018-10-12 01:32:28]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 01:32:28]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 01:32:28]
+initSignal:0
+[INFO -- 2018-10-12 01:32:28]
+endSignal:2
+[INFO -- 2018-10-12 01:32:28]
+faultModel:2
+[INFO -- 2018-10-12 01:32:28]
+Backtrace BEGIN:
+#0  0x00007ffff72a282c in __GI__IO_fflush (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at iofflush.c:39
+#1  0x00007ffff7b5ef5e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x00005555555563c7 in BTreeNode::traverse (this=0x555555b12d90) at BTree.cpp:592
+#3  0x00005555555563ff in BTreeNode::traverse (this=0x555555b2f800) at BTree.cpp:597
+#4  0x0000555555556377 in BTreeNode::traverse (this=0x5555558b5090) at BTree.cpp:591
+#5  0x0000555555556377 in BTreeNode::traverse (this=0x555555a4d060) at BTree.cpp:591
+#6  0x0000555555556377 in BTreeNode::traverse (this=0x555555a4dd50) at BTree.cpp:591
+#7  0x0000555555556377 in BTreeNode::traverse (this=0x5555559cda70) at BTree.cpp:591
+#8  0x0000555555556377 in BTreeNode::traverse (this=0x5555559cdb00) at BTree.cpp:591
+#9  0x00005555555563ff in BTreeNode::traverse (this=0x555555a273b0) at BTree.cpp:597
+#10 0x00005555555563ff in BTreeNode::traverse (this=0x555555a27320) at BTree.cpp:597
+#11 0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#12 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+34	iofflush.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0xb00x730xa20x550x550x550x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffdd08
+address max offset: 8
+Memory content after  bitflip:0xa10xf40x5d0xe20x270xda0xd20x83
+frame name: BTreeNode::traverse
+symbol name: this
+symbol filename: BTree.cpp
+symbol line: 0
+value: 0x555555a273b0
+value address: 0x7fffffffdd08
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-12 01:32:28]
+Fault Injection Successful after 0.6996111869812012s
+[INFO -- 2018-10-12 01:32:28]
+event type: exit
+[INFO -- 2018-10-12 01:32:28]
+exit code: 0

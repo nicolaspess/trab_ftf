@@ -1,0 +1,51 @@
+[INFO -- 2018-10-12 00:25:48]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 00:25:48]
+Initialization strings:
+[INFO -- 2018-10-12 00:25:48]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 00:25:48]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 00:25:48]
+initSignal:0
+[INFO -- 2018-10-12 00:25:48]
+endSignal:2
+[INFO -- 2018-10-12 00:25:48]
+faultModel:2
+[INFO -- 2018-10-12 00:25:48]
+Backtrace BEGIN:
+#0  0x00005555555565f3 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+660	      		while ( fgets ( line, sizeof line, file ) != NULL ) /* read a line */
+661	      		{
+662	        	//fputs ( line, stdout ); /* write the line */
+663						int number = atoi(line);
+664						//printf("%i\n",number);
+665						t.insert(number);
+666	      		}
+667						freopen(argv[2],"w",stdout);
+668						t.traverse();
+669						fclose (stdout);
+
+Backtrace END
+Memory content before bitflip:0x650xb90x310x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffddb4
+address max offset: 4
+Memory content after  bitflip:0x8c0xdf0xba0x82
+frame name: main
+symbol name: number
+symbol filename: BTree.cpp
+symbol line: 663
+value: -2101682292
+value address: 0x7fffffffddb4
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-12 00:25:48]
+Fault Injection Successful after 0.8919203281402588s
+[INFO -- 2018-10-12 00:25:49]
+event type: exit
+[INFO -- 2018-10-12 00:25:49]
+exit code: 0

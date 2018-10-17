@@ -1,0 +1,45 @@
+[INFO -- 2018-10-12 00:27:20]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 00:27:20]
+Initialization strings:
+[INFO -- 2018-10-12 00:27:20]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 00:27:20]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 00:27:20]
+initSignal:0
+[INFO -- 2018-10-12 00:27:20]
+endSignal:2
+[INFO -- 2018-10-12 00:27:20]
+faultModel:1
+[INFO -- 2018-10-12 00:27:20]
+Backtrace BEGIN:
+#0  0x00007ffff72a2b77 in _IO_fgets (buf=0x7fffffffddde "3060762\n", n=10, fp=0x55555576ae70) at iofgets.c:47
+#1  0x00005555555565d7 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:660
+
+42	iofgets.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping a bit of the value pointed by a pointer
+Memory content before bitflip:0x2f
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffe279 
+address max offset: 1
+Memory content after  bitflip:0x1f
+frame name: main
+symbol name: argv
+symbol filename: BTree.cpp
+symbol line: 650
+value: 0x7fffffffded8
+value address: 0x7fffffffdda0
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-12 00:27:20]
+Fault Injection Successful after 0.6106443405151367s
+[INFO -- 2018-10-12 00:27:20]
+event type: exit
+[INFO -- 2018-10-12 00:27:20]
+exit code: 0

@@ -1,0 +1,54 @@
+[INFO -- 2018-10-12 01:02:59]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 01:02:59]
+Initialization strings:
+[INFO -- 2018-10-12 01:02:59]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 01:02:59]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 01:02:59]
+initSignal:0
+[INFO -- 2018-10-12 01:02:59]
+endSignal:2
+[INFO -- 2018-10-12 01:02:59]
+faultModel:1
+[INFO -- 2018-10-12 01:03:00]
+Backtrace BEGIN:
+#0  BTreeNode::insertNonFull (this=0x555555812430, k=877916) at BTree.cpp:518
+#1  0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=877916) at BTree.cpp:487
+#2  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+513			n = n+1;
+514		}
+515		else // If this node is not leaf
+516		{
+517			// Find the child which is going to have the new key
+518			while (i >= 0 && keys[i] > k)
+519				i--;
+520	
+521			// See if the found child is full
+522			if (C[i+1]->n == 2*t-1)
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0xc00xdd0xff0xff0xff0x7f0x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffdd68
+address max offset: 8
+Memory content after  bitflip:0xc00xcc0xff0xff0xff0x7f0x000x00
+frame name: BTree::insert
+symbol name: this
+symbol filename: BTree.cpp
+symbol line: 0
+value: 0x7fffffffddc0
+value address: 0x7fffffffdd68
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-12 01:03:00]
+Fault Injection Successful after 1.193871021270752s
+[INFO -- 2018-10-12 01:03:00]
+event type: exit
+[INFO -- 2018-10-12 01:03:00]
+exit code: 0

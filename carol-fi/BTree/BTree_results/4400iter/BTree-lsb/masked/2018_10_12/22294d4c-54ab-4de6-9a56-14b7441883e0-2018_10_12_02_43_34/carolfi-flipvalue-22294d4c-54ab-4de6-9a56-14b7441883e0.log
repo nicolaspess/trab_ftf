@@ -1,0 +1,61 @@
+[INFO -- 2018-10-12 02:43:33]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 02:43:33]
+Initialization strings:
+[INFO -- 2018-10-12 02:43:33]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 02:43:33]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 02:43:33]
+initSignal:0
+[INFO -- 2018-10-12 02:43:33]
+endSignal:2
+[INFO -- 2018-10-12 02:43:33]
+faultModel:4
+[EXCEPTION -- 2018-10-12 02:43:33]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[EXCEPTION -- 2018-10-12 02:43:33]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-12 02:43:33]
+Backtrace BEGIN:
+#0  BTreeNode::insertNonFull (this=0x5555557f4d60, k=4165538) at BTree.cpp:497
+#1  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555846930, k=4165538) at BTree.cpp:533
+#2  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555557e10b0, k=4165538) at BTree.cpp:533
+#3  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558124c0, k=4165538) at BTree.cpp:533
+#4  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555812430, k=4165538) at BTree.cpp:533
+#5  0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=4165538) at BTree.cpp:487
+#6  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+492	// The assumption is, the node must be non-full when this
+493	// function is called
+494	void BTreeNode::insertNonFull(int k)
+495	{
+496		// Initialize index as index of rightmost element
+497		int i = n-1;
+498	
+499		// If this is a leaf node
+500		if (leaf == true)
+501		{
+
+Backtrace END
+Memory content before bitflip:0xa20x8f0x3f0x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffddb4
+address max offset: 4
+Memory content after  bitflip:0xa20x8f0x3f0x04
+frame name: main
+symbol name: number
+symbol filename: BTree.cpp
+symbol line: 663
+value: 71274402
+value address: 0x7fffffffddb4
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-12 02:43:33]
+Fault Injection Successful after 0.9040393829345703s
+[INFO -- 2018-10-12 02:43:34]
+event type: exit
+[INFO -- 2018-10-12 02:43:34]
+exit code: 0

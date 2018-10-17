@@ -1,0 +1,55 @@
+[INFO -- 2018-10-12 01:14:31]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 01:14:31]
+Initialization strings:
+[INFO -- 2018-10-12 01:14:31]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 01:14:31]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 01:14:31]
+initSignal:0
+[INFO -- 2018-10-12 01:14:31]
+endSignal:2
+[INFO -- 2018-10-12 01:14:31]
+faultModel:4
+[INFO -- 2018-10-12 01:14:31]
+Backtrace BEGIN:
+#0  __GI__IO_fflush (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at iofflush.c:33
+#1  0x00007ffff7b5ef5e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x00005555555563c7 in BTreeNode::traverse (this=0x555555783120) at BTree.cpp:592
+#3  0x0000555555556377 in BTreeNode::traverse (this=0x555555880ef0) at BTree.cpp:591
+#4  0x0000555555556377 in BTreeNode::traverse (this=0x555555b16d20) at BTree.cpp:591
+#5  0x0000555555556377 in BTreeNode::traverse (this=0x555555820890) at BTree.cpp:591
+#6  0x0000555555556377 in BTreeNode::traverse (this=0x555555830250) at BTree.cpp:591
+#7  0x00005555555563ff in BTreeNode::traverse (this=0x5555558ee8d0) at BTree.cpp:597
+#8  0x0000555555556377 in BTreeNode::traverse (this=0x555555acc6e0) at BTree.cpp:591
+#9  0x0000555555556377 in BTreeNode::traverse (this=0x555555812430) at BTree.cpp:591
+#10 0x0000555555556377 in BTreeNode::traverse (this=0x555555a27320) at BTree.cpp:591
+#11 0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#12 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+28	iofflush.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0xd00xe80x8e0x550x550x550x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdc88
+address max offset: 8
+Memory content after  bitflip:0xd00xe80x8e0x550x550x550x000x80
+frame name: BTreeNode::traverse
+symbol name: this
+symbol filename: BTree.cpp
+symbol line: 0
+value: 0x5555558ee8d0
+value address: 0x7fffffffdc88
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-12 01:14:31]
+Fault Injection Successful after 0.7481410503387451s
+[INFO -- 2018-10-12 01:14:31]
+event type: exit
+[INFO -- 2018-10-12 01:14:31]
+exit code: 0

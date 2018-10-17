@@ -1,0 +1,60 @@
+[INFO -- 2018-10-12 00:29:18]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 00:29:18]
+Initialization strings:
+[INFO -- 2018-10-12 00:29:18]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 00:29:18]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 00:29:18]
+initSignal:0
+[INFO -- 2018-10-12 00:29:18]
+endSignal:2
+[INFO -- 2018-10-12 00:29:18]
+faultModel:4
+[INFO -- 2018-10-12 00:29:19]
+Backtrace BEGIN:
+#0  BTreeNode::insertNonFull (this=0x55555587fd80, k=2974546) at BTree.cpp:531
+#1  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555947250, k=2974546) at BTree.cpp:533
+#2  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555989fa0, k=2974546) at BTree.cpp:533
+#3  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555598a420, k=2974546) at BTree.cpp:533
+#4  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555a27200, k=2974546) at BTree.cpp:533
+#5  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555a27290, k=2974546) at BTree.cpp:533
+#6  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555a273b0, k=2974546) at BTree.cpp:533
+#7  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555a27320, k=2974546) at BTree.cpp:533
+#8  0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=2974546) at BTree.cpp:487
+#9  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+526	
+527				// After split, the middle key of C[i] goes up and
+528				// C[i] is splitted into two. See which of the two
+529				// is going to have the new key
+530				if (keys[i+1] < k)
+531					i++;
+532			}
+533			C[i+1]->insertNonFull(k);
+534		}
+535	}
+
+Backtrace END
+Memory content before bitflip:0x520x630x2d0x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdd34
+address max offset: 4
+Memory content after  bitflip:0x520x630x2d0x01
+frame name: BTreeNode::insertNonFull
+symbol name: k
+symbol filename: BTree.cpp
+symbol line: 494
+value: 19751762
+value address: 0x7fffffffdd34
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-12 00:29:19]
+Fault Injection Successful after 1.2051475048065186s
+[INFO -- 2018-10-12 00:29:19]
+event type: exit
+[INFO -- 2018-10-12 00:29:19]
+exit code: 0

@@ -1,0 +1,50 @@
+[INFO -- 2018-10-12 01:59:34]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 01:59:34]
+Initialization strings:
+[INFO -- 2018-10-12 01:59:34]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 01:59:34]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 01:59:34]
+initSignal:0
+[INFO -- 2018-10-12 01:59:34]
+endSignal:2
+[INFO -- 2018-10-12 01:59:34]
+faultModel:0
+[INFO -- 2018-10-12 01:59:34]
+Backtrace BEGIN:
+#0  0x00007ffff72a2bd4 in _IO_fgets (buf=0x7fffffffddde "338549\n\n", n=<optimized out>, fp=0x55555576ae70) at iofgets.c:56
+#1  0x00005555555565d7 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:660
+
+51	iofgets.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping value of field: t
+Memory content before bitflip:0x030x000x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffddc8
+address max offset: 4
+Memory content after  bitflip:0x030x000x020x00
+frame name: main
+symbol name: t
+symbol filename: BTree.cpp
+symbol line: 653
+value: {root = 0x555555a27320, t = 131075}
+value address: 0x7fffffffddc0
+Type: The type is a structure.
+Type sizeof: 16
+Field name: root
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: t
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+
+[INFO -- 2018-10-12 01:59:34]
+Fault Injection Successful after 0.6009645462036133s
+[INFO -- 2018-10-12 01:59:34]
+event type: exit
+[INFO -- 2018-10-12 01:59:34]
+exit code: 0

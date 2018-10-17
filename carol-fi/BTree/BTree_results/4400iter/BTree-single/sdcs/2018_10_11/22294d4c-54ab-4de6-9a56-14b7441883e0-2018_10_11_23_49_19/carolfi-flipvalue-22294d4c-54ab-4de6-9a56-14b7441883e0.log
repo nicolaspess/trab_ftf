@@ -1,0 +1,52 @@
+[INFO -- 2018-10-11 23:49:17]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-11 23:49:17]
+Initialization strings:
+[INFO -- 2018-10-11 23:49:17]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-11 23:49:17]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-11 23:49:17]
+initSignal:0
+[INFO -- 2018-10-11 23:49:17]
+endSignal:2
+[INFO -- 2018-10-11 23:49:17]
+faultModel:0
+[INFO -- 2018-10-11 23:49:18]
+Backtrace BEGIN:
+#0  0x0000555555555df9 in BTree::insert (this=0x7fffffffddc0, k=3323816) at BTree.cpp:455
+#1  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+450	
+451	// The main function that inserts a new key in this B-Tree
+452	void BTree::insert(int k)
+453	{
+454		// If tree is empty
+455		if (root == NULL)
+456		{
+457			// Allocate memory for root
+458			root = new BTreeNode(t, true);
+459			root->keys[0] = k; // Insert key
+
+Backtrace END
+Memory content before bitflip:0xa80xb70x320x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffdd64
+address max offset: 4
+Memory content after  bitflip:0xa00xb70x320x00
+frame name: BTree::insert
+symbol name: k
+symbol filename: BTree.cpp
+symbol line: 452
+value: 3323808
+value address: 0x7fffffffdd64
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-11 23:49:18]
+Fault Injection Successful after 1.0958447456359863s
+[INFO -- 2018-10-11 23:49:18]
+event type: exit
+[INFO -- 2018-10-11 23:49:18]
+exit code: 0

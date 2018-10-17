@@ -1,0 +1,54 @@
+[INFO -- 2018-10-12 02:03:02]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 02:03:02]
+Initialization strings:
+[INFO -- 2018-10-12 02:03:02]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 02:03:02]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 02:03:02]
+initSignal:0
+[INFO -- 2018-10-12 02:03:02]
+endSignal:2
+[INFO -- 2018-10-12 02:03:02]
+faultModel:3
+[INFO -- 2018-10-12 02:03:03]
+Backtrace BEGIN:
+#0  __GI___libc_malloc (bytes=48) at malloc.c:3028
+#1  0x00007ffff7adf1a8 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x000055555555536a in BTreeNode::BTreeNode (this=0x55555583a4e0, t1=3, leaf1=false) at BTree.cpp:163
+#3  0x000055555555611b in BTreeNode::splitChild (this=0x5555557f28d0, i=3, y=0x5555557d3ca0) at BTree.cpp:543
+#4  0x000055555555608d in BTreeNode::insertNonFull (this=0x5555557f28d0, k=4432522) at BTree.cpp:525
+#5  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555796e60, k=4432522) at BTree.cpp:533
+#6  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555579e900, k=4432522) at BTree.cpp:533
+#7  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555557e10b0, k=4432522) at BTree.cpp:533
+#8  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558124c0, k=4432522) at BTree.cpp:533
+#9  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555812430, k=4432522) at BTree.cpp:533
+#10 0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=4432522) at BTree.cpp:487
+#11 0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+3023	malloc.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0xd00x280x7f0x550x550x550x000x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x7fffffffdc48
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x00
+frame name: BTreeNode::insertNonFull
+symbol name: this
+symbol filename: BTree.cpp
+symbol line: 0
+value: 0x5555557f28d0
+value address: 0x7fffffffdc48
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-12 02:03:03]
+Fault Injection Successful after 1.011626958847046s
+[INFO -- 2018-10-12 02:03:03]
+event type: exit
+[EXCEPTION -- 2018-10-12 02:03:03]
+exit code: no exit code available

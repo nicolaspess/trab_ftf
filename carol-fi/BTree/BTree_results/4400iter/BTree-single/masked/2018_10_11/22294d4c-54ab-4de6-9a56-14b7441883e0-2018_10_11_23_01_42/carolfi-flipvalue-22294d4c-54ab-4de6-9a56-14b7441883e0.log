@@ -1,0 +1,46 @@
+[INFO -- 2018-10-11 23:01:40]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-11 23:01:40]
+Initialization strings:
+[INFO -- 2018-10-11 23:01:40]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-11 23:01:40]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-11 23:01:40]
+initSignal:0
+[INFO -- 2018-10-11 23:01:40]
+endSignal:2
+[INFO -- 2018-10-11 23:01:40]
+faultModel:0
+[INFO -- 2018-10-11 23:01:41]
+Backtrace BEGIN:
+#0  0x00007ffff7334947 in __GI___close_nocancel (fd=1) at ../sysdeps/unix/sysv/linux/close.c:37
+#1  0x00007ffff72b01f8 in _IO_new_file_close_it (fp=fp@entry=0x7ffff7610760 <_IO_2_1_stdout_>) at fileops.c:143
+#2  0x00007ffff72a2387 in _IO_new_fclose (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at iofclose.c:53
+#3  0x000055555555663f in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:669
+
+32	../sysdeps/unix/sysv/linux/close.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0xd80xde0xff0xff0xff0x7f0x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffdda0
+address max offset: 8
+Memory content after  bitflip:0xd80xde0xff0xbf0xff0x7f0x000x00
+frame name: main
+symbol name: argv
+symbol filename: BTree.cpp
+symbol line: 650
+value: 0x7fffffffded8
+value address: 0x7fffffffdda0
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-11 23:01:41]
+Fault Injection Successful after 1.256049394607544s
+[INFO -- 2018-10-11 23:01:41]
+event type: exit
+[INFO -- 2018-10-11 23:01:41]
+exit code: 0

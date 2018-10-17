@@ -1,0 +1,63 @@
+[INFO -- 2018-10-12 04:00:58]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 04:00:58]
+Initialization strings:
+[INFO -- 2018-10-12 04:00:58]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 04:00:58]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 04:00:58]
+initSignal:0
+[INFO -- 2018-10-12 04:00:58]
+endSignal:2
+[INFO -- 2018-10-12 04:00:58]
+faultModel:0
+[INFO -- 2018-10-12 04:00:58]
+Backtrace BEGIN:
+#0  std::_Base_bitset<1ul>::_Base_bitset (this=0x7fffffffdb60, __val=0) at /usr/include/c++/7/bitset:386
+#1  0x0000555555556892 in std::bitset<16ul>::bitset (this=0x7fffffffdb60, __val=0) at /usr/include/c++/7/bitset:867
+#2  0x000055555555639f in BTreeNode::traverse (this=0x555555784560) at BTree.cpp:592
+#3  0x0000555555556377 in BTreeNode::traverse (this=0x555555784710) at BTree.cpp:591
+#4  0x0000555555556377 in BTreeNode::traverse (this=0x5555557849e0) at BTree.cpp:591
+#5  0x00005555555563ff in BTreeNode::traverse (this=0x555555784a70) at BTree.cpp:597
+#6  0x0000555555556377 in BTreeNode::traverse (this=0x5555557862a0) at BTree.cpp:591
+#7  0x00005555555563ff in BTreeNode::traverse (this=0x5555557863c0) at BTree.cpp:597
+#8  0x0000555555556377 in BTreeNode::traverse (this=0x555555786330) at BTree.cpp:591
+#9  0x0000555555556377 in BTreeNode::traverse (this=0x5555557bab90) at BTree.cpp:591
+#10 0x0000555555556377 in BTreeNode::traverse (this=0x5555558584b0) at BTree.cpp:591
+#11 0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#12 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+381	#if __cplusplus >= 201103L
+382	      constexpr _Base_bitset(unsigned long long __val) noexcept
+383	#else
+384	      _Base_bitset(unsigned long __val)
+385	#endif
+386	      : _M_w(__val)
+387	      { }
+388	
+389	      static _GLIBCXX_CONSTEXPR size_t
+390	      _S_whichword(size_t __pos) _GLIBCXX_NOEXCEPT
+
+Backtrace END
+Memory content before bitflip:0x000x000x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffdb9c
+address max offset: 4
+Memory content after  bitflip:0x000x000x100x00
+frame name: BTreeNode::traverse
+symbol name: i
+symbol filename: BTree.cpp
+symbol line: 585
+value: 1048576
+value address: 0x7fffffffdb9c
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-12 04:00:58]
+Fault Injection Successful after 0.4789865016937256s
+[INFO -- 2018-10-12 04:00:58]
+event type: exit
+[EXCEPTION -- 2018-10-12 04:00:58]
+exit code: no exit code available

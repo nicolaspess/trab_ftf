@@ -1,0 +1,58 @@
+[INFO -- 2018-10-12 00:32:31]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 00:32:31]
+Initialization strings:
+[INFO -- 2018-10-12 00:32:31]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 00:32:31]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 00:32:31]
+initSignal:0
+[INFO -- 2018-10-12 00:32:31]
+endSignal:2
+[INFO -- 2018-10-12 00:32:31]
+faultModel:3
+[EXCEPTION -- 2018-10-12 00:32:31]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-12 00:32:31]
+Backtrace BEGIN:
+#0  0x00005555555560db in BTreeNode::insertNonFull (this=0x5555558124c0, k=4740450) at BTree.cpp:535
+#1  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555812430, k=4740450) at BTree.cpp:533
+#2  0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=4740450) at BTree.cpp:487
+#3  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+530				if (keys[i+1] < k)
+531					i++;
+532			}
+533			C[i+1]->insertNonFull(k);
+534		}
+535	}
+536	
+537	// A utility function to split the child y of this node
+538	// Note that y must be full when this function is called
+539	void BTreeNode::splitChild(int i, BTreeNode *y)
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: t
+Memory content before bitflip:0x030x000x000x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x555555812438
+address max offset: 4
+Memory content after  bitflip:0x000x000x000x00
+frame name: BTreeNode::insertNonFull
+symbol name: this
+symbol filename: BTree.cpp
+symbol line: 0
+value: 0x555555812430
+value address: 0x7fffffffdd38
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-12 00:32:31]
+Fault Injection Successful after 0.6489293575286865s
+[INFO -- 2018-10-12 00:32:31]
+event type: exit
+[EXCEPTION -- 2018-10-12 00:32:31]
+exit code: no exit code available

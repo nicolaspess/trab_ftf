@@ -1,0 +1,65 @@
+[INFO -- 2018-10-12 09:41:37]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 09:41:37]
+Initialization strings:
+[INFO -- 2018-10-12 09:41:38]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 09:41:38]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 09:41:38]
+initSignal:0
+[INFO -- 2018-10-12 09:41:38]
+endSignal:2
+[INFO -- 2018-10-12 09:41:38]
+faultModel:4
+[EXCEPTION -- 2018-10-12 09:41:38]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-12 09:41:38]
+Backtrace BEGIN:
+#0  0x00007ffff7b70e60 in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x00005555555568c6 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset) at /usr/include/c++/7/bitset:1533
+#2  0x00005555555563b2 in BTreeNode::traverse (this=0x5555558179b0) at BTree.cpp:592
+#3  0x0000555555556377 in BTreeNode::traverse (this=0x555555817ad0) at BTree.cpp:591
+#4  0x0000555555556377 in BTreeNode::traverse (this=0x555555817fe0) at BTree.cpp:591
+#5  0x00005555555563ff in BTreeNode::traverse (this=0x555555818070) at BTree.cpp:597
+#6  0x0000555555556377 in BTreeNode::traverse (this=0x55555581afb0) at BTree.cpp:591
+#7  0x0000555555556377 in BTreeNode::traverse (this=0x555555823bc0) at BTree.cpp:591
+#8  0x0000555555556377 in BTreeNode::traverse (this=0x555555830e20) at BTree.cpp:591
+#9  0x0000555555556377 in BTreeNode::traverse (this=0x555555858540) at BTree.cpp:591
+#10 0x00005555555563ff in BTreeNode::traverse (this=0x5555558584b0) at BTree.cpp:597
+#11 0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#12 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+647	int myrandom (int i) { return std::rand()%i;}
+648	
+649	// Driver program to test above functions
+650	int main(int argc, char * argv[])
+651	{
+652	/*********************************/
+653	  BTree t(3);
+654	  FILE *file = fopen (argv[1], "r");
+655	
+656	
+
+Backtrace END
+Memory content before bitflip:0x010x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdb9c
+address max offset: 4
+Memory content after  bitflip:0x010x000x000x80
+frame name: BTreeNode::traverse
+symbol name: i
+symbol filename: BTree.cpp
+symbol line: 585
+value: -2147483647
+value address: 0x7fffffffdb9c
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-12 09:41:38]
+Fault Injection Successful after 0.6408882141113281s
+[INFO -- 2018-10-12 09:41:38]
+event type: exit
+[EXCEPTION -- 2018-10-12 09:41:38]
+exit code: no exit code available

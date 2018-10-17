@@ -1,0 +1,64 @@
+[INFO -- 2018-10-11 23:02:49]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-11 23:02:49]
+Initialization strings:
+[INFO -- 2018-10-11 23:02:49]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-11 23:02:49]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-11 23:02:49]
+initSignal:0
+[INFO -- 2018-10-11 23:02:49]
+endSignal:2
+[INFO -- 2018-10-11 23:02:49]
+faultModel:2
+[EXCEPTION -- 2018-10-11 23:02:49]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-10-11 23:02:50]
+Backtrace BEGIN:
+#0  0x0000555555555fd8 in BTreeNode::insertNonFull (this=0x5555558eed50, k=801521) at BTree.cpp:512
+#1  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555a830f0, k=801521) at BTree.cpp:533
+#2  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555981420, k=801521) at BTree.cpp:533
+#3  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555557e8d90, k=801521) at BTree.cpp:533
+#4  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555559c9930, k=801521) at BTree.cpp:533
+#5  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555812310, k=801521) at BTree.cpp:533
+#6  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555aeeac0, k=801521) at BTree.cpp:533
+#7  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555812430, k=801521) at BTree.cpp:533
+#8  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555a27320, k=801521) at BTree.cpp:533
+#9  0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=801521) at BTree.cpp:487
+#10 0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+507				keys[i+1] = keys[i];
+508				i--;
+509			}
+510	
+511			// Insert the new key at found location
+512			keys[i+1] = k;
+513			n = n+1;
+514		}
+515		else // If this node is not leaf
+516		{
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x200x730xa20x550x550x550x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffdd38
+address max offset: 8
+Memory content after  bitflip:0x710xa80x220x810xee0x3c0x2f0x1b
+frame name: BTreeNode::insertNonFull
+symbol name: this
+symbol filename: BTree.cpp
+symbol line: 0
+value: 0x555555a27320
+value address: 0x7fffffffdd38
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-11 23:02:50]
+Fault Injection Successful after 1.1090688705444336s
+[INFO -- 2018-10-11 23:02:50]
+event type: exit
+[INFO -- 2018-10-11 23:02:50]
+exit code: 0

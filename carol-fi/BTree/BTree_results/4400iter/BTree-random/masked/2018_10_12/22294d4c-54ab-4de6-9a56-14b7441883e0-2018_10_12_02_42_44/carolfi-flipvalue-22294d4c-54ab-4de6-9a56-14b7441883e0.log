@@ -1,0 +1,71 @@
+[INFO -- 2018-10-12 02:42:43]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 02:42:43]
+Initialization strings:
+[INFO -- 2018-10-12 02:42:43]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 02:42:43]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 02:42:43]
+initSignal:0
+[INFO -- 2018-10-12 02:42:43]
+endSignal:2
+[INFO -- 2018-10-12 02:42:43]
+faultModel:2
+[EXCEPTION -- 2018-10-12 02:42:43]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-12 02:42:43]
+Backtrace BEGIN:
+#0  0x00007ffff7b708b0 in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_create(unsigned long&, unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x00007ffff7b70cfb in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x00007ffff7b716d0 in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_replace_aux(unsigned long, unsigned long, unsigned long, char) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#3  0x00005555555569dd in std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x7fffffffdb60, __s="", __zero=48 '0', __one=49 '1') at /usr/include/c++/7/bitset:1407
+#4  0x0000555555556943 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1538
+#5  0x00005555555563b2 in BTreeNode::traverse (this=0x5555559eade0) at BTree.cpp:592
+#6  0x0000555555556377 in BTreeNode::traverse (this=0x555555b10750) at BTree.cpp:591
+#7  0x0000555555556377 in BTreeNode::traverse (this=0x555555921b40) at BTree.cpp:591
+#8  0x00005555555563ff in BTreeNode::traverse (this=0x555555876510) at BTree.cpp:597
+#9  0x0000555555556377 in BTreeNode::traverse (this=0x555555966780) at BTree.cpp:591
+#10 0x0000555555556377 in BTreeNode::traverse (this=0x555555966a50) at BTree.cpp:591
+#11 0x0000555555556377 in BTreeNode::traverse (this=0x5555558eea80) at BTree.cpp:591
+#12 0x0000555555556377 in BTreeNode::traverse (this=0x555555812430) at BTree.cpp:591
+#13 0x0000555555556377 in BTreeNode::traverse (this=0x555555a27320) at BTree.cpp:591
+#14 0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#15 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+647	int myrandom (int i) { return std::rand()%i;}
+648	
+649	// Driver program to test above functions
+650	int main(int argc, char * argv[])
+651	{
+652	/*********************************/
+653	  BTree t(3);
+654	  FILE *file = fopen (argv[1], "r");
+655	
+656	
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: keys
+Fliping a bit of the value pointed by a pointer
+Memory content before bitflip:0xdd0x5d0x140x00
+Fault Model: Random bit-flip
+base address to flip value: 0x5555559eae10
+address max offset: 4
+Memory content after  bitflip:0xa30x120x4b0x2f
+frame name: BTreeNode::traverse
+symbol name: this
+symbol filename: BTree.cpp
+symbol line: 0
+value: 0x5555559eade0
+value address: 0x7fffffffdb48
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-12 02:42:43]
+Fault Injection Successful after 0.8808107376098633s
+[INFO -- 2018-10-12 02:42:44]
+event type: exit
+[INFO -- 2018-10-12 02:42:44]
+exit code: 0

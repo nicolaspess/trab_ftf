@@ -1,0 +1,64 @@
+[INFO -- 2018-10-11 23:37:28]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-11 23:37:28]
+Initialization strings:
+[INFO -- 2018-10-11 23:37:28]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-11 23:37:28]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-11 23:37:28]
+initSignal:0
+[INFO -- 2018-10-11 23:37:28]
+endSignal:2
+[INFO -- 2018-10-11 23:37:28]
+faultModel:3
+[INFO -- 2018-10-11 23:37:29]
+Backtrace BEGIN:
+#0  0x000055555555604d in BTreeNode::insertNonFull (this=0x5555559f2400, k=2972837) at BTree.cpp:522
+#1  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555947250, k=2972837) at BTree.cpp:533
+#2  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555989fa0, k=2972837) at BTree.cpp:533
+#3  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555598a420, k=2972837) at BTree.cpp:533
+#4  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558bd5e0, k=2972837) at BTree.cpp:533
+#5  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558124c0, k=2972837) at BTree.cpp:533
+#6  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555812430, k=2972837) at BTree.cpp:533
+#7  0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=2972837) at BTree.cpp:487
+#8  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+517			// Find the child which is going to have the new key
+518			while (i >= 0 && keys[i] > k)
+519				i--;
+520	
+521			// See if the found child is full
+522			if (C[i+1]->n == 2*t-1)
+523			{
+524				// If the child is full, then split it
+525				splitChild(i+1, C[i+1]);
+526	
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: C
+Fliping a bit of the value pointed by a pointer
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: n
+Memory content before bitflip:0x020x000x000x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x55555580ee48
+address max offset: 4
+Memory content after  bitflip:0x000x000x000x00
+frame name: BTreeNode::insertNonFull
+symbol name: this
+symbol filename: BTree.cpp
+symbol line: 0
+value: 0x5555558124c0
+value address: 0x7fffffffdd08
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-11 23:37:29]
+Fault Injection Successful after 1.472771406173706s
+[INFO -- 2018-10-11 23:37:29]
+event type: exit
+[INFO -- 2018-10-11 23:37:29]
+exit code: 0

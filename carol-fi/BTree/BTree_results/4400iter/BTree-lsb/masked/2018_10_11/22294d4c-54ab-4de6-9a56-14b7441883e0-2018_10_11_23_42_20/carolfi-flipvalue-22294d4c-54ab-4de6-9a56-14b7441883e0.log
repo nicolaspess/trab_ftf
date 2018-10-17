@@ -1,0 +1,57 @@
+[INFO -- 2018-10-11 23:42:19]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-11 23:42:19]
+Initialization strings:
+[INFO -- 2018-10-11 23:42:19]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-11 23:42:19]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-11 23:42:19]
+initSignal:0
+[INFO -- 2018-10-11 23:42:19]
+endSignal:2
+[INFO -- 2018-10-11 23:42:19]
+faultModel:4
+[INFO -- 2018-10-11 23:42:19]
+Backtrace BEGIN:
+#0  malloc (n=14) at dl-minimal.c:50
+#1  <function called from gdb>
+#2  0x00007ffff72b8833 in _int_malloc (av=av@entry=0x7ffff760fc40 <main_arena>, bytes=bytes@entry=48) at malloc.c:3641
+#3  0x00007ffff72bb0fc in __GI___libc_malloc (bytes=48) at malloc.c:3057
+#4  0x00007ffff7adf1a8 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#5  0x000055555555536a in BTreeNode::BTreeNode (this=0x555555957ab0, t1=3, leaf1=true) at BTree.cpp:163
+#6  0x000055555555611b in BTreeNode::splitChild (this=0x5555558ef020, i=3, y=0x555555829380) at BTree.cpp:543
+#7  0x000055555555608d in BTreeNode::insertNonFull (this=0x5555558ef020, k=1259472) at BTree.cpp:525
+#8  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555557913d0, k=1259472) at BTree.cpp:533
+#9  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555557914f0, k=1259472) at BTree.cpp:533
+#10 0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555791b20, k=1259472) at BTree.cpp:533
+#11 0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555866be0, k=1259472) at BTree.cpp:533
+#12 0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558eea80, k=1259472) at BTree.cpp:533
+#13 0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555812430, k=1259472) at BTree.cpp:533
+#14 0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=1259472) at BTree.cpp:487
+#15 0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+45	dl-minimal.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Memory content before bitflip:0x01
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdb90
+address max offset: 1
+Memory content after  bitflip:0x05
+frame name: BTreeNode::BTreeNode
+symbol name: leaf1
+symbol filename: BTree.cpp
+symbol line: 154
+value: 5
+value address: 0x7fffffffdb90
+Type: A boolean type.
+Type sizeof: 1
+
+[INFO -- 2018-10-11 23:42:19]
+Fault Injection Successful after 0.9500095844268799s
+[INFO -- 2018-10-11 23:42:20]
+event type: exit
+[INFO -- 2018-10-11 23:42:20]
+exit code: 0

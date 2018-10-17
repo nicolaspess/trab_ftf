@@ -1,0 +1,66 @@
+[INFO -- 2018-10-12 09:14:41]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 09:14:41]
+Initialization strings:
+[INFO -- 2018-10-12 09:14:41]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 09:14:41]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 09:14:41]
+initSignal:0
+[INFO -- 2018-10-12 09:14:41]
+endSignal:2
+[INFO -- 2018-10-12 09:14:41]
+faultModel:2
+[EXCEPTION -- 2018-10-12 09:14:42]
+pythonException: empty range for randrange() (0,0, 0)
+[INFO -- 2018-10-12 09:14:42]
+Backtrace BEGIN:
+#0  std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x7fffffffdb60, __s='0' <repete 16 vezes>, __zero=48 '0', __one=49 '1') at /usr/include/c++/7/bitset:1408
+#1  0x0000555555556943 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset) at /usr/include/c++/7/bitset:1538
+#2  0x00005555555563b2 in BTreeNode::traverse (this=0x5555558603d0) at BTree.cpp:592
+#3  0x0000555555556377 in BTreeNode::traverse (this=0x555555860580) at BTree.cpp:591
+#4  0x0000555555556377 in BTreeNode::traverse (this=0x555555860850) at BTree.cpp:591
+#5  0x0000555555556377 in BTreeNode::traverse (this=0x555555861030) at BTree.cpp:591
+#6  0x00005555555563ff in BTreeNode::traverse (this=0x555555861150) at BTree.cpp:597
+#7  0x0000555555556377 in BTreeNode::traverse (this=0x5555558657a0) at BTree.cpp:591
+#8  0x0000555555556377 in BTreeNode::traverse (this=0x55555587ff30) at BTree.cpp:591
+#9  0x00005555555563ff in BTreeNode::traverse (this=0x555555858540) at BTree.cpp:597
+#10 0x00005555555563ff in BTreeNode::traverse (this=0x5555558584b0) at BTree.cpp:597
+#11 0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#12 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+1403	      bitset<_Nb>::
+1404	      _M_copy_to_string(std::basic_string<_CharT, _Traits, _Alloc>& __s,
+1405				_CharT __zero, _CharT __one) const
+1406	      {
+1407		__s.assign(_Nb, __zero);
+1408		for (size_t __i = _Nb; __i > 0; --__i)
+1409		  if (_Unchecked_test(__i - 1))
+1410		    _Traits::assign(__s[_Nb - __i], __one);
+1411	      }
+1412	
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0xc00xdd0xff0xff0xff0x7f0x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffdd88
+address max offset: 8
+Memory content after  bitflip:0x650x020xd90xe20x9c0xfe0xdc0x65
+frame name: BTree::traverse
+symbol name: this
+symbol filename: BTree.cpp
+symbol line: 0
+value: 0x7fffffffddc0
+value address: 0x7fffffffdd88
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-12 09:14:42]
+Fault Injection Successful after 1.8439905643463135s
+[INFO -- 2018-10-12 09:14:42]
+event type: exit
+[INFO -- 2018-10-12 09:14:42]
+exit code: 0

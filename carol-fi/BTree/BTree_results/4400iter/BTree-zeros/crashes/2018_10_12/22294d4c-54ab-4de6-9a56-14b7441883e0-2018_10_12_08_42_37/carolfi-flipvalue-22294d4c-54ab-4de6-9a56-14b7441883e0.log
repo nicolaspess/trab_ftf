@@ -1,0 +1,60 @@
+[INFO -- 2018-10-12 08:42:36]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 08:42:36]
+Initialization strings:
+[INFO -- 2018-10-12 08:42:36]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 08:42:36]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 08:42:36]
+initSignal:0
+[INFO -- 2018-10-12 08:42:36]
+endSignal:2
+[INFO -- 2018-10-12 08:42:36]
+faultModel:3
+[INFO -- 2018-10-12 08:42:36]
+Backtrace BEGIN:
+#0  BTreeNode::insertNonFull (this=0x555555840090, k=0) at BTree.cpp:530
+#1  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555583fe50, k=0) at BTree.cpp:533
+#2  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555583f670, k=0) at BTree.cpp:533
+#3  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555583df60, k=0) at BTree.cpp:533
+#4  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555583dff0, k=0) at BTree.cpp:533
+#5  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555830e20, k=0) at BTree.cpp:533
+#6  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555557bab90, k=0) at BTree.cpp:533
+#7  0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=0) at BTree.cpp:487
+#8  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+525				splitChild(i+1, C[i+1]);
+526	
+527				// After split, the middle key of C[i] goes up and
+528				// C[i] is splitted into two. See which of the two
+529				// is going to have the new key
+530				if (keys[i+1] < k)
+531					i++;
+532			}
+533			C[i+1]->insertNonFull(k);
+534		}
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x900x000x840x550x550x550x000x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x7fffffffdc18
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x00
+frame name: BTreeNode::insertNonFull
+symbol name: this
+symbol filename: BTree.cpp
+symbol line: 0
+value: 0x555555840090
+value address: 0x7fffffffdc18
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-12 08:42:36]
+Fault Injection Successful after 0.6734416484832764s
+[INFO -- 2018-10-12 08:42:36]
+event type: exit
+[EXCEPTION -- 2018-10-12 08:42:36]
+exit code: no exit code available

@@ -1,0 +1,59 @@
+[INFO -- 2018-10-12 02:14:08]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 02:14:08]
+Initialization strings:
+[INFO -- 2018-10-12 02:14:08]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 02:14:08]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 02:14:08]
+initSignal:0
+[INFO -- 2018-10-12 02:14:08]
+endSignal:2
+[INFO -- 2018-10-12 02:14:08]
+faultModel:3
+[INFO -- 2018-10-12 02:14:09]
+Backtrace BEGIN:
+#0  BTreeNode::insertNonFull (this=0x555555775380, k=1052726) at BTree.cpp:500
+#1  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555952b60, k=1052726) at BTree.cpp:533
+#2  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555559c9ae0, k=1052726) at BTree.cpp:533
+#3  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555aeeac0, k=1052726) at BTree.cpp:533
+#4  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555812430, k=1052726) at BTree.cpp:533
+#5  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555a27320, k=1052726) at BTree.cpp:533
+#6  0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=1052726) at BTree.cpp:487
+#7  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+495	{
+496		// Initialize index as index of rightmost element
+497		int i = n-1;
+498	
+499		// If this is a leaf node
+500		if (leaf == true)
+501		{
+502			// The following loop does two things
+503			// a) Finds the location of new key to be inserted
+504			// b) Moves all greater keys to one place ahead
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0xe00x9a0x9c0x550x550x550x000x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x7fffffffdca8
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x00
+frame name: BTreeNode::insertNonFull
+symbol name: this
+symbol filename: BTree.cpp
+symbol line: 0
+value: 0x5555559c9ae0
+value address: 0x7fffffffdca8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-12 02:14:09]
+Fault Injection Successful after 1.0443849563598633s
+[INFO -- 2018-10-12 02:14:09]
+event type: exit
+[INFO -- 2018-10-12 02:14:09]
+exit code: 0

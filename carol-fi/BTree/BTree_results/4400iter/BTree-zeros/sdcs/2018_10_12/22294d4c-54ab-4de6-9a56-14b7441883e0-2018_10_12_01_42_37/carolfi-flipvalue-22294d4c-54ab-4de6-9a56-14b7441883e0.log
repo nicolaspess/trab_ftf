@@ -1,0 +1,54 @@
+[INFO -- 2018-10-12 01:42:35]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 01:42:35]
+Initialization strings:
+[INFO -- 2018-10-12 01:42:35]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 01:42:35]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 01:42:35]
+initSignal:0
+[INFO -- 2018-10-12 01:42:35]
+endSignal:2
+[INFO -- 2018-10-12 01:42:35]
+faultModel:3
+[EXCEPTION -- 2018-10-12 01:42:36]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-12 01:42:36]
+Backtrace BEGIN:
+#0  0x00007ffff72a2c1c in _IO_acquire_lock_fct (p=<synthetic pointer>) at libioP.h:797
+#1  _IO_fgets (buf=0x7fffffffddde "3761724\n", n=<optimized out>, fp=0x55555576ae70) at iofgets.c:47
+#2  0x00005555555565d7 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:660
+
+792	in libioP.h
+
+Backtrace END
+Fliping value of field: root
+Fliping a bit of the pointer
+Memory content before bitflip:0x300x240x810x550x550x550x000x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x7fffffffddc0
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x00
+frame name: main
+symbol name: t
+symbol filename: BTree.cpp
+symbol line: 653
+value: {root = 0x0, t = 3}
+value address: 0x7fffffffddc0
+Type: The type is a structure.
+Type sizeof: 16
+Field name: root
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: t
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+
+[INFO -- 2018-10-12 01:42:36]
+Fault Injection Successful after 1.133077621459961s
+[INFO -- 2018-10-12 01:42:36]
+event type: exit
+[INFO -- 2018-10-12 01:42:36]
+exit code: 0

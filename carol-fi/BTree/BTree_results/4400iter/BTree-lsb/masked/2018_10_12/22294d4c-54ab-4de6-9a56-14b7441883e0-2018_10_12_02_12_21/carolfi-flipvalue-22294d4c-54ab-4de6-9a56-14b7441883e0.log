@@ -1,0 +1,65 @@
+[INFO -- 2018-10-12 02:12:20]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 02:12:20]
+Initialization strings:
+[INFO -- 2018-10-12 02:12:20]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 02:12:20]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 02:12:20]
+initSignal:0
+[INFO -- 2018-10-12 02:12:20]
+endSignal:2
+[INFO -- 2018-10-12 02:12:20]
+faultModel:4
+[INFO -- 2018-10-12 02:12:20]
+Backtrace BEGIN:
+#0  0x00005555555560c9 in BTreeNode::insertNonFull (this=0x5555557e35d0, k=3985792) at BTree.cpp:533
+#1  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558098b0, k=3985792) at BTree.cpp:533
+#2  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555586ae40, k=3985792) at BTree.cpp:533
+#3  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555882180, k=3985792) at BTree.cpp:533
+#4  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558124c0, k=3985792) at BTree.cpp:533
+#5  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555812430, k=3985792) at BTree.cpp:533
+#6  0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=3985792) at BTree.cpp:487
+#7  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+528				// C[i] is splitted into two. See which of the two
+529				// is going to have the new key
+530				if (keys[i+1] < k)
+531					i++;
+532			}
+533			C[i+1]->insertNonFull(k);
+534		}
+535	}
+536	
+537	// A utility function to split the child y of this node
+
+Backtrace END
+Fliping value of field: t
+Memory content before bitflip:0x030x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffddc8
+address max offset: 4
+Memory content after  bitflip:0x030x000x000x10
+frame name: main
+symbol name: t
+symbol filename: BTree.cpp
+symbol line: 653
+value: {root = 0x555555812430, t = 268435459}
+value address: 0x7fffffffddc0
+Type: The type is a structure.
+Type sizeof: 16
+Field name: root
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: t
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+
+[INFO -- 2018-10-12 02:12:20]
+Fault Injection Successful after 0.7444043159484863s
+[INFO -- 2018-10-12 02:12:21]
+event type: exit
+[INFO -- 2018-10-12 02:12:21]
+exit code: 0

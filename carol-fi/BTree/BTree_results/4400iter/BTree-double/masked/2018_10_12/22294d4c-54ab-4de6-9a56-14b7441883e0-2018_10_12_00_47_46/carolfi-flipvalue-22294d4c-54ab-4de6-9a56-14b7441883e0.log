@@ -1,0 +1,79 @@
+[INFO -- 2018-10-12 00:47:44]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 00:47:44]
+Initialization strings:
+[INFO -- 2018-10-12 00:47:44]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 00:47:44]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 00:47:44]
+initSignal:0
+[INFO -- 2018-10-12 00:47:44]
+endSignal:2
+[INFO -- 2018-10-12 00:47:44]
+faultModel:1
+[EXCEPTION -- 2018-10-12 00:47:45]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-12 00:47:45]
+Backtrace BEGIN:
+#0  0x00005555555569b1 in std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x5555555551d0 <_start>, __s="\260\333\377\377\377\177\000\000wcUUUU\000\000\240\302`\367\377\177\000\000Px\262UUU\000\000\320QUUUU\000\000@\200uU\000\000\000\000\360\333\377\377\377\177\000\000\000\300\064MD\347\066\277\360\333\377\377\377\177\000\000wcUUUU\000\000\240\302`\367\377\177\000\000\220\262\222UUU\000\000\320QUUUU\000\000@\200uU\001\000\000\000n\234\000\000\000\000\000\000\000\300\064MD\347\066\277\060\334\377\377\377\177\000\000wcUUUU\000\000\240\302`\367\377\177\000\000\220\362yUUU\000\000\320QUUUU\000\000@\200uU\002\000\000\000\004\232\000\000\000\000\000\000\000\300\064MD\347\066\277p\334\377\377\377\177\000\000"..., __zero=-1 '\377', __one=-32 '\340') at /usr/include/c++/7/bitset:1403
+#1  0x0000555555556943 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1538
+#2  0x00005555555563b2 in BTreeNode::traverse (this=0x55555590e5e0) at BTree.cpp:592
+#3  0x0000555555556377 in BTreeNode::traverse (this=0x555555b27850) at BTree.cpp:591
+#4  0x0000555555556377 in BTreeNode::traverse (this=0x55555592b290) at BTree.cpp:591
+#5  0x0000555555556377 in BTreeNode::traverse (this=0x55555579f290) at BTree.cpp:591
+#6  0x0000555555556377 in BTreeNode::traverse (this=0x555555ad2a70) at BTree.cpp:591
+#7  0x0000555555556377 in BTreeNode::traverse (this=0x555555ad2cb0) at BTree.cpp:591
+#8  0x00005555555563ff in BTreeNode::traverse (this=0x555555acc6e0) at BTree.cpp:597
+#9  0x0000555555556377 in BTreeNode::traverse (this=0x555555812430) at BTree.cpp:591
+#10 0x0000555555556377 in BTreeNode::traverse (this=0x555555a27320) at BTree.cpp:591
+#11 0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#12 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+1398	      }
+1399	
+1400	  template<size_t _Nb>
+1401	    template<class _CharT, class _Traits, class _Alloc>
+1402	      void
+1403	      bitset<_Nb>::
+1404	      _M_copy_to_string(std::basic_string<_CharT, _Traits, _Alloc>& __s,
+1405				_CharT __zero, _CharT __one) const
+1406	      {
+1407		__s.assign(_Nb, __zero);
+
+Backtrace END
+Fliping value of field: None
+Fliping value of field name: _M_allocated_capacity
+Memory content before bitflip:0x000xdb0xff0xff0xff0x7f0x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffdb00
+address max offset: 8
+Memory content after  bitflip:0x000xdb0xf60xff0xff0x7f0x000x00
+frame name: std::operator<< <char, std::char_traits<char>, 16ul>
+symbol name: __tmp
+symbol filename: /usr/include/c++/7/bitset
+symbol line: 1533
+value: ""
+value address: 0x7fffffffdaf0
+Type: The type is a structure.
+Type sizeof: 32
+Field name: npos
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: _M_dataplus
+Field Type: The type is a structure.
+Field Type sizeof: 8
+Field name: _M_string_length
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: None
+Field Type: The type is a union.
+Field Type sizeof: 16
+
+[INFO -- 2018-10-12 00:47:45]
+Fault Injection Successful after 1.9831390380859375s
+[INFO -- 2018-10-12 00:47:46]
+event type: exit
+[INFO -- 2018-10-12 00:47:46]
+exit code: 0

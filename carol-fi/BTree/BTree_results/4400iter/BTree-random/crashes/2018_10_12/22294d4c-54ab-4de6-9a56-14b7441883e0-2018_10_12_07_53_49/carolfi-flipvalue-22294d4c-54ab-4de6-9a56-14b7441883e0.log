@@ -1,0 +1,57 @@
+[INFO -- 2018-10-12 07:53:48]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 07:53:48]
+Initialization strings:
+[INFO -- 2018-10-12 07:53:48]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 07:53:48]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 07:53:48]
+initSignal:0
+[INFO -- 2018-10-12 07:53:48]
+endSignal:2
+[INFO -- 2018-10-12 07:53:48]
+faultModel:2
+[INFO -- 2018-10-12 07:53:48]
+Backtrace BEGIN:
+#0  _dl_fixup (l=0x7ffff7fe2000, reloc_arg=628) at ../elf/dl-runtime.c:72
+#1  0x00007ffff7dec70a in _dl_runtime_resolve_xsave () at ../sysdeps/x86_64/dl-trampoline.h:125
+#2  0x00007ffff7b04e2c in std::ctype<char>::_M_widen_init() const () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#3  0x000055555555677f in std::ctype<char>::widen (this=0x7ffff7dd30a0, __c=49 '1') at /usr/include/c++/7/bits/locale_facets.h:876
+#4  0x000055555555691a in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset) at /usr/include/c++/7/bitset:1538
+#5  0x00005555555563b2 in BTreeNode::traverse (this=0x55555576c0b0) at BTree.cpp:592
+#6  0x0000555555556377 in BTreeNode::traverse (this=0x55555576c140) at BTree.cpp:591
+#7  0x0000555555556377 in BTreeNode::traverse (this=0x55555576c4a0) at BTree.cpp:591
+#8  0x0000555555556377 in BTreeNode::traverse (this=0x55555576cec0) at BTree.cpp:591
+#9  0x0000555555556377 in BTreeNode::traverse (this=0x55555576ed20) at BTree.cpp:591
+#10 0x0000555555556377 in BTreeNode::traverse (this=0x555555774b10) at BTree.cpp:591
+#11 0x0000555555556377 in BTreeNode::traverse (this=0x555555786330) at BTree.cpp:591
+#12 0x0000555555556377 in BTreeNode::traverse (this=0x5555557bab90) at BTree.cpp:591
+#13 0x0000555555556377 in BTreeNode::traverse (this=0x5555558584b0) at BTree.cpp:591
+#14 0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#15 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+67	../elf/dl-runtime.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Memory content before bitflip:0x000x000x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffdb9c
+address max offset: 4
+Memory content after  bitflip:0xf50x700xd50x56
+frame name: BTreeNode::traverse
+symbol name: i
+symbol filename: BTree.cpp
+symbol line: 585
+value: 1456828661
+value address: 0x7fffffffdb9c
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-12 07:53:48]
+Fault Injection Successful after 0.7280869483947754s
+[INFO -- 2018-10-12 07:53:48]
+event type: exit
+[EXCEPTION -- 2018-10-12 07:53:48]
+exit code: no exit code available

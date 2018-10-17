@@ -1,0 +1,57 @@
+[INFO -- 2018-10-12 03:21:20]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 03:21:20]
+Initialization strings:
+[INFO -- 2018-10-12 03:21:20]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 03:21:20]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 03:21:20]
+initSignal:0
+[INFO -- 2018-10-12 03:21:20]
+endSignal:2
+[INFO -- 2018-10-12 03:21:20]
+faultModel:4
+[INFO -- 2018-10-12 03:21:20]
+Backtrace BEGIN:
+#0  malloc (n=14) at dl-minimal.c:50
+#1  <function called from gdb>
+#2  __GI___libc_malloc (bytes=48) at malloc.c:3055
+#3  0x00007ffff7adf1a8 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x000055555555536a in BTreeNode::BTreeNode (this=0x55555581c090, t1=3, leaf1=false) at BTree.cpp:163
+#5  0x000055555555611b in BTreeNode::splitChild (this=0x55555581be50, i=2, y=0x55555581bdc0) at BTree.cpp:543
+#6  0x000055555555608d in BTreeNode::insertNonFull (this=0x55555581be50, k=0) at BTree.cpp:525
+#7  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555581ae90, k=0) at BTree.cpp:533
+#8  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555581afb0, k=0) at BTree.cpp:533
+#9  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558169f0, k=0) at BTree.cpp:533
+#10 0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555809820, k=0) at BTree.cpp:533
+#11 0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555557bab90, k=0) at BTree.cpp:533
+#12 0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=0) at BTree.cpp:487
+#13 0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+45	dl-minimal.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: n
+Memory content before bitflip:0x040x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x55555581aea8
+address max offset: 4
+Memory content after  bitflip:0x040x000x000x40
+frame name: BTreeNode::insertNonFull
+symbol name: this
+symbol filename: BTree.cpp
+symbol line: 0
+value: 0x55555581ae90
+value address: 0x7fffffffdc78
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-12 03:21:20]
+Fault Injection Successful after 0.4800710678100586s
+[INFO -- 2018-10-12 03:21:20]
+event type: exit
+[EXCEPTION -- 2018-10-12 03:21:20]
+exit code: no exit code available

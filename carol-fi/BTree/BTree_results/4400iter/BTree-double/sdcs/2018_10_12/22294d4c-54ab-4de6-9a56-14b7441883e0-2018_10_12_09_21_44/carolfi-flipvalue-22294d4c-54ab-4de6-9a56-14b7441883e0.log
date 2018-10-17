@@ -1,0 +1,57 @@
+[INFO -- 2018-10-12 09:21:42]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 09:21:42]
+Initialization strings:
+[INFO -- 2018-10-12 09:21:42]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 09:21:42]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 09:21:42]
+initSignal:0
+[INFO -- 2018-10-12 09:21:42]
+endSignal:2
+[INFO -- 2018-10-12 09:21:42]
+faultModel:1
+[INFO -- 2018-10-12 09:21:43]
+Backtrace BEGIN:
+#0  0x0000555555555e54 in BTree::insert (this=0x7fffffffddc0, k=0) at BTree.cpp:465
+#1  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+460			root->n = 1; // Update number of keys in root
+461		}
+462		else // If tree is not empty
+463		{
+464			// If root is full, then tree grows in height
+465			if (root->n == 2*t-1)
+466			{
+467				// Allocate memory for new root
+468				BTreeNode *s = new BTreeNode(t, false);
+469	
+
+Backtrace END
+Fliping array at pos: 1
+Memory content before bitflip:0x30
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffdddf 
+address max offset: 1
+Memory content after  bitflip:0x35
+frame name: main
+symbol name: line
+symbol filename: BTree.cpp
+symbol line: 659
+value: "050000000"
+value address: 0x7fffffffddde
+Type: The type is an array.
+Type sizeof: 10
+Field name: None
+Field Type: A range type, that is, an integer type with bounds.
+Field Type sizeof: 8
+Field Type range: (0, 9)
+
+[INFO -- 2018-10-12 09:21:43]
+Fault Injection Successful after 1.088698148727417s
+[INFO -- 2018-10-12 09:21:43]
+event type: exit
+[INFO -- 2018-10-12 09:21:43]
+exit code: 0

@@ -1,0 +1,66 @@
+[INFO -- 2018-10-12 00:48:56]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 00:48:56]
+Initialization strings:
+[INFO -- 2018-10-12 00:48:56]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 00:48:56]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 00:48:56]
+initSignal:0
+[INFO -- 2018-10-12 00:48:56]
+endSignal:2
+[INFO -- 2018-10-12 00:48:56]
+faultModel:0
+[EXCEPTION -- 2018-10-12 00:48:56]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[EXCEPTION -- 2018-10-12 00:48:56]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-12 00:48:56]
+Backtrace BEGIN:
+#0  0x000055555555633f in BTreeNode::traverse (this=0x555555961680) at BTree.cpp:586
+#1  0x00005555555563ff in BTreeNode::traverse (this=0x5555559b0b80) at BTree.cpp:597
+#2  0x00005555555563ff in BTreeNode::traverse (this=0x5555559c51c0) at BTree.cpp:597
+#3  0x0000555555556377 in BTreeNode::traverse (this=0x5555558d1b00) at BTree.cpp:591
+#4  0x0000555555556377 in BTreeNode::traverse (this=0x555555b73510) at BTree.cpp:591
+#5  0x0000555555556377 in BTreeNode::traverse (this=0x555555aeeac0) at BTree.cpp:591
+#6  0x0000555555556377 in BTreeNode::traverse (this=0x555555812430) at BTree.cpp:591
+#7  0x0000555555556377 in BTreeNode::traverse (this=0x555555a27320) at BTree.cpp:591
+#8  0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#9  0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+581	void BTreeNode::traverse()
+582	{
+583		// There are n keys and n+1 children, travers through n keys
+584		// and first n children
+585		int i;
+586		for (i = 0; i < n; i++)
+587		{
+588			// If this is not leaf, then before printing key[i],
+589			// traverse the subtree rooted with child C[i].
+590			if (leaf == false)
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping a bit of the value pointed by a pointer
+Memory content before bitflip:0x2f
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffe279 
+address max offset: 1
+Memory content after  bitflip:0x0f
+frame name: main
+symbol name: argv
+symbol filename: BTree.cpp
+symbol line: 650
+value: 0x7fffffffded8
+value address: 0x7fffffffdda0
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-12 00:48:56]
+Fault Injection Successful after 0.7787501811981201s
+[INFO -- 2018-10-12 00:48:57]
+event type: exit
+[INFO -- 2018-10-12 00:48:57]
+exit code: 0

@@ -1,0 +1,65 @@
+[INFO -- 2018-10-12 07:43:40]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 07:43:40]
+Initialization strings:
+[INFO -- 2018-10-12 07:43:40]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 07:43:40]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 07:43:40]
+initSignal:0
+[INFO -- 2018-10-12 07:43:40]
+endSignal:2
+[INFO -- 2018-10-12 07:43:40]
+faultModel:1
+[INFO -- 2018-10-12 07:43:41]
+Backtrace BEGIN:
+#0  0x00007ffff7b5fd68 in std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x0000555555556956 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset) at /usr/include/c++/7/bitset:1539
+#2  0x00005555555563b2 in BTreeNode::traverse (this=0x55555584f4b0) at BTree.cpp:592
+#3  0x0000555555556377 in BTreeNode::traverse (this=0x55555584f540) at BTree.cpp:591
+#4  0x00005555555563ff in BTreeNode::traverse (this=0x55555584f5d0) at BTree.cpp:597
+#5  0x00005555555563ff in BTreeNode::traverse (this=0x55555584f660) at BTree.cpp:597
+#6  0x00005555555563ff in BTreeNode::traverse (this=0x55555584f780) at BTree.cpp:597
+#7  0x0000555555556377 in BTreeNode::traverse (this=0x555555858390) at BTree.cpp:591
+#8  0x00005555555563ff in BTreeNode::traverse (this=0x555555858420) at BTree.cpp:597
+#9  0x0000555555556377 in BTreeNode::traverse (this=0x555555858540) at BTree.cpp:591
+#10 0x00005555555563ff in BTreeNode::traverse (this=0x5555558584b0) at BTree.cpp:597
+#11 0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#12 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+637				root = NULL;
+638			else
+639				root = root->C[0];
+640	
+641			// Free the old root
+642			delete tmp;
+643		}
+644		return;
+645	}
+646	
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: leaf
+Memory content before bitflip:0x00
+Fault Model: Double bit-flip
+base address to flip value: 0x55555585855c
+address max offset: 1
+Memory content after  bitflip:0x18
+frame name: BTreeNode::traverse
+symbol name: this
+symbol filename: BTree.cpp
+symbol line: 0
+value: 0x555555858540
+value address: 0x7fffffffdd08
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-12 07:43:41]
+Fault Injection Successful after 1.421118974685669s
+[INFO -- 2018-10-12 07:43:41]
+event type: exit
+[INFO -- 2018-10-12 07:43:41]
+exit code: 0

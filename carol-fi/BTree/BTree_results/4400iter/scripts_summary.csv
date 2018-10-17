@@ -1,0 +1,125 @@
+Faults Injected:;12965
+
+Fault Effect;#Effect;PVF
+Masked;4358;0.33613575009641344
+SDCs;6795;0.524103355187042
+Crashes;1808;0.1394523717701504
+Hangs;4;0.00030852294639413806
+
+FaultModels SDCs:
+FaultModel ;#SDCs;percentage
+Zero bit-flip;1449;21.324503311258276
+Double bit-flip;1364;20.073583517292125
+LSB bit-flip;1335;19.646799116997794
+Single bit-flip;1334;19.63208241353937
+Random bit-flip;1313;19.323031640912436
+
+FaultModels Crashes:
+FaultModel ;#Crashes;percentage
+Random bit-flip;418;23.11946902654867
+Double bit-flip;416;23.008849557522122
+LSB bit-flip;383;21.183628318584073
+Single bit-flip;375;20.741150442477878
+Zero bit-flip;216;11.946902654867257
+
+FaultModels Hangs:
+FaultModel ;#Hangs;percentage
+LSB bit-flip;1;25.0
+Double bit-flip;1;25.0
+Random bit-flip;1;25.0
+Zero bit-flip;1;25.0
+
+Variables that caused SDCs:
+PVF ;#flips ;#SDCs ;Var name ;file ;line number
+65.43408360128618;622;407;__GI___libc_enable_secure;../elf/dl-sysdep.c;58
+66.55172413793103;580;386;__libc_multiple_libcs;../elf/dl-sysdep.c;60
+66.46090534979425;486;323;any_debug;rtld.c;2322
+66.52806652806653;481;320;tls_init_tp_called;rtld.c;677
+64.3298969072165;485;312;library_path;rtld.c;823
+66.95842450765865;457;306;_dl_rtld_libname2;rtld.c;302
+65.64551422319475;457;300;_dl_rtld_libname;rtld.c;301
+65.64551422319475;457;300;preloadlist;rtld.c;825
+68.82217090069284;433;298;version_info;rtld.c;827
+65.05494505494505;455;296;audit_list_string;rtld.c;134
+65.91422121896161;443;292;audit_list;rtld.c;142
+64.03508771929825;456;292;start_time;rtld.c;308
+64.0909090909091;440;282;load_time;rtld.c;307
+65.49295774647888;426;279;_rtld_global;rtld.c;231
+58.174097664543524;471;274;_rtld_global_ro;rtld.c;259
+65.69343065693431;411;270;__pointer_chk_guard_local;rtld.c;96
+62.52927400468384;427;267;_dl_argc;rtld.c;82
+60.59225512528473;439;266;relocate_time;rtld.c;306
+53.71900826446281;484;260;__GI__dl_argv;rtld.c;83
+19.3390452876377;817;158;this;BTree.cpp;0
+28.18181818181818;550;155;i;BTree.cpp;585
+68.55345911949685;159;109;rtld_total_time;rtld.c;417
+69.50354609929079;141;98;__PRETTY_FUNCTION__;rtld.c;0
+62.251655629139066;151;94;preload_file;rtld.c;1630
+62.31884057971014;138;86;file_size;rtld.c;874
+31.674208144796378;221;70;_IO_file_jumps_maybe_mmap;fileops.c;1504
+34.715025906735754;193;67;_IO_file_jumps_mmap;fileops.c;1480
+28.57142857142857;182;52;__GI__IO_file_jumps;fileops.c;1455
+13.0;400;52;_dl_skip_args;rtld.c;84
+41.86046511627907;43;18;line;BTree.cpp;659
+26.865671641791046;67;18;k;BTree.cpp;494
+32.608695652173914;46;15;argc;BTree.cpp;650
+31.11111111111111;45;14;argv;BTree.cpp;650
+28.26086956521739;46;13;t;BTree.cpp;653
+69.23076923076923;13;9;__x;/usr/include/c++/7/bitset;1531
+4.878048780487805;82;4;i;BTree.cpp;497
+0.5067567567567568;592;3;user_entry;../elf/dl-sysdep.c;91
+75.0;4;3;__one;/usr/include/c++/7/bitset;1405
+33.33333333333333;6;2;buf;iogetline.c;31
+33.33333333333333;6;2;__tmp;/usr/include/c++/7/bitset;1533
+100.0;2;2;__exit_funcs_done;exit.c;31
+33.33333333333333;6;2;__strtol_ul_rem_tab;../stdlib/strtol_l.c;190
+25.0;8;2;extract_delim;iogetline.c;32
+7.6923076923076925;26;2;k;BTree.cpp;452
+100.0;1;1;negative;../stdlib/strtol_l.c;227
+16.666666666666664;6;1;__s;/usr/include/c++/7/bitset;1404
+50.0;2;1;__c1;/usr/include/c++/7/bits/char_traits.h;284
+3.4482758620689653;29;1;file;BTree.cpp;654
+100.0;1;1;r2;do-rel.h;50
+100.0;1;1;tcache;malloc.c;2921
+50.0;2;1;__realloc_hook;malloc.c;1868
+100.0;1;1;disallow_malloc_check;hooks.c;68
+25.0;4;1;buf;iogetline.c;47
+50.0;2;1;__pos;/usr/include/c++/7/bitset;1057
+14.285714285714285;7;1;__strtol_ul_max_tab;../stdlib/strtol_l.c;187
+100.0;1;1;__c2;/usr/include/c++/7/bits/char_traits.h;284
+50.0;2;1;i;BTree.cpp;539
+100.0;1;1;num_versions;dl-lookup.c;374
+100.0;1;1;using_malloc_checking;hooks.c;53
+
+Variables that caused Crash:
+PVF ;#flips ;#SDCs ;Var name ;file ;line number
+99.1554054054054;592;587;user_entry;../elf/dl-sysdep.c;91
+43.08445532435741;817;352;this;BTree.cpp;0
+80.75;400;323;_dl_skip_args;rtld.c;84
+49.45454545454545;550;272;i;BTree.cpp;585
+17.56198347107438;484;85;__GI__dl_argv;rtld.c;83
+23.626373626373624;182;43;__GI__IO_file_jumps;fileops.c;1455
+8.492569002123142;471;40;_rtld_global_ro;rtld.c;259
+72.41379310344827;29;21;file;BTree.cpp;654
+9.049773755656108;221;20;_IO_file_jumps_maybe_mmap;fileops.c;1504
+3.5211267605633805;426;15;_rtld_global;rtld.c;231
+13.414634146341465;82;11;i;BTree.cpp;497
+4.66321243523316;193;9;_IO_file_jumps_mmap;fileops.c;1480
+15.555555555555555;45;7;argv;BTree.cpp;650
+10.869565217391305;46;5;t;BTree.cpp;653
+75.0;4;3;__i;/usr/include/c++/7/bitset;1408
+50.0;6;3;__s;/usr/include/c++/7/bitset;1404
+100.0;2;2;__ct;/usr/include/c++/7/bitset;1537
+100.0;2;2;__os;/usr/include/c++/7/bitset;1530
+50.0;4;2;buf;iogetline.c;47
+100.0;2;2;y;BTree.cpp;539
+50.0;2;1;i;BTree.cpp;539
+100.0;1;1;__after_morecore_hook;malloc.c;1874
+16.666666666666664;6;1;buf;iogetline.c;31
+100.0;1;1;__morecore;malloc.c;363
+
+Variables that caused Hang:
+PVF ;#flips ;#SDCs ;Var name ;file ;line number
+0.4694835680751174;426;2;_rtld_global;rtld.c;231
+16.666666666666664;6;1;__s;/usr/include/c++/7/bitset;1404
+25.0;4;1;__i;/usr/include/c++/7/bitset;1408

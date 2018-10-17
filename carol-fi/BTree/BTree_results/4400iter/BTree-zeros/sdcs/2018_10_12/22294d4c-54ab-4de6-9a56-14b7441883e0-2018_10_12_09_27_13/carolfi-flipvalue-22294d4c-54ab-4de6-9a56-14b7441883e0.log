@@ -1,0 +1,66 @@
+[INFO -- 2018-10-12 09:27:12]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 09:27:12]
+Initialization strings:
+[INFO -- 2018-10-12 09:27:12]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 09:27:12]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 09:27:12]
+initSignal:0
+[INFO -- 2018-10-12 09:27:12]
+endSignal:2
+[INFO -- 2018-10-12 09:27:12]
+faultModel:3
+[EXCEPTION -- 2018-10-12 09:27:12]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-10-12 09:27:12]
+Backtrace BEGIN:
+#0  0x00005555555567b2 in std::_Base_bitset<1ul>::_Base_bitset (this=0x7fffffffdb60, __val=0) at /usr/include/c++/7/bitset:386
+#1  0x0000555555556892 in std::bitset<16ul>::bitset (this=0x7fffffffdb60, __val=0) at /usr/include/c++/7/bitset:867
+#2  0x000055555555639f in BTreeNode::traverse (this=0x555555787530) at BTree.cpp:592
+#3  0x0000555555556377 in BTreeNode::traverse (this=0x5555557876e0) at BTree.cpp:591
+#4  0x0000555555556377 in BTreeNode::traverse (this=0x5555557879b0) at BTree.cpp:591
+#5  0x00005555555563ff in BTreeNode::traverse (this=0x555555787a40) at BTree.cpp:597
+#6  0x0000555555556377 in BTreeNode::traverse (this=0x55555578a980) at BTree.cpp:591
+#7  0x0000555555556377 in BTreeNode::traverse (this=0x555555793590) at BTree.cpp:591
+#8  0x00005555555563ff in BTreeNode::traverse (this=0x555555786330) at BTree.cpp:597
+#9  0x0000555555556377 in BTreeNode::traverse (this=0x5555557bab90) at BTree.cpp:591
+#10 0x0000555555556377 in BTreeNode::traverse (this=0x5555558584b0) at BTree.cpp:591
+#11 0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#12 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+381	#if __cplusplus >= 201103L
+382	      constexpr _Base_bitset(unsigned long long __val) noexcept
+383	#else
+384	      _Base_bitset(unsigned long __val)
+385	#endif
+386	      : _M_w(__val)
+387	      { }
+388	
+389	      static _GLIBCXX_CONSTEXPR size_t
+390	      _S_whichword(size_t __pos) _GLIBCXX_NOEXCEPT
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0xd80xde0xff0xff0xff0x7f0x000x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x7fffffffdda0
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x00
+frame name: main
+symbol name: argv
+symbol filename: BTree.cpp
+symbol line: 650
+value: 0x7fffffffded8
+value address: 0x7fffffffdda0
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-12 09:27:12]
+Fault Injection Successful after 0.9153099060058594s
+[INFO -- 2018-10-12 09:27:12]
+event type: exit
+[INFO -- 2018-10-12 09:27:12]
+exit code: 0

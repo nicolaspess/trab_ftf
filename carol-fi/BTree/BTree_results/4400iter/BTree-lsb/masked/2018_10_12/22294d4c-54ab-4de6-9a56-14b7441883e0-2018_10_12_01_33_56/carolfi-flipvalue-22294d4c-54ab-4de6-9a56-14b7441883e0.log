@@ -1,0 +1,59 @@
+[INFO -- 2018-10-12 01:33:54]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 01:33:54]
+Initialization strings:
+[INFO -- 2018-10-12 01:33:54]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 01:33:54]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 01:33:54]
+initSignal:0
+[INFO -- 2018-10-12 01:33:54]
+endSignal:2
+[INFO -- 2018-10-12 01:33:54]
+faultModel:4
+[EXCEPTION -- 2018-10-12 01:33:55]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-10-12 01:33:55]
+Backtrace BEGIN:
+#0  0x000055555555604d in BTreeNode::insertNonFull (this=0x5555557a7fc0, k=880170) at BTree.cpp:522
+#1  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555866880, k=880170) at BTree.cpp:533
+#2  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555812310, k=880170) at BTree.cpp:533
+#3  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555579e990, k=880170) at BTree.cpp:533
+#4  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555812430, k=880170) at BTree.cpp:533
+#5  0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=880170) at BTree.cpp:487
+#6  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+517			// Find the child which is going to have the new key
+518			while (i >= 0 && keys[i] > k)
+519				i--;
+520	
+521			// See if the found child is full
+522			if (C[i+1]->n == 2*t-1)
+523			{
+524				// If the child is full, then split it
+525				splitChild(i+1, C[i+1]);
+526	
+
+Backtrace END
+Memory content before bitflip:0x000x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdd1c
+address max offset: 4
+Memory content after  bitflip:0x000x000x000x80
+frame name: BTreeNode::insertNonFull
+symbol name: i
+symbol filename: BTree.cpp
+symbol line: 497
+value: -2147483648
+value address: 0x7fffffffdd1c
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-12 01:33:55]
+Fault Injection Successful after 1.361238718032837s
+[INFO -- 2018-10-12 01:33:55]
+event type: exit
+[INFO -- 2018-10-12 01:33:55]
+exit code: 0

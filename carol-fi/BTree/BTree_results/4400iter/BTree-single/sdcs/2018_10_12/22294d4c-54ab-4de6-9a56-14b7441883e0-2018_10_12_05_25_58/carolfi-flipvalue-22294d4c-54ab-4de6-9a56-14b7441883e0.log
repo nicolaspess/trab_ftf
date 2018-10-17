@@ -1,0 +1,58 @@
+[INFO -- 2018-10-12 05:25:56]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 05:25:56]
+Initialization strings:
+[INFO -- 2018-10-12 05:25:56]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 05:25:56]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 05:25:56]
+initSignal:0
+[INFO -- 2018-10-12 05:25:56]
+endSignal:2
+[INFO -- 2018-10-12 05:25:56]
+faultModel:0
+[EXCEPTION -- 2018-10-12 05:25:57]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-10-12 05:25:57]
+Backtrace BEGIN:
+#0  _int_malloc (av=av@entry=0x7ffff760fc40 <main_arena>, bytes=bytes@entry=48) at malloc.c:4100
+#1  0x00007ffff72bb0fc in __GI___libc_malloc (bytes=48) at malloc.c:3057
+#2  0x00007ffff7adf1a8 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#3  0x000055555555536a in BTreeNode::BTreeNode (this=0x55555585cf80, t1=3, leaf1=true) at BTree.cpp:163
+#4  0x000055555555611b in BTreeNode::splitChild (this=0x55555585cdd0, i=4, y=0x55555585cef0) at BTree.cpp:543
+#5  0x000055555555608d in BTreeNode::insertNonFull (this=0x55555585cdd0, k=0) at BTree.cpp:525
+#6  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555585c9e0, k=0) at BTree.cpp:533
+#7  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555585ca70, k=0) at BTree.cpp:533
+#8  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555585cb90, k=0) at BTree.cpp:533
+#9  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555858390, k=0) at BTree.cpp:533
+#10 0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555858420, k=0) at BTree.cpp:533
+#11 0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555858540, k=0) at BTree.cpp:533
+#12 0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558584b0, k=0) at BTree.cpp:533
+#13 0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=0) at BTree.cpp:487
+#14 0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+4095	malloc.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Memory content before bitflip:0x000x000x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffdd04
+address max offset: 4
+Memory content after  bitflip:0x000x010x000x00
+frame name: BTreeNode::insertNonFull
+symbol name: k
+symbol filename: BTree.cpp
+symbol line: 494
+value: 256
+value address: 0x7fffffffdd04
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-12 05:25:57]
+Fault Injection Successful after 1.1462044715881348s
+[INFO -- 2018-10-12 05:25:57]
+event type: exit
+[INFO -- 2018-10-12 05:25:57]
+exit code: 0

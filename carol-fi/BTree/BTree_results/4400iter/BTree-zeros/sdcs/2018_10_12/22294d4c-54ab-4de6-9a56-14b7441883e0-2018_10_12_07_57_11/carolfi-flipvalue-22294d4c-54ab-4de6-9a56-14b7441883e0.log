@@ -1,0 +1,52 @@
+[INFO -- 2018-10-12 07:57:09]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 07:57:09]
+Initialization strings:
+[INFO -- 2018-10-12 07:57:09]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 07:57:09]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 07:57:09]
+initSignal:0
+[INFO -- 2018-10-12 07:57:09]
+endSignal:2
+[INFO -- 2018-10-12 07:57:09]
+faultModel:3
+[EXCEPTION -- 2018-10-12 07:57:10]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-10-12 07:57:10]
+Backtrace BEGIN:
+#0  0x00007ffff726916e in __GI_____strtol_l_internal (nptr=0x7fffffffddde "000000000", endptr=endptr@entry=0x0, base=base@entry=10, group=group@entry=0, loc=0x7ffff7610560 <_nl_global_locale>) at ../stdlib/strtol_l.c:226
+#1  0x00007ffff7269122 in __strtol (nptr=<optimized out>, endptr=endptr@entry=0x0, base=base@entry=10) at ../stdlib/strtol.c:106
+#2  0x00007ffff7264690 in atoi (nptr=<optimized out>) at atoi.c:27
+#3  0x00005555555565ed in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:663
+
+221	../stdlib/strtol_l.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping array at pos: 0
+Memory content before bitflip:0x01
+Fault Model: Zero bit-flip
+base address to flip value: 0x7ffff73cda00  
+address max offset: 1
+Memory content after  bitflip:0x00
+frame name: __GI_____strtol_l_internal
+symbol name: __strtol_ul_rem_tab
+symbol filename: ../stdlib/strtol_l.c
+symbol line: 190
+value: 0x7ffff73cda00 <__strtol_ul_rem_tab> ""
+value address: 0x7ffff73cda00 <__strtol_ul_rem_tab>
+Type: The type is an array.
+Type sizeof: 0
+Field name: None
+Field Type: A range type, that is, an integer type with bounds.
+Field Type sizeof: 1
+Field Type range: (0, 0)
+
+[INFO -- 2018-10-12 07:57:10]
+Fault Injection Successful after 1.335716962814331s
+[INFO -- 2018-10-12 07:57:10]
+event type: exit
+[INFO -- 2018-10-12 07:57:10]
+exit code: 0

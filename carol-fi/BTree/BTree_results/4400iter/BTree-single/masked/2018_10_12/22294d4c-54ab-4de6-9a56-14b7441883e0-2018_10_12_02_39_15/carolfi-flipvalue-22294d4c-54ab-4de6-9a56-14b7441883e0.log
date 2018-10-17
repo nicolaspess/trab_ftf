@@ -1,0 +1,59 @@
+[INFO -- 2018-10-12 02:39:14]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 02:39:14]
+Initialization strings:
+[INFO -- 2018-10-12 02:39:14]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 02:39:14]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 02:39:14]
+initSignal:0
+[INFO -- 2018-10-12 02:39:14]
+endSignal:2
+[INFO -- 2018-10-12 02:39:14]
+faultModel:0
+[EXCEPTION -- 2018-10-12 02:39:14]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-10-12 02:39:14]
+Backtrace BEGIN:
+#0  0x00007ffff72b0eb4 in _IO_new_do_write (fp=0x7ffff7610760 <_IO_2_1_stdout_>, data=0x555555bb83c0 "1000000110101010\n", to_do=17) at fileops.c:431
+#1  0x00007ffff72ae788 in _IO_new_file_sync (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at fileops.c:813
+#2  0x00007ffff72a287d in __GI__IO_fflush (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at iofflush.c:40
+#3  0x00007ffff7b5ef5e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00005555555563c7 in BTreeNode::traverse (this=0x5555559987f0) at BTree.cpp:592
+#5  0x0000555555556377 in BTreeNode::traverse (this=0x555555a3c140) at BTree.cpp:591
+#6  0x0000555555556377 in BTreeNode::traverse (this=0x555555a805a0) at BTree.cpp:591
+#7  0x0000555555556377 in BTreeNode::traverse (this=0x555555ac56f0) at BTree.cpp:591
+#8  0x0000555555556377 in BTreeNode::traverse (this=0x555555866be0) at BTree.cpp:591
+#9  0x0000555555556377 in BTreeNode::traverse (this=0x5555558eea80) at BTree.cpp:591
+#10 0x0000555555556377 in BTreeNode::traverse (this=0x555555812430) at BTree.cpp:591
+#11 0x0000555555556377 in BTreeNode::traverse (this=0x555555a27320) at BTree.cpp:591
+#12 0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#13 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+426	fileops.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: leaf
+Memory content before bitflip:0x00
+Fault Model: Single bit-flip
+base address to flip value: 0x5555558eea9c
+address max offset: 1
+Memory content after  bitflip:0x40
+frame name: BTreeNode::traverse
+symbol name: this
+symbol filename: BTree.cpp
+symbol line: 0
+value: 0x5555558eea80
+value address: 0x7fffffffdcc8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-12 02:39:14]
+Fault Injection Successful after 0.6535861492156982s
+[INFO -- 2018-10-12 02:39:14]
+event type: exit
+[INFO -- 2018-10-12 02:39:14]
+exit code: 0

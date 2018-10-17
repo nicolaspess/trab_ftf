@@ -1,0 +1,53 @@
+[INFO -- 2018-10-12 01:33:20]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 01:33:20]
+Initialization strings:
+[INFO -- 2018-10-12 01:33:20]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 01:33:20]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 01:33:20]
+initSignal:0
+[INFO -- 2018-10-12 01:33:20]
+endSignal:2
+[INFO -- 2018-10-12 01:33:20]
+faultModel:4
+[INFO -- 2018-10-12 01:33:20]
+Backtrace BEGIN:
+#0  0x0000555555556036 in BTreeNode::insertNonFull (this=0x555555812430, k=4009829) at BTree.cpp:522
+#1  0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=4009829) at BTree.cpp:487
+#2  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+517			// Find the child which is going to have the new key
+518			while (i >= 0 && keys[i] > k)
+519				i--;
+520	
+521			// See if the found child is full
+522			if (C[i+1]->n == 2*t-1)
+523			{
+524				// If the child is full, then split it
+525				splitChild(i+1, C[i+1]);
+526	
+
+Backtrace END
+Memory content before bitflip:0x650x2f0x3d0x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffddb4
+address max offset: 4
+Memory content after  bitflip:0x650x2f0x3d0x08
+frame name: main
+symbol name: number
+symbol filename: BTree.cpp
+symbol line: 663
+value: 138227557
+value address: 0x7fffffffddb4
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-12 01:33:20]
+Fault Injection Successful after 0.6729006767272949s
+[INFO -- 2018-10-12 01:33:20]
+event type: exit
+[INFO -- 2018-10-12 01:33:20]
+exit code: 0

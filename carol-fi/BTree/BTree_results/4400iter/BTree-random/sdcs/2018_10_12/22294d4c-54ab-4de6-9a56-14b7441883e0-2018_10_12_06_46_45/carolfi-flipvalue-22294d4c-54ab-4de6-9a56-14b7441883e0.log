@@ -1,0 +1,60 @@
+[INFO -- 2018-10-12 06:46:44]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 06:46:44]
+Initialization strings:
+[INFO -- 2018-10-12 06:46:44]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 06:46:44]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 06:46:44]
+initSignal:0
+[INFO -- 2018-10-12 06:46:44]
+endSignal:2
+[INFO -- 2018-10-12 06:46:44]
+faultModel:2
+[INFO -- 2018-10-12 06:46:44]
+Backtrace BEGIN:
+#0  0x000055555555530a in BTreeNode::BTreeNode (this=0x55555583fb80, t1=3, leaf1=false) at BTree.cpp:162
+#1  0x000055555555611b in BTreeNode::splitChild (this=0x55555583f5e0, i=3, y=0x55555583f940) at BTree.cpp:543
+#2  0x000055555555608d in BTreeNode::insertNonFull (this=0x55555583f5e0, k=0) at BTree.cpp:525
+#3  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555583f670, k=0) at BTree.cpp:533
+#4  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555583df60, k=0) at BTree.cpp:533
+#5  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555583dff0, k=0) at BTree.cpp:533
+#6  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555830e20, k=0) at BTree.cpp:533
+#7  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555557bab90, k=0) at BTree.cpp:533
+#8  0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=0) at BTree.cpp:487
+#9  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+157		t = t1;
+158		leaf = leaf1;
+159	
+160		// Allocate memory for maximum number of possible keys
+161		// and child pointers
+162		keys = new int[2*t-1];
+163		C = new BTreeNode *[2*t];
+164	
+165		// Initialize the number of keys as 0
+166		n = 0;
+
+Backtrace END
+Memory content before bitflip:0x030x000x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffddac
+address max offset: 4
+Memory content after  bitflip:0xf80xa90xff0x59
+frame name: main
+symbol name: argc
+symbol filename: BTree.cpp
+symbol line: 650
+value: 1509927416
+value address: 0x7fffffffddac
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-12 06:46:44]
+Fault Injection Successful after 0.5973751544952393s
+[INFO -- 2018-10-12 06:46:44]
+event type: exit
+[INFO -- 2018-10-12 06:46:44]
+exit code: 0

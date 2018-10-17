@@ -1,0 +1,53 @@
+[INFO -- 2018-10-12 08:12:17]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 08:12:17]
+Initialization strings:
+[INFO -- 2018-10-12 08:12:17]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 08:12:17]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 08:12:17]
+initSignal:0
+[INFO -- 2018-10-12 08:12:17]
+endSignal:2
+[INFO -- 2018-10-12 08:12:17]
+faultModel:1
+[INFO -- 2018-10-12 08:12:17]
+Backtrace BEGIN:
+#0  0x00007ffff72a28b5 in _IO_acquire_lock_fct (p=<synthetic pointer>) at libioP.h:797
+#1  __GI__IO_fflush (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at iofflush.c:39
+#2  0x00007ffff7b5ef5e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#3  0x00005555555563c7 in BTreeNode::traverse (this=0x555555833b20) at BTree.cpp:592
+#4  0x00005555555563ff in BTreeNode::traverse (this=0x555555833bb0) at BTree.cpp:597
+#5  0x0000555555556377 in BTreeNode::traverse (this=0x5555558353e0) at BTree.cpp:591
+#6  0x0000555555556377 in BTreeNode::traverse (this=0x55555583dff0) at BTree.cpp:591
+#7  0x0000555555556377 in BTreeNode::traverse (this=0x555555858420) at BTree.cpp:591
+#8  0x0000555555556377 in BTreeNode::traverse (this=0x555555858540) at BTree.cpp:591
+#9  0x00005555555563ff in BTreeNode::traverse (this=0x5555558584b0) at BTree.cpp:597
+#10 0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#11 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+792	libioP.h: Arquivo ou diretório inexistente.
+
+Backtrace END
+Memory content before bitflip:0x010x000x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffdc5c
+address max offset: 4
+Memory content after  bitflip:0x010x000x090x00
+frame name: BTreeNode::traverse
+symbol name: i
+symbol filename: BTree.cpp
+symbol line: 585
+value: 589825
+value address: 0x7fffffffdc5c
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-12 08:12:17]
+Fault Injection Successful after 0.6916053295135498s
+[INFO -- 2018-10-12 08:12:17]
+event type: exit
+[EXCEPTION -- 2018-10-12 08:12:17]
+exit code: no exit code available

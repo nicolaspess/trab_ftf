@@ -1,0 +1,57 @@
+[INFO -- 2018-10-12 02:13:25]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 02:13:25]
+Initialization strings:
+[INFO -- 2018-10-12 02:13:25]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 02:13:25]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 02:13:25]
+initSignal:0
+[INFO -- 2018-10-12 02:13:25]
+endSignal:2
+[INFO -- 2018-10-12 02:13:25]
+faultModel:4
+[INFO -- 2018-10-12 02:13:25]
+Backtrace BEGIN:
+#0  0x0000555555555f54 in BTreeNode::insertNonFull (this=0x5555557ff7d0, k=291085) at BTree.cpp:495
+#1  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555557d41b0, k=403920) at BTree.cpp:533
+#2  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555577ab40, k=403920) at BTree.cpp:533
+#3  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555579e990, k=403920) at BTree.cpp:533
+#4  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555812430, k=403920) at BTree.cpp:533
+#5  0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=403920) at BTree.cpp:487
+#6  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+490	
+491	// A utility function to insert a new key in this node
+492	// The assumption is, the node must be non-full when this
+493	// function is called
+494	void BTreeNode::insertNonFull(int k)
+495	{
+496		// Initialize index as index of rightmost element
+497		int i = n-1;
+498	
+499		// If this is a leaf node
+
+Backtrace END
+Memory content before bitflip:0xd00x290x060x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdd34
+address max offset: 4
+Memory content after  bitflip:0xd00x290x060x40
+frame name: BTreeNode::insertNonFull
+symbol name: k
+symbol filename: BTree.cpp
+symbol line: 494
+value: 1074145744
+value address: 0x7fffffffdd34
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-12 02:13:25]
+Fault Injection Successful after 0.5312957763671875s
+[INFO -- 2018-10-12 02:13:25]
+event type: exit
+[INFO -- 2018-10-12 02:13:25]
+exit code: 0

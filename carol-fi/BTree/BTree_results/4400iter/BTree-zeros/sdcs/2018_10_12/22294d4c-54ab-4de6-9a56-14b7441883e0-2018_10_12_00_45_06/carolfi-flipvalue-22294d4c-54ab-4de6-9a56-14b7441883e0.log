@@ -1,0 +1,63 @@
+[INFO -- 2018-10-12 00:45:05]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 00:45:05]
+Initialization strings:
+[INFO -- 2018-10-12 00:45:05]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 00:45:05]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 00:45:05]
+initSignal:0
+[INFO -- 2018-10-12 00:45:05]
+endSignal:2
+[INFO -- 2018-10-12 00:45:05]
+faultModel:3
+[EXCEPTION -- 2018-10-12 00:45:06]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-12 00:45:06]
+Backtrace BEGIN:
+#0  0x000055555555633f in BTreeNode::traverse (this=0x55555587b8e0) at BTree.cpp:586
+#1  0x0000555555556377 in BTreeNode::traverse (this=0x555555b5f980) at BTree.cpp:591
+#2  0x0000555555556377 in BTreeNode::traverse (this=0x555555abf870) at BTree.cpp:591
+#3  0x0000555555556377 in BTreeNode::traverse (this=0x555555a23930) at BTree.cpp:591
+#4  0x0000555555556377 in BTreeNode::traverse (this=0x555555b733f0) at BTree.cpp:591
+#5  0x00005555555563ff in BTreeNode::traverse (this=0x555555b73510) at BTree.cpp:597
+#6  0x0000555555556377 in BTreeNode::traverse (this=0x555555aeeac0) at BTree.cpp:591
+#7  0x0000555555556377 in BTreeNode::traverse (this=0x555555812430) at BTree.cpp:591
+#8  0x0000555555556377 in BTreeNode::traverse (this=0x555555a27320) at BTree.cpp:591
+#9  0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#10 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+581	void BTreeNode::traverse()
+582	{
+583		// There are n keys and n+1 children, travers through n keys
+584		// and first n children
+585		int i;
+586		for (i = 0; i < n; i++)
+587		{
+588			// If this is not leaf, then before printing key[i],
+589			// traverse the subtree rooted with child C[i].
+590			if (leaf == false)
+
+Backtrace END
+Memory content before bitflip:0x010x000x000x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x7fffffffdd1c
+address max offset: 4
+Memory content after  bitflip:0x000x000x000x00
+frame name: BTreeNode::traverse
+symbol name: i
+symbol filename: BTree.cpp
+symbol line: 585
+value: 0
+value address: 0x7fffffffdd1c
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-12 00:45:06]
+Fault Injection Successful after 1.1112885475158691s
+[INFO -- 2018-10-12 00:45:06]
+event type: exit
+[INFO -- 2018-10-12 00:45:06]
+exit code: 0

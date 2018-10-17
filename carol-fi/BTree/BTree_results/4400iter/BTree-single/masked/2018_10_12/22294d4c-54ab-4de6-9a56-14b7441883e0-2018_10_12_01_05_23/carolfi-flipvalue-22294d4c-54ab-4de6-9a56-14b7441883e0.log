@@ -1,0 +1,55 @@
+[INFO -- 2018-10-12 01:05:22]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 01:05:22]
+Initialization strings:
+[INFO -- 2018-10-12 01:05:22]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 01:05:22]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 01:05:22]
+initSignal:0
+[INFO -- 2018-10-12 01:05:22]
+endSignal:2
+[INFO -- 2018-10-12 01:05:22]
+faultModel:0
+[INFO -- 2018-10-12 01:05:22]
+Backtrace BEGIN:
+#0  malloc (n=14) at dl-minimal.c:50
+#1  <function called from gdb>
+#2  _int_malloc (av=av@entry=0x7ffff760fc40 <main_arena>, bytes=bytes@entry=32) at malloc.c:4100
+#3  0x00007ffff72bb0fc in __GI___libc_malloc (bytes=32) at malloc.c:3057
+#4  0x00007ffff7adf1a8 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#5  0x00005555555560fc in BTreeNode::splitChild (this=0x55555585e210, i=1, y=0x5555557804b0) at BTree.cpp:543
+#6  0x000055555555608d in BTreeNode::insertNonFull (this=0x55555585e210, k=4899884) at BTree.cpp:525
+#7  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555557b17a0, k=4899884) at BTree.cpp:533
+#8  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555581afb0, k=4899884) at BTree.cpp:533
+#9  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555585ca70, k=4899884) at BTree.cpp:533
+#10 0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558124c0, k=4899884) at BTree.cpp:533
+#11 0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555812430, k=4899884) at BTree.cpp:533
+#12 0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=4899884) at BTree.cpp:487
+#13 0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+45	dl-minimal.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Memory content before bitflip:0x2c0xc40x4a0x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffdd34
+address max offset: 4
+Memory content after  bitflip:0x2c0xc40x4a0x10
+frame name: BTreeNode::insertNonFull
+symbol name: k
+symbol filename: BTree.cpp
+symbol line: 494
+value: 273335340
+value address: 0x7fffffffdd34
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-12 01:05:22]
+Fault Injection Successful after 0.8213474750518799s
+[INFO -- 2018-10-12 01:05:23]
+event type: exit
+[INFO -- 2018-10-12 01:05:23]
+exit code: 0

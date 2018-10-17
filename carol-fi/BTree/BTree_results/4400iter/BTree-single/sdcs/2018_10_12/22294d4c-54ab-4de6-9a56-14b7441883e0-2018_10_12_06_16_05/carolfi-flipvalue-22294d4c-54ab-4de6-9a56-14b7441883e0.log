@@ -1,0 +1,62 @@
+[INFO -- 2018-10-12 06:16:03]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 06:16:03]
+Initialization strings:
+[INFO -- 2018-10-12 06:16:03]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 06:16:03]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 06:16:03]
+initSignal:0
+[INFO -- 2018-10-12 06:16:03]
+endSignal:2
+[INFO -- 2018-10-12 06:16:03]
+faultModel:0
+[EXCEPTION -- 2018-10-12 06:16:04]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[EXCEPTION -- 2018-10-12 06:16:04]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-12 06:16:04]
+Backtrace BEGIN:
+#0  BTreeNode::splitChild (this=0x55555585cb90, i=4, y=0x55555585f920) at BTree.cpp:554
+#1  0x000055555555608d in BTreeNode::insertNonFull (this=0x55555585cb90, k=0) at BTree.cpp:525
+#2  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555858390, k=0) at BTree.cpp:533
+#3  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555858420, k=0) at BTree.cpp:533
+#4  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555858540, k=0) at BTree.cpp:533
+#5  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558584b0, k=0) at BTree.cpp:533
+#6  0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=0) at BTree.cpp:487
+#7  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+549	
+550		// Copy the last t children of y to z
+551		if (y->leaf == false)
+552		{
+553			for (int j = 0; j < t; j++)
+554				z->C[j] = y->C[j+t];
+555		}
+556	
+557		// Reduce the number of keys in y
+558		y->n = t - 1;
+
+Backtrace END
+Memory content before bitflip:0x000x000x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffdd64
+address max offset: 4
+Memory content after  bitflip:0x000x000x000x20
+frame name: BTree::insert
+symbol name: k
+symbol filename: BTree.cpp
+symbol line: 452
+value: 536870912
+value address: 0x7fffffffdd64
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-12 06:16:04]
+Fault Injection Successful after 1.251577377319336s
+[INFO -- 2018-10-12 06:16:04]
+event type: exit
+[INFO -- 2018-10-12 06:16:04]
+exit code: 0

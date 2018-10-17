@@ -1,0 +1,61 @@
+[INFO -- 2018-10-12 01:20:53]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 01:20:53]
+Initialization strings:
+[INFO -- 2018-10-12 01:20:53]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 01:20:53]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 01:20:53]
+initSignal:0
+[INFO -- 2018-10-12 01:20:53]
+endSignal:2
+[INFO -- 2018-10-12 01:20:53]
+faultModel:3
+[INFO -- 2018-10-12 01:20:53]
+Backtrace BEGIN:
+#0  0x0000555555555fd8 in BTreeNode::insertNonFull (this=0x555555850470, k=2769185) at BTree.cpp:512
+#1  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555859590, k=2769185) at BTree.cpp:533
+#2  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555584e220, k=2769185) at BTree.cpp:533
+#3  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555822540, k=2769185) at BTree.cpp:533
+#4  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555859080, k=2769185) at BTree.cpp:533
+#5  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558bd5e0, k=2769185) at BTree.cpp:533
+#6  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558124c0, k=2769185) at BTree.cpp:533
+#7  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555812430, k=2769185) at BTree.cpp:533
+#8  0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=2769185) at BTree.cpp:487
+#9  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+507				keys[i+1] = keys[i];
+508				i--;
+509			}
+510	
+511			// Insert the new key at found location
+512			keys[i+1] = k;
+513			n = n+1;
+514		}
+515		else // If this node is not leaf
+516		{
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0xc00xdd0xff0xff0xff0x7f0x000x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x7fffffffdd68
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x00
+frame name: BTree::insert
+symbol name: this
+symbol filename: BTree.cpp
+symbol line: 0
+value: 0x7fffffffddc0
+value address: 0x7fffffffdd68
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-12 01:20:53]
+Fault Injection Successful after 0.4484715461730957s
+[INFO -- 2018-10-12 01:20:53]
+event type: exit
+[INFO -- 2018-10-12 01:20:53]
+exit code: 0

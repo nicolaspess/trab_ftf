@@ -1,0 +1,61 @@
+[INFO -- 2018-10-12 00:12:05]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 00:12:05]
+Initialization strings:
+[INFO -- 2018-10-12 00:12:05]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 00:12:05]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 00:12:05]
+initSignal:0
+[INFO -- 2018-10-12 00:12:05]
+endSignal:2
+[INFO -- 2018-10-12 00:12:05]
+faultModel:1
+[EXCEPTION -- 2018-10-12 00:12:06]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-12 00:12:06]
+Backtrace BEGIN:
+#0  0x000055555555604d in BTreeNode::insertNonFull (this=0x5555558ee720, k=3240828) at BTree.cpp:522
+#1  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558f0850, k=3240828) at BTree.cpp:533
+#2  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555559d0800, k=3240828) at BTree.cpp:533
+#3  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555579ea20, k=3240828) at BTree.cpp:533
+#4  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555a27290, k=3240828) at BTree.cpp:533
+#5  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555a273b0, k=3240828) at BTree.cpp:533
+#6  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555a27320, k=3240828) at BTree.cpp:533
+#7  0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=3240828) at BTree.cpp:487
+#8  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+517			// Find the child which is going to have the new key
+518			while (i >= 0 && keys[i] > k)
+519				i--;
+520	
+521			// See if the found child is full
+522			if (C[i+1]->n == 2*t-1)
+523			{
+524				// If the child is full, then split it
+525				splitChild(i+1, C[i+1]);
+526	
+
+Backtrace END
+Memory content before bitflip:0xff0xff0xff0xff
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffdd1c
+address max offset: 4
+Memory content after  bitflip:0xff0xff0xff0x6f
+frame name: BTreeNode::insertNonFull
+symbol name: i
+symbol filename: BTree.cpp
+symbol line: 497
+value: 1879048191
+value address: 0x7fffffffdd1c
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-12 00:12:06]
+Fault Injection Successful after 1.2602403163909912s
+[INFO -- 2018-10-12 00:12:06]
+event type: exit
+[INFO -- 2018-10-12 00:12:06]
+exit code: 0

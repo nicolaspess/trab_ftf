@@ -1,0 +1,65 @@
+[INFO -- 2018-10-12 00:44:06]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 00:44:06]
+Initialization strings:
+[INFO -- 2018-10-12 00:44:06]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 00:44:06]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 00:44:06]
+initSignal:0
+[INFO -- 2018-10-12 00:44:06]
+endSignal:2
+[INFO -- 2018-10-12 00:44:06]
+faultModel:2
+[INFO -- 2018-10-12 00:44:06]
+Backtrace BEGIN:
+#0  std::_Base_bitset<1ul>::_M_getword (this=0x7fffffffdb60) at /usr/include/c++/7/bitset:411
+#1  0x0000555555556a62 in std::bitset<16ul>::_Unchecked_test (this=0x7fffffffdb60, __pos=2) at /usr/include/c++/7/bitset:1058
+#2  0x0000555555556a03 in std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x7fffffffdb60, __s="1101100111111000", __zero=48 '0', __one=49 '1') at /usr/include/c++/7/bitset:1409
+#3  0x0000555555556943 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1538
+#4  0x00005555555563b2 in BTreeNode::traverse (this=0x5555559e8dd0) at BTree.cpp:592
+#5  0x00005555555563ff in BTreeNode::traverse (this=0x555555810300) at BTree.cpp:597
+#6  0x0000555555556377 in BTreeNode::traverse (this=0x555555afa730) at BTree.cpp:591
+#7  0x0000555555556377 in BTreeNode::traverse (this=0x5555557d5710) at BTree.cpp:591
+#8  0x0000555555556377 in BTreeNode::traverse (this=0x555555990e70) at BTree.cpp:591
+#9  0x00005555555563ff in BTreeNode::traverse (this=0x5555559e1060) at BTree.cpp:597
+#10 0x0000555555556377 in BTreeNode::traverse (this=0x5555558124c0) at BTree.cpp:591
+#11 0x00005555555563ff in BTreeNode::traverse (this=0x555555812430) at BTree.cpp:597
+#12 0x0000555555556377 in BTreeNode::traverse (this=0x555555a27320) at BTree.cpp:591
+#13 0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#14 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+406	      _M_getword(size_t) _GLIBCXX_NOEXCEPT
+407	      { return _M_w; }
+408	
+409	      _GLIBCXX_CONSTEXPR _WordT
+410	      _M_getword(size_t) const _GLIBCXX_NOEXCEPT
+411	      { return _M_w; }
+412	
+413	#if __cplusplus >= 201103L
+414	      const _WordT*
+415	      _M_getdata() const noexcept
+
+Backtrace END
+Memory content before bitflip:0x010x000x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffdc5c
+address max offset: 4
+Memory content after  bitflip:0x360xbc0x2c0xbe
+frame name: BTreeNode::traverse
+symbol name: i
+symbol filename: BTree.cpp
+symbol line: 585
+value: -1104364490
+value address: 0x7fffffffdc5c
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-12 00:44:06]
+Fault Injection Successful after 0.9326643943786621s
+[INFO -- 2018-10-12 00:44:07]
+event type: exit
+[EXCEPTION -- 2018-10-12 00:44:07]
+exit code: no exit code available

@@ -1,0 +1,63 @@
+[INFO -- 2018-10-11 23:33:07]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-11 23:33:07]
+Initialization strings:
+[INFO -- 2018-10-11 23:33:07]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-11 23:33:07]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-11 23:33:07]
+initSignal:0
+[INFO -- 2018-10-11 23:33:07]
+endSignal:2
+[INFO -- 2018-10-11 23:33:07]
+faultModel:1
+[EXCEPTION -- 2018-10-11 23:33:07]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-11 23:33:07]
+Backtrace BEGIN:
+#0  malloc (n=14) at dl-minimal.c:50
+#1  <function called from gdb>
+#2  0x00007ffff72b850f in _int_malloc (av=av@entry=0x7ffff760fc40 <main_arena>, bytes=bytes@entry=48) at malloc.c:3721
+#3  0x00007ffff72bb0fc in __GI___libc_malloc (bytes=48) at malloc.c:3057
+#4  0x00007ffff7adf1a8 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#5  0x000055555555536a in BTreeNode::BTreeNode (this=0x555555ab0210, t1=3, leaf1=true) at BTree.cpp:163
+#6  0x000055555555611b in BTreeNode::splitChild (this=0x55555579e360, i=4, y=0x5555559c1d70) at BTree.cpp:543
+#7  0x000055555555608d in BTreeNode::insertNonFull (this=0x55555579e360, k=2455628) at BTree.cpp:525
+#8  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555557e2d60, k=2455628) at BTree.cpp:533
+#9  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555559a0290, k=2455628) at BTree.cpp:533
+#10 0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555559e0b50, k=2455628) at BTree.cpp:533
+#11 0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555580ee30, k=2455628) at BTree.cpp:533
+#12 0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558124c0, k=2455628) at BTree.cpp:533
+#13 0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555812430, k=2455628) at BTree.cpp:533
+#14 0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555a27320, k=2455628) at BTree.cpp:533
+#15 0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=2455628) at BTree.cpp:487
+#16 0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+45	in dl-minimal.c
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: C
+Fliping a bit of the pointer
+Memory content before bitflip:0x000x000x000x000x000x000x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x555555ab0220
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x840x000x000x000x00
+frame name: BTreeNode::BTreeNode
+symbol name: this
+symbol filename: BTree.cpp
+symbol line: 0
+value: 0x555555ab0210
+value address: 0x7fffffffdb68
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-11 23:33:07]
+Fault Injection Successful after 0.790635347366333s
+[INFO -- 2018-10-11 23:33:08]
+event type: exit
+[INFO -- 2018-10-11 23:33:08]
+exit code: 0

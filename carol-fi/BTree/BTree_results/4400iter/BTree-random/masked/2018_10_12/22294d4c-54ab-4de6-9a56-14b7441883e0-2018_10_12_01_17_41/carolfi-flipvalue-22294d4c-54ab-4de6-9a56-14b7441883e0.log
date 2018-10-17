@@ -1,0 +1,47 @@
+[INFO -- 2018-10-12 01:17:40]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 01:17:40]
+Initialization strings:
+[INFO -- 2018-10-12 01:17:40]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 01:17:40]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 01:17:40]
+initSignal:0
+[INFO -- 2018-10-12 01:17:40]
+endSignal:2
+[INFO -- 2018-10-12 01:17:40]
+faultModel:2
+[INFO -- 2018-10-12 01:17:40]
+Backtrace BEGIN:
+#0  __memchr_avx2 () at ../sysdeps/x86_64/multiarch/memchr-avx2.S:43
+#1  0x00007ffff72a3e25 in __GI__IO_getline_info (eof=0x0, extract_delim=<optimized out>, delim=10, n=9, buf=0x7fffffffddde "835025\n", fp=0x55555576ae70, fp@entry=0x9) at iogetline.c:85
+#2  __GI__IO_getline (fp=fp@entry=0x55555576ae70, buf=buf@entry=0x7fffffffddde "835025\n", n=<optimized out>, delim=delim@entry=10, extract_delim=extract_delim@entry=1) at iogetline.c:34
+#3  0x00007ffff72a2bcd in _IO_fgets (buf=0x7fffffffddde "835025\n", n=<optimized out>, fp=0x55555576ae70) at iofgets.c:53
+#4  0x00005555555565d7 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:660
+
+38	../sysdeps/x86_64/multiarch/memchr-avx2.S: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Memory content before bitflip:0x38
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffddde 
+address max offset: 1
+Memory content after  bitflip:0xa7
+frame name: __GI__IO_getline_info
+symbol name: buf
+symbol filename: iogetline.c
+symbol line: 31
+value: 0x7fffffffddde "\247\063\065\060\062\065\n"
+value address: 0x7fffffffdd30
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-12 01:17:40]
+Fault Injection Successful after 0.7297027111053467s
+[INFO -- 2018-10-12 01:17:40]
+event type: exit
+[INFO -- 2018-10-12 01:17:40]
+exit code: 0

@@ -1,0 +1,65 @@
+[INFO -- 2018-10-11 23:44:21]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-11 23:44:21]
+Initialization strings:
+[INFO -- 2018-10-11 23:44:21]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-11 23:44:21]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-11 23:44:21]
+initSignal:0
+[INFO -- 2018-10-11 23:44:21]
+endSignal:2
+[INFO -- 2018-10-11 23:44:21]
+faultModel:3
+[INFO -- 2018-10-11 23:44:22]
+Backtrace BEGIN:
+#0  0x00005555555560db in BTreeNode::insertNonFull (this=0x5555559a3a40, k=3777647) at BTree.cpp:535
+#1  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558bd670, k=3777647) at BTree.cpp:533
+#2  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555a273b0, k=3777647) at BTree.cpp:533
+#3  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555a27320, k=3777647) at BTree.cpp:533
+#4  0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=3777647) at BTree.cpp:487
+#5  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+530				if (keys[i+1] < k)
+531					i++;
+532			}
+533			C[i+1]->insertNonFull(k);
+534		}
+535	}
+536	
+537	// A utility function to split the child y of this node
+538	// Note that y must be full when this function is called
+539	void BTreeNode::splitChild(int i, BTreeNode *y)
+
+Backtrace END
+Fliping value of field: root
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: leaf
+Memory content before bitflip:0x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x555555a2733c
+address max offset: 1
+Memory content after  bitflip:0x00
+frame name: main
+symbol name: t
+symbol filename: BTree.cpp
+symbol line: 653
+value: {root = 0x555555a27320, t = 3}
+value address: 0x7fffffffddc0
+Type: The type is a structure.
+Type sizeof: 16
+Field name: root
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: t
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+
+[INFO -- 2018-10-11 23:44:22]
+Fault Injection Successful after 1.2209978103637695s
+[INFO -- 2018-10-11 23:44:22]
+event type: exit
+[INFO -- 2018-10-11 23:44:22]
+exit code: 0

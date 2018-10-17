@@ -1,0 +1,63 @@
+[INFO -- 2018-10-12 06:01:44]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 06:01:44]
+Initialization strings:
+[INFO -- 2018-10-12 06:01:44]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 06:01:44]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 06:01:44]
+initSignal:0
+[INFO -- 2018-10-12 06:01:44]
+endSignal:2
+[INFO -- 2018-10-12 06:01:44]
+faultModel:4
+[EXCEPTION -- 2018-10-12 06:01:45]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-12 06:01:45]
+Backtrace BEGIN:
+#0  0x000055555555694b in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset) at /usr/include/c++/7/bitset:1539
+#1  0x00005555555563b2 in BTreeNode::traverse (this=0x555555840c60) at BTree.cpp:592
+#2  0x00005555555563ff in BTreeNode::traverse (this=0x555555840cf0) at BTree.cpp:597
+#3  0x00005555555563ff in BTreeNode::traverse (this=0x555555840d80) at BTree.cpp:597
+#4  0x0000555555556377 in BTreeNode::traverse (this=0x5555558425b0) at BTree.cpp:591
+#5  0x0000555555556377 in BTreeNode::traverse (this=0x55555584b1c0) at BTree.cpp:591
+#6  0x0000555555556377 in BTreeNode::traverse (this=0x555555858420) at BTree.cpp:591
+#7  0x0000555555556377 in BTreeNode::traverse (this=0x555555858540) at BTree.cpp:591
+#8  0x00005555555563ff in BTreeNode::traverse (this=0x5555558584b0) at BTree.cpp:597
+#9  0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#10 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+1534	
+1535	      // _GLIBCXX_RESOLVE_LIB_DEFECTS
+1536	      // 396. what are characters zero and one.
+1537	      const ctype<_CharT>& __ct = use_facet<ctype<_CharT> >(__os.getloc());
+1538	      __x._M_copy_to_string(__tmp, __ct.widen('0'), __ct.widen('1'));
+1539	      return __os << __tmp;
+1540	    }
+1541	  //@}
+1542	
+1543	_GLIBCXX_END_NAMESPACE_CONTAINER
+
+Backtrace END
+Memory content before bitflip:0x010x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdc5c
+address max offset: 4
+Memory content after  bitflip:0x010x000x000x40
+frame name: BTreeNode::traverse
+symbol name: i
+symbol filename: BTree.cpp
+symbol line: 585
+value: 1073741825
+value address: 0x7fffffffdc5c
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-12 06:01:45]
+Fault Injection Successful after 1.748816967010498s
+[INFO -- 2018-10-12 06:01:45]
+event type: exit
+[EXCEPTION -- 2018-10-12 06:01:45]
+exit code: no exit code available

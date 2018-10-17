@@ -1,0 +1,55 @@
+[INFO -- 2018-10-12 02:04:00]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 02:04:00]
+Initialization strings:
+[INFO -- 2018-10-12 02:04:00]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 02:04:00]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 02:04:00]
+initSignal:0
+[INFO -- 2018-10-12 02:04:00]
+endSignal:2
+[INFO -- 2018-10-12 02:04:00]
+faultModel:2
+[INFO -- 2018-10-12 02:04:01]
+Backtrace BEGIN:
+#0  0x00007ffff72a2899 in _IO_acquire_lock_fct (p=<synthetic pointer>) at libioP.h:797
+#1  __GI__IO_fflush (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at iofflush.c:39
+#2  0x00007ffff7b5ef5e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#3  0x00005555555563c7 in BTreeNode::traverse (this=0x5555559afe00) at BTree.cpp:592
+#4  0x0000555555556377 in BTreeNode::traverse (this=0x555555b273d0) at BTree.cpp:591
+#5  0x0000555555556377 in BTreeNode::traverse (this=0x5555557888e0) at BTree.cpp:591
+#6  0x0000555555556377 in BTreeNode::traverse (this=0x5555558fc3a0) at BTree.cpp:591
+#7  0x0000555555556377 in BTreeNode::traverse (this=0x55555593baf0) at BTree.cpp:591
+#8  0x0000555555556377 in BTreeNode::traverse (this=0x5555559e1060) at BTree.cpp:591
+#9  0x0000555555556377 in BTreeNode::traverse (this=0x5555558124c0) at BTree.cpp:591
+#10 0x00005555555563ff in BTreeNode::traverse (this=0x555555812430) at BTree.cpp:597
+#11 0x0000555555556377 in BTreeNode::traverse (this=0x555555a27320) at BTree.cpp:591
+#12 0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#13 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+792	libioP.h: Arquivo ou diretório inexistente.
+
+Backtrace END
+Memory content before bitflip:0x000x000x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffdb5c
+address max offset: 4
+Memory content after  bitflip:0x690x630xe60xb1
+frame name: BTreeNode::traverse
+symbol name: i
+symbol filename: BTree.cpp
+symbol line: 585
+value: -1310301335
+value address: 0x7fffffffdb5c
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-12 02:04:01]
+Fault Injection Successful after 1.466670036315918s
+[INFO -- 2018-10-12 02:04:01]
+event type: exit
+[EXCEPTION -- 2018-10-12 02:04:01]
+exit code: no exit code available

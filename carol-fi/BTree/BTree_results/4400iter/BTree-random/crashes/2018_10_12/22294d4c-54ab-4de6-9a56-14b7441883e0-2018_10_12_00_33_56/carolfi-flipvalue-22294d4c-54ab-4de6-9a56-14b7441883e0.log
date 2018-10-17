@@ -1,0 +1,61 @@
+[INFO -- 2018-10-12 00:33:54]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 00:33:54]
+Initialization strings:
+[INFO -- 2018-10-12 00:33:54]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 00:33:54]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 00:33:54]
+initSignal:0
+[INFO -- 2018-10-12 00:33:54]
+endSignal:2
+[INFO -- 2018-10-12 00:33:54]
+faultModel:2
+[INFO -- 2018-10-12 00:33:55]
+Backtrace BEGIN:
+#0  malloc (n=14) at dl-minimal.c:50
+#1  <function called from gdb>
+#2  malloc (n=14) at dl-minimal.c:50
+#3  <function called from gdb>
+#4  0x00007ffff72bb1f8 in __GI___libc_malloc (bytes=31) at malloc.c:3048
+#5  0x00007ffff7adf1a8 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#6  0x00007ffff7b70cfb in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#7  0x00007ffff7b716d0 in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_replace_aux(unsigned long, unsigned long, unsigned long, char) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#8  0x00005555555569dd in std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x7fffffffdba0, __s="", __zero=48 '0', __one=49 '1') at /usr/include/c++/7/bitset:1407
+#9  0x0000555555556943 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1538
+#10 0x00005555555563b2 in BTreeNode::traverse (this=0x555555ab6e10) at BTree.cpp:592
+#11 0x00005555555563ff in BTreeNode::traverse (this=0x555555abf870) at BTree.cpp:597
+#12 0x0000555555556377 in BTreeNode::traverse (this=0x555555a23930) at BTree.cpp:591
+#13 0x0000555555556377 in BTreeNode::traverse (this=0x555555b733f0) at BTree.cpp:591
+#14 0x00005555555563ff in BTreeNode::traverse (this=0x555555b73510) at BTree.cpp:597
+#15 0x0000555555556377 in BTreeNode::traverse (this=0x555555aeeac0) at BTree.cpp:591
+#16 0x0000555555556377 in BTreeNode::traverse (this=0x555555812430) at BTree.cpp:591
+#17 0x0000555555556377 in BTreeNode::traverse (this=0x555555a27320) at BTree.cpp:591
+#18 0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#19 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+45	in dl-minimal.c
+
+Backtrace END
+Memory content before bitflip:0x000x000x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffdd5c
+address max offset: 4
+Memory content after  bitflip:0xd60x2e0x240x83
+frame name: BTreeNode::traverse
+symbol name: i
+symbol filename: BTree.cpp
+symbol line: 585
+value: -2094780714
+value address: 0x7fffffffdd5c
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-12 00:33:55]
+Fault Injection Successful after 1.4547398090362549s
+[INFO -- 2018-10-12 00:33:55]
+event type: exit
+[EXCEPTION -- 2018-10-12 00:33:55]
+exit code: no exit code available

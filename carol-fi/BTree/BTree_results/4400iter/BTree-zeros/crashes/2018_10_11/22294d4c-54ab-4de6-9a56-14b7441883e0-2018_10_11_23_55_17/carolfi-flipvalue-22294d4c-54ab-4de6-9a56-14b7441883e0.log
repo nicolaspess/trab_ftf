@@ -1,0 +1,58 @@
+[INFO -- 2018-10-11 23:55:16]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-11 23:55:16]
+Initialization strings:
+[INFO -- 2018-10-11 23:55:16]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-11 23:55:16]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-11 23:55:16]
+initSignal:0
+[INFO -- 2018-10-11 23:55:16]
+endSignal:2
+[INFO -- 2018-10-11 23:55:16]
+faultModel:3
+[EXCEPTION -- 2018-10-11 23:55:16]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-11 23:55:16]
+Backtrace BEGIN:
+#0  0x0000555555556059 in BTreeNode::insertNonFull (this=0x55555579ea20, k=3308689) at BTree.cpp:522
+#1  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558124c0, k=3308689) at BTree.cpp:533
+#2  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555812430, k=3308689) at BTree.cpp:533
+#3  0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=3308689) at BTree.cpp:487
+#4  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+517			// Find the child which is going to have the new key
+518			while (i >= 0 && keys[i] > k)
+519				i--;
+520	
+521			// See if the found child is full
+522			if (C[i+1]->n == 2*t-1)
+523			{
+524				// If the child is full, then split it
+525				splitChild(i+1, C[i+1]);
+526	
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0xd80xde0xff0xff0xff0x7f0x000x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x7fffffffdda0
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x00
+frame name: main
+symbol name: argv
+symbol filename: BTree.cpp
+symbol line: 650
+value: 0x7fffffffded8
+value address: 0x7fffffffdda0
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-11 23:55:16]
+Fault Injection Successful after 0.8214433193206787s
+[INFO -- 2018-10-11 23:55:17]
+event type: exit
+[EXCEPTION -- 2018-10-11 23:55:17]
+exit code: no exit code available

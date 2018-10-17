@@ -1,0 +1,59 @@
+[INFO -- 2018-10-11 23:19:37]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-11 23:19:37]
+Initialization strings:
+[INFO -- 2018-10-11 23:19:37]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-11 23:19:37]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-11 23:19:37]
+initSignal:0
+[INFO -- 2018-10-11 23:19:37]
+endSignal:2
+[INFO -- 2018-10-11 23:19:37]
+faultModel:0
+[INFO -- 2018-10-11 23:19:38]
+Backtrace BEGIN:
+#0  malloc (n=14) at dl-minimal.c:50
+#1  <function called from gdb>
+#2  _int_malloc (av=av@entry=0x7ffff760fc40 <main_arena>, bytes=bytes@entry=48) at malloc.c:4100
+#3  0x00007ffff72bb0fc in __GI___libc_malloc (bytes=48) at malloc.c:3057
+#4  0x00007ffff7adf1a8 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#5  0x000055555555536a in BTreeNode::BTreeNode (this=0x555555b5bf90, t1=3, leaf1=true) at BTree.cpp:163
+#6  0x000055555555611b in BTreeNode::splitChild (this=0x555555a8f030, i=2, y=0x5555558987d0) at BTree.cpp:543
+#7  0x000055555555608d in BTreeNode::insertNonFull (this=0x555555a8f030, k=2704475) at BTree.cpp:525
+#8  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555941070, k=2704475) at BTree.cpp:533
+#9  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555921480, k=2704475) at BTree.cpp:533
+#10 0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555990e70, k=2704475) at BTree.cpp:533
+#11 0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555559e1060, k=2704475) at BTree.cpp:533
+#12 0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558124c0, k=2704475) at BTree.cpp:533
+#13 0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555812430, k=2704475) at BTree.cpp:533
+#14 0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555a27320, k=2704475) at BTree.cpp:533
+#15 0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=2704475) at BTree.cpp:487
+#16 0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+45	dl-minimal.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x900xf10x2b0xf70xff0x7f0x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7ffff76104d8 
+address max offset: 8
+Memory content after  bitflip:0x900xf10x2b0xf70xf70x7f0x000x00
+frame name: _int_malloc
+symbol name: __morecore
+symbol filename: malloc.c
+symbol line: 363
+value: 0x7ffff72bf190 <__GI___default_morecore>
+value address: 0x7ffff76104d8 <__morecore>
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-11 23:19:38]
+Fault Injection Successful after 1.1323027610778809s
+[INFO -- 2018-10-11 23:19:38]
+event type: exit
+[EXCEPTION -- 2018-10-11 23:19:38]
+exit code: no exit code available

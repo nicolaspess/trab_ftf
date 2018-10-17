@@ -1,0 +1,63 @@
+[INFO -- 2018-10-12 03:45:42]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 03:45:42]
+Initialization strings:
+[INFO -- 2018-10-12 03:45:42]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 03:45:42]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 03:45:42]
+initSignal:0
+[INFO -- 2018-10-12 03:45:42]
+endSignal:2
+[INFO -- 2018-10-12 03:45:42]
+faultModel:2
+[EXCEPTION -- 2018-10-12 03:45:43]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-10-12 03:45:43]
+Backtrace BEGIN:
+#0  malloc (n=10) at dl-minimal.c:50
+#1  <function called from gdb>
+#2  malloc (n=10) at dl-minimal.c:50
+#3  <function called from gdb>
+#4  malloc (n=10) at dl-minimal.c:50
+#5  <function called from gdb>
+#6  0x00007ffff72bba17 in _int_free (have_lock=0, p=0x55555588abd0, av=0x7ffff760fc40 <main_arena>) at malloc.c:4171
+#7  __GI___libc_free (mem=0x55555588abe0) at malloc.c:3124
+#8  0x0000555555556965 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset) at /usr/include/c++/7/bitset:1533
+#9  0x00005555555563b2 in BTreeNode::traverse (this=0x55555585d400) at BTree.cpp:592
+#10 0x0000555555556377 in BTreeNode::traverse (this=0x55555585d520) at BTree.cpp:591
+#11 0x0000555555556377 in BTreeNode::traverse (this=0x55555585da30) at BTree.cpp:591
+#12 0x0000555555556377 in BTreeNode::traverse (this=0x55555585e210) at BTree.cpp:591
+#13 0x0000555555556377 in BTreeNode::traverse (this=0x555555861150) at BTree.cpp:591
+#14 0x0000555555556377 in BTreeNode::traverse (this=0x5555558657a0) at BTree.cpp:591
+#15 0x0000555555556377 in BTreeNode::traverse (this=0x55555587ff30) at BTree.cpp:591
+#16 0x00005555555563ff in BTreeNode::traverse (this=0x555555858540) at BTree.cpp:597
+#17 0x00005555555563ff in BTreeNode::traverse (this=0x5555558584b0) at BTree.cpp:597
+#18 0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#19 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+45	in dl-minimal.c
+
+Backtrace END
+Memory content before bitflip:0x000x000x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7ffff7611908 
+address max offset: 4
+Memory content after  bitflip:0x890x0f0x980x6b
+frame name: _int_free
+symbol name: disallow_malloc_check
+symbol filename: hooks.c
+symbol line: 68
+value: 1805127561
+value address: 0x7ffff7611908 <disallow_malloc_check>
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-12 03:45:43]
+Fault Injection Successful after 1.2171657085418701s
+[INFO -- 2018-10-12 03:45:43]
+event type: exit
+[INFO -- 2018-10-12 03:45:43]
+exit code: 0

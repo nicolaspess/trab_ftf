@@ -1,0 +1,49 @@
+[INFO -- 2018-10-12 04:07:02]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 04:07:02]
+Initialization strings:
+[INFO -- 2018-10-12 04:07:02]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 04:07:02]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 04:07:02]
+initSignal:0
+[INFO -- 2018-10-12 04:07:02]
+endSignal:2
+[INFO -- 2018-10-12 04:07:02]
+faultModel:4
+[EXCEPTION -- 2018-10-12 04:07:03]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-10-12 04:07:03]
+Backtrace BEGIN:
+#0  0x00007ffff7245160 in *ABS*+0x9f0e0@plt () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007ffff72a3e41 in __GI__IO_getline_info (eof=0x0, extract_delim=<optimized out>, delim=10, n=<optimized out>, buf=0x7fffffffddde "0000000\n", fp=0x55555576ae70, fp@entry=0x9) at iogetline.c:100
+#2  __GI__IO_getline (fp=fp@entry=0x55555576ae70, buf=buf@entry=0x7fffffffddde "0000000\n", n=<optimized out>, delim=delim@entry=10, extract_delim=extract_delim@entry=1) at iogetline.c:34
+#3  0x00007ffff72a2bcd in _IO_fgets (buf=0x7fffffffddde "0000000\n", n=<optimized out>, fp=0x55555576ae70) at iofgets.c:53
+#4  0x00005555555565d7 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:660
+
+2284	in rtld.c
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Memory content before bitflip:0x30
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffddde 
+address max offset: 1
+Memory content after  bitflip:0xb0
+frame name: __GI__IO_getline_info
+symbol name: buf
+symbol filename: iogetline.c
+symbol line: 31
+value: 0x7fffffffddde "\260\060\060\060\060\060\060\n"
+value address: 0x7fffffffdd30
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-12 04:07:03]
+Fault Injection Successful after 1.4119932651519775s
+[INFO -- 2018-10-12 04:07:03]
+event type: exit
+[INFO -- 2018-10-12 04:07:03]
+exit code: 0

@@ -1,0 +1,25 @@
+[INFO -- 2018-10-11 22:59:02]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-11 22:59:02]
+Initialization strings:
+[INFO -- 2018-10-11 22:59:02]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-11 22:59:02]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-11 22:59:02]
+initSignal:0
+[INFO -- 2018-10-11 22:59:02]
+endSignal:2
+[INFO -- 2018-10-11 22:59:02]
+faultModel:3
+[EXCEPTION -- 2018-10-11 22:59:04]
+pythonException: empty range for randrange() (0,0, 0)
+[EXCEPTION -- 2018-10-11 22:59:04]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[EXCEPTION -- 2018-10-11 22:59:04]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-11 22:59:04]
+event type: exit
+[INFO -- 2018-10-11 22:59:04]
+exit code: 0

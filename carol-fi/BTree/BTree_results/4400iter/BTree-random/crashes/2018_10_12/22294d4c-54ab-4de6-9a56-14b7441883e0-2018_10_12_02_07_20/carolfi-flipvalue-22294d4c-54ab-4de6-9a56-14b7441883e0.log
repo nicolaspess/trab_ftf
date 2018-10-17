@@ -1,0 +1,59 @@
+[INFO -- 2018-10-12 02:07:18]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 02:07:18]
+Initialization strings:
+[INFO -- 2018-10-12 02:07:18]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 02:07:18]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 02:07:18]
+initSignal:0
+[INFO -- 2018-10-12 02:07:18]
+endSignal:2
+[INFO -- 2018-10-12 02:07:18]
+faultModel:2
+[INFO -- 2018-10-12 02:07:19]
+Backtrace BEGIN:
+#0  0x00005555555560db in BTreeNode::insertNonFull (this=0x555555a974f0, k=3995046) at BTree.cpp:535
+#1  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555ac4580, k=3995046) at BTree.cpp:533
+#2  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558bd670, k=3995046) at BTree.cpp:533
+#3  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555a273b0, k=3995046) at BTree.cpp:533
+#4  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555a27320, k=3995046) at BTree.cpp:533
+#5  0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=3995046) at BTree.cpp:487
+#6  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+530				if (keys[i+1] < k)
+531					i++;
+532			}
+533			C[i+1]->insertNonFull(k);
+534		}
+535	}
+536	
+537	// A utility function to split the child y of this node
+538	// Note that y must be full when this function is called
+539	void BTreeNode::splitChild(int i, BTreeNode *y)
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: leaf
+Memory content before bitflip:0x00
+Fault Model: Random bit-flip
+base address to flip value: 0x555555ac459c
+address max offset: 1
+Memory content after  bitflip:0x3a
+frame name: BTreeNode::insertNonFull
+symbol name: this
+symbol filename: BTree.cpp
+symbol line: 0
+value: 0x555555ac4580
+value address: 0x7fffffffdca8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-12 02:07:19]
+Fault Injection Successful after 1.029930830001831s
+[INFO -- 2018-10-12 02:07:19]
+event type: exit
+[EXCEPTION -- 2018-10-12 02:07:19]
+exit code: no exit code available

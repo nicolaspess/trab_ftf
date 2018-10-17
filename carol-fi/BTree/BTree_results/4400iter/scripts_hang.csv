@@ -1,0 +1,5 @@
+Variable Name;Variable File;Variable Line;Fault Injection Time(s);Injection Time Interval;Fault Model
+_rtld_global;rtld.c;231;1.103769302368164;0-2;LSB bit-flip
+__s;/usr/include/c++/7/bitset;1404;1.1416165828704834;0-2;Double bit-flip
+_rtld_global;rtld.c;231;0.5268337726593018;0-2;Random bit-flip
+__i;/usr/include/c++/7/bitset;1408;1.6049773693084717;0-2;Zero bit-flip

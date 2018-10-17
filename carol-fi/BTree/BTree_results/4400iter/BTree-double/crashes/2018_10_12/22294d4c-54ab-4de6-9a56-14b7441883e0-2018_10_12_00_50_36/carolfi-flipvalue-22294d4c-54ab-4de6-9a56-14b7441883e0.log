@@ -1,0 +1,64 @@
+[INFO -- 2018-10-12 00:50:34]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 00:50:34]
+Initialization strings:
+[INFO -- 2018-10-12 00:50:34]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 00:50:34]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 00:50:34]
+initSignal:0
+[INFO -- 2018-10-12 00:50:34]
+endSignal:2
+[INFO -- 2018-10-12 00:50:34]
+faultModel:1
+[EXCEPTION -- 2018-10-12 00:50:35]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-12 00:50:35]
+Backtrace BEGIN:
+#0  0x00005555555562a7 in BTreeNode::splitChild (this=0x5555557aef20, i=1, y=0x5555557ce600) at BTree.cpp:571
+#1  0x000055555555608d in BTreeNode::insertNonFull (this=0x5555557aef20, k=3877623) at BTree.cpp:525
+#2  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555557a7750, k=3877623) at BTree.cpp:533
+#3  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555557c6d10, k=3877623) at BTree.cpp:533
+#4  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555557847a0, k=3877623) at BTree.cpp:533
+#5  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555579ea20, k=3877623) at BTree.cpp:533
+#6  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555579e990, k=3877623) at BTree.cpp:533
+#7  0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=3877623) at BTree.cpp:487
+#8  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+566		C[i+1] = z;
+567	
+568		// A key of y will move to this node. Find location of
+569		// new key and move all greater keys one space ahead
+570		for (int j = n-1; j >= i; j--)
+571			keys[j+1] = keys[j];
+572	
+573		// Copy the middle key of y to this node
+574		keys[i] = y->keys[t-1];
+575	
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: keys
+Fliping a bit of the pointer
+Memory content before bitflip:0x400x6d0x7c0x550x550x550x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x5555557c6d10
+address max offset: 8
+Memory content after  bitflip:0x400x6d0x7c0x550x550x550x000x22
+frame name: BTreeNode::insertNonFull
+symbol name: this
+symbol filename: BTree.cpp
+symbol line: 0
+value: 0x5555557c6d10
+value address: 0x7fffffffdca8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-12 00:50:35]
+Fault Injection Successful after 1.275223970413208s
+[INFO -- 2018-10-12 00:50:35]
+event type: exit
+[EXCEPTION -- 2018-10-12 00:50:35]
+exit code: no exit code available

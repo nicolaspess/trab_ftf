@@ -1,0 +1,60 @@
+[INFO -- 2018-10-12 01:15:36]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 01:15:36]
+Initialization strings:
+[INFO -- 2018-10-12 01:15:36]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 01:15:36]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 01:15:36]
+initSignal:0
+[INFO -- 2018-10-12 01:15:36]
+endSignal:2
+[INFO -- 2018-10-12 01:15:36]
+faultModel:0
+[INFO -- 2018-10-12 01:15:36]
+Backtrace BEGIN:
+#0  0x00007ffff7334154 in __GI___libc_write (fd=1, buf=0x555555bb83c0, nbytes=17) at ../sysdeps/unix/sysv/linux/write.c:27
+#1  0x00007ffff72af1bd in _IO_new_file_write (f=0x7ffff7610760 <_IO_2_1_stdout_>, data=0x555555bb83c0, n=17) at fileops.c:1203
+#2  0x00007ffff72b0f51 in new_do_write (to_do=17, data=0x555555bb83c0 "0001101000010011\n", fp=0x7ffff7610760 <_IO_2_1_stdout_>) at fileops.c:457
+#3  _IO_new_do_write (fp=0x7ffff7610760 <_IO_2_1_stdout_>, data=0x555555bb83c0 "0001101000010011\n", to_do=17) at fileops.c:433
+#4  0x00007ffff72ae788 in _IO_new_file_sync (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at fileops.c:813
+#5  0x00007ffff72a287d in __GI__IO_fflush (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at iofflush.c:40
+#6  0x00007ffff7b5ef5e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#7  0x00005555555563c7 in BTreeNode::traverse (this=0x555555787770) at BTree.cpp:592
+#8  0x0000555555556377 in BTreeNode::traverse (this=0x555555ad3010) at BTree.cpp:591
+#9  0x0000555555556377 in BTreeNode::traverse (this=0x55555599dd70) at BTree.cpp:591
+#10 0x00005555555563ff in BTreeNode::traverse (this=0x555555a80a20) at BTree.cpp:597
+#11 0x0000555555556377 in BTreeNode::traverse (this=0x5555557c8b70) at BTree.cpp:591
+#12 0x0000555555556377 in BTreeNode::traverse (this=0x555555b61bd0) at BTree.cpp:591
+#13 0x0000555555556377 in BTreeNode::traverse (this=0x5555559cdb00) at BTree.cpp:591
+#14 0x00005555555563ff in BTreeNode::traverse (this=0x555555a273b0) at BTree.cpp:597
+#15 0x00005555555563ff in BTreeNode::traverse (this=0x555555a27320) at BTree.cpp:597
+#16 0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#17 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+22	../sysdeps/unix/sysv/linux/write.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0xc00xdd0xff0xff0xff0x7f0x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffdd88
+address max offset: 8
+Memory content after  bitflip:0xc00xdd0xff0xff0xff0xff0x000x00
+frame name: BTree::traverse
+symbol name: this
+symbol filename: BTree.cpp
+symbol line: 0
+value: 0x7fffffffddc0
+value address: 0x7fffffffdd88
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-12 01:15:36]
+Fault Injection Successful after 0.8176975250244141s
+[INFO -- 2018-10-12 01:15:36]
+event type: exit
+[INFO -- 2018-10-12 01:15:36]
+exit code: 0

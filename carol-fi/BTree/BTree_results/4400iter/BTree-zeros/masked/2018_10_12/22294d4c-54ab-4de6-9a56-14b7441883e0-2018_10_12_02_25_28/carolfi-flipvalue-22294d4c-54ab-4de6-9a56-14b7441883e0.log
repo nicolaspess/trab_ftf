@@ -1,0 +1,52 @@
+[INFO -- 2018-10-12 02:25:26]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 02:25:26]
+Initialization strings:
+[INFO -- 2018-10-12 02:25:26]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 02:25:26]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 02:25:26]
+initSignal:0
+[INFO -- 2018-10-12 02:25:26]
+endSignal:2
+[INFO -- 2018-10-12 02:25:26]
+faultModel:3
+[EXCEPTION -- 2018-10-12 02:25:26]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[EXCEPTION -- 2018-10-12 02:25:27]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[EXCEPTION -- 2018-10-12 02:25:27]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-12 02:25:27]
+Backtrace BEGIN:
+#0  __memchr_avx2 () at ../sysdeps/x86_64/multiarch/memchr-avx2.S:96
+#1  0x00007ffff72a3e25 in __GI__IO_getline_info (eof=0x0, extract_delim=<optimized out>, delim=10, n=9, buf=0x7fffffffddde "3197941\n", fp=0x55555576ae70, fp@entry=0x9) at iogetline.c:85
+#2  __GI__IO_getline (fp=fp@entry=0x55555576ae70, buf=buf@entry=0x7fffffffddde "3197941\n", n=<optimized out>, delim=delim@entry=10, extract_delim=extract_delim@entry=1) at iogetline.c:34
+#3  0x00007ffff72a2bcd in _IO_fgets (buf=0x7fffffffddde "3197941\n", n=<optimized out>, fp=0x55555576ae70) at iofgets.c:53
+#4  0x00005555555565d7 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:660
+
+91	in ../sysdeps/x86_64/multiarch/memchr-avx2.S
+
+Backtrace END
+Memory content before bitflip:0x010x000x000x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x7fffffffdd3c
+address max offset: 4
+Memory content after  bitflip:0x000x000x000x00
+frame name: __GI__IO_getline_info
+symbol name: extract_delim
+symbol filename: iogetline.c
+symbol line: 32
+value: 0
+value address: 0x7fffffffdd3c
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-12 02:25:27]
+Fault Injection Successful after 1.0900325775146484s
+[INFO -- 2018-10-12 02:25:27]
+event type: exit
+[INFO -- 2018-10-12 02:25:27]
+exit code: 0

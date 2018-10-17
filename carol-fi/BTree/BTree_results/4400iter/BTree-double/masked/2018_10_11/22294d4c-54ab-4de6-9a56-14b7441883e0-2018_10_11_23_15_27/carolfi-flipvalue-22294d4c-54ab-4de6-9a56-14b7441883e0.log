@@ -1,0 +1,59 @@
+[INFO -- 2018-10-11 23:15:25]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-11 23:15:25]
+Initialization strings:
+[INFO -- 2018-10-11 23:15:25]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-11 23:15:25]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-11 23:15:25]
+initSignal:0
+[INFO -- 2018-10-11 23:15:25]
+endSignal:2
+[INFO -- 2018-10-11 23:15:25]
+faultModel:1
+[EXCEPTION -- 2018-10-11 23:15:26]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-10-11 23:15:26]
+Backtrace BEGIN:
+#0  _int_malloc (av=av@entry=0x7ffff760fc40 <main_arena>, bytes=bytes@entry=20) at malloc.c:3553
+#1  0x00007ffff72bb0fc in __GI___libc_malloc (bytes=20) at malloc.c:3057
+#2  0x00007ffff7adf1a8 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#3  0x000055555555532c in BTreeNode::BTreeNode (this=0x555555ada480, t1=3, leaf1=true) at BTree.cpp:162
+#4  0x000055555555611b in BTreeNode::splitChild (this=0x5555557953f0, i=3, y=0x555555979080) at BTree.cpp:543
+#5  0x000055555555608d in BTreeNode::insertNonFull (this=0x5555557953f0, k=2410526) at BTree.cpp:525
+#6  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555557c8420, k=2410526) at BTree.cpp:533
+#7  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558b4550, k=2410526) at BTree.cpp:533
+#8  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555557e48f0, k=2410526) at BTree.cpp:533
+#9  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555580ee30, k=2410526) at BTree.cpp:533
+#10 0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558124c0, k=2410526) at BTree.cpp:533
+#11 0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555812430, k=2410526) at BTree.cpp:533
+#12 0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555a27320, k=2410526) at BTree.cpp:533
+#13 0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=2410526) at BTree.cpp:487
+#14 0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+3548	malloc.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x900xc70x2b0xf70xff0x7f0x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7ffff760fc28 
+address max offset: 8
+Memory content after  bitflip:0x900xc70x2b0xf40xff0x7f0x000x00
+frame name: __GI___libc_malloc
+symbol name: __realloc_hook
+symbol filename: malloc.c
+symbol line: 1868
+value: 0x7ffff72bc790 <realloc_hook_ini>
+value address: 0x7ffff760fc28 <__realloc_hook>
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-11 23:15:26]
+Fault Injection Successful after 1.42138671875s
+[INFO -- 2018-10-11 23:15:26]
+event type: exit
+[INFO -- 2018-10-11 23:15:26]
+exit code: 0

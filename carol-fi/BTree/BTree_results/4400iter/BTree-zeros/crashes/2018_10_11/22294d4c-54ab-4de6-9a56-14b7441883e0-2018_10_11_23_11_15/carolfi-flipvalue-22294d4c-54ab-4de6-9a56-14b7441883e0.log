@@ -1,0 +1,67 @@
+[INFO -- 2018-10-11 23:11:13]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-11 23:11:13]
+Initialization strings:
+[INFO -- 2018-10-11 23:11:13]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-11 23:11:13]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-11 23:11:13]
+initSignal:0
+[INFO -- 2018-10-11 23:11:13]
+endSignal:2
+[INFO -- 2018-10-11 23:11:13]
+faultModel:3
+[EXCEPTION -- 2018-10-11 23:11:14]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-11 23:11:14]
+Backtrace BEGIN:
+#0  0x00007ffff7b39c90 in __gnu_cxx::stdio_sync_filebuf<char, std::char_traits<char> >::xsputn(char const*, long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x00007ffff7b5fe94 in std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x0000555555556956 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1539
+#3  0x00005555555563b2 in BTreeNode::traverse (this=0x555555a6f8c0) at BTree.cpp:592
+#4  0x00005555555563ff in BTreeNode::traverse (this=0x555555941b20) at BTree.cpp:597
+#5  0x00005555555563ff in BTreeNode::traverse (this=0x5555557d8fe0) at BTree.cpp:597
+#6  0x00005555555563ff in BTreeNode::traverse (this=0x555555923fd0) at BTree.cpp:597
+#7  0x0000555555556377 in BTreeNode::traverse (this=0x555555b19990) at BTree.cpp:591
+#8  0x0000555555556377 in BTreeNode::traverse (this=0x555555b9e740) at BTree.cpp:591
+#9  0x00005555555563ff in BTreeNode::traverse (this=0x5555558124c0) at BTree.cpp:597
+#10 0x00005555555563ff in BTreeNode::traverse (this=0x555555812430) at BTree.cpp:597
+#11 0x0000555555556377 in BTreeNode::traverse (this=0x555555a27320) at BTree.cpp:591
+#12 0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#13 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+657	   	if ( file != NULL )
+658	   	{
+659	      		char line [ 10 ]; /* or other suitable maximum line size */
+660	      		while ( fgets ( line, sizeof line, file ) != NULL ) /* read a line */
+661	      		{
+662	        	//fputs ( line, stdout ); /* write the line */
+663						int number = atoi(line);
+664						//printf("%i\n",number);
+665						t.insert(number);
+666	      		}
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x400xe70xb90x550x550x550x000x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x7fffffffdc88
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x00
+frame name: BTreeNode::traverse
+symbol name: this
+symbol filename: BTree.cpp
+symbol line: 0
+value: 0x555555b9e740
+value address: 0x7fffffffdc88
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-11 23:11:14]
+Fault Injection Successful after 1.5371816158294678s
+[INFO -- 2018-10-11 23:11:14]
+event type: exit
+[EXCEPTION -- 2018-10-11 23:11:14]
+exit code: no exit code available

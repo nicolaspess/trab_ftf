@@ -1,0 +1,54 @@
+[INFO -- 2018-10-12 04:07:21]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 04:07:21]
+Initialization strings:
+[INFO -- 2018-10-12 04:07:21]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 04:07:21]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 04:07:21]
+initSignal:0
+[INFO -- 2018-10-12 04:07:21]
+endSignal:2
+[INFO -- 2018-10-12 04:07:21]
+faultModel:4
+[EXCEPTION -- 2018-10-12 04:07:21]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[EXCEPTION -- 2018-10-12 04:07:21]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-12 04:07:21]
+Backtrace BEGIN:
+#0  0x00007ffff7269175 in __GI_____strtol_l_internal (nptr=0x7fffffffddde "0000000\n", endptr=endptr@entry=0x0, base=base@entry=10, group=group@entry=0, loc=0x7ffff7610560 <_nl_global_locale>) at ../stdlib/strtol_l.c:226
+#1  0x00007ffff7269122 in __strtol (nptr=<optimized out>, endptr=endptr@entry=0x0, base=base@entry=10) at ../stdlib/strtol.c:106
+#2  0x00007ffff7264690 in atoi (nptr=<optimized out>) at atoi.c:27
+#3  0x00005555555565ed in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:663
+
+221	in ../stdlib/strtol_l.c
+
+Backtrace END
+Fliping array at pos: 4
+Memory content before bitflip:0x30
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdde2 
+address max offset: 1
+Memory content after  bitflip:0x32
+frame name: main
+symbol name: line
+symbol filename: BTree.cpp
+symbol line: 659
+value: "0000200\n\000"
+value address: 0x7fffffffddde
+Type: The type is an array.
+Type sizeof: 10
+Field name: None
+Field Type: A range type, that is, an integer type with bounds.
+Field Type sizeof: 8
+Field Type range: (0, 9)
+
+[INFO -- 2018-10-12 04:07:21]
+Fault Injection Successful after 0.4817075729370117s
+[INFO -- 2018-10-12 04:07:21]
+event type: exit
+[INFO -- 2018-10-12 04:07:21]
+exit code: 0

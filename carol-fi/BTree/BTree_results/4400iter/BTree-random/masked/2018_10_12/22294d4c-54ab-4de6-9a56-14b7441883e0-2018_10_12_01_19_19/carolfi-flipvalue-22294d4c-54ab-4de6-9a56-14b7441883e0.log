@@ -1,0 +1,62 @@
+[INFO -- 2018-10-12 01:19:18]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 01:19:18]
+Initialization strings:
+[INFO -- 2018-10-12 01:19:18]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 01:19:18]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 01:19:18]
+initSignal:0
+[INFO -- 2018-10-12 01:19:18]
+endSignal:2
+[INFO -- 2018-10-12 01:19:18]
+faultModel:2
+[EXCEPTION -- 2018-10-12 01:19:18]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-10-12 01:19:18]
+Backtrace BEGIN:
+#0  0x000055555555637e in BTreeNode::traverse (this=0x555555af83c0) at BTree.cpp:592
+#1  0x0000555555556377 in BTreeNode::traverse (this=0x555555b0b9b0) at BTree.cpp:591
+#2  0x0000555555556377 in BTreeNode::traverse (this=0x555555ac4460) at BTree.cpp:591
+#3  0x0000555555556377 in BTreeNode::traverse (this=0x5555558d4140) at BTree.cpp:591
+#4  0x0000555555556377 in BTreeNode::traverse (this=0x555555866be0) at BTree.cpp:591
+#5  0x0000555555556377 in BTreeNode::traverse (this=0x5555558eea80) at BTree.cpp:591
+#6  0x0000555555556377 in BTreeNode::traverse (this=0x555555812430) at BTree.cpp:591
+#7  0x0000555555556377 in BTreeNode::traverse (this=0x555555a27320) at BTree.cpp:591
+#8  0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#9  0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+587		{
+588			// If this is not leaf, then before printing key[i],
+589			// traverse the subtree rooted with child C[i].
+590			if (leaf == false)
+591				C[i]->traverse();
+592			cout << std::bitset<16>(keys[i]) << endl;
+593		}
+594	
+595		// Print the subtree rooted with last child
+596		if (leaf == false)
+
+Backtrace END
+Memory content before bitflip:0x030x000x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffddac
+address max offset: 4
+Memory content after  bitflip:0x110xa30x330xf6
+frame name: main
+symbol name: argc
+symbol filename: BTree.cpp
+symbol line: 650
+value: -164388079
+value address: 0x7fffffffddac
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-12 01:19:18]
+Fault Injection Successful after 0.6486451625823975s
+[INFO -- 2018-10-12 01:19:18]
+event type: exit
+[INFO -- 2018-10-12 01:19:18]
+exit code: 0

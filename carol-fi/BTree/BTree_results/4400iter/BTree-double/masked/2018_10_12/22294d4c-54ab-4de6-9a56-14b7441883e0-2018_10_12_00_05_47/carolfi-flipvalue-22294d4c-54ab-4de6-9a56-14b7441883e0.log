@@ -1,0 +1,59 @@
+[INFO -- 2018-10-12 00:05:46]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 00:05:46]
+Initialization strings:
+[INFO -- 2018-10-12 00:05:46]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 00:05:46]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 00:05:46]
+initSignal:0
+[INFO -- 2018-10-12 00:05:46]
+endSignal:2
+[INFO -- 2018-10-12 00:05:46]
+faultModel:1
+[EXCEPTION -- 2018-10-12 00:05:46]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-12 00:05:46]
+Backtrace BEGIN:
+#0  BTree::insert (this=0x7fffffffddc0, k=104073) at BTree.cpp:465
+#1  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+460			root->n = 1; // Update number of keys in root
+461		}
+462		else // If tree is not empty
+463		{
+464			// If root is full, then tree grows in height
+465			if (root->n == 2*t-1)
+466			{
+467				// Allocate memory for new root
+468				BTreeNode *s = new BTreeNode(t, false);
+469	
+
+Backtrace END
+Fliping array at pos: 3
+Memory content before bitflip:0x30
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffdde1 
+address max offset: 1
+Memory content after  bitflip:0x72
+frame name: main
+symbol name: line
+symbol filename: BTree.cpp
+symbol line: 659
+value: "104r73\n\000\000"
+value address: 0x7fffffffddde
+Type: The type is an array.
+Type sizeof: 10
+Field name: None
+Field Type: A range type, that is, an integer type with bounds.
+Field Type sizeof: 8
+Field Type range: (0, 9)
+
+[INFO -- 2018-10-12 00:05:46]
+Fault Injection Successful after 0.7921206951141357s
+[INFO -- 2018-10-12 00:05:47]
+event type: exit
+[INFO -- 2018-10-12 00:05:47]
+exit code: 0

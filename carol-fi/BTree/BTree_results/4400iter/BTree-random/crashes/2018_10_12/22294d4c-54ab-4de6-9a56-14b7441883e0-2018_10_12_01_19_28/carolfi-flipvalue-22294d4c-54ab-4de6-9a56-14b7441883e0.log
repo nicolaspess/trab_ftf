@@ -1,0 +1,46 @@
+[INFO -- 2018-10-12 01:19:26]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 01:19:26]
+Initialization strings:
+[INFO -- 2018-10-12 01:19:26]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 01:19:26]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 01:19:26]
+initSignal:0
+[INFO -- 2018-10-12 01:19:26]
+endSignal:2
+[INFO -- 2018-10-12 01:19:26]
+faultModel:2
+[EXCEPTION -- 2018-10-12 01:19:27]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-12 01:19:27]
+Backtrace BEGIN:
+#0  0x00007ffff72a2b5c in _IO_fgets (buf=0x7fffffffddde "987735\n", n=10, fp=0x55555576ae70) at iofgets.c:47
+#1  0x00005555555565d7 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:660
+
+42	in iofgets.c
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0xd80xde0xff0xff0xff0x7f0x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffdda0
+address max offset: 8
+Memory content after  bitflip:0x3d0x740x640x640x100xe20x0a0x7d
+frame name: main
+symbol name: argv
+symbol filename: BTree.cpp
+symbol line: 650
+value: 0x7fffffffded8
+value address: 0x7fffffffdda0
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-12 01:19:27]
+Fault Injection Successful after 1.2146875858306885s
+[INFO -- 2018-10-12 01:19:27]
+event type: exit
+[EXCEPTION -- 2018-10-12 01:19:27]
+exit code: no exit code available

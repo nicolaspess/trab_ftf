@@ -1,0 +1,46 @@
+[INFO -- 2018-10-12 07:49:42]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 07:49:42]
+Initialization strings:
+[INFO -- 2018-10-12 07:49:42]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 07:49:42]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 07:49:42]
+initSignal:0
+[INFO -- 2018-10-12 07:49:42]
+endSignal:2
+[INFO -- 2018-10-12 07:49:42]
+faultModel:1
+[INFO -- 2018-10-12 07:49:42]
+Backtrace BEGIN:
+#0  __GI__exit (status=status@entry=0) at ../sysdeps/unix/sysv/linux/_exit.c:27
+#1  0x00007ffff7267112 in __run_exit_handlers (status=0, listp=<optimized out>, run_list_atexit=run_list_atexit@entry=true, run_dtors=run_dtors@entry=true) at exit.c:132
+#2  0x00007ffff726713a in __GI_exit (status=<optimized out>) at exit.c:139
+#3  0x00007ffff7245b9e in __libc_start_main (main=0x55555555656a <main(int, char**)>, argc=3, argv=0x7fffffffded8, init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, stack_end=0x7fffffffdec8) at ../csu/libc-start.c:344
+#4  0x00005555555551fa in _start ()
+
+22	../sysdeps/unix/sysv/linux/_exit.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Memory content before bitflip:0x01
+Fault Model: Double bit-flip
+base address to flip value: 0x7ffff7610d6c 
+address max offset: 1
+Memory content after  bitflip:0x0d
+frame name: __run_exit_handlers
+symbol name: __exit_funcs_done
+symbol filename: exit.c
+symbol line: 31
+value: 13
+value address: 0x7ffff7610d6c <__exit_funcs_done>
+Type: A boolean type.
+Type sizeof: 1
+
+[INFO -- 2018-10-12 07:49:42]
+Fault Injection Successful after 0.8827695846557617s
+[INFO -- 2018-10-12 07:49:42]
+event type: exit
+[INFO -- 2018-10-12 07:49:42]
+exit code: 0

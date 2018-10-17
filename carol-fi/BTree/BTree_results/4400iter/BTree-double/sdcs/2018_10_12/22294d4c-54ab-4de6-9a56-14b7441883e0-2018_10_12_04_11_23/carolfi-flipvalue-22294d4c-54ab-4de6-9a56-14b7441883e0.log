@@ -1,0 +1,65 @@
+[INFO -- 2018-10-12 04:11:22]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 04:11:22]
+Initialization strings:
+[INFO -- 2018-10-12 04:11:22]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 04:11:22]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 04:11:22]
+initSignal:0
+[INFO -- 2018-10-12 04:11:22]
+endSignal:2
+[INFO -- 2018-10-12 04:11:22]
+faultModel:1
+[EXCEPTION -- 2018-10-12 04:11:22]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-10-12 04:11:22]
+Backtrace BEGIN:
+#0  0x0000555555555f63 in BTreeNode::insertNonFull (this=0x5555558856f0, k=1011) at BTree.cpp:497
+#1  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558855d0, k=1011) at BTree.cpp:533
+#2  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555587fea0, k=1011) at BTree.cpp:533
+#3  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555587ff30, k=1011) at BTree.cpp:533
+#4  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555858540, k=1011) at BTree.cpp:533
+#5  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558584b0, k=1011) at BTree.cpp:533
+#6  0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=1011) at BTree.cpp:487
+#7  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+492	// The assumption is, the node must be non-full when this
+493	// function is called
+494	void BTreeNode::insertNonFull(int k)
+495	{
+496		// Initialize index as index of rightmost element
+497		int i = n-1;
+498	
+499		// If this is a leaf node
+500		if (leaf == true)
+501		{
+
+Backtrace END
+Fliping array at pos: 8
+Memory content before bitflip:0x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffdde6 
+address max offset: 1
+Memory content after  bitflip:0x22
+frame name: main
+symbol name: line
+symbol filename: BTree.cpp
+symbol line: 659
+value: "0001011\n\""
+value address: 0x7fffffffddde
+Type: The type is an array.
+Type sizeof: 10
+Field name: None
+Field Type: A range type, that is, an integer type with bounds.
+Field Type sizeof: 8
+Field Type range: (0, 9)
+
+[INFO -- 2018-10-12 04:11:22]
+Fault Injection Successful after 0.5504701137542725s
+[INFO -- 2018-10-12 04:11:22]
+event type: exit
+[INFO -- 2018-10-12 04:11:22]
+exit code: 0

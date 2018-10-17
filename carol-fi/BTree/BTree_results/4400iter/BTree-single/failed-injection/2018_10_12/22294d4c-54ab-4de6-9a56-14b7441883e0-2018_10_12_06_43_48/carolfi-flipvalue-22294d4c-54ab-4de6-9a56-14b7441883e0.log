@@ -1,0 +1,21 @@
+[INFO -- 2018-10-12 06:43:46]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 06:43:46]
+Initialization strings:
+[INFO -- 2018-10-12 06:43:46]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 06:43:46]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 06:43:46]
+initSignal:0
+[INFO -- 2018-10-12 06:43:46]
+endSignal:2
+[INFO -- 2018-10-12 06:43:46]
+faultModel:0
+[EXCEPTION -- 2018-10-12 06:43:47]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-10-12 06:43:47]
+event type: exit
+[INFO -- 2018-10-12 06:43:47]
+exit code: 0

@@ -1,0 +1,60 @@
+[INFO -- 2018-10-12 00:17:36]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 00:17:36]
+Initialization strings:
+[INFO -- 2018-10-12 00:17:36]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 00:17:36]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 00:17:36]
+initSignal:0
+[INFO -- 2018-10-12 00:17:36]
+endSignal:2
+[INFO -- 2018-10-12 00:17:36]
+faultModel:4
+[EXCEPTION -- 2018-10-12 00:17:37]
+pythonException: empty range for randrange() (0,0, 0)
+[INFO -- 2018-10-12 00:17:37]
+Backtrace BEGIN:
+#0  _IO_new_file_xsputn (f=0x7ffff7610760 <_IO_2_1_stdout_>, data=0x555555bb8390, n=16) at fileops.c:1227
+#1  0x00007ffff72a3977 in __GI__IO_fwrite (buf=0x555555bb8390, size=1, count=16, fp=0x7ffff7610760 <_IO_2_1_stdout_>) at iofwrite.c:39
+#2  0x00007ffff7b5fe94 in std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#3  0x0000555555556956 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1539
+#4  0x00005555555563b2 in BTreeNode::traverse (this=0x555555b26770) at BTree.cpp:592
+#5  0x0000555555556377 in BTreeNode::traverse (this=0x555555a841d0) at BTree.cpp:591
+#6  0x0000555555556377 in BTreeNode::traverse (this=0x555555a8a950) at BTree.cpp:591
+#7  0x0000555555556377 in BTreeNode::traverse (this=0x555555902730) at BTree.cpp:591
+#8  0x00005555555563ff in BTreeNode::traverse (this=0x5555557847a0) at BTree.cpp:597
+#9  0x0000555555556377 in BTreeNode::traverse (this=0x555555882180) at BTree.cpp:591
+#10 0x0000555555556377 in BTreeNode::traverse (this=0x5555558bd670) at BTree.cpp:591
+#11 0x0000555555556377 in BTreeNode::traverse (this=0x555555a273b0) at BTree.cpp:591
+#12 0x00005555555563ff in BTreeNode::traverse (this=0x555555a27320) at BTree.cpp:597
+#13 0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#14 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+1222	in fileops.c
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: n
+Memory content before bitflip:0x020x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x555555a273c8
+address max offset: 4
+Memory content after  bitflip:0x020x000x000x40
+frame name: BTreeNode::traverse
+symbol name: this
+symbol filename: BTree.cpp
+symbol line: 0
+value: 0x555555a273b0
+value address: 0x7fffffffdd08
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-12 00:17:37]
+Fault Injection Successful after 1.6343371868133545s
+[INFO -- 2018-10-12 00:17:37]
+event type: exit
+[EXCEPTION -- 2018-10-12 00:17:37]
+exit code: no exit code available

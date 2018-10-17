@@ -1,0 +1,67 @@
+[INFO -- 2018-10-12 00:49:48]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 00:49:48]
+Initialization strings:
+[INFO -- 2018-10-12 00:49:48]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 00:49:48]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 00:49:48]
+initSignal:0
+[INFO -- 2018-10-12 00:49:48]
+endSignal:2
+[INFO -- 2018-10-12 00:49:48]
+faultModel:0
+[EXCEPTION -- 2018-10-12 00:49:49]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-12 00:49:49]
+Backtrace BEGIN:
+#0  0x00007ffff7b5fd52 in std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x0000555555556956 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1539
+#2  0x00005555555563b2 in BTreeNode::traverse (this=0x555555894de0) at BTree.cpp:592
+#3  0x0000555555556377 in BTreeNode::traverse (this=0x5555558e3c20) at BTree.cpp:591
+#4  0x0000555555556377 in BTreeNode::traverse (this=0x555555ac9440) at BTree.cpp:591
+#5  0x00005555555563ff in BTreeNode::traverse (this=0x555555aa9a00) at BTree.cpp:597
+#6  0x0000555555556377 in BTreeNode::traverse (this=0x5555558a4cb0) at BTree.cpp:591
+#7  0x0000555555556377 in BTreeNode::traverse (this=0x5555558d1dd0) at BTree.cpp:591
+#8  0x0000555555556377 in BTreeNode::traverse (this=0x555555aeeac0) at BTree.cpp:591
+#9  0x0000555555556377 in BTreeNode::traverse (this=0x555555812430) at BTree.cpp:591
+#10 0x0000555555556377 in BTreeNode::traverse (this=0x555555a27320) at BTree.cpp:591
+#11 0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#12 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+647	int myrandom (int i) { return std::rand()%i;}
+648	
+649	// Driver program to test above functions
+650	int main(int argc, char * argv[])
+651	{
+652	/*********************************/
+653	  BTree t(3);
+654	  FILE *file = fopen (argv[1], "r");
+655	
+656	
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: t
+Memory content before bitflip:0x030x000x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x555555ac9448
+address max offset: 4
+Memory content after  bitflip:0x030x000x040x00
+frame name: BTreeNode::traverse
+symbol name: this
+symbol filename: BTree.cpp
+symbol line: 0
+value: 0x555555ac9440
+value address: 0x7fffffffdbc8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-12 00:49:49]
+Fault Injection Successful after 1.5091361999511719s
+[INFO -- 2018-10-12 00:49:49]
+event type: exit
+[INFO -- 2018-10-12 00:49:49]
+exit code: 0

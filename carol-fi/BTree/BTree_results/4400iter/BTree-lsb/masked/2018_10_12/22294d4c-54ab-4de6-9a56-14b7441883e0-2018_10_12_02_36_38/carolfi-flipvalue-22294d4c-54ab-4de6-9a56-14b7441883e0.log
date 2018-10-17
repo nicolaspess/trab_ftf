@@ -1,0 +1,71 @@
+[INFO -- 2018-10-12 02:36:37]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 02:36:37]
+Initialization strings:
+[INFO -- 2018-10-12 02:36:37]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 02:36:37]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 02:36:37]
+initSignal:0
+[INFO -- 2018-10-12 02:36:37]
+endSignal:2
+[INFO -- 2018-10-12 02:36:37]
+faultModel:4
+[EXCEPTION -- 2018-10-12 02:36:37]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-10-12 02:36:37]
+Backtrace BEGIN:
+#0  0x0000555555556709 in std::char_traits<char>::assign (__c1=@0x555555bb839f: 48 '0', __c2=@0x7fffffffda98: 49 '1') at /usr/include/c++/7/bits/char_traits.h:285
+#1  0x0000555555556a34 in std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x7fffffffdb60, __s="0111101001110100", __zero=48 '0', __one=49 '1') at /usr/include/c++/7/bitset:1410
+#2  0x0000555555556943 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1538
+#3  0x00005555555563b2 in BTreeNode::traverse (this=0x55555590fc60) at BTree.cpp:592
+#4  0x00005555555563ff in BTreeNode::traverse (this=0x555555811500) at BTree.cpp:597
+#5  0x0000555555556377 in BTreeNode::traverse (this=0x555555a334a0) at BTree.cpp:591
+#6  0x0000555555556377 in BTreeNode::traverse (this=0x555555770160) at BTree.cpp:591
+#7  0x0000555555556377 in BTreeNode::traverse (this=0x55555577abd0) at BTree.cpp:591
+#8  0x0000555555556377 in BTreeNode::traverse (this=0x5555558ee8d0) at BTree.cpp:591
+#9  0x0000555555556377 in BTreeNode::traverse (this=0x555555acc6e0) at BTree.cpp:591
+#10 0x0000555555556377 in BTreeNode::traverse (this=0x555555812430) at BTree.cpp:591
+#11 0x0000555555556377 in BTreeNode::traverse (this=0x555555a27320) at BTree.cpp:591
+#12 0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#13 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+280	      typedef streamoff         off_type;
+281	      typedef mbstate_t         state_type;
+282	
+283	      static _GLIBCXX17_CONSTEXPR void
+284	      assign(char_type& __c1, const char_type& __c2) _GLIBCXX_NOEXCEPT
+285	      { __c1 = __c2; }
+286	
+287	      static _GLIBCXX_CONSTEXPR bool
+288	      eq(const char_type& __c1, const char_type& __c2) _GLIBCXX_NOEXCEPT
+289	      { return __c1 == __c2; }
+
+Backtrace END
+Fliping array at pos: 5
+Memory content before bitflip:0x31
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdde3 
+address max offset: 1
+Memory content after  bitflip:0x35
+frame name: main
+symbol name: line
+symbol filename: BTree.cpp
+symbol line: 659
+value: "1798858\n\000"
+value address: 0x7fffffffddde
+Type: The type is an array.
+Type sizeof: 10
+Field name: None
+Field Type: A range type, that is, an integer type with bounds.
+Field Type sizeof: 8
+Field Type range: (0, 9)
+
+[INFO -- 2018-10-12 02:36:37]
+Fault Injection Successful after 0.9805788993835449s
+[INFO -- 2018-10-12 02:36:38]
+event type: exit
+[INFO -- 2018-10-12 02:36:38]
+exit code: 0

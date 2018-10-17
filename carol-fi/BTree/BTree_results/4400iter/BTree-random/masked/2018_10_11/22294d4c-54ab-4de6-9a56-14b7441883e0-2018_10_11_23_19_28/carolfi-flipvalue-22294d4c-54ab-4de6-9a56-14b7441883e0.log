@@ -1,0 +1,63 @@
+[INFO -- 2018-10-11 23:19:26]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-11 23:19:26]
+Initialization strings:
+[INFO -- 2018-10-11 23:19:26]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-11 23:19:26]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-11 23:19:26]
+initSignal:0
+[INFO -- 2018-10-11 23:19:26]
+endSignal:2
+[INFO -- 2018-10-11 23:19:26]
+faultModel:2
+[INFO -- 2018-10-11 23:19:27]
+Backtrace BEGIN:
+#0  0x000055555555633f in BTreeNode::traverse (this=0x5555557900b0) at BTree.cpp:586
+#1  0x0000555555556377 in BTreeNode::traverse (this=0x555555867570) at BTree.cpp:591
+#2  0x0000555555556377 in BTreeNode::traverse (this=0x5555558d17a0) at BTree.cpp:591
+#3  0x00005555555563ff in BTreeNode::traverse (this=0x5555558458e0) at BTree.cpp:597
+#4  0x0000555555556377 in BTreeNode::traverse (this=0x555555b5bf00) at BTree.cpp:591
+#5  0x0000555555556377 in BTreeNode::traverse (this=0x5555559c9ae0) at BTree.cpp:591
+#6  0x00005555555563ff in BTreeNode::traverse (this=0x555555aeeac0) at BTree.cpp:597
+#7  0x0000555555556377 in BTreeNode::traverse (this=0x555555812430) at BTree.cpp:591
+#8  0x0000555555556377 in BTreeNode::traverse (this=0x555555a27320) at BTree.cpp:591
+#9  0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#10 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+581	void BTreeNode::traverse()
+582	{
+583		// There are n keys and n+1 children, travers through n keys
+584		// and first n children
+585		int i;
+586		for (i = 0; i < n; i++)
+587		{
+588			// If this is not leaf, then before printing key[i],
+589			// traverse the subtree rooted with child C[i].
+590			if (leaf == false)
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: leaf
+Memory content before bitflip:0x00
+Fault Model: Random bit-flip
+base address to flip value: 0x55555581244c
+address max offset: 1
+Memory content after  bitflip:0xa9
+frame name: BTreeNode::traverse
+symbol name: this
+symbol filename: BTree.cpp
+symbol line: 0
+value: 0x555555812430
+value address: 0x7fffffffdd08
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-11 23:19:27]
+Fault Injection Successful after 1.339409589767456s
+[INFO -- 2018-10-11 23:19:27]
+event type: exit
+[INFO -- 2018-10-11 23:19:27]
+exit code: 0

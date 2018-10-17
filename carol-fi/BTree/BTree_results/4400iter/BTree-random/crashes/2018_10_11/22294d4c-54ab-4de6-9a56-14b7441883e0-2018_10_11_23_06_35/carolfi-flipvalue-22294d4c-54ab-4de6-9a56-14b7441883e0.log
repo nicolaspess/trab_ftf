@@ -1,0 +1,57 @@
+[INFO -- 2018-10-11 23:06:33]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-11 23:06:33]
+Initialization strings:
+[INFO -- 2018-10-11 23:06:33]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-11 23:06:33]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-11 23:06:33]
+initSignal:0
+[INFO -- 2018-10-11 23:06:33]
+endSignal:2
+[INFO -- 2018-10-11 23:06:33]
+faultModel:2
+[INFO -- 2018-10-11 23:06:34]
+Backtrace BEGIN:
+#0  __memmove_avx_unaligned_erms () at ../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:264
+#1  0x00007ffff72af994 in _IO_new_file_xsputn (f=0x7ffff7610760 <_IO_2_1_stdout_>, data=<optimized out>, n=16) at fileops.c:1258
+#2  0x00007ffff72a3977 in __GI__IO_fwrite (buf=0x555555bb8390, size=1, count=16, fp=0x7ffff7610760 <_IO_2_1_stdout_>) at iofwrite.c:39
+#3  0x00007ffff7b5fe94 in std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x0000555555556956 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1539
+#5  0x00005555555563b2 in BTreeNode::traverse (this=0x5555558b8f90) at BTree.cpp:592
+#6  0x0000555555556377 in BTreeNode::traverse (this=0x555555b02ad0) at BTree.cpp:591
+#7  0x0000555555556377 in BTreeNode::traverse (this=0x5555559595b0) at BTree.cpp:591
+#8  0x0000555555556377 in BTreeNode::traverse (this=0x5555557d5320) at BTree.cpp:591
+#9  0x0000555555556377 in BTreeNode::traverse (this=0x5555557f03b0) at BTree.cpp:591
+#10 0x0000555555556377 in BTreeNode::traverse (this=0x555555b9e740) at BTree.cpp:591
+#11 0x00005555555563ff in BTreeNode::traverse (this=0x5555558124c0) at BTree.cpp:597
+#12 0x00005555555563ff in BTreeNode::traverse (this=0x555555812430) at BTree.cpp:597
+#13 0x0000555555556377 in BTreeNode::traverse (this=0x555555a27320) at BTree.cpp:591
+#14 0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#15 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+259	../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S: Arquivo ou diretório inexistente.
+
+Backtrace END
+Memory content before bitflip:0x000x000x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffdc5c
+address max offset: 4
+Memory content after  bitflip:0x4a0x330x0b0x7b
+frame name: BTreeNode::traverse
+symbol name: i
+symbol filename: BTree.cpp
+symbol line: 585
+value: 2064331594
+value address: 0x7fffffffdc5c
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-11 23:06:34]
+Fault Injection Successful after 1.3427913188934326s
+[INFO -- 2018-10-11 23:06:34]
+event type: exit
+[EXCEPTION -- 2018-10-11 23:06:34]
+exit code: no exit code available

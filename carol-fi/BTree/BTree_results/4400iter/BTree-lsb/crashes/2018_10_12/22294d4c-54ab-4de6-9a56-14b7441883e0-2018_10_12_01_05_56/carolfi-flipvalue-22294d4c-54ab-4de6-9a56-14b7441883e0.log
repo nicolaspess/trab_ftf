@@ -1,0 +1,67 @@
+[INFO -- 2018-10-12 01:05:55]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 01:05:55]
+Initialization strings:
+[INFO -- 2018-10-12 01:05:55]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 01:05:55]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 01:05:55]
+initSignal:0
+[INFO -- 2018-10-12 01:05:55]
+endSignal:2
+[INFO -- 2018-10-12 01:05:55]
+faultModel:4
+[EXCEPTION -- 2018-10-12 01:05:56]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-12 01:05:56]
+Backtrace BEGIN:
+#0  0x0000555555556a80 in std::bitset<16ul>::_Unchecked_test (this=0x7fffffffdba0, __pos=0) at /usr/include/c++/7/bitset:1059
+#1  0x0000555555556a03 in std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x7fffffffdba0, __s="1111100101110000", __zero=48 '0', __one=49 '1') at /usr/include/c++/7/bitset:1409
+#2  0x0000555555556943 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1538
+#3  0x00005555555563b2 in BTreeNode::traverse (this=0x555555b9efb0) at BTree.cpp:592
+#4  0x00005555555563ff in BTreeNode::traverse (this=0x555555ba4c80) at BTree.cpp:597
+#5  0x00005555555563ff in BTreeNode::traverse (this=0x5555559524a0) at BTree.cpp:597
+#6  0x00005555555563ff in BTreeNode::traverse (this=0x5555557e8fd0) at BTree.cpp:597
+#7  0x0000555555556377 in BTreeNode::traverse (this=0x5555559c9ae0) at BTree.cpp:591
+#8  0x00005555555563ff in BTreeNode::traverse (this=0x555555aeeac0) at BTree.cpp:597
+#9  0x0000555555556377 in BTreeNode::traverse (this=0x555555812430) at BTree.cpp:591
+#10 0x0000555555556377 in BTreeNode::traverse (this=0x555555a27320) at BTree.cpp:591
+#11 0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#12 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+1054	      }
+1055	
+1056	      _GLIBCXX_CONSTEXPR bool
+1057	      _Unchecked_test(size_t __pos) const _GLIBCXX_NOEXCEPT
+1058	      { return ((this->_M_getword(__pos) & _Base::_S_maskbit(__pos))
+1059			!= static_cast<_WordT>(0)); }
+1060	      //@}
+1061	
+1062	      // Set, reset, and flip.
+1063	      /**
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: n
+Memory content before bitflip:0x020x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x555555b9efc8
+address max offset: 4
+Memory content after  bitflip:0x020x000x000x08
+frame name: BTreeNode::traverse
+symbol name: this
+symbol filename: BTree.cpp
+symbol line: 0
+value: 0x555555b9efb0
+value address: 0x7fffffffdb88
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-12 01:05:56]
+Fault Injection Successful after 1.2623562812805176s
+[INFO -- 2018-10-12 01:05:56]
+event type: exit
+[EXCEPTION -- 2018-10-12 01:05:56]
+exit code: no exit code available

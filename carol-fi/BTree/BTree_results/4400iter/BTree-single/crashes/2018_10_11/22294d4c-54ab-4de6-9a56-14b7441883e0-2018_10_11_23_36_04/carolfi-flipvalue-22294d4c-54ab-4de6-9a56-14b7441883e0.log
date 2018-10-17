@@ -1,0 +1,61 @@
+[INFO -- 2018-10-11 23:36:03]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-11 23:36:03]
+Initialization strings:
+[INFO -- 2018-10-11 23:36:03]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-11 23:36:03]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-11 23:36:03]
+initSignal:0
+[INFO -- 2018-10-11 23:36:03]
+endSignal:2
+[INFO -- 2018-10-11 23:36:03]
+faultModel:0
+[INFO -- 2018-10-11 23:36:03]
+Backtrace BEGIN:
+#0  BTreeNode::insertNonFull (this=0x555555878400, k=4059631) at BTree.cpp:535
+#1  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558cdff0, k=4059631) at BTree.cpp:533
+#2  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555970ce0, k=4059631) at BTree.cpp:533
+#3  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555557e10b0, k=4059631) at BTree.cpp:533
+#4  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558bd670, k=4059631) at BTree.cpp:533
+#5  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555a273b0, k=4059631) at BTree.cpp:533
+#6  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555a27320, k=4059631) at BTree.cpp:533
+#7  0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=4059631) at BTree.cpp:487
+#8  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+530				if (keys[i+1] < k)
+531					i++;
+532			}
+533			C[i+1]->insertNonFull(k);
+534		}
+535	}
+536	
+537	// A utility function to split the child y of this node
+538	// Note that y must be full when this function is called
+539	void BTreeNode::splitChild(int i, BTreeNode *y)
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: leaf
+Memory content before bitflip:0x00
+Fault Model: Single bit-flip
+base address to flip value: 0x55555587841c
+address max offset: 1
+Memory content after  bitflip:0x02
+frame name: BTreeNode::insertNonFull
+symbol name: this
+symbol filename: BTree.cpp
+symbol line: 0
+value: 0x555555878400
+value address: 0x7fffffffdc18
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-11 23:36:03]
+Fault Injection Successful after 0.9268171787261963s
+[INFO -- 2018-10-11 23:36:04]
+event type: exit
+[EXCEPTION -- 2018-10-11 23:36:04]
+exit code: no exit code available

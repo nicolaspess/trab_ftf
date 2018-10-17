@@ -1,0 +1,67 @@
+[INFO -- 2018-10-11 23:07:28]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-11 23:07:28]
+Initialization strings:
+[INFO -- 2018-10-11 23:07:28]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-11 23:07:28]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-11 23:07:28]
+initSignal:0
+[INFO -- 2018-10-11 23:07:28]
+endSignal:2
+[INFO -- 2018-10-11 23:07:28]
+faultModel:2
+[INFO -- 2018-10-11 23:07:28]
+Backtrace BEGIN:
+#0  0x00005555555568b8 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1530
+#1  0x00005555555563b2 in BTreeNode::traverse (this=0x555555ae57f0) at BTree.cpp:592
+#2  0x00005555555563ff in BTreeNode::traverse (this=0x555555956ee0) at BTree.cpp:597
+#3  0x00005555555563ff in BTreeNode::traverse (this=0x555555af9770) at BTree.cpp:597
+#4  0x00005555555563ff in BTreeNode::traverse (this=0x55555585b5a0) at BTree.cpp:597
+#5  0x0000555555556377 in BTreeNode::traverse (this=0x5555558bd550) at BTree.cpp:591
+#6  0x0000555555556377 in BTreeNode::traverse (this=0x555555a27200) at BTree.cpp:591
+#7  0x0000555555556377 in BTreeNode::traverse (this=0x555555a27290) at BTree.cpp:591
+#8  0x0000555555556377 in BTreeNode::traverse (this=0x555555a273b0) at BTree.cpp:591
+#9  0x00005555555563ff in BTreeNode::traverse (this=0x555555a27320) at BTree.cpp:597
+#10 0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#11 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+1525	      return __is;
+1526	    }
+1527	
+1528	  template <class _CharT, class _Traits, size_t _Nb>
+1529	    std::basic_ostream<_CharT, _Traits>&
+1530	    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+1531		       const bitset<_Nb>& __x)
+1532	    {
+1533	      std::basic_string<_CharT, _Traits> __tmp;
+1534	
+
+Backtrace END
+Fliping array at pos: 8
+Memory content before bitflip:0x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffdde6 
+address max offset: 1
+Memory content after  bitflip:0xec
+frame name: main
+symbol name: line
+symbol filename: BTree.cpp
+symbol line: 659
+value: "1798818", <incomplete sequence \354>
+value address: 0x7fffffffddde
+Type: The type is an array.
+Type sizeof: 10
+Field name: None
+Field Type: A range type, that is, an integer type with bounds.
+Field Type sizeof: 8
+Field Type range: (0, 9)
+
+[INFO -- 2018-10-11 23:07:28]
+Fault Injection Successful after 0.9800736904144287s
+[INFO -- 2018-10-11 23:07:29]
+event type: exit
+[INFO -- 2018-10-11 23:07:29]
+exit code: 0

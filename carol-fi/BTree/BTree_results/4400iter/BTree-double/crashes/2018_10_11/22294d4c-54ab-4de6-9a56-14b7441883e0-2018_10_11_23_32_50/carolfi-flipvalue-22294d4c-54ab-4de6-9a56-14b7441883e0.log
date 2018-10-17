@@ -1,0 +1,53 @@
+[INFO -- 2018-10-11 23:32:49]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-11 23:32:49]
+Initialization strings:
+[INFO -- 2018-10-11 23:32:49]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-11 23:32:49]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-11 23:32:49]
+initSignal:0
+[INFO -- 2018-10-11 23:32:49]
+endSignal:2
+[INFO -- 2018-10-11 23:32:49]
+faultModel:1
+[INFO -- 2018-10-11 23:32:49]
+Backtrace BEGIN:
+#0  0x0000555555555160 in atoi@plt ()
+#1  0x00005555555565ed in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:663
+
+637				root = NULL;
+638			else
+639				root = root->C[0];
+640	
+641			// Free the old root
+642			delete tmp;
+643		}
+644		return;
+645	}
+646	
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x700xae0x760x550x550x550x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffddb8
+address max offset: 8
+Memory content after  bitflip:0x700xae0x760x550x550x550x140x00
+frame name: main
+symbol name: file
+symbol filename: BTree.cpp
+symbol line: 654
+value: 0x55555576ae70
+value address: 0x7fffffffddb8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-11 23:32:49]
+Fault Injection Successful after 0.9025731086730957s
+[INFO -- 2018-10-11 23:32:50]
+event type: exit
+[EXCEPTION -- 2018-10-11 23:32:50]
+exit code: no exit code available

@@ -1,0 +1,64 @@
+[INFO -- 2018-10-12 07:49:33]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 07:49:33]
+Initialization strings:
+[INFO -- 2018-10-12 07:49:33]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 07:49:33]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 07:49:33]
+initSignal:0
+[INFO -- 2018-10-12 07:49:33]
+endSignal:2
+[INFO -- 2018-10-12 07:49:33]
+faultModel:1
+[INFO -- 2018-10-12 07:49:34]
+Backtrace BEGIN:
+#0  0x0000555555556a47 in std::bitset<16ul>::_Unchecked_test (this=0x7fffffffdba0, __pos=9) at /usr/include/c++/7/bitset:1057
+#1  0x0000555555556a03 in std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x7fffffffdba0, __s='0' <repete 16 vezes>, __zero=48 '0', __one=49 '1') at /usr/include/c++/7/bitset:1409
+#2  0x0000555555556943 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset) at /usr/include/c++/7/bitset:1538
+#3  0x00005555555563b2 in BTreeNode::traverse (this=0x5555557ed2c0) at BTree.cpp:592
+#4  0x00005555555563ff in BTreeNode::traverse (this=0x5555557ed350) at BTree.cpp:597
+#5  0x0000555555556377 in BTreeNode::traverse (this=0x5555557edb30) at BTree.cpp:591
+#6  0x0000555555556377 in BTreeNode::traverse (this=0x5555557ef360) at BTree.cpp:591
+#7  0x00005555555563ff in BTreeNode::traverse (this=0x5555557ef3f0) at BTree.cpp:597
+#8  0x0000555555556377 in BTreeNode::traverse (this=0x555555809820) at BTree.cpp:591
+#9  0x0000555555556377 in BTreeNode::traverse (this=0x555555858540) at BTree.cpp:591
+#10 0x00005555555563ff in BTreeNode::traverse (this=0x5555558584b0) at BTree.cpp:597
+#11 0x0000555555556851 in BTree::traverse (this=0x7fffffffddc0) at BTree.cpp:137
+#12 0x0000555555556630 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:668
+
+1052		this->_M_getword(__pos) ^= _Base::_S_maskbit(__pos);
+1053		return *this;
+1054	      }
+1055	
+1056	      _GLIBCXX_CONSTEXPR bool
+1057	      _Unchecked_test(size_t __pos) const _GLIBCXX_NOEXCEPT
+1058	      { return ((this->_M_getword(__pos) & _Base::_S_maskbit(__pos))
+1059			!= static_cast<_WordT>(0)); }
+1060	      //@}
+1061	
+
+Backtrace END
+Fliping a bit of the reference
+Memory content before bitflip:0x000x000x000x000x000x000x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffdba0
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x81
+frame name: std::operator<< <char, std::char_traits<char>, 16ul>
+symbol name: __x
+symbol filename: /usr/include/c++/7/bitset
+symbol line: 1531
+value: std::bitset = {[56] = 1, [63] = 1}
+value address: 0x7fffffffdba0
+Type: A reference type.
+Type sizeof: 8
+
+[INFO -- 2018-10-12 07:49:34]
+Fault Injection Successful after 1.2729101181030273s
+[INFO -- 2018-10-12 07:49:34]
+event type: exit
+[INFO -- 2018-10-12 07:49:34]
+exit code: 0

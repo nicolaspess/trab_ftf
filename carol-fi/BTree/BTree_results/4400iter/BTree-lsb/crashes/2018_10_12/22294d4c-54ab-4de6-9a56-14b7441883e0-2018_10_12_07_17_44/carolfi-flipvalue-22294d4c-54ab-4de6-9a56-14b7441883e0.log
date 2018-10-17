@@ -1,0 +1,55 @@
+[INFO -- 2018-10-12 07:17:42]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 07:17:42]
+Initialization strings:
+[INFO -- 2018-10-12 07:17:42]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 07:17:42]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 07:17:42]
+initSignal:0
+[INFO -- 2018-10-12 07:17:42]
+endSignal:2
+[INFO -- 2018-10-12 07:17:42]
+faultModel:4
+[EXCEPTION -- 2018-10-12 07:17:43]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-12 07:17:43]
+Backtrace BEGIN:
+#0  BTreeNode::insertNonFull (this=0x5555558584b0, k=0) at BTree.cpp:500
+#1  0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=0) at BTree.cpp:487
+#2  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+495	{
+496		// Initialize index as index of rightmost element
+497		int i = n-1;
+498	
+499		// If this is a leaf node
+500		if (leaf == true)
+501		{
+502			// The following loop does two things
+503			// a) Finds the location of new key to be inserted
+504			// b) Moves all greater keys to one place ahead
+
+Backtrace END
+Memory content before bitflip:0x000x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdd4c
+address max offset: 4
+Memory content after  bitflip:0x000x000x000x01
+frame name: BTreeNode::insertNonFull
+symbol name: i
+symbol filename: BTree.cpp
+symbol line: 497
+value: 16777216
+value address: 0x7fffffffdd4c
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-12 07:17:43]
+Fault Injection Successful after 1.1366147994995117s
+[INFO -- 2018-10-12 07:17:43]
+event type: exit
+[EXCEPTION -- 2018-10-12 07:17:43]
+exit code: no exit code available

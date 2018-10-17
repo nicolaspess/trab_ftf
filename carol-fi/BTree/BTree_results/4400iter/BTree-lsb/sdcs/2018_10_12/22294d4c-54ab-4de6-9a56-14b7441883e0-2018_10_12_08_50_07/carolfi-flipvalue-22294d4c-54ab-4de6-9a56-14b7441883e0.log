@@ -1,0 +1,52 @@
+[INFO -- 2018-10-12 08:50:05]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 08:50:05]
+Initialization strings:
+[INFO -- 2018-10-12 08:50:05]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 08:50:05]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 08:50:05]
+initSignal:0
+[INFO -- 2018-10-12 08:50:05]
+endSignal:2
+[INFO -- 2018-10-12 08:50:05]
+faultModel:4
+[EXCEPTION -- 2018-10-12 08:50:06]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-10-12 08:50:06]
+Backtrace BEGIN:
+#0  do_lookup_x (undef_name=undef_name@entry=0x7ffff7a7a06a "_ZNSt13basic_ostreamIwSt11char_traitsIwEE5flushEv", new_hash=new_hash@entry=495834476, old_hash=old_hash@entry=0x7fffffffd900, ref=0x7ffff7a57260, result=result@entry=0x7fffffffd910, scope=<optimized out>, i=1, version=0x7ffff7fe0030, flags=1, skip=0x0, type_class=1, undef_map=0x7ffff7fe2000) at dl-lookup.c:398
+#1  0x00007ffff7de01ef in _dl_lookup_symbol_x (undef_name=0x7ffff7a7a06a "_ZNSt13basic_ostreamIwSt11char_traitsIwEE5flushEv", undef_map=0x7ffff7fe2000, ref=ref@entry=0x7fffffffd9a8, symbol_scope=0x7ffff7fe2358, version=0x7ffff7fe0030, type_class=type_class@entry=1, flags=1, skip_map=<optimized out>) at dl-lookup.c:813
+#2  0x00007ffff7de4ec3 in _dl_fixup (l=<optimized out>, reloc_arg=<optimized out>) at ../elf/dl-runtime.c:112
+#3  0x00007ffff7dec70a in _dl_runtime_resolve_xsave () at ../sysdeps/x86_64/dl-trampoline.h:125
+#4  0x00007ffff7aef960 in std::ios_base::Init::~Init() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#5  0x00007ffff7267041 in __run_exit_handlers (status=0, listp=0x7ffff760f718 <__exit_funcs>, run_list_atexit=run_list_atexit@entry=true, run_dtors=run_dtors@entry=true) at exit.c:108
+#6  0x00007ffff726713a in __GI_exit (status=<optimized out>) at exit.c:139
+#7  0x00007ffff7245b9e in __libc_start_main (main=0x55555555656a <main(int, char**)>, argc=3, argv=0x7fffffffded8, init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, stack_end=0x7fffffffdec8) at ../csu/libc-start.c:344
+#8  0x00005555555551fa in _start ()
+
+393	dl-lookup.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Memory content before bitflip:0x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7ffff7610d6c 
+address max offset: 1
+Memory content after  bitflip:0x80
+frame name: __run_exit_handlers
+symbol name: __exit_funcs_done
+symbol filename: exit.c
+symbol line: 31
+value: 128
+value address: 0x7ffff7610d6c <__exit_funcs_done>
+Type: A boolean type.
+Type sizeof: 1
+
+[INFO -- 2018-10-12 08:50:06]
+Fault Injection Successful after 1.3841049671173096s
+[INFO -- 2018-10-12 08:50:06]
+event type: exit
+[INFO -- 2018-10-12 08:50:06]
+exit code: 0

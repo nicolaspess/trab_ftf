@@ -1,0 +1,60 @@
+[INFO -- 2018-10-12 00:42:45]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 00:42:45]
+Initialization strings:
+[INFO -- 2018-10-12 00:42:45]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 00:42:45]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 00:42:45]
+initSignal:0
+[INFO -- 2018-10-12 00:42:45]
+endSignal:2
+[INFO -- 2018-10-12 00:42:45]
+faultModel:4
+[EXCEPTION -- 2018-10-12 00:42:45]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-12 00:42:46]
+Backtrace BEGIN:
+#0  0x0000555555556032 in BTreeNode::insertNonFull (this=0x5555557a3bb0, k=2630254) at BTree.cpp:522
+#1  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555557b0090, k=2630254) at BTree.cpp:533
+#2  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555580ee30, k=2630254) at BTree.cpp:533
+#3  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558124c0, k=2630254) at BTree.cpp:533
+#4  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555812430, k=2630254) at BTree.cpp:533
+#5  0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=2630254) at BTree.cpp:487
+#6  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+517			// Find the child which is going to have the new key
+518			while (i >= 0 && keys[i] > k)
+519				i--;
+520	
+521			// See if the found child is full
+522			if (C[i+1]->n == 2*t-1)
+523			{
+524				// If the child is full, then split it
+525				splitChild(i+1, C[i+1]);
+526	
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x700xae0x760x550x550x550x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffddb8
+address max offset: 8
+Memory content after  bitflip:0x700xae0x760x550x550x550x000x80
+frame name: main
+symbol name: file
+symbol filename: BTree.cpp
+symbol line: 654
+value: 0x55555576ae70
+value address: 0x7fffffffddb8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-12 00:42:46]
+Fault Injection Successful after 1.0082077980041504s
+[INFO -- 2018-10-12 00:42:46]
+event type: exit
+[EXCEPTION -- 2018-10-12 00:42:46]
+exit code: no exit code available

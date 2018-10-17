@@ -1,0 +1,62 @@
+[INFO -- 2018-10-11 23:57:54]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-11 23:57:54]
+Initialization strings:
+[INFO -- 2018-10-11 23:57:54]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-11 23:57:54]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-11 23:57:54]
+initSignal:0
+[INFO -- 2018-10-11 23:57:54]
+endSignal:2
+[INFO -- 2018-10-11 23:57:54]
+faultModel:1
+[EXCEPTION -- 2018-10-11 23:57:55]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-11 23:57:55]
+Backtrace BEGIN:
+#0  0x0000555555555f74 in BTreeNode::insertNonFull (this=0x555555812430, k=2601990) at BTree.cpp:500
+#1  0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=2601990) at BTree.cpp:487
+#2  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+495	{
+496		// Initialize index as index of rightmost element
+497		int i = n-1;
+498	
+499		// If this is a leaf node
+500		if (leaf == true)
+501		{
+502			// The following loop does two things
+503			// a) Finds the location of new key to be inserted
+504			// b) Moves all greater keys to one place ahead
+
+Backtrace END
+Fliping value of field: t
+Memory content before bitflip:0x030x000x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffddc8
+address max offset: 4
+Memory content after  bitflip:0x030x000x900x00
+frame name: main
+symbol name: t
+symbol filename: BTree.cpp
+symbol line: 653
+value: {root = 0x555555812430, t = 9437187}
+value address: 0x7fffffffddc0
+Type: The type is a structure.
+Type sizeof: 16
+Field name: root
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: t
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+
+[INFO -- 2018-10-11 23:57:55]
+Fault Injection Successful after 1.3419415950775146s
+[INFO -- 2018-10-11 23:57:55]
+event type: exit
+[INFO -- 2018-10-11 23:57:55]
+exit code: 0

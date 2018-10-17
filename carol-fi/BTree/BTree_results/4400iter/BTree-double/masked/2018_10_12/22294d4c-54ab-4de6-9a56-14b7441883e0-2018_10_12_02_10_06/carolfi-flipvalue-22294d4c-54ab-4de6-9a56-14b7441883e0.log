@@ -1,0 +1,53 @@
+[INFO -- 2018-10-12 02:10:04]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-12 02:10:04]
+Initialization strings:
+[INFO -- 2018-10-12 02:10:04]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-12 02:10:04]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-12 02:10:04]
+initSignal:0
+[INFO -- 2018-10-12 02:10:04]
+endSignal:2
+[INFO -- 2018-10-12 02:10:04]
+faultModel:1
+[INFO -- 2018-10-12 02:10:05]
+Backtrace BEGIN:
+#0  0x0000555555555f63 in BTreeNode::insertNonFull (this=0x555555812430, k=1654370) at BTree.cpp:497
+#1  0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=1654370) at BTree.cpp:487
+#2  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+492	// The assumption is, the node must be non-full when this
+493	// function is called
+494	void BTreeNode::insertNonFull(int k)
+495	{
+496		// Initialize index as index of rightmost element
+497		int i = n-1;
+498	
+499		// If this is a leaf node
+500		if (leaf == true)
+501		{
+
+Backtrace END
+Memory content before bitflip:0x030x000x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffddac
+address max offset: 4
+Memory content after  bitflip:0x030x000x000x84
+frame name: main
+symbol name: argc
+symbol filename: BTree.cpp
+symbol line: 650
+value: -2080374781
+value address: 0x7fffffffddac
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-12 02:10:05]
+Fault Injection Successful after 1.069072961807251s
+[INFO -- 2018-10-12 02:10:05]
+event type: exit
+[INFO -- 2018-10-12 02:10:05]
+exit code: 0

@@ -1,0 +1,60 @@
+[INFO -- 2018-10-11 23:02:18]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-11 23:02:18]
+Initialization strings:
+[INFO -- 2018-10-11 23:02:18]
+(1) file /tmp/BTree/main
+[INFO -- 2018-10-11 23:02:18]
+(2)  set args /tmp/BTree/input_100000 /tmp/BTree/output_100000
+[INFO -- 2018-10-11 23:02:18]
+initSignal:0
+[INFO -- 2018-10-11 23:02:18]
+endSignal:2
+[INFO -- 2018-10-11 23:02:18]
+faultModel:1
+[INFO -- 2018-10-11 23:02:18]
+Backtrace BEGIN:
+#0  0x0000555555556213 in BTreeNode::splitChild (this=0x5555557c5330, i=0, y=0x5555557c0860) at BTree.cpp:563
+#1  0x000055555555608d in BTreeNode::insertNonFull (this=0x5555557c5330, k=330241) at BTree.cpp:525
+#2  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555840f30, k=330241) at BTree.cpp:533
+#3  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558dccc0, k=330241) at BTree.cpp:533
+#4  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555558dd020, k=330241) at BTree.cpp:533
+#5  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x5555559bb950, k=330241) at BTree.cpp:533
+#6  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x55555579e990, k=330241) at BTree.cpp:533
+#7  0x00005555555560d9 in BTreeNode::insertNonFull (this=0x555555812430, k=330241) at BTree.cpp:533
+#8  0x0000555555555f18 in BTree::insert (this=0x7fffffffddc0, k=330241) at BTree.cpp:487
+#9  0x0000555555556601 in main (argc=3, argv=0x7fffffffded8) at BTree.cpp:665
+
+558		y->n = t - 1;
+559	
+560		// Since this node is going to have a new child,
+561		// create space of new child
+562		for (int j = n; j >= i+1; j--)
+563			C[j+1] = C[j];
+564	
+565		// Link the new child to this node
+566		C[i+1] = z;
+567	
+
+Backtrace END
+Memory content before bitflip:0xff0xff0xff0xff
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffdc5c
+address max offset: 4
+Memory content after  bitflip:0xff0xff0x6f0xff
+frame name: BTreeNode::insertNonFull
+symbol name: i
+symbol filename: BTree.cpp
+symbol line: 497
+value: -9437185
+value address: 0x7fffffffdc5c
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-11 23:02:18]
+Fault Injection Successful after 0.5658807754516602s
+[INFO -- 2018-10-11 23:02:18]
+event type: exit
+[INFO -- 2018-10-11 23:02:18]
+exit code: 0
