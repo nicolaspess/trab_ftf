@@ -1,0 +1,68 @@
+[INFO -- 2018-10-16 21:32:56]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 21:32:56]
+Initialization strings:
+[INFO -- 2018-10-16 21:32:56]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 21:32:56]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 21:32:56]
+initSignal:0
+[INFO -- 2018-10-16 21:32:56]
+endSignal:2
+[INFO -- 2018-10-16 21:32:56]
+faultModel:4
+[INFO -- 2018-10-16 21:32:57]
+Backtrace BEGIN:
+#0  0x00007ffff7334154 in __GI___libc_write (fd=1, buf=0x5555559b9860, nbytes=21) at ../sysdeps/unix/sysv/linux/write.c:27
+#1  0x00007ffff72af1bd in _IO_new_file_write (f=0x7ffff7610760 <_IO_2_1_stdout_>, data=0x5555559b9860, n=21) at fileops.c:1203
+#2  0x00007ffff72b0f51 in new_do_write (to_do=21, data=0x5555559b9860 "0001110101001100 001\n", fp=0x7ffff7610760 <_IO_2_1_stdout_>) at fileops.c:457
+#3  _IO_new_do_write (fp=0x7ffff7610760 <_IO_2_1_stdout_>, data=0x5555559b9860 "0001110101001100 001\n", to_do=21) at fileops.c:433
+#4  0x00007ffff72ae788 in _IO_new_file_sync (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at fileops.c:813
+#5  0x00007ffff72a287d in __GI__IO_fflush (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at iofflush.c:40
+#6  0x00007ffff7b5ef5e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#7  0x00005555555577ea in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555558e0728: 0x5555558d46f0) at RBTree.cpp:276
+#8  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557accb8: 0x5555558e0720) at RBTree.cpp:271
+#9  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555581d160: 0x5555557accb0) at RBTree.cpp:271
+#10 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555558895b0: 0x55555581d150) at RBTree.cpp:279
+#11 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557af7a8: 0x5555558895a0) at RBTree.cpp:279
+#12 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555577ed28: 0x5555557af7a0) at RBTree.cpp:271
+#13 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557870a0: 0x55555577ed20) at RBTree.cpp:271
+#14 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555773d50: 0x555555787090) at RBTree.cpp:279
+#15 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555771620: 0x555555773d40) at RBTree.cpp:279
+#16 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fb80: 0x555555771610) at RBTree.cpp:279
+#17 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fab8: 0x55555576fb70) at RBTree.cpp:279
+#18 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fe78: 0x55555576fab0) at RBTree.cpp:271
+#19 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555771a38: 0x55555576fe70) at RBTree.cpp:271
+#20 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fa60: 0x555555771a30) at RBTree.cpp:271
+#21 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x7fffffffdc00: 0x55555576fa50) at RBTree.cpp:279
+#22 0x0000555555557841 in RBTree::inorder (this=0x7fffffffdc00) at RBTree.cpp:283
+#23 0x000055555555564c in main (argc=3, argv=0x7fffffffdf38) at main.cpp:58
+
+22	../sysdeps/unix/sysv/linux/write.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: root
+Fliping a bit of the pointer
+Memory content before bitflip:0x500xfa0x760x550x550x550x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdc00
+address max offset: 8
+Memory content after  bitflip:0x500xfa0x760x550x550x550x000x20
+frame name: RBTree::inorderBST
+symbol name: this
+symbol filename: RBTree.cpp
+symbol line: 0
+value: 0x7fffffffdc00
+value address: 0x7fffffffd858
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 21:32:57]
+Fault Injection Successful after 1.1549582481384277s
+[INFO -- 2018-10-16 21:32:57]
+event type: exit
+[INFO -- 2018-10-16 21:32:57]
+exit code: 0

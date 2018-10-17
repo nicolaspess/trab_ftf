@@ -1,0 +1,61 @@
+[INFO -- 2018-10-16 20:29:51]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 20:29:51]
+Initialization strings:
+[INFO -- 2018-10-16 20:29:51]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 20:29:51]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 20:29:51]
+initSignal:0
+[INFO -- 2018-10-16 20:29:51]
+endSignal:2
+[INFO -- 2018-10-16 20:29:51]
+faultModel:4
+[INFO -- 2018-10-16 20:29:51]
+Backtrace BEGIN:
+#0  __GI___libc_free (mem=0x5555559b9830) at malloc.c:3086
+#1  0x000055555555820c in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1533
+#2  0x0000555555557798 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555949e18: 0x5555558d4a50) at RBTree.cpp:276
+#3  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555558012f0: 0x555555949e10) at RBTree.cpp:271
+#4  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557ce258: 0x5555558012e0) at RBTree.cpp:279
+#5  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555781e50: 0x5555557ce250) at RBTree.cpp:271
+#6  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555773690: 0x555555781e40) at RBTree.cpp:279
+#7  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555774978: 0x555555773680) at RBTree.cpp:279
+#8  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555774c20: 0x555555774970) at RBTree.cpp:271
+#9  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557803a8: 0x555555774c10) at RBTree.cpp:279
+#10 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557774d0: 0x5555557803a0) at RBTree.cpp:271
+#11 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555770c90: 0x5555557774c0) at RBTree.cpp:279
+#12 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555772248: 0x555555770c80) at RBTree.cpp:279
+#13 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fc40: 0x555555772240) at RBTree.cpp:271
+#14 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555770178: 0x55555576fc30) at RBTree.cpp:279
+#15 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fa58: 0x555555770170) at RBTree.cpp:271
+#16 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x7fffffffdc00: 0x55555576fa50) at RBTree.cpp:271
+#17 0x0000555555557841 in RBTree::inorder (this=0x7fffffffdc00) at RBTree.cpp:283
+#18 0x000055555555564c in main (argc=3, argv=0x7fffffffdf38) at main.cpp:58
+
+3081	malloc.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x000xdc0xff0xff0xff0x7f0x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffd6c8
+address max offset: 8
+Memory content after  bitflip:0x000xdc0xff0xff0xff0x7f0x000x40
+frame name: RBTree::inorderBST
+symbol name: this
+symbol filename: RBTree.cpp
+symbol line: 0
+value: 0x7fffffffdc00
+value address: 0x7fffffffd6c8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 20:29:51]
+Fault Injection Successful after 0.4072871208190918s
+[INFO -- 2018-10-16 20:29:51]
+event type: exit
+[INFO -- 2018-10-16 20:29:51]
+exit code: 0

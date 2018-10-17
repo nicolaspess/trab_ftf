@@ -1,0 +1,66 @@
+[INFO -- 2018-10-16 18:26:43]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 18:26:43]
+Initialization strings:
+[INFO -- 2018-10-16 18:26:43]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 18:26:43]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 18:26:43]
+initSignal:0
+[INFO -- 2018-10-16 18:26:43]
+endSignal:2
+[INFO -- 2018-10-16 18:26:43]
+faultModel:4
+[INFO -- 2018-10-16 18:26:43]
+Backtrace BEGIN:
+#0  __GI___libc_malloc (bytes=31) at malloc.c:3028
+#1  0x00007ffff7adf1a8 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x00007ffff7b70cfb in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#3  0x00007ffff7b716d0 in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_replace_aux(unsigned long, unsigned long, unsigned long, char) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x000055555555839b in void std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char, char) const ()
+#5  0x00005555555581ea in std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, 16ul>(std::basic_ostream<char, std::char_traits<char> >&, std::bitset<16ul> const&) ()
+#6  0x0000555555557798 in RBTree::inorderBST(Node*&) ()
+#7  0x000055555555776a in RBTree::inorderBST(Node*&) ()
+#8  0x0000555555557804 in RBTree::inorderBST(Node*&) ()
+#9  0x0000555555557804 in RBTree::inorderBST(Node*&) ()
+#10 0x0000555555557804 in RBTree::inorderBST(Node*&) ()
+#11 0x0000555555557804 in RBTree::inorderBST(Node*&) ()
+#12 0x0000555555557804 in RBTree::inorderBST(Node*&) ()
+#13 0x000055555555776a in RBTree::inorderBST(Node*&) ()
+#14 0x0000555555557804 in RBTree::inorderBST(Node*&) ()
+#15 0x0000555555557804 in RBTree::inorderBST(Node*&) ()
+#16 0x0000555555557804 in RBTree::inorderBST(Node*&) ()
+#17 0x0000555555557804 in RBTree::inorderBST(Node*&) ()
+#18 0x0000555555557804 in RBTree::inorderBST(Node*&) ()
+#19 0x000055555555776a in RBTree::inorderBST(Node*&) ()
+#20 0x000055555555776a in RBTree::inorderBST(Node*&) ()
+#21 0x000055555555776a in RBTree::inorderBST(Node*&) ()
+#22 0x0000555555557841 in RBTree::inorder() ()
+#23 0x000055555555564c in main ()
+
+3023	malloc.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x000x000x000x000x000x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7ffff760fc30 
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x10
+frame name: __GI___libc_malloc
+symbol name: __malloc_hook
+symbol filename: malloc.c
+symbol line: 1866
+value: 0x0
+value address: 0x7ffff760fc30 <__malloc_hook>
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 18:26:43]
+Fault Injection Successful after 0.8000261783599854s
+[INFO -- 2018-10-16 18:26:43]
+event type: exit
+[EXCEPTION -- 2018-10-16 18:26:43]
+exit code: no exit code available

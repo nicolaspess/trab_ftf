@@ -1,0 +1,47 @@
+[INFO -- 2018-10-16 17:56:22]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 17:56:22]
+Initialization strings:
+[INFO -- 2018-10-16 17:56:22]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 17:56:22]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 17:56:22]
+initSignal:0
+[INFO -- 2018-10-16 17:56:22]
+endSignal:2
+[INFO -- 2018-10-16 17:56:22]
+faultModel:4
+[INFO -- 2018-10-16 17:56:22]
+Backtrace BEGIN:
+#0  0x00007ffff72b8810 in _int_malloc (av=av@entry=0x7ffff760fc40 <main_arena>, bytes=bytes@entry=32) at malloc.c:3703
+#1  0x00007ffff72bb0fc in __GI___libc_malloc (bytes=32) at malloc.c:3057
+#2  0x00007ffff7adf1a8 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#3  0x00005555555569d3 in RBTree::insertValue(int) ()
+#4  0x0000555555555610 in main ()
+
+3698	malloc.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Memory content before bitflip:0x48
+Fault Model: LSB bit-flip
+base address to flip value: 0x7ffff72bf190 
+address max offset: 1
+Memory content after  bitflip:0x68
+frame name: __GI___libc_malloc
+symbol name: __morecore
+symbol filename: malloc.c
+symbol line: 363
+value: 0x7ffff72bf190 <__GI___default_morecore>
+value address: 0x7ffff76104d8 <__morecore>
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 17:56:22]
+Fault Injection Successful after 0.21781468391418457s
+[INFO -- 2018-10-16 17:56:22]
+event type: exit
+[EXCEPTION -- 2018-10-16 17:56:22]
+exit code: no exit code available

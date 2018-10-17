@@ -1,0 +1,60 @@
+[INFO -- 2018-10-16 21:37:57]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 21:37:57]
+Initialization strings:
+[INFO -- 2018-10-16 21:37:57]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 21:37:57]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 21:37:57]
+initSignal:0
+[INFO -- 2018-10-16 21:37:57]
+endSignal:2
+[INFO -- 2018-10-16 21:37:57]
+faultModel:4
+[INFO -- 2018-10-16 21:37:57]
+Backtrace BEGIN:
+#0  0x00005555555569a6 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555776988: 0x55555578b950, ptr=@0x7fffffffdb60: 0x555555914140) at RBTree.cpp:52
+#1  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555771168: 0x555555776980, ptr=@0x7fffffffdb60: 0x555555914140) at RBTree.cpp:44
+#2  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555770e10: 0x555555771160, ptr=@0x7fffffffdb60: 0x555555914140) at RBTree.cpp:44
+#3  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555576f0f8: 0x555555770e00, ptr=@0x7fffffffdb60: 0x555555914140) at RBTree.cpp:47
+#4  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555771a40: 0x55555576f0f0, ptr=@0x7fffffffdb60: 0x555555914140) at RBTree.cpp:44
+#5  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555576fa60: 0x555555771a30, ptr=@0x7fffffffdb60: 0x555555914140) at RBTree.cpp:47
+#6  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x7fffffffdc00: 0x55555576fa50, ptr=@0x7fffffffdb60: 0x555555914140) at RBTree.cpp:47
+#7  0x00005555555569fe in RBTree::insertValue (this=0x7fffffffdc00, n=18080) at RBTree.cpp:56
+#8  0x0000555555555610 in main (argc=3, argv=0x7fffffffdf38) at main.cpp:54
+
+47	        root->right = insertBST(root->right, ptr);
+48	        root->right->parent = root;
+49	    }
+50	
+51	    return root;
+52	}
+53	
+54	void RBTree::insertValue(int n) {
+55	    Node *node = new Node(n);
+56	    root = insertBST(root, node);
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x000xdc0xff0xff0xff0x7f0x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffda68
+address max offset: 8
+Memory content after  bitflip:0x000xdc0xff0xff0xff0x7f0x000x01
+frame name: RBTree::insertBST
+symbol name: this
+symbol filename: RBTree.cpp
+symbol line: 0
+value: 0x7fffffffdc00
+value address: 0x7fffffffda68
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 21:37:57]
+Fault Injection Successful after 0.959977388381958s
+[INFO -- 2018-10-16 21:37:58]
+event type: exit
+[INFO -- 2018-10-16 21:37:58]
+exit code: 0

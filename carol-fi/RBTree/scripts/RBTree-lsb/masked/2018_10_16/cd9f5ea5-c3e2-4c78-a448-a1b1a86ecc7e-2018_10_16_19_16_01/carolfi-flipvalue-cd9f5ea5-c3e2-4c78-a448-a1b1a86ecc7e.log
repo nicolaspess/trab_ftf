@@ -1,0 +1,70 @@
+[INFO -- 2018-10-16 19:15:59]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 19:15:59]
+Initialization strings:
+[INFO -- 2018-10-16 19:15:59]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 19:15:59]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 19:15:59]
+initSignal:0
+[INFO -- 2018-10-16 19:15:59]
+endSignal:2
+[INFO -- 2018-10-16 19:15:59]
+faultModel:4
+[INFO -- 2018-10-16 19:16:00]
+Backtrace BEGIN:
+#0  0x00007ffff7334154 in __GI___libc_write (fd=1, buf=0x5555559b9860, nbytes=21) at ../sysdeps/unix/sysv/linux/write.c:27
+#1  0x00007ffff72af1bd in _IO_new_file_write (f=0x7ffff7610760 <_IO_2_1_stdout_>, data=0x5555559b9860, n=21) at fileops.c:1203
+#2  0x00007ffff72b0f51 in new_do_write (to_do=21, data=0x5555559b9860 "1101101000101000 000\n", fp=0x7ffff7610760 <_IO_2_1_stdout_>) at fileops.c:457
+#3  _IO_new_do_write (fp=0x7ffff7610760 <_IO_2_1_stdout_>, data=0x5555559b9860 "1101101000101000 000\n", to_do=21) at fileops.c:433
+#4  0x00007ffff72ae788 in _IO_new_file_sync (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at fileops.c:813
+#5  0x00007ffff72a287d in __GI__IO_fflush (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at iofflush.c:40
+#6  0x00007ffff7b5ef5e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#7  0x00005555555577ea in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555590f288: 0x555555912220) at RBTree.cpp:276
+#8  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555792620: 0x55555590f280) at RBTree.cpp:271
+#9  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555581ea18: 0x555555792610) at RBTree.cpp:279
+#10 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555558c0900: 0x55555581ea10) at RBTree.cpp:271
+#11 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557c2050: 0x5555558c08f0) at RBTree.cpp:279
+#12 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555778248: 0x5555557c2040) at RBTree.cpp:279
+#13 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555577ec70: 0x555555778240) at RBTree.cpp:271
+#14 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555776870: 0x55555577ec60) at RBTree.cpp:279
+#15 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557705c8: 0x555555776860) at RBTree.cpp:279
+#16 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557700c0: 0x5555557705c0) at RBTree.cpp:271
+#17 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557706f0: 0x5555557700b0) at RBTree.cpp:279
+#18 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555771408: 0x5555557706e0) at RBTree.cpp:279
+#19 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fa28: 0x555555771400) at RBTree.cpp:271
+#20 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fe18: 0x55555576fa20) at RBTree.cpp:271
+#21 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555770180: 0x55555576fe10) at RBTree.cpp:271
+#22 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fa58: 0x555555770170) at RBTree.cpp:279
+#23 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x7fffffffdc00: 0x55555576fa50) at RBTree.cpp:271
+#24 0x0000555555557841 in RBTree::inorder (this=0x7fffffffdc00) at RBTree.cpp:283
+#25 0x000055555555564c in main (argc=3, argv=0x7fffffffdf38) at main.cpp:58
+
+22	../sysdeps/unix/sysv/linux/write.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the value pointed by a reference
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: data
+Memory content before bitflip:0x900xd20xff0xff
+Fault Model: LSB bit-flip
+base address to flip value: 0x555555770170
+address max offset: 4
+Memory content after  bitflip:0x900xd20xff0xfb
+frame name: RBTree::inorderBST
+symbol name: ptr
+symbol filename: RBTree.cpp
+symbol line: 267
+value: @0x55555576fa58
+value address: 0x55555576fa58
+Type: A reference type.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 19:16:00]
+Fault Injection Successful after 1.1216228008270264s
+[INFO -- 2018-10-16 19:16:00]
+event type: exit
+[INFO -- 2018-10-16 19:16:00]
+exit code: 0

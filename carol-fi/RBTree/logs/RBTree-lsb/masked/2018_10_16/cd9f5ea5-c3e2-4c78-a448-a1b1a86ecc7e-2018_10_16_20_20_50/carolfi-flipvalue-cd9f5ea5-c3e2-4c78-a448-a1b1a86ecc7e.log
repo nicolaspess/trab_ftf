@@ -1,0 +1,54 @@
+[INFO -- 2018-10-16 20:20:48]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 20:20:48]
+Initialization strings:
+[INFO -- 2018-10-16 20:20:48]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 20:20:48]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 20:20:48]
+initSignal:0
+[INFO -- 2018-10-16 20:20:48]
+endSignal:2
+[INFO -- 2018-10-16 20:20:48]
+faultModel:4
+[INFO -- 2018-10-16 20:20:48]
+Backtrace BEGIN:
+#0  RBTree::fixInsertRBTree (this=0x7fffffffdc00, ptr=@0x7fffffffdb60: 0x5555558cd130) at RBTree.cpp:124
+#1  0x0000555555556a1b in RBTree::insertValue (this=0x7fffffffdc00, n=3191) at RBTree.cpp:57
+#2  0x0000555555555610 in main (argc=3, argv=0x7fffffffdf38) at main.cpp:54
+
+119	                rotateRight(grandparent);
+120	                swap(parent->color, grandparent->color);
+121	                ptr = parent;
+122	            }
+123	        } else {
+124	            Node *uncle = grandparent->left;
+125	            if (getColor(uncle) == RED) {
+126	                setColor(uncle, BLACK);
+127	                setColor(parent, BLACK);
+128	                setColor(grandparent, RED);
+
+Backtrace END
+Fliping a bit of the reference
+Memory content before bitflip:0x300xd10x8c0x550x550x550x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdb60
+address max offset: 8
+Memory content after  bitflip:0x300xd10x8c0x550x550x550x000x01
+frame name: RBTree::fixInsertRBTree
+symbol name: ptr
+symbol filename: RBTree.cpp
+symbol line: 100
+value: @0x7fffffffdb60
+value address: 0x7fffffffdb60
+Type: A reference type.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 20:20:48]
+Fault Injection Successful after 0.5601089000701904s
+[INFO -- 2018-10-16 20:20:48]
+event type: exit
+[INFO -- 2018-10-16 20:20:48]
+exit code: 0

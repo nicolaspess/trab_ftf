@@ -1,0 +1,55 @@
+[INFO -- 2018-10-16 21:28:12]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 21:28:12]
+Initialization strings:
+[INFO -- 2018-10-16 21:28:12]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 21:28:12]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 21:28:12]
+initSignal:0
+[INFO -- 2018-10-16 21:28:12]
+endSignal:2
+[INFO -- 2018-10-16 21:28:12]
+faultModel:4
+[EXCEPTION -- 2018-10-16 21:28:12]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-10-16 21:28:12]
+Backtrace BEGIN:
+#0  _int_malloc (av=av@entry=0x7ffff760fc40 <main_arena>, bytes=bytes@entry=32) at malloc.c:4091
+#1  0x00007ffff72bb0fc in __GI___libc_malloc (bytes=32) at malloc.c:3057
+#2  0x00007ffff7adf1a8 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#3  0x00005555555569d3 in RBTree::insertValue (this=0x7fffffffdc00, n=-8634) at RBTree.cpp:55
+#4  0x0000555555555610 in main (argc=3, argv=0x7fffffffdf38) at main.cpp:54
+
+4086	malloc.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping value of field: std::_Vector_base<int, std::allocator<int> >
+Fliping value of field: _M_impl
+Fliping value of field: _M_finish
+Fliping a bit of the value pointed by a pointer
+Memory content before bitflip:0x000x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7ffff7f9fd54
+address max offset: 4
+Memory content after  bitflip:0x000x000x000x10
+frame name: main
+symbol name: v_nodes
+symbol filename: main.cpp
+symbol line: 32
+value: std::vector of length 50001, capacity 65536 = {19157, 719, -21407, 5601, 20828, 1757, -6552, 3888, 2115, 7647, 24101, 24765, -24639, 5641, 1935, 8003, 4171, -16339, -5077, -8618, 7235, -17612, -1305, -22682, 24848, -23018, 14407, -3155, 23246, 9819, -17993, 24076, 7012, -22745, -6896, -21329, 21901, 24979, -21947, -3323, 13877, -9931, -21732, -12130, 22255, -11632, -2972, 21319, -21100, -24730, 6838, -23689, -11822, 22309, -16599, -874, 11347, -18526, 24648, -12449, -12114, -847, -16154, 12507, 8203, -19872, -24283, 11821, -9659, 3155, -11361, 10694, -9994, -23363, -10547, 8972, 14367, 15094, 669, 23510, 3335, -23728, -12496, -18284, 21954, 17610, 19699, -4453, -20365, 16898, 11000, 1917, -22340, 16818, -15960, 10363, -2572, -22721, -7302, -8554, 4680, -19280, -4592, -3200, -14797, 17308, 8510, -20951, 1063, 12658, 22540, 10058, 17704, 24209, -20934, 17465, -21617, -9410, -14848, 11504, -11130, -7453, -16788, 18925, 9876, 9241, -1228, 20248, -17105, -14596, 18390, 9265, 8475, 20844, 20087, -11552, 11066, -1529, 24063, -638, -21350, -14927, -19638, 24880, -9312, -11279, 2596, 13691, 8907, -8516, 17529, -22419, -22387, -20210, -12745, 6741, -20922, 3800, -20113, -5545, 13196, 17185, 9393, -17251, 11760, 22970, 4989, -16157, 24683, -20903, -18119, -340, 23829, 4736, -23128, -7945, -22486, 16038, -18215, 21957, 24081, 19688, -7631, -9322, 19597, -6707, -9652, 13070, 10429, -4267, -6125, -16505, -7433, 4538, -8423, -999, -5554, -2296, -3376, -1469...}
+value address: 0x7fffffffdc10
+Type: The type is a structure.
+Type sizeof: 24
+Field name: std::_Vector_base<int, std::allocator<int> >
+Field Type: The type is a structure.
+Field Type sizeof: 24
+
+[INFO -- 2018-10-16 21:28:12]
+Fault Injection Successful after 0.42705821990966797s
+[INFO -- 2018-10-16 21:28:12]
+event type: exit
+[INFO -- 2018-10-16 21:28:12]
+exit code: 0

@@ -1,0 +1,71 @@
+[INFO -- 2018-10-16 19:41:01]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 19:41:01]
+Initialization strings:
+[INFO -- 2018-10-16 19:41:01]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 19:41:01]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 19:41:01]
+initSignal:0
+[INFO -- 2018-10-16 19:41:01]
+endSignal:2
+[INFO -- 2018-10-16 19:41:01]
+faultModel:4
+[INFO -- 2018-10-16 19:41:01]
+Backtrace BEGIN:
+#0  0x0000555555556967 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555771410: 0x5555557719d0, ptr=@0x7fffffffdb60: 0x5555558c4820) at RBTree.cpp:47
+#1  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555576fa28: 0x555555771400, ptr=@0x7fffffffdb60: 0x5555558c4820) at RBTree.cpp:47
+#2  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555576fe18: 0x55555576fa20, ptr=@0x7fffffffdb60: 0x5555558c4820) at RBTree.cpp:44
+#3  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555770180: 0x55555576fe10, ptr=@0x7fffffffdb60: 0x5555558c4820) at RBTree.cpp:44
+#4  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555576fa58: 0x555555770170, ptr=@0x7fffffffdb60: 0x5555558c4820) at RBTree.cpp:47
+#5  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x7fffffffdc00: 0x55555576fa50, ptr=@0x7fffffffdb60: 0x5555558c4820) at RBTree.cpp:44
+#6  0x00005555555569fe in RBTree::insertValue (this=0x7fffffffdc00, n=-7896) at RBTree.cpp:56
+#7  0x0000555555555610 in main (argc=3, argv=0x7fffffffdf38) at main.cpp:54
+
+42	
+43	    if (ptr->data < root->data) {
+44	        root->left = insertBST(root->left, ptr);
+45	        root->left->parent = root;
+46	    } else if (ptr->data > root->data) {
+47	        root->right = insertBST(root->right, ptr);
+48	        root->right->parent = root;
+49	    }
+50	
+51	    return root;
+
+Backtrace END
+Fliping value of field: _M_value
+Memory content before bitflip:0x000x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdbe8
+address max offset: 4
+Memory content after  bitflip:0x000x000x000x08
+frame name: main
+symbol name: end
+symbol filename: main.cpp
+symbol line: 31
+value: {<std::iterator<std::input_iterator_tag, int, long, int const*, int const&>> = {<No data fields>}, _M_stream = 0x0, _M_value = 134217728, _M_ok = false}
+value address: 0x7fffffffdbe0
+Type: The type is a structure.
+Type sizeof: 16
+Field name: std::iterator<std::input_iterator_tag, int, long, int const*, int const&>
+Field Type: The type is a structure.
+Field Type sizeof: 1
+Field name: _M_stream
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: _M_value
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+Field name: _M_ok
+Field Type: A boolean type.
+Field Type sizeof: 1
+
+[INFO -- 2018-10-16 19:41:01]
+Fault Injection Successful after 0.9721734523773193s
+[INFO -- 2018-10-16 19:41:02]
+event type: exit
+[INFO -- 2018-10-16 19:41:02]
+exit code: 0

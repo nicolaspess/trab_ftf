@@ -1,0 +1,59 @@
+[INFO -- 2018-10-16 19:44:11]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 19:44:11]
+Initialization strings:
+[INFO -- 2018-10-16 19:44:11]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 19:44:11]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 19:44:11]
+initSignal:0
+[INFO -- 2018-10-16 19:44:11]
+endSignal:2
+[INFO -- 2018-10-16 19:44:11]
+faultModel:4
+[INFO -- 2018-10-16 19:44:11]
+Backtrace BEGIN:
+#0  0x0000555555556939 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555576fe80: 0x555555771700, ptr=@0x7fffffffdb60: 0x555555915eb0) at RBTree.cpp:45
+#1  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555771a38: 0x55555576fe70, ptr=@0x7fffffffdb60: 0x555555915eb0) at RBTree.cpp:47
+#2  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555576fa60: 0x555555771a30, ptr=@0x7fffffffdb60: 0x555555915eb0) at RBTree.cpp:44
+#3  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x7fffffffdc00: 0x55555576fa50, ptr=@0x7fffffffdb60: 0x555555915eb0) at RBTree.cpp:47
+#4  0x00005555555569fe in RBTree::insertValue (this=0x7fffffffdc00, n=10685) at RBTree.cpp:56
+#5  0x0000555555555610 in main (argc=3, argv=0x7fffffffdf38) at main.cpp:54
+
+40	    if (root == NULL)
+41	        return ptr;
+42	
+43	    if (ptr->data < root->data) {
+44	        root->left = insertBST(root->left, ptr);
+45	        root->left->parent = root;
+46	    } else if (ptr->data > root->data) {
+47	        root->right = insertBST(root->right, ptr);
+48	        root->right->parent = root;
+49	    }
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: root
+Fliping a bit of the pointer
+Memory content before bitflip:0x500xfa0x760x550x550x550x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdc00
+address max offset: 8
+Memory content after  bitflip:0x500xfa0x760x550x550x550x000x04
+frame name: RBTree::insertBST
+symbol name: this
+symbol filename: RBTree.cpp
+symbol line: 0
+value: 0x7fffffffdc00
+value address: 0x7fffffffda68
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 19:44:11]
+Fault Injection Successful after 0.9934618473052979s
+[INFO -- 2018-10-16 19:44:12]
+event type: exit
+[EXCEPTION -- 2018-10-16 19:44:12]
+exit code: no exit code available

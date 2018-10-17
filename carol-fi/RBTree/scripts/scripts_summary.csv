@@ -1,0 +1,65 @@
+Faults Injected:;3286
+
+Fault Effect;#Effect;PVF
+Masked;2842;0.8648813146682898
+SDCs;6;0.0018259281801582471
+Crashes;437;0.13298843578819233
+Hangs;1;0.00030432136335970786
+
+FaultModels SDCs:
+FaultModel ;#SDCs;percentage
+LSB bit-flip;6;100.0
+
+FaultModels Crashes:
+FaultModel ;#Crashes;percentage
+LSB bit-flip;437;100.0
+
+FaultModels Hangs:
+FaultModel ;#Hangs;percentage
+LSB bit-flip;1;100.0
+
+Variables that caused SDCs:
+PVF ;#flips ;#SDCs ;Var name ;file ;line number
+100.0;2;2;i;main.cpp;53
+11.11111111111111;9;1;ptr;RBTree.cpp;39
+0.8928571428571428;112;1;this;RBTree.cpp;0
+20.0;5;1;n;RBTree.cpp;54
+8.333333333333332;12;1;root;RBTree.cpp;39
+
+Variables that caused Crash:
+PVF ;#flips ;#SDCs ;Var name ;file ;line number
+100.0;151;151;user_entry;../elf/dl-sysdep.c;91
+100.0;103;103;_dl_skip_args;rtld.c;84
+21.472392638036812;163;35;__GI__IO_file_jumps;fileops.c;1455
+37.64705882352941;85;32;ptr;RBTree.cpp;267
+22.321428571428573;112;25;this;RBTree.cpp;0
+24.096385542168676;83;20;__GI__dl_argv;rtld.c;83
+7.971014492753622;138;11;_IO_file_jumps_maybe_mmap;fileops.c;1504
+91.66666666666666;12;11;root;RBTree.cpp;39
+61.53846153846154;13;8;this;main.cpp;0
+77.77777777777779;9;7;ptr;RBTree.cpp;39
+4.545454545454546;110;5;_rtld_global_ro;rtld.c;259
+3.0303030303030303;165;5;_IO_file_jumps_mmap;fileops.c;1480
+100.0;4;4;node;RBTree.cpp;55
+3.125;96;3;_rtld_global;rtld.c;231
+33.33333333333333;3;1;start;main.cpp;31
+100.0;1;1;ptr;RBTree.cpp;80
+100.0;1;1;node;RBTree.cpp;25
+100.0;1;1;global_max_fast;malloc.c;1630
+16.666666666666664;6;1;diff_time;main.cpp;36
+0.9090909090909091;110;1;library_path;rtld.c;823
+20.0;5;1;ranges;dl-reloc.c;258
+100.0;1;1;__s;/usr/include/c++/7/bitset;1404
+100.0;1;1;__ct;/usr/include/c++/7/bitset;1537
+50.0;2;1;reloc_addr;../sysdeps/x86_64/dl-machine.h;272
+100.0;1;1;__os;/usr/include/c++/7/bitset;1530
+25.0;4;1;argv;main.cpp;23
+100.0;1;1;__morecore;malloc.c;363
+100.0;1;1;__last;/usr/include/c++/7/bits/stl_vector.h;411
+100.0;1;1;__malloc_hook;malloc.c;1866
+100.0;1;1;__args#0;/usr/include/c++/7/bits/vector.tcc;96
+100.0;1;1;__free_hook;malloc.c;1864
+
+Variables that caused Hang:
+PVF ;#flips ;#SDCs ;Var name ;file ;line number
+1.0416666666666665;96;1;_rtld_global;rtld.c;231

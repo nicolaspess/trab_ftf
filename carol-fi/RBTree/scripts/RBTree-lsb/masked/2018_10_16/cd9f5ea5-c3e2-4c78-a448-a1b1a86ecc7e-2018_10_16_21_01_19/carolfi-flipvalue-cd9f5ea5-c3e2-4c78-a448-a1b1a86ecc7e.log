@@ -1,0 +1,54 @@
+[INFO -- 2018-10-16 21:01:17]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 21:01:17]
+Initialization strings:
+[INFO -- 2018-10-16 21:01:17]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 21:01:17]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 21:01:17]
+initSignal:0
+[INFO -- 2018-10-16 21:01:17]
+endSignal:2
+[INFO -- 2018-10-16 21:01:17]
+faultModel:4
+[INFO -- 2018-10-16 21:01:17]
+Backtrace BEGIN:
+#0  0x00007ffff762634e in __libc_read (fd=4, buf=0x55555576d0a0, nbytes=8191) at ../sysdeps/unix/sysv/linux/read.c:27
+#1  0x00007ffff7affe07 in std::__basic_file<char>::xsgetn(char*, long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x00007ffff7b3aba0 in std::basic_filebuf<char, std::char_traits<char> >::underflow() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#3  0x00007ffff7b2a5e9 in ?? () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00007ffff7b58ddd in std::istreambuf_iterator<char, std::char_traits<char> > std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char> > >::_M_extract_int<long>(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, std::_Ios_Iostate&, long&) const () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#5  0x00007ffff7b479b6 in std::istream::operator>>(int&) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#6  0x0000555555555a94 in std::istream_iterator<int, char, std::char_traits<char>, long>::_M_read (this=0x7fffffffdac0) at /usr/include/c++/7/bits/stream_iterator.h:121
+#7  0x0000555555555dc0 in std::istream_iterator<int, char, std::char_traits<char>, long>::operator++ (this=0x7fffffffdac0) at /usr/include/c++/7/bits/stream_iterator.h:95
+#8  0x0000555555555d01 in std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdc10, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1308
+#9  0x0000555555555bd4 in std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdc10, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1299
+#10 0x0000555555555949 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void> (this=0x7fffffffdc10, __first=..., __last=..., __a=...) at /usr/include/c++/7/bits/stl_vector.h:414
+#11 0x000055555555558c in main (argc=3, argv=0x7fffffffdf38) at main.cpp:32
+
+22	../sysdeps/unix/sysv/linux/read.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0xc00xda0xff0xff0xff0x7f0x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffda48
+address max offset: 8
+Memory content after  bitflip:0xc00xda0xff0xff0xff0x7f0x000x80
+frame name: std::istream_iterator<int, char, std::char_traits<char>, long>::operator++
+symbol name: this
+symbol filename: main.cpp
+symbol line: 0
+value: 0x7fffffffdac0
+value address: 0x7fffffffda48
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 21:01:17]
+Fault Injection Successful after 0.44046926498413086s
+[INFO -- 2018-10-16 21:01:17]
+event type: exit
+[INFO -- 2018-10-16 21:01:17]
+exit code: 0

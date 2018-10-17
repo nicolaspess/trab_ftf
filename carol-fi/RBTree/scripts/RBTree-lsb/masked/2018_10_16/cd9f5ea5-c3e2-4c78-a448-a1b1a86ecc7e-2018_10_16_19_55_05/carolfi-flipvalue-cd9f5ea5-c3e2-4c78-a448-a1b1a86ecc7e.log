@@ -1,0 +1,70 @@
+[INFO -- 2018-10-16 19:55:03]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 19:55:03]
+Initialization strings:
+[INFO -- 2018-10-16 19:55:03]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 19:55:03]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 19:55:03]
+initSignal:0
+[INFO -- 2018-10-16 19:55:03]
+endSignal:2
+[INFO -- 2018-10-16 19:55:03]
+faultModel:4
+[EXCEPTION -- 2018-10-16 19:55:03]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-16 19:55:03]
+Backtrace BEGIN:
+#0  0x00007ffff7334154 in __GI___libc_write (fd=1, buf=0x5555559b9860, nbytes=21) at ../sysdeps/unix/sysv/linux/write.c:27
+#1  0x00007ffff72af1bd in _IO_new_file_write (f=0x7ffff7610760 <_IO_2_1_stdout_>, data=0x5555559b9860, n=21) at fileops.c:1203
+#2  0x00007ffff72b0f51 in new_do_write (to_do=21, data=0x5555559b9860 "0101110111101000 000\n", fp=0x7ffff7610760 <_IO_2_1_stdout_>) at fileops.c:457
+#3  _IO_new_do_write (fp=0x7ffff7610760 <_IO_2_1_stdout_>, data=0x5555559b9860 "0101110111101000 000\n", to_do=21) at fileops.c:433
+#4  0x00007ffff72ae788 in _IO_new_file_sync (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at fileops.c:813
+#5  0x00007ffff72a287d in __GI__IO_fflush (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at iofflush.c:40
+#6  0x00007ffff7b5ef5e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#7  0x00005555555577ea in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555593bd50: 0x55555596f8e0) at RBTree.cpp:276
+#8  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555592a110: 0x55555593bd40) at RBTree.cpp:279
+#9  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557daec0: 0x55555592a100) at RBTree.cpp:279
+#10 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557b2e40: 0x5555557daeb0) at RBTree.cpp:279
+#11 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557d33f0: 0x5555557b2e30) at RBTree.cpp:279
+#12 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555579dcf0: 0x5555557d33e0) at RBTree.cpp:279
+#13 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555784818: 0x55555579dce0) at RBTree.cpp:279
+#14 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557a2370: 0x555555784810) at RBTree.cpp:271
+#15 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555771950: 0x5555557a2360) at RBTree.cpp:279
+#16 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557765a0: 0x555555771940) at RBTree.cpp:279
+#17 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fae8: 0x555555776590) at RBTree.cpp:279
+#18 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fe50: 0x55555576fae0) at RBTree.cpp:271
+#19 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576ffd0: 0x55555576fe40) at RBTree.cpp:279
+#20 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576f100: 0x55555576ffc0) at RBTree.cpp:279
+#21 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555771a40: 0x55555576f0f0) at RBTree.cpp:279
+#22 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fa60: 0x555555771a30) at RBTree.cpp:279
+#23 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x7fffffffdc00: 0x55555576fa50) at RBTree.cpp:279
+#24 0x0000555555557841 in RBTree::inorder (this=0x7fffffffdc00) at RBTree.cpp:283
+#25 0x000055555555564c in main (argc=3, argv=0x7fffffffdf38) at main.cpp:58
+
+22	in ../sysdeps/unix/sysv/linux/write.c
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x000xdc0xff0xff0xff0x7f0x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdad8
+address max offset: 8
+Memory content after  bitflip:0x000xdc0xff0xff0xff0x7f0x000x02
+frame name: RBTree::inorderBST
+symbol name: this
+symbol filename: RBTree.cpp
+symbol line: 0
+value: 0x7fffffffdc00
+value address: 0x7fffffffdad8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 19:55:03]
+Fault Injection Successful after 0.659773588180542s
+[INFO -- 2018-10-16 19:55:03]
+event type: exit
+[INFO -- 2018-10-16 19:55:03]
+exit code: 0

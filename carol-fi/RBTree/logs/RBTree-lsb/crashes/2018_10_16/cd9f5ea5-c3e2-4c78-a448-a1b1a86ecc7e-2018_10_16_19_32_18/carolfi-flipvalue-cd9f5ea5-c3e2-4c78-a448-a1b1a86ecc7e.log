@@ -1,0 +1,62 @@
+[INFO -- 2018-10-16 19:32:16]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 19:32:16]
+Initialization strings:
+[INFO -- 2018-10-16 19:32:16]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 19:32:16]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 19:32:16]
+initSignal:0
+[INFO -- 2018-10-16 19:32:16]
+endSignal:2
+[INFO -- 2018-10-16 19:32:16]
+faultModel:4
+[EXCEPTION -- 2018-10-16 19:32:16]
+pythonException: empty range for randrange() (0,0, 0)
+[EXCEPTION -- 2018-10-16 19:32:16]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-16 19:32:16]
+Backtrace BEGIN:
+#0  0x0000555555556909 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555576f938: 0x55555576fd20, ptr=@0x7fffffffdb60: 0x5555558376a0) at RBTree.cpp:44
+#1  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555576fe20: 0x55555576f930, ptr=@0x7fffffffdb60: 0x5555558376a0) at RBTree.cpp:44
+#2  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555770180: 0x55555576fe10, ptr=@0x7fffffffdb60: 0x5555558376a0) at RBTree.cpp:47
+#3  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555576fa58: 0x555555770170, ptr=@0x7fffffffdb60: 0x5555558376a0) at RBTree.cpp:47
+#4  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x7fffffffdc00: 0x55555576fa50, ptr=@0x7fffffffdb60: 0x5555558376a0) at RBTree.cpp:44
+#5  0x00005555555569fe in RBTree::insertValue (this=0x7fffffffdc00, n=-2967) at RBTree.cpp:56
+#6  0x0000555555555610 in main (argc=3, argv=0x7fffffffdf38) at main.cpp:54
+
+39	Node* RBTree::insertBST(Node *&root, Node *&ptr) {
+40	    if (root == NULL)
+41	        return ptr;
+42	
+43	    if (ptr->data < root->data) {
+44	        root->left = insertBST(root->left, ptr);
+45	        root->left->parent = root;
+46	    } else if (ptr->data > root->data) {
+47	        root->right = insertBST(root->right, ptr);
+48	        root->right->parent = root;
+
+Backtrace END
+Fliping a bit of the reference
+Memory content before bitflip:0x700x010x770x550x550x550x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x55555576fa58
+address max offset: 8
+Memory content after  bitflip:0x700x010x770x550x550x550x000x04
+frame name: RBTree::insertBST
+symbol name: root
+symbol filename: RBTree.cpp
+symbol line: 39
+value: @0x55555576fa58
+value address: 0x55555576fa58
+Type: A reference type.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 19:32:16]
+Fault Injection Successful after 0.9438252449035645s
+[INFO -- 2018-10-16 19:32:17]
+event type: exit
+[EXCEPTION -- 2018-10-16 19:32:17]
+exit code: no exit code available

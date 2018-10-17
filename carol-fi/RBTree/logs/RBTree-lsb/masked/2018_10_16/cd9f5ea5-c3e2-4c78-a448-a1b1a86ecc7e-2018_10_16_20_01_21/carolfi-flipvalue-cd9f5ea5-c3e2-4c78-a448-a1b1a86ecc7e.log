@@ -1,0 +1,54 @@
+[INFO -- 2018-10-16 20:01:19]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 20:01:19]
+Initialization strings:
+[INFO -- 2018-10-16 20:01:19]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 20:01:19]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 20:01:19]
+initSignal:0
+[INFO -- 2018-10-16 20:01:19]
+endSignal:2
+[INFO -- 2018-10-16 20:01:19]
+faultModel:4
+[INFO -- 2018-10-16 20:01:19]
+Backtrace BEGIN:
+#0  0x00007ffff733fab7 in munmap () at ../sysdeps/unix/syscall-template.S:78
+#1  0x00007ffff72bbbef in munmap_chunk (p=0x7ffff7fb0000) at malloc.c:2854
+#2  __GI___libc_free (mem=0x7ffff7fb0010) at malloc.c:3117
+#3  0x0000555555555ec0 in __gnu_cxx::new_allocator<int>::deallocate (this=0x7fffffffdc10, __p=0x7ffff7fb0010) at /usr/include/c++/7/ext/new_allocator.h:125
+#4  0x0000555555555d7d in std::allocator_traits<std::allocator<int> >::deallocate (__a=..., __p=0x7ffff7fb0010, __n=32768) at /usr/include/c++/7/bits/alloc_traits.h:462
+#5  0x0000555555555ca8 in std::_Vector_base<int, std::allocator<int> >::_M_deallocate (this=0x7fffffffdc10, __p=0x7ffff7fb0010, __n=32768) at /usr/include/c++/7/bits/stl_vector.h:180
+#6  0x0000555555556139 in std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&> (this=0x7fffffffdc10, __position=<error reading variable: Não é possível acessar a memória no endereço 0x7ffff7fd0010>, __args#0=@0x7fffffffdac8: 15753) at /usr/include/c++/7/bits/vector.tcc:448
+#7  0x0000555555555e78 in std::vector<int, std::allocator<int> >::emplace_back<int const&> (this=0x7fffffffdc10, __args#0=@0x7fffffffdac8: 15753) at /usr/include/c++/7/bits/vector.tcc:105
+#8  0x0000555555555cf5 in std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdc10, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1310
+#9  0x0000555555555bd4 in std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdc10, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1299
+#10 0x0000555555555949 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void> (this=0x7fffffffdc10, __first=..., __last=..., __a=...) at /usr/include/c++/7/bits/stl_vector.h:414
+#11 0x000055555555558c in main (argc=3, argv=0x7fffffffdf38) at main.cpp:32
+
+73	../sysdeps/unix/syscall-template.S: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x100x000xfb0xf70xff0x7f0x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffd9a0
+address max offset: 8
+Memory content after  bitflip:0x100x000xfb0xf70xff0x7f0x000x04
+frame name: std::_Vector_base<int, std::allocator<int> >::_M_deallocate
+symbol name: __p
+symbol filename: /usr/include/c++/7/bits/stl_vector.h
+symbol line: 176
+value: 0x7ffff7fb0010
+value address: 0x7fffffffd9a0
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 20:01:19]
+Fault Injection Successful after 0.7897088527679443s
+[INFO -- 2018-10-16 20:01:19]
+event type: exit
+[INFO -- 2018-10-16 20:01:19]
+exit code: 0

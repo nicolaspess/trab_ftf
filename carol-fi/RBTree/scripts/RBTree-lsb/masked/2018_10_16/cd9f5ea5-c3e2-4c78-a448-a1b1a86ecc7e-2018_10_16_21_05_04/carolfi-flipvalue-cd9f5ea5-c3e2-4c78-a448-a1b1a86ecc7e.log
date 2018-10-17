@@ -1,0 +1,76 @@
+[INFO -- 2018-10-16 21:05:02]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 21:05:02]
+Initialization strings:
+[INFO -- 2018-10-16 21:05:02]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 21:05:02]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 21:05:02]
+initSignal:0
+[INFO -- 2018-10-16 21:05:02]
+endSignal:2
+[INFO -- 2018-10-16 21:05:02]
+faultModel:4
+[INFO -- 2018-10-16 21:05:02]
+Backtrace BEGIN:
+#0  0x00007ffff7b5fe7f in std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x00007ffff7b60207 in std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x00005555555577a7 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555558a9528: 0x555555846730) at RBTree.cpp:276
+#3  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555814b20: 0x5555558a9520) at RBTree.cpp:271
+#4  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555862820: 0x555555814b10) at RBTree.cpp:279
+#5  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557deea8: 0x555555862810) at RBTree.cpp:279
+#6  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557aa438: 0x5555557deea0) at RBTree.cpp:271
+#7  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557cd148: 0x5555557aa430) at RBTree.cpp:271
+#8  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555778190: 0x5555557cd140) at RBTree.cpp:271
+#9  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555776868: 0x555555778180) at RBTree.cpp:279
+#10 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557705c8: 0x555555776860) at RBTree.cpp:271
+#11 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557700c0: 0x5555557705c0) at RBTree.cpp:271
+#12 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557706f0: 0x5555557700b0) at RBTree.cpp:279
+#13 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555771408: 0x5555557706e0) at RBTree.cpp:279
+#14 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fa28: 0x555555771400) at RBTree.cpp:271
+#15 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fe18: 0x55555576fa20) at RBTree.cpp:271
+#16 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555770180: 0x55555576fe10) at RBTree.cpp:271
+#17 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fa58: 0x555555770170) at RBTree.cpp:279
+#18 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x7fffffffdc00: 0x55555576fa50) at RBTree.cpp:271
+#19 0x0000555555557841 in RBTree::inorder (this=0x7fffffffdc00) at RBTree.cpp:283
+#20 0x000055555555564c in main (argc=3, argv=0x7fffffffdf38) at main.cpp:58
+
+9	#include "RBTree.h"
+10	
+11	#include <iostream>     // std::cout
+12	#include <algorithm>    // std::random_shuffle
+13	#include <vector>       // std::vector
+14	#include <ctime>        // std::time
+15	#include <cstdlib>      // std::rand, std::srand
+16	#include <cstdio>
+17	
+18	#include <iterator>
+
+Backtrace END
+Fliping a bit of the value pointed by a reference
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: left
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: data
+Memory content before bitflip:0x890xd90xff0xff
+Fault Model: LSB bit-flip
+base address to flip value: 0x5555557deea0
+address max offset: 4
+Memory content after  bitflip:0x890xd90xff0xfd
+frame name: RBTree::inorderBST
+symbol name: ptr
+symbol filename: RBTree.cpp
+symbol line: 267
+value: @0x5555557cd148
+value address: 0x5555557cd148
+Type: A reference type.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 21:05:02]
+Fault Injection Successful after 0.6090362071990967s
+[INFO -- 2018-10-16 21:05:02]
+event type: exit
+[INFO -- 2018-10-16 21:05:02]
+exit code: 0

@@ -1,0 +1,60 @@
+[INFO -- 2018-10-16 20:10:44]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 20:10:44]
+Initialization strings:
+[INFO -- 2018-10-16 20:10:44]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 20:10:44]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 20:10:44]
+initSignal:0
+[INFO -- 2018-10-16 20:10:44]
+endSignal:2
+[INFO -- 2018-10-16 20:10:44]
+faultModel:4
+[INFO -- 2018-10-16 20:10:44]
+Backtrace BEGIN:
+#0  0x00007ffff7b2a59e in ?? () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x00007ffff7b58ddd in std::istreambuf_iterator<char, std::char_traits<char> > std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char> > >::_M_extract_int<long>(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, std::_Ios_Iostate&, long&) const () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x00007ffff7b479b6 in std::istream::operator>>(int&) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#3  0x0000555555555a94 in std::istream_iterator<int, char, std::char_traits<char>, long>::_M_read (this=0x7fffffffdac0) at /usr/include/c++/7/bits/stream_iterator.h:121
+#4  0x0000555555555dc0 in std::istream_iterator<int, char, std::char_traits<char>, long>::operator++ (this=0x7fffffffdac0) at /usr/include/c++/7/bits/stream_iterator.h:95
+#5  0x0000555555555d01 in std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdc10, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1308
+#6  0x0000555555555bd4 in std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdc10, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1299
+#7  0x0000555555555949 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void> (this=0x7fffffffdc10, __first=..., __last=..., __a=...) at /usr/include/c++/7/bits/stl_vector.h:414
+#8  0x000055555555558c in main (argc=3, argv=0x7fffffffdf38) at main.cpp:32
+
+9	#include "RBTree.h"
+10	
+11	#include <iostream>     // std::cout
+12	#include <algorithm>    // std::random_shuffle
+13	#include <vector>       // std::vector
+14	#include <ctime>        // std::time
+15	#include <cstdlib>      // std::rand, std::srand
+16	#include <cstdio>
+17	
+18	#include <iterator>
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x100xdc0xff0xff0xff0x7f0x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffda78
+address max offset: 8
+Memory content after  bitflip:0x100xdc0xff0xff0xff0x7f0x000x80
+frame name: std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> >
+symbol name: this
+symbol filename: main.cpp
+symbol line: 0
+value: 0x7fffffffdc10
+value address: 0x7fffffffda78
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 20:10:44]
+Fault Injection Successful after 0.7700893878936768s
+[INFO -- 2018-10-16 20:10:45]
+event type: exit
+[EXCEPTION -- 2018-10-16 20:10:45]
+exit code: no exit code available

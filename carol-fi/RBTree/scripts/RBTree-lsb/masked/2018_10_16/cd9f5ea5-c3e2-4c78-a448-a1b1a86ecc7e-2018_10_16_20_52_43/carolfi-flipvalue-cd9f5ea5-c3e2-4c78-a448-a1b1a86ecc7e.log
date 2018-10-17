@@ -1,0 +1,72 @@
+[INFO -- 2018-10-16 20:52:41]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 20:52:41]
+Initialization strings:
+[INFO -- 2018-10-16 20:52:41]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 20:52:41]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 20:52:41]
+initSignal:0
+[INFO -- 2018-10-16 20:52:41]
+endSignal:2
+[INFO -- 2018-10-16 20:52:41]
+faultModel:4
+[EXCEPTION -- 2018-10-16 20:52:41]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-16 20:52:41]
+Backtrace BEGIN:
+#0  0x0000555555557f40 in std::char_traits<char>::assign (__c1=@0x5555559b9839: 48 '0', __c2=@0x7fffffffd668: 49 '1') at /usr/include/c++/7/bits/char_traits.h:285
+#1  0x00005555555583f2 in std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x7fffffffd728, __s="1101011010000000", __zero=48 '0', __one=49 '1') at /usr/include/c++/7/bitset:1410
+#2  0x00005555555581ea in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1538
+#3  0x0000555555557798 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557d35a0: 0x5555558de230) at RBTree.cpp:276
+#4  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557d7b88: 0x5555557d3590) at RBTree.cpp:279
+#5  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557a2eb0: 0x5555557d7b80) at RBTree.cpp:271
+#6  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555788388: 0x5555557a2ea0) at RBTree.cpp:279
+#7  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557b64f8: 0x555555788380) at RBTree.cpp:271
+#8  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555776a18: 0x5555557b64f0) at RBTree.cpp:271
+#9  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557700b8: 0x555555776a10) at RBTree.cpp:271
+#10 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557706f0: 0x5555557700b0) at RBTree.cpp:271
+#11 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555771408: 0x5555557706e0) at RBTree.cpp:279
+#12 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fa28: 0x555555771400) at RBTree.cpp:271
+#13 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fe18: 0x55555576fa20) at RBTree.cpp:271
+#14 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555770180: 0x55555576fe10) at RBTree.cpp:271
+#15 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fa58: 0x555555770170) at RBTree.cpp:279
+#16 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x7fffffffdc00: 0x55555576fa50) at RBTree.cpp:271
+#17 0x0000555555557841 in RBTree::inorder (this=0x7fffffffdc00) at RBTree.cpp:283
+#18 0x000055555555564c in main (argc=3, argv=0x7fffffffdf38) at main.cpp:58
+
+280	      typedef streamoff         off_type;
+281	      typedef mbstate_t         state_type;
+282	
+283	      static _GLIBCXX17_CONSTEXPR void
+284	      assign(char_type& __c1, const char_type& __c2) _GLIBCXX_NOEXCEPT
+285	      { __c1 = __c2; }
+286	
+287	      static _GLIBCXX_CONSTEXPR bool
+288	      eq(const char_type& __c1, const char_type& __c2) _GLIBCXX_NOEXCEPT
+289	      { return __c1 == __c2; }
+
+Backtrace END
+Fliping a bit of the reference
+Memory content before bitflip:0x310xd60xff0xff0x300x7f0x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffd668 
+address max offset: 8
+Memory content after  bitflip:0x310xd60xff0xff0x300x7f0x000x80
+frame name: std::char_traits<char>::assign
+symbol name: __c2
+symbol filename: /usr/include/c++/7/bits/char_traits.h
+symbol line: 284
+value: @0x7fffffffd668
+value address: 0x7fffffffd668 "1\326\377\377\060\177"
+Type: A reference type.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 20:52:41]
+Fault Injection Successful after 0.7484323978424072s
+[INFO -- 2018-10-16 20:52:41]
+event type: exit
+[INFO -- 2018-10-16 20:52:41]
+exit code: 0

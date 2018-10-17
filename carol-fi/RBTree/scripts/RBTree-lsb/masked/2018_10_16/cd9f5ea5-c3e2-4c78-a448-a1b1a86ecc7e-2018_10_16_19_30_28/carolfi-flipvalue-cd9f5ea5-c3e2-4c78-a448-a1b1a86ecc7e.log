@@ -1,0 +1,65 @@
+[INFO -- 2018-10-16 19:30:26]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 19:30:26]
+Initialization strings:
+[INFO -- 2018-10-16 19:30:26]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 19:30:26]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 19:30:26]
+initSignal:0
+[INFO -- 2018-10-16 19:30:26]
+endSignal:2
+[INFO -- 2018-10-16 19:30:26]
+faultModel:4
+[INFO -- 2018-10-16 19:30:27]
+Backtrace BEGIN:
+#0  0x000055555555694a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x5555557f1300: 0x555555874150, ptr=@0x7fffffffdb60: 0x55555599d090) at RBTree.cpp:46
+#1  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555849738: 0x5555557f12f0, ptr=@0x7fffffffdb60: 0x55555599d090) at RBTree.cpp:47
+#2  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x5555557a56f8: 0x555555849730, ptr=@0x7fffffffdb60: 0x55555599d090) at RBTree.cpp:44
+#3  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x5555557890b0: 0x5555557a56f0, ptr=@0x7fffffffdb60: 0x55555599d090) at RBTree.cpp:44
+#4  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555577d348: 0x5555557890a0, ptr=@0x7fffffffdb60: 0x55555599d090) at RBTree.cpp:47
+#5  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555783110: 0x55555577d340, ptr=@0x7fffffffdb60: 0x55555599d090) at RBTree.cpp:44
+#6  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555770118: 0x555555783100, ptr=@0x7fffffffdb60: 0x55555599d090) at RBTree.cpp:47
+#7  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555770870: 0x555555770110, ptr=@0x7fffffffdb60: 0x55555599d090) at RBTree.cpp:44
+#8  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555772250: 0x555555770860, ptr=@0x7fffffffdb60: 0x55555599d090) at RBTree.cpp:47
+#9  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555576fc40: 0x555555772240, ptr=@0x7fffffffdb60: 0x55555599d090) at RBTree.cpp:47
+#10 0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555770178: 0x55555576fc30, ptr=@0x7fffffffdb60: 0x55555599d090) at RBTree.cpp:47
+#11 0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555576fa58: 0x555555770170, ptr=@0x7fffffffdb60: 0x55555599d090) at RBTree.cpp:44
+#12 0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x7fffffffdc00: 0x55555576fa50, ptr=@0x7fffffffdb60: 0x55555599d090) at RBTree.cpp:44
+#13 0x00005555555569fe in RBTree::insertValue (this=0x7fffffffdc00, n=-12234) at RBTree.cpp:56
+#14 0x0000555555555610 in main (argc=3, argv=0x7fffffffdf38) at main.cpp:54
+
+41	        return ptr;
+42	
+43	    if (ptr->data < root->data) {
+44	        root->left = insertBST(root->left, ptr);
+45	        root->left->parent = root;
+46	    } else if (ptr->data > root->data) {
+47	        root->right = insertBST(root->right, ptr);
+48	        root->right->parent = root;
+49	    }
+50	
+
+Backtrace END
+Memory content before bitflip:0x020x000x000x000x000x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdbc0
+address max offset: 8
+Memory content after  bitflip:0x020x000x000x000x000x000x000x10
+frame name: main
+symbol name: stop_time
+symbol filename: main.cpp
+symbol line: 35
+value: 1152921504606846978
+value address: 0x7fffffffdbc0
+Type: The type is an integer type.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 19:30:27]
+Fault Injection Successful after 1.0095736980438232s
+[INFO -- 2018-10-16 19:30:27]
+event type: exit
+[INFO -- 2018-10-16 19:30:27]
+exit code: 0

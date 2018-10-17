@@ -1,0 +1,57 @@
+[INFO -- 2018-10-16 19:16:05]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 19:16:05]
+Initialization strings:
+[INFO -- 2018-10-16 19:16:05]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 19:16:05]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 19:16:05]
+initSignal:0
+[INFO -- 2018-10-16 19:16:05]
+endSignal:2
+[INFO -- 2018-10-16 19:16:05]
+faultModel:4
+[EXCEPTION -- 2018-10-16 19:16:06]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[EXCEPTION -- 2018-10-16 19:16:06]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-16 19:16:06]
+Backtrace BEGIN:
+#0  0x000055555555694f in RBTree::insertBST (this=0x7fffffffdc00, root=@0x7fffffffdc00: 0x55555576fa50, ptr=@0x7fffffffdb60: 0x555555925390) at RBTree.cpp:46
+#1  0x00005555555569fe in RBTree::insertValue (this=0x7fffffffdc00, n=9894) at RBTree.cpp:56
+#2  0x0000555555555610 in main (argc=3, argv=0x7fffffffdf38) at main.cpp:54
+
+41	        return ptr;
+42	
+43	    if (ptr->data < root->data) {
+44	        root->left = insertBST(root->left, ptr);
+45	        root->left->parent = root;
+46	    } else if (ptr->data > root->data) {
+47	        root->right = insertBST(root->right, ptr);
+48	        root->right->parent = root;
+49	    }
+50	
+
+Backtrace END
+Memory content before bitflip:0xa60x260x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdb54
+address max offset: 4
+Memory content after  bitflip:0xa60x260x000x02
+frame name: RBTree::insertValue
+symbol name: n
+symbol filename: RBTree.cpp
+symbol line: 54
+value: 33564326
+value address: 0x7fffffffdb54
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-16 19:16:06]
+Fault Injection Successful after 1.2911946773529053s
+[INFO -- 2018-10-16 19:16:06]
+event type: exit
+[INFO -- 2018-10-16 19:16:06]
+exit code: 0

@@ -1,0 +1,51 @@
+[INFO -- 2018-10-16 19:51:54]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 19:51:54]
+Initialization strings:
+[INFO -- 2018-10-16 19:51:54]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 19:51:54]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 19:51:54]
+initSignal:0
+[INFO -- 2018-10-16 19:51:54]
+endSignal:2
+[INFO -- 2018-10-16 19:51:54]
+faultModel:4
+[INFO -- 2018-10-16 19:51:54]
+Backtrace BEGIN:
+#0  0x00005555555555d8 in main (argc=3, argv=0x7fffffffdf38) at main.cpp:53
+
+48	
+49	
+50	    RBTree rbTree1; //arvore R&B
+51	
+52	    //insere na arvore
+53	    for(int i = 0; i < v_nodes.size(); i++)
+54	        rbTree1.insertValue(v_nodes[i]);
+55	
+56	    //salva print da saida em arquivo output
+57	    freopen(argv[2],"w",stdout);
+
+Backtrace END
+Memory content before bitflip:0x0e0x000x000x000x000x000x000x80
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdbc8
+address max offset: 8
+Memory content after  bitflip:0x0e0x000x000x000x000x000x000x88
+frame name: main
+symbol name: diff_time
+symbol filename: main.cpp
+symbol line: 36
+value: -3.7857669957336908e-270
+value address: 0x7fffffffdbc8
+Type: A floating point type.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 19:51:54]
+Fault Injection Successful after 0.5862500667572021s
+[INFO -- 2018-10-16 19:51:54]
+event type: exit
+[INFO -- 2018-10-16 19:51:54]
+exit code: 0

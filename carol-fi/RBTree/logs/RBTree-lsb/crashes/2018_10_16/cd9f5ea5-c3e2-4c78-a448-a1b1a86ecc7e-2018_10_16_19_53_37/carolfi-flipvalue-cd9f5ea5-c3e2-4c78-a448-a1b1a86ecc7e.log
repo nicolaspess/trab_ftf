@@ -1,0 +1,66 @@
+[INFO -- 2018-10-16 19:53:35]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 19:53:35]
+Initialization strings:
+[INFO -- 2018-10-16 19:53:35]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 19:53:35]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 19:53:35]
+initSignal:0
+[INFO -- 2018-10-16 19:53:35]
+endSignal:2
+[INFO -- 2018-10-16 19:53:35]
+faultModel:4
+[INFO -- 2018-10-16 19:53:36]
+Backtrace BEGIN:
+#0  0x00007ffff7334154 in __GI___libc_write (fd=1, buf=0x5555559b9860, nbytes=21) at ../sysdeps/unix/sysv/linux/write.c:27
+#1  0x00007ffff72af1bd in _IO_new_file_write (f=0x7ffff7610760 <_IO_2_1_stdout_>, data=0x5555559b9860, n=21) at fileops.c:1203
+#2  0x00007ffff72b0f51 in new_do_write (to_do=21, data=0x5555559b9860 "1011010100000100 001\n", fp=0x7ffff7610760 <_IO_2_1_stdout_>) at fileops.c:457
+#3  _IO_new_do_write (fp=0x7ffff7610760 <_IO_2_1_stdout_>, data=0x5555559b9860 "1011010100000100 001\n", to_do=21) at fileops.c:433
+#4  0x00007ffff72ae788 in _IO_new_file_sync (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at fileops.c:813
+#5  0x00007ffff72a287d in __GI__IO_fflush (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at iofflush.c:40
+#6  0x00007ffff7b5ef5e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#7  0x00005555555577ea in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555594e4d0: 0x55555589da60) at RBTree.cpp:276
+#8  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555583ffb8: 0x55555594e4c0) at RBTree.cpp:279
+#9  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555587cf20: 0x55555583ffb0) at RBTree.cpp:271
+#10 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557beb38: 0x55555587cf10) at RBTree.cpp:279
+#11 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555577b908: 0x5555557beb30) at RBTree.cpp:271
+#12 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557af0c0: 0x55555577b900) at RBTree.cpp:271
+#13 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555776a78: 0x5555557af0b0) at RBTree.cpp:279
+#14 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555772698: 0x555555776a70) at RBTree.cpp:271
+#15 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555770c00: 0x555555772690) at RBTree.cpp:271
+#16 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557703b8: 0x555555770bf0) at RBTree.cpp:279
+#17 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555770540: 0x5555557703b0) at RBTree.cpp:271
+#18 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fc38: 0x555555770530) at RBTree.cpp:279
+#19 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555770178: 0x55555576fc30) at RBTree.cpp:271
+#20 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fa58: 0x555555770170) at RBTree.cpp:271
+#21 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x7fffffffdc00: 0x55555576fa50) at RBTree.cpp:271
+#22 0x0000555555557841 in RBTree::inorder (this=0x7fffffffdc00) at RBTree.cpp:283
+#23 0x000055555555564c in main (argc=3, argv=0x7fffffffdf38) at main.cpp:58
+
+22	../sysdeps/unix/sysv/linux/write.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the reference
+Memory content before bitflip:0xb00x030x770x550x550x550x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x555555770540
+address max offset: 8
+Memory content after  bitflip:0xb00x030x770x550x550x550x000x08
+frame name: RBTree::inorderBST
+symbol name: ptr
+symbol filename: RBTree.cpp
+symbol line: 267
+value: @0x555555770540
+value address: 0x555555770540
+Type: A reference type.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 19:53:36]
+Fault Injection Successful after 1.1186563968658447s
+[INFO -- 2018-10-16 19:53:36]
+event type: exit
+[EXCEPTION -- 2018-10-16 19:53:36]
+exit code: no exit code available

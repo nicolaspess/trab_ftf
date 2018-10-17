@@ -1,0 +1,58 @@
+[INFO -- 2018-10-16 19:59:29]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 19:59:29]
+Initialization strings:
+[INFO -- 2018-10-16 19:59:29]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 19:59:29]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 19:59:29]
+initSignal:0
+[INFO -- 2018-10-16 19:59:29]
+endSignal:2
+[INFO -- 2018-10-16 19:59:29]
+faultModel:4
+[INFO -- 2018-10-16 19:59:29]
+Backtrace BEGIN:
+#0  0x0000555555556251 in __gnu_cxx::new_allocator<int>::construct<int, int const&> (this=0x7fffffffdc10, __p=0x7ffff7f9e698, __args#0=@0x7fffffffdac8: -5908) at /usr/include/c++/7/ext/new_allocator.h:136
+#1  0x0000555555555f4a in std::allocator_traits<std::allocator<int> >::construct<int, int const&> (__a=..., __p=0x7ffff7f9e698, __args#0=@0x7fffffffdac8: -5908) at /usr/include/c++/7/bits/alloc_traits.h:475
+#2  0x0000555555555e32 in std::vector<int, std::allocator<int> >::emplace_back<int const&> (this=0x7fffffffdc10, __args#0=@0x7fffffffdac8: -5908) at /usr/include/c++/7/bits/vector.tcc:100
+#3  0x0000555555555cf5 in std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdc10, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1310
+#4  0x0000555555555bd4 in std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdc10, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1299
+#5  0x0000555555555949 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void> (this=0x7fffffffdc10, __first=..., __last=..., __a=...) at /usr/include/c++/7/bits/stl_vector.h:414
+#6  0x000055555555558c in main (argc=3, argv=0x7fffffffdf38) at main.cpp:32
+
+131	
+132	#if __cplusplus >= 201103L
+133	      template<typename _Up, typename... _Args>
+134		void
+135		construct(_Up* __p, _Args&&... __args)
+136		{ ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
+137	
+138	      template<typename _Up>
+139		void
+140		destroy(_Up* __p) { __p->~_Up(); }
+
+Backtrace END
+Fliping a bit of the value pointed by a reference
+Memory content before bitflip:0xec0xe80xff0xff
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdac8
+address max offset: 4
+Memory content after  bitflip:0xec0xe80xff0xdf
+frame name: std::allocator_traits<std::allocator<int> >::construct<int, int const&>
+symbol name: __args#0
+symbol filename: /usr/include/c++/7/bits/alloc_traits.h
+symbol line: 474
+value: @0x7fffffffdac8
+value address: 0x7fffffffdac8
+Type: A reference type.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 19:59:29]
+Fault Injection Successful after 0.8489387035369873s
+[INFO -- 2018-10-16 19:59:29]
+event type: exit
+[INFO -- 2018-10-16 19:59:29]
+exit code: 0

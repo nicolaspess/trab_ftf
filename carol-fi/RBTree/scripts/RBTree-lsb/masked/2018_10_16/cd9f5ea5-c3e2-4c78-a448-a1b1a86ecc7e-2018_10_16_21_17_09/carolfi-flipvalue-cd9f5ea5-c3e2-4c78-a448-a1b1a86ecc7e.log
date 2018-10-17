@@ -1,0 +1,74 @@
+[INFO -- 2018-10-16 21:17:07]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 21:17:07]
+Initialization strings:
+[INFO -- 2018-10-16 21:17:07]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 21:17:07]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 21:17:07]
+initSignal:0
+[INFO -- 2018-10-16 21:17:07]
+endSignal:2
+[INFO -- 2018-10-16 21:17:07]
+faultModel:4
+[INFO -- 2018-10-16 21:17:08]
+Backtrace BEGIN:
+#0  0x00005555555583ce in std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x7fffffffd728, __s="0100101100000000", __zero=48 '0', __one=49 '1') at /usr/include/c++/7/bitset:1410
+#1  0x00005555555581ea in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1538
+#2  0x0000555555557798 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557c2258: 0x5555558892d0) at RBTree.cpp:276
+#3  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555830b08: 0x5555557c2250) at RBTree.cpp:271
+#4  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557f02d8: 0x555555830b00) at RBTree.cpp:271
+#5  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555796bd8: 0x5555557f02d0) at RBTree.cpp:271
+#6  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557a2fd0: 0x555555796bd0) at RBTree.cpp:271
+#7  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555774768: 0x5555557a2fc0) at RBTree.cpp:279
+#8  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555774dc8: 0x555555774760) at RBTree.cpp:271
+#9  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555771228: 0x555555774dc0) at RBTree.cpp:271
+#10 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576f9c8: 0x555555771220) at RBTree.cpp:271
+#11 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576ffc8: 0x55555576f9c0) at RBTree.cpp:271
+#12 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576f100: 0x55555576ffc0) at RBTree.cpp:271
+#13 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555771a40: 0x55555576f0f0) at RBTree.cpp:279
+#14 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fa60: 0x555555771a30) at RBTree.cpp:279
+#15 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x7fffffffdc00: 0x55555576fa50) at RBTree.cpp:279
+#16 0x0000555555557841 in RBTree::inorder (this=0x7fffffffdc00) at RBTree.cpp:283
+#17 0x000055555555564c in main (argc=3, argv=0x7fffffffdf38) at main.cpp:58
+
+1405				_CharT __zero, _CharT __one) const
+1406	      {
+1407		__s.assign(_Nb, __zero);
+1408		for (size_t __i = _Nb; __i > 0; --__i)
+1409		  if (_Unchecked_test(__i - 1))
+1410		    _Traits::assign(__s[_Nb - __i], __one);
+1411	      }
+1412	
+1413	  // 23.3.5.3 bitset operations:
+1414	  //@{
+
+Backtrace END
+Fliping a bit of the value pointed by a reference
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: left
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: left
+Fliping a bit of the pointer
+Memory content before bitflip:0xb00x090x770x550x550x550x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x555555770e08
+address max offset: 8
+Memory content after  bitflip:0xb00x090x770x550x550x550x000x02
+frame name: RBTree::inorderBST
+symbol name: ptr
+symbol filename: RBTree.cpp
+symbol line: 267
+value: @0x555555771a40
+value address: 0x555555771a40
+Type: A reference type.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 21:17:08]
+Fault Injection Successful after 1.1185166835784912s
+[INFO -- 2018-10-16 21:17:08]
+event type: exit
+[INFO -- 2018-10-16 21:17:08]
+exit code: 0

@@ -1,0 +1,64 @@
+[INFO -- 2018-10-16 20:33:12]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 20:33:12]
+Initialization strings:
+[INFO -- 2018-10-16 20:33:12]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 20:33:12]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 20:33:12]
+initSignal:0
+[INFO -- 2018-10-16 20:33:12]
+endSignal:2
+[INFO -- 2018-10-16 20:33:12]
+faultModel:4
+[EXCEPTION -- 2018-10-16 20:33:12]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-10-16 20:33:12]
+Backtrace BEGIN:
+#0  0x0000555555556909 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555777d68: 0x55555577aeb0, ptr=@0x7fffffffdb60: 0x5555557d1280) at RBTree.cpp:44
+#1  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555772098: 0x555555777d60, ptr=@0x7fffffffdb60: 0x5555557d1280) at RBTree.cpp:44
+#2  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555774470: 0x555555772090, ptr=@0x7fffffffdb60: 0x5555557d1280) at RBTree.cpp:44
+#3  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555776058: 0x555555774460, ptr=@0x7fffffffdb60: 0x5555557d1280) at RBTree.cpp:47
+#4  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555771710: 0x555555776050, ptr=@0x7fffffffdb60: 0x5555557d1280) at RBTree.cpp:44
+#5  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555576fe80: 0x555555771700, ptr=@0x7fffffffdb60: 0x5555557d1280) at RBTree.cpp:47
+#6  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555771a38: 0x55555576fe70, ptr=@0x7fffffffdb60: 0x5555557d1280) at RBTree.cpp:47
+#7  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555576fa60: 0x555555771a30, ptr=@0x7fffffffdb60: 0x5555557d1280) at RBTree.cpp:44
+#8  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x7fffffffdc00: 0x55555576fa50, ptr=@0x7fffffffdb60: 0x5555557d1280) at RBTree.cpp:47
+#9  0x00005555555569fe in RBTree::insertValue (this=0x7fffffffdc00, n=13450) at RBTree.cpp:56
+#10 0x0000555555555610 in main (argc=3, argv=0x7fffffffdf38) at main.cpp:54
+
+39	Node* RBTree::insertBST(Node *&root, Node *&ptr) {
+40	    if (root == NULL)
+41	        return ptr;
+42	
+43	    if (ptr->data < root->data) {
+44	        root->left = insertBST(root->left, ptr);
+45	        root->left->parent = root;
+46	    } else if (ptr->data > root->data) {
+47	        root->right = insertBST(root->right, ptr);
+48	        root->right->parent = root;
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x000xdc0xff0xff0xff0x7f0x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffda28
+address max offset: 8
+Memory content after  bitflip:0x000xdc0xff0xff0xff0x7f0x000x02
+frame name: RBTree::insertBST
+symbol name: this
+symbol filename: RBTree.cpp
+symbol line: 0
+value: 0x7fffffffdc00
+value address: 0x7fffffffda28
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 20:33:12]
+Fault Injection Successful after 0.5558533668518066s
+[INFO -- 2018-10-16 20:33:12]
+event type: exit
+[INFO -- 2018-10-16 20:33:12]
+exit code: 0

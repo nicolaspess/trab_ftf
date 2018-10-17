@@ -1,0 +1,75 @@
+[INFO -- 2018-10-16 21:31:39]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 21:31:39]
+Initialization strings:
+[INFO -- 2018-10-16 21:31:39]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 21:31:39]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 21:31:39]
+initSignal:0
+[INFO -- 2018-10-16 21:31:39]
+endSignal:2
+[INFO -- 2018-10-16 21:31:39]
+faultModel:4
+[EXCEPTION -- 2018-10-16 21:31:39]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-16 21:31:40]
+Backtrace BEGIN:
+#0  0x0000555555557ffe in std::_Base_bitset<1ul>::_S_maskbit (__pos=140737488344712) at /usr/include/c++/7/bitset:402
+#1  0x00005555555584bd in std::bitset<16ul>::_Unchecked_test (this=0x7fffffffd688, __pos=1) at /usr/include/c++/7/bitset:1058
+#2  0x00005555555583c1 in std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x7fffffffd688, __s="1100011011111000", __zero=48 '0', __one=49 '1') at /usr/include/c++/7/bitset:1409
+#3  0x00005555555581ea in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1538
+#4  0x0000555555557798 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555558187e0: 0x555555884b90) at RBTree.cpp:276
+#5  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555798890: 0x5555558187d0) at RBTree.cpp:279
+#6  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555558c82b0: 0x555555798880) at RBTree.cpp:279
+#7  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555582dc90: 0x5555558c82a0) at RBTree.cpp:279
+#8  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557c1210: 0x55555582dc80) at RBTree.cpp:279
+#9  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555772f40: 0x5555557c1200) at RBTree.cpp:279
+#10 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555577b010: 0x555555772f30) at RBTree.cpp:279
+#11 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555771138: 0x55555577b000) at RBTree.cpp:279
+#12 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557720f8: 0x555555771130) at RBTree.cpp:271
+#13 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557774c8: 0x5555557720f0) at RBTree.cpp:271
+#14 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555770c90: 0x5555557774c0) at RBTree.cpp:271
+#15 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555772248: 0x555555770c80) at RBTree.cpp:279
+#16 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fc40: 0x555555772240) at RBTree.cpp:271
+#17 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555770178: 0x55555576fc30) at RBTree.cpp:279
+#18 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fa58: 0x555555770170) at RBTree.cpp:271
+#19 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x7fffffffdc00: 0x55555576fa50) at RBTree.cpp:271
+#20 0x0000555555557841 in RBTree::inorder (this=0x7fffffffdc00) at RBTree.cpp:283
+#21 0x000055555555564c in main (argc=3, argv=0x7fffffffdf38) at main.cpp:58
+
+397	      static _GLIBCXX_CONSTEXPR size_t
+398	      _S_whichbit(size_t __pos) _GLIBCXX_NOEXCEPT
+399	      {  return __pos % _GLIBCXX_BITSET_BITS_PER_WORD; }
+400	
+401	      static _GLIBCXX_CONSTEXPR _WordT
+402	      _S_maskbit(size_t __pos) _GLIBCXX_NOEXCEPT
+403	      { return (static_cast<_WordT>(1)) << _S_whichbit(__pos); }
+404	
+405	      _WordT&
+406	      _M_getword(size_t) _GLIBCXX_NOEXCEPT
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x000xdc0xff0xff0xff0x7f0x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdb78
+address max offset: 8
+Memory content after  bitflip:0x000xdc0xff0xff0xff0x7f0x000x04
+frame name: RBTree::inorder
+symbol name: this
+symbol filename: RBTree.cpp
+symbol line: 0
+value: 0x7fffffffdc00
+value address: 0x7fffffffdb78
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 21:31:40]
+Fault Injection Successful after 1.1550319194793701s
+[INFO -- 2018-10-16 21:31:40]
+event type: exit
+[INFO -- 2018-10-16 21:31:40]
+exit code: 0

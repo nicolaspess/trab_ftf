@@ -1,0 +1,60 @@
+[INFO -- 2018-10-16 20:59:51]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 20:59:51]
+Initialization strings:
+[INFO -- 2018-10-16 20:59:51]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 20:59:51]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 20:59:51]
+initSignal:0
+[INFO -- 2018-10-16 20:59:51]
+endSignal:2
+[INFO -- 2018-10-16 20:59:51]
+faultModel:4
+[EXCEPTION -- 2018-10-16 20:59:51]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-16 20:59:51]
+Backtrace BEGIN:
+#0  0x00007ffff7b4798c in std::istream::operator>>(int&) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x0000555555555a94 in std::istream_iterator<int, char, std::char_traits<char>, long>::_M_read (this=0x7fffffffdac0) at /usr/include/c++/7/bits/stream_iterator.h:121
+#2  0x0000555555555dc0 in std::istream_iterator<int, char, std::char_traits<char>, long>::operator++ (this=0x7fffffffdac0) at /usr/include/c++/7/bits/stream_iterator.h:95
+#3  0x0000555555555d01 in std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdc10, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1308
+#4  0x0000555555555bd4 in std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdc10, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1299
+#5  0x0000555555555949 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void> (this=0x7fffffffdc10, __first=..., __last=..., __a=...) at /usr/include/c++/7/bits/stl_vector.h:414
+#6  0x000055555555558c in main (argc=3, argv=0x7fffffffdf38) at main.cpp:32
+
+19	#include <fstream>
+20	
+21	using namespace std;
+22	
+23	int main(int argc, char * argv[]) {
+24	
+25	    if (argc != 3){
+26	        cerr << "Uso correto: ./main [input file] [output file] " << endl;
+27	        return 0;
+28	    }
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0xc00xda0xff0xff0xff0x7f0x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffda28
+address max offset: 8
+Memory content after  bitflip:0xc00xda0xff0xff0xff0x7f0x000x02
+frame name: std::istream_iterator<int, char, std::char_traits<char>, long>::_M_read
+symbol name: this
+symbol filename: main.cpp
+symbol line: 0
+value: 0x7fffffffdac0
+value address: 0x7fffffffda28
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 20:59:51]
+Fault Injection Successful after 0.9964959621429443s
+[INFO -- 2018-10-16 20:59:52]
+event type: exit
+[EXCEPTION -- 2018-10-16 20:59:52]
+exit code: no exit code available

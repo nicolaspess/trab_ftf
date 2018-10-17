@@ -1,0 +1,66 @@
+[INFO -- 2018-10-16 20:34:07]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 20:34:07]
+Initialization strings:
+[INFO -- 2018-10-16 20:34:07]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 20:34:07]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 20:34:07]
+initSignal:0
+[INFO -- 2018-10-16 20:34:07]
+endSignal:2
+[INFO -- 2018-10-16 20:34:07]
+faultModel:4
+[EXCEPTION -- 2018-10-16 20:34:07]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-10-16 20:34:07]
+Backtrace BEGIN:
+#0  0x00007ffff7b5fe9e in std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x00007ffff7b60207 in std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x00005555555577a7 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555558ddcc8: 0x555555972730) at RBTree.cpp:276
+#3  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557b3048: 0x5555558ddcc0) at RBTree.cpp:271
+#4  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555580f4a8: 0x5555557b3040) at RBTree.cpp:271
+#5  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557b9620: 0x55555580f4a0) at RBTree.cpp:271
+#6  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555791540: 0x5555557b9610) at RBTree.cpp:279
+#7  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555778848: 0x555555791530) at RBTree.cpp:279
+#8  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555774bf0: 0x555555778840) at RBTree.cpp:271
+#9  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555776a80: 0x555555774be0) at RBTree.cpp:279
+#10 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555772698: 0x555555776a70) at RBTree.cpp:279
+#11 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555770c00: 0x555555772690) at RBTree.cpp:271
+#12 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557703b8: 0x555555770bf0) at RBTree.cpp:279
+#13 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555770540: 0x5555557703b0) at RBTree.cpp:271
+#14 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fc38: 0x555555770530) at RBTree.cpp:279
+#15 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555770178: 0x55555576fc30) at RBTree.cpp:271
+#16 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fa58: 0x555555770170) at RBTree.cpp:271
+#17 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x7fffffffdc00: 0x55555576fa50) at RBTree.cpp:271
+#18 0x0000555555557841 in RBTree::inorder (this=0x7fffffffdc00) at RBTree.cpp:283
+#19 0x000055555555564c in main (argc=3, argv=0x7fffffffdf38) at main.cpp:58
+
+2284	in rtld.c
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: root
+Fliping a bit of the pointer
+Memory content before bitflip:0x500xfa0x760x550x550x550x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdc00
+address max offset: 8
+Memory content after  bitflip:0x500xfa0x760x550x550x550x000x02
+frame name: RBTree::inorderBST
+symbol name: this
+symbol filename: RBTree.cpp
+symbol line: 0
+value: 0x7fffffffdc00
+value address: 0x7fffffffd9e8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 20:34:07]
+Fault Injection Successful after 0.3962132930755615s
+[INFO -- 2018-10-16 20:34:07]
+event type: exit
+[EXCEPTION -- 2018-10-16 20:34:07]
+exit code: no exit code available

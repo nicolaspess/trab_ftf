@@ -1,0 +1,54 @@
+[INFO -- 2018-10-16 19:27:33]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 19:27:33]
+Initialization strings:
+[INFO -- 2018-10-16 19:27:33]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 19:27:33]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 19:27:33]
+initSignal:0
+[INFO -- 2018-10-16 19:27:33]
+endSignal:2
+[INFO -- 2018-10-16 19:27:33]
+faultModel:4
+[INFO -- 2018-10-16 19:27:33]
+Backtrace BEGIN:
+#0  RBTree::getColor (this=0x7fffffffdc00, node=@0x7fffffffdb30: 0x0) at RBTree.cpp:26
+#1  0x0000555555556ce2 in RBTree::fixInsertRBTree (this=0x7fffffffdc00, ptr=@0x7fffffffdb60: 0x5555558e4110) at RBTree.cpp:108
+#2  0x0000555555556a1b in RBTree::insertValue (this=0x7fffffffdc00, n=-9675) at RBTree.cpp:57
+#3  0x0000555555555610 in main (argc=3, argv=0x7fffffffdf38) at main.cpp:54
+
+21	RBTree::RBTree() {
+22	    root = NULL;
+23	}
+24	
+25	int RBTree::getColor(Node *&node) {
+26	    if (node == NULL)
+27	        return BLACK;
+28	
+29	    return node->color;
+30	}
+
+Backtrace END
+Memory content before bitflip:0x030x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdbac
+address max offset: 4
+Memory content after  bitflip:0x030x000x000x20
+frame name: main
+symbol name: argc
+symbol filename: main.cpp
+symbol line: 23
+value: 536870915
+value address: 0x7fffffffdbac
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-16 19:27:33]
+Fault Injection Successful after 0.7925300598144531s
+[INFO -- 2018-10-16 19:27:33]
+event type: exit
+[INFO -- 2018-10-16 19:27:33]
+exit code: 0

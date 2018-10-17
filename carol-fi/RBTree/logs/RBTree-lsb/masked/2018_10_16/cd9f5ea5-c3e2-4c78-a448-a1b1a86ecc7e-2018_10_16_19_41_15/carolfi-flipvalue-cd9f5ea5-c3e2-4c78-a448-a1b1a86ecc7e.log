@@ -1,0 +1,63 @@
+[INFO -- 2018-10-16 19:41:13]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 19:41:13]
+Initialization strings:
+[INFO -- 2018-10-16 19:41:13]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 19:41:13]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 19:41:13]
+initSignal:0
+[INFO -- 2018-10-16 19:41:13]
+endSignal:2
+[INFO -- 2018-10-16 19:41:13]
+faultModel:4
+[EXCEPTION -- 2018-10-16 19:41:14]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[EXCEPTION -- 2018-10-16 19:41:14]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-16 19:41:14]
+Backtrace BEGIN:
+#0  0x00007ffff72ae6d5 in _IO_new_file_sync (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at fileops.c:807
+#1  0x00007ffff72a287d in __GI__IO_fflush (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at iofflush.c:40
+#2  0x00007ffff7b5ef5e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#3  0x00005555555577ea in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fb20: 0x55555579dfe0) at RBTree.cpp:276
+#4  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fd88: 0x55555576fb10) at RBTree.cpp:279
+#5  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557703f0: 0x55555576fd80) at RBTree.cpp:271
+#6  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576faf0: 0x5555557703e0) at RBTree.cpp:279
+#7  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fe50: 0x55555576fae0) at RBTree.cpp:279
+#8  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576ffd0: 0x55555576fe40) at RBTree.cpp:279
+#9  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576f100: 0x55555576ffc0) at RBTree.cpp:279
+#10 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555771a40: 0x55555576f0f0) at RBTree.cpp:279
+#11 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fa60: 0x555555771a30) at RBTree.cpp:279
+#12 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x7fffffffdc00: 0x55555576fa50) at RBTree.cpp:279
+#13 0x0000555555557841 in RBTree::inorder (this=0x7fffffffdc00) at RBTree.cpp:283
+#14 0x000055555555564c in main (argc=3, argv=0x7fffffffdf38) at main.cpp:58
+
+802	in fileops.c
+
+Backtrace END
+Fliping a bit of the value pointed by a reference
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: color
+Memory content before bitflip:0x010x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x5555557703e4
+address max offset: 4
+Memory content after  bitflip:0x010x000x000x01
+frame name: RBTree::inorderBST
+symbol name: ptr
+symbol filename: RBTree.cpp
+symbol line: 267
+value: @0x55555576faf0
+value address: 0x55555576faf0
+Type: A reference type.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 19:41:14]
+Fault Injection Successful after 1.312279224395752s
+[INFO -- 2018-10-16 19:41:14]
+event type: exit
+[INFO -- 2018-10-16 19:41:14]
+exit code: 0

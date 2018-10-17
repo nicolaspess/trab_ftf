@@ -1,0 +1,57 @@
+[INFO -- 2018-10-16 20:01:05]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 20:01:05]
+Initialization strings:
+[INFO -- 2018-10-16 20:01:05]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 20:01:05]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 20:01:05]
+initSignal:0
+[INFO -- 2018-10-16 20:01:05]
+endSignal:2
+[INFO -- 2018-10-16 20:01:05]
+faultModel:4
+[EXCEPTION -- 2018-10-16 20:01:05]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-16 20:01:05]
+Backtrace BEGIN:
+#0  0x0000555555556878 in RBTree::getColor (this=0x7fffffffdc00, node=@0x7fffffffdb60: 0x55555579ea30) at RBTree.cpp:26
+#1  0x0000555555556c5d in RBTree::fixInsertRBTree (this=0x7fffffffdc00, ptr=@0x7fffffffdb60: 0x55555579ea30) at RBTree.cpp:103
+#2  0x0000555555556a1b in RBTree::insertValue (this=0x7fffffffdc00, n=-22942) at RBTree.cpp:57
+#3  0x0000555555555610 in main (argc=3, argv=0x7fffffffdf38) at main.cpp:54
+
+21	RBTree::RBTree() {
+22	    root = NULL;
+23	}
+24	
+25	int RBTree::getColor(Node *&node) {
+26	    if (node == NULL)
+27	        return BLACK;
+28	
+29	    return node->color;
+30	}
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x300xea0x790x550x550x550x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdb20
+address max offset: 8
+Memory content after  bitflip:0x300xea0x790x550x550x550x000x01
+frame name: RBTree::fixInsertRBTree
+symbol name: parent
+symbol filename: RBTree.cpp
+symbol line: 101
+value: 0x55555579ea30
+value address: 0x7fffffffdb20
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 20:01:05]
+Fault Injection Successful after 0.4744234085083008s
+[INFO -- 2018-10-16 20:01:05]
+event type: exit
+[INFO -- 2018-10-16 20:01:05]
+exit code: 0

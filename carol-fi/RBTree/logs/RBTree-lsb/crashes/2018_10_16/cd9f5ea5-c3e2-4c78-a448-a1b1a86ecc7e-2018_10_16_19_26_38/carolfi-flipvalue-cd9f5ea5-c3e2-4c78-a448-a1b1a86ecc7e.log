@@ -1,0 +1,72 @@
+[INFO -- 2018-10-16 19:26:36]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 19:26:36]
+Initialization strings:
+[INFO -- 2018-10-16 19:26:36]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 19:26:36]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 19:26:36]
+initSignal:0
+[INFO -- 2018-10-16 19:26:36]
+endSignal:2
+[INFO -- 2018-10-16 19:26:36]
+faultModel:4
+[EXCEPTION -- 2018-10-16 19:26:36]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-16 19:26:36]
+Backtrace BEGIN:
+#0  0x0000555555556979 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555791bf8: 0x5555558b3450, ptr=@0x7fffffffdb60: 0x5555558e15f0) at RBTree.cpp:47
+#1  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x5555557de5d8: 0x555555791bf0, ptr=@0x7fffffffdb60: 0x5555558e15f0) at RBTree.cpp:44
+#2  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x5555557d3e40: 0x5555557de5d0, ptr=@0x7fffffffdb60: 0x5555558e15f0) at RBTree.cpp:44
+#3  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555779ab0: 0x5555557d3e30, ptr=@0x7fffffffdb60: 0x5555558e15f0) at RBTree.cpp:47
+#4  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x5555557761e0: 0x555555779aa0, ptr=@0x7fffffffdb60: 0x5555558e15f0) at RBTree.cpp:47
+#5  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555578a368: 0x5555557761d0, ptr=@0x7fffffffdb60: 0x5555558e15f0) at RBTree.cpp:47
+#6  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x5555557740a8: 0x55555578a360, ptr=@0x7fffffffdb60: 0x5555558e15f0) at RBTree.cpp:44
+#7  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555577f8f8: 0x5555557740a0, ptr=@0x7fffffffdb60: 0x5555558e15f0) at RBTree.cpp:44
+#8  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555577e758: 0x55555577f8f0, ptr=@0x7fffffffdb60: 0x5555558e15f0) at RBTree.cpp:44
+#9  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555577c630: 0x55555577e750, ptr=@0x7fffffffdb60: 0x5555558e15f0) at RBTree.cpp:44
+#10 0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555576f970: 0x55555577c620, ptr=@0x7fffffffdb60: 0x5555558e15f0) at RBTree.cpp:47
+#11 0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555576fdc0: 0x55555576f960, ptr=@0x7fffffffdb60: 0x5555558e15f0) at RBTree.cpp:47
+#12 0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555770538: 0x55555576fdb0, ptr=@0x7fffffffdb60: 0x5555558e15f0) at RBTree.cpp:47
+#13 0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555576fc38: 0x555555770530, ptr=@0x7fffffffdb60: 0x5555558e15f0) at RBTree.cpp:44
+#14 0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555770178: 0x55555576fc30, ptr=@0x7fffffffdb60: 0x5555558e15f0) at RBTree.cpp:44
+#15 0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555576fa58: 0x555555770170, ptr=@0x7fffffffdb60: 0x5555558e15f0) at RBTree.cpp:44
+#16 0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x7fffffffdc00: 0x55555576fa50, ptr=@0x7fffffffdb60: 0x5555558e15f0) at RBTree.cpp:44
+#17 0x00005555555569fe in RBTree::insertValue (this=0x7fffffffdc00, n=-20705) at RBTree.cpp:56
+#18 0x0000555555555610 in main (argc=3, argv=0x7fffffffdf38) at main.cpp:54
+
+42	
+43	    if (ptr->data < root->data) {
+44	        root->left = insertBST(root->left, ptr);
+45	        root->left->parent = root;
+46	    } else if (ptr->data > root->data) {
+47	        root->right = insertBST(root->right, ptr);
+48	        root->right->parent = root;
+49	    }
+50	
+51	    return root;
+
+Backtrace END
+Fliping a bit of the reference
+Memory content before bitflip:0x200xc60x770x550x550x550x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x55555576f970
+address max offset: 8
+Memory content after  bitflip:0x200xc60x770x550x550x550x000x04
+frame name: RBTree::insertBST
+symbol name: root
+symbol filename: RBTree.cpp
+symbol line: 39
+value: @0x55555576f970
+value address: 0x55555576f970
+Type: A reference type.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 19:26:36]
+Fault Injection Successful after 0.8712296485900879s
+[INFO -- 2018-10-16 19:26:37]
+event type: exit
+[EXCEPTION -- 2018-10-16 19:26:37]
+exit code: no exit code available

@@ -1,0 +1,45 @@
+[INFO -- 2018-10-16 21:17:19]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 21:17:19]
+Initialization strings:
+[INFO -- 2018-10-16 21:17:19]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 21:17:19]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 21:17:19]
+initSignal:0
+[INFO -- 2018-10-16 21:17:19]
+endSignal:2
+[INFO -- 2018-10-16 21:17:19]
+faultModel:4
+[INFO -- 2018-10-16 21:17:20]
+Backtrace BEGIN:
+#0  __GI___libc_malloc (bytes=32) at malloc.c:3028
+#1  0x00007ffff7adf1a8 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x00005555555569d3 in RBTree::insertValue (this=0x7fffffffdc00, n=19117) at RBTree.cpp:55
+#3  0x0000555555555610 in main (argc=3, argv=0x7fffffffdf38) at main.cpp:54
+
+3023	malloc.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Memory content before bitflip:0xad0x4a0x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdb54
+address max offset: 4
+Memory content after  bitflip:0xad0x4a0x000x01
+frame name: RBTree::insertValue
+symbol name: n
+symbol filename: RBTree.cpp
+symbol line: 54
+value: 16796333
+value address: 0x7fffffffdb54
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-10-16 21:17:20]
+Fault Injection Successful after 1.1030604839324951s
+[INFO -- 2018-10-16 21:17:20]
+event type: exit
+[INFO -- 2018-10-16 21:17:20]
+exit code: 0

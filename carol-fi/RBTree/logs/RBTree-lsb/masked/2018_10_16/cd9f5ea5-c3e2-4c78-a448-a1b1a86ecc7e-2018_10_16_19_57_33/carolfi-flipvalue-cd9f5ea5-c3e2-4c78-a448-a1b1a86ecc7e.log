@@ -1,0 +1,52 @@
+[INFO -- 2018-10-16 19:57:31]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 19:57:31]
+Initialization strings:
+[INFO -- 2018-10-16 19:57:31]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 19:57:31]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 19:57:31]
+initSignal:0
+[INFO -- 2018-10-16 19:57:31]
+endSignal:2
+[INFO -- 2018-10-16 19:57:31]
+faultModel:4
+[INFO -- 2018-10-16 19:57:31]
+Backtrace BEGIN:
+#0  0x00005555555569ce in RBTree::insertValue (this=0x7fffffffdc00, n=16926) at RBTree.cpp:55
+#1  0x0000555555555610 in main (argc=3, argv=0x7fffffffdf38) at main.cpp:54
+
+50	
+51	    return root;
+52	}
+53	
+54	void RBTree::insertValue(int n) {
+55	    Node *node = new Node(n);
+56	    root = insertBST(root, node);
+57	    fixInsertRBTree(node);
+58	}
+59	
+
+Backtrace END
+Memory content before bitflip:0x6f0x160x000x000x000x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdbb8
+address max offset: 8
+Memory content after  bitflip:0x6f0x160x000x000x000x000x000x01
+frame name: main
+symbol name: start_time
+symbol filename: main.cpp
+symbol line: 35
+value: 72057594037933679
+value address: 0x7fffffffdbb8
+Type: The type is an integer type.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 19:57:31]
+Fault Injection Successful after 0.9962921142578125s
+[INFO -- 2018-10-16 19:57:32]
+event type: exit
+[INFO -- 2018-10-16 19:57:32]
+exit code: 0

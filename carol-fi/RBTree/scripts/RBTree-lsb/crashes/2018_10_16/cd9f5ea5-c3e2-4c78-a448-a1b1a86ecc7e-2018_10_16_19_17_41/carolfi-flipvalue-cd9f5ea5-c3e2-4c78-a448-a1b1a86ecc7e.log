@@ -1,0 +1,69 @@
+[INFO -- 2018-10-16 19:17:39]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 19:17:39]
+Initialization strings:
+[INFO -- 2018-10-16 19:17:39]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 19:17:39]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 19:17:39]
+initSignal:0
+[INFO -- 2018-10-16 19:17:39]
+endSignal:2
+[INFO -- 2018-10-16 19:17:39]
+faultModel:4
+[INFO -- 2018-10-16 19:17:39]
+Backtrace BEGIN:
+#0  0x00007ffff7334154 in __GI___libc_write (fd=1, buf=0x5555559b9860, nbytes=21) at ../sysdeps/unix/sysv/linux/write.c:27
+#1  0x00007ffff72af1bd in _IO_new_file_write (f=0x7ffff7610760 <_IO_2_1_stdout_>, data=0x5555559b9860, n=21) at fileops.c:1203
+#2  0x00007ffff72b0f51 in new_do_write (to_do=21, data=0x5555559b9860 "1010100111010100 000\n", fp=0x7ffff7610760 <_IO_2_1_stdout_>) at fileops.c:457
+#3  _IO_new_do_write (fp=0x7ffff7610760 <_IO_2_1_stdout_>, data=0x5555559b9860 "1010100111010100 000\n", to_do=21) at fileops.c:433
+#4  0x00007ffff72ae788 in _IO_new_file_sync (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at fileops.c:813
+#5  0x00007ffff72a287d in __GI__IO_fflush (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at iofflush.c:40
+#6  0x00007ffff7b5ef5e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#7  0x00005555555577ea in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555810798: 0x55555586c800) at RBTree.cpp:276
+#8  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555816d38: 0x555555810790) at RBTree.cpp:271
+#9  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557f5b00: 0x555555816d30) at RBTree.cpp:271
+#10 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557a0118: 0x5555557f5af0) at RBTree.cpp:279
+#11 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557b54e0: 0x5555557a0110) at RBTree.cpp:271
+#12 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557796c0: 0x5555557b54d0) at RBTree.cpp:279
+#13 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557762a0: 0x5555557796b0) at RBTree.cpp:279
+#14 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555577a528: 0x555555776290) at RBTree.cpp:279
+#15 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555773ff0: 0x55555577a520) at RBTree.cpp:271
+#16 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555770028: 0x555555773fe0) at RBTree.cpp:279
+#17 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555771590: 0x555555770020) at RBTree.cpp:271
+#18 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576f968: 0x555555771580) at RBTree.cpp:279
+#19 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fdc0: 0x55555576f960) at RBTree.cpp:271
+#20 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555770538: 0x55555576fdb0) at RBTree.cpp:279
+#21 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fc38: 0x555555770530) at RBTree.cpp:271
+#22 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555770178: 0x55555576fc30) at RBTree.cpp:271
+#23 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fa58: 0x555555770170) at RBTree.cpp:271
+#24 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x7fffffffdc00: 0x55555576fa50) at RBTree.cpp:271
+#25 0x0000555555557841 in RBTree::inorder (this=0x7fffffffdc00) at RBTree.cpp:283
+#26 0x000055555555564c in main (argc=3, argv=0x7fffffffdf38) at main.cpp:58
+
+22	../sysdeps/unix/sysv/linux/write.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the reference
+Memory content before bitflip:0x300x050x770x550x550x550x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x55555576fc38
+address max offset: 8
+Memory content after  bitflip:0x300x050x770x550x550x550x000x02
+frame name: RBTree::inorderBST
+symbol name: ptr
+symbol filename: RBTree.cpp
+symbol line: 267
+value: @0x55555576fc38
+value address: 0x55555576fc38
+Type: A reference type.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 19:17:39]
+Fault Injection Successful after 0.7163510322570801s
+[INFO -- 2018-10-16 19:17:39]
+event type: exit
+[EXCEPTION -- 2018-10-16 19:17:39]
+exit code: no exit code available

@@ -1,0 +1,64 @@
+[INFO -- 2018-10-16 20:01:09]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 20:01:09]
+Initialization strings:
+[INFO -- 2018-10-16 20:01:09]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 20:01:09]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 20:01:09]
+initSignal:0
+[INFO -- 2018-10-16 20:01:09]
+endSignal:2
+[INFO -- 2018-10-16 20:01:09]
+faultModel:4
+[EXCEPTION -- 2018-10-16 20:01:09]
+pythonException: empty range for randrange() (0,0, 0)
+[EXCEPTION -- 2018-10-16 20:01:09]
+pythonException: empty range for randrange() (0,0, 0)
+[INFO -- 2018-10-16 20:01:09]
+Backtrace BEGIN:
+#0  0x0000555555556901 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555770e10: 0x555555771160, ptr=@0x7fffffffdb60: 0x5555559705d0) at RBTree.cpp:43
+#1  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555576f0f8: 0x555555770e00, ptr=@0x7fffffffdb60: 0x5555559705d0) at RBTree.cpp:47
+#2  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555771a40: 0x55555576f0f0, ptr=@0x7fffffffdb60: 0x5555559705d0) at RBTree.cpp:44
+#3  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555576fa60: 0x555555771a30, ptr=@0x7fffffffdb60: 0x5555559705d0) at RBTree.cpp:47
+#4  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x7fffffffdc00: 0x55555576fa50, ptr=@0x7fffffffdb60: 0x5555559705d0) at RBTree.cpp:47
+#5  0x00005555555569fe in RBTree::insertValue (this=0x7fffffffdc00, n=18068) at RBTree.cpp:56
+#6  0x0000555555555610 in main (argc=3, argv=0x7fffffffdf38) at main.cpp:54
+
+38	
+39	Node* RBTree::insertBST(Node *&root, Node *&ptr) {
+40	    if (root == NULL)
+41	        return ptr;
+42	
+43	    if (ptr->data < root->data) {
+44	        root->left = insertBST(root->left, ptr);
+45	        root->left->parent = root;
+46	    } else if (ptr->data > root->data) {
+47	        root->right = insertBST(root->right, ptr);
+
+Backtrace END
+Fliping a bit of the value pointed by a reference
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: data
+Memory content before bitflip:0x940x460x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x5555559705d0
+address max offset: 4
+Memory content after  bitflip:0x940x460x000x01
+frame name: RBTree::insertBST
+symbol name: ptr
+symbol filename: RBTree.cpp
+symbol line: 39
+value: @0x7fffffffdb60
+value address: 0x7fffffffdb60
+Type: A reference type.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 20:01:09]
+Fault Injection Successful after 0.6879098415374756s
+[INFO -- 2018-10-16 20:01:09]
+event type: exit
+[EXCEPTION -- 2018-10-16 20:01:09]
+exit code: no exit code available

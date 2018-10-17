@@ -1,0 +1,55 @@
+[INFO -- 2018-10-16 17:38:58]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 17:38:58]
+Initialization strings:
+[INFO -- 2018-10-16 17:38:58]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 17:38:58]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 17:38:58]
+initSignal:0
+[INFO -- 2018-10-16 17:38:58]
+endSignal:2
+[INFO -- 2018-10-16 17:38:58]
+faultModel:4
+[INFO -- 2018-10-16 17:38:58]
+Backtrace BEGIN:
+#0  sysmalloc (nb=nb@entry=262160, av=av@entry=0x7ffff760fc40 <main_arena>) at malloc.c:2361
+#1  0x00007ffff72b8ff0 in _int_malloc (av=av@entry=0x7ffff760fc40 <main_arena>, bytes=bytes@entry=262144) at malloc.c:4125
+#2  0x00007ffff72bb0fc in __GI___libc_malloc (bytes=262144) at malloc.c:3057
+#3  0x00007ffff7adf1a8 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00005555555565ea in __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) ()
+#5  0x00005555555564f6 in std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) ()
+#6  0x000055555555641a in std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) ()
+#7  0x0000555555556016 in void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) ()
+#8  0x0000555555555e78 in void std::vector<int, std::allocator<int> >::emplace_back<int const&>(int const&) ()
+#9  0x0000555555555cf5 in void std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> >(std::istream_iterator<int, char, std::char_traits<char>, long>, std::istream_iterator<int, char, std::char_traits<char>, long>, std::input_iterator_tag) ()
+#10 0x0000555555555bd4 in void std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> >(std::istream_iterator<int, char, std::char_traits<char>, long>, std::istream_iterator<int, char, std::char_traits<char>, long>, std::__false_type) ()
+#11 0x0000555555555949 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void>(std::istream_iterator<int, char, std::char_traits<char>, long>, std::istream_iterator<int, char, std::char_traits<char>, long>, std::allocator<int> const&) ()
+#12 0x000055555555558c in main ()
+
+2356	malloc.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x000x000x000x000x000x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7ffff7611930 
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x02
+frame name: sysmalloc
+symbol name: dumped_main_arena_end
+symbol filename: malloc.c
+symbol line: 1774
+value: 0x0
+value address: 0x7ffff7611930 <dumped_main_arena_end>
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 17:38:58]
+Fault Injection Successful after 0.6057748794555664s
+[INFO -- 2018-10-16 17:38:58]
+event type: exit
+[INFO -- 2018-10-16 17:38:58]
+exit code: 0

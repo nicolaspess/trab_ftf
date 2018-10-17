@@ -1,0 +1,60 @@
+[INFO -- 2018-10-16 16:35:55]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 16:35:55]
+Initialization strings:
+[INFO -- 2018-10-16 16:35:55]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 16:35:55]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 16:35:55]
+initSignal:0
+[INFO -- 2018-10-16 16:35:55]
+endSignal:2
+[INFO -- 2018-10-16 16:35:55]
+faultModel:4
+[INFO -- 2018-10-16 16:35:55]
+Backtrace BEGIN:
+#0  0x00007ffff72bb9a6 in __GI___libc_free (mem=0x5555559b9830) at malloc.c:3121
+#1  0x000055555555820c in std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, 16ul>(std::basic_ostream<char, std::char_traits<char> >&, std::bitset<16ul> const&) ()
+#2  0x0000555555557798 in RBTree::inorderBST(Node*&) ()
+#3  0x000055555555776a in RBTree::inorderBST(Node*&) ()
+#4  0x000055555555776a in RBTree::inorderBST(Node*&) ()
+#5  0x000055555555776a in RBTree::inorderBST(Node*&) ()
+#6  0x0000555555557804 in RBTree::inorderBST(Node*&) ()
+#7  0x000055555555776a in RBTree::inorderBST(Node*&) ()
+#8  0x0000555555557804 in RBTree::inorderBST(Node*&) ()
+#9  0x000055555555776a in RBTree::inorderBST(Node*&) ()
+#10 0x000055555555776a in RBTree::inorderBST(Node*&) ()
+#11 0x0000555555557804 in RBTree::inorderBST(Node*&) ()
+#12 0x0000555555557804 in RBTree::inorderBST(Node*&) ()
+#13 0x0000555555557804 in RBTree::inorderBST(Node*&) ()
+#14 0x0000555555557804 in RBTree::inorderBST(Node*&) ()
+#15 0x000055555555776a in RBTree::inorderBST(Node*&) ()
+#16 0x0000555555557841 in RBTree::inorder() ()
+#17 0x000055555555564c in main ()
+
+3116	malloc.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x000x000x000x000x000x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7ffff76118e8 
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x10
+frame name: __GI___libc_free
+symbol name: __free_hook
+symbol filename: malloc.c
+symbol line: 1864
+value: 0x0
+value address: 0x7ffff76118e8 <__free_hook>
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 16:35:55]
+Fault Injection Successful after 0.32382774353027344s
+[INFO -- 2018-10-16 16:35:55]
+event type: exit
+[EXCEPTION -- 2018-10-16 16:35:55]
+exit code: no exit code available

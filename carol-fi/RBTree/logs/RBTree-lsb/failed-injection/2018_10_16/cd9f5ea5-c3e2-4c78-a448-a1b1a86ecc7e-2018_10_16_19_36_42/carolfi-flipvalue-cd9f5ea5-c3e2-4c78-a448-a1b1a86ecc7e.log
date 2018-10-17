@@ -1,0 +1,23 @@
+[INFO -- 2018-10-16 19:36:40]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 19:36:40]
+Initialization strings:
+[INFO -- 2018-10-16 19:36:40]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 19:36:40]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 19:36:40]
+initSignal:0
+[INFO -- 2018-10-16 19:36:40]
+endSignal:2
+[INFO -- 2018-10-16 19:36:40]
+faultModel:4
+[EXCEPTION -- 2018-10-16 19:36:41]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[EXCEPTION -- 2018-10-16 19:36:41]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-16 19:36:41]
+event type: exit
+[INFO -- 2018-10-16 19:36:41]
+exit code: 0

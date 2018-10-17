@@ -1,0 +1,60 @@
+[INFO -- 2018-10-16 19:31:25]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 19:31:25]
+Initialization strings:
+[INFO -- 2018-10-16 19:31:25]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 19:31:25]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 19:31:25]
+initSignal:0
+[INFO -- 2018-10-16 19:31:25]
+endSignal:2
+[INFO -- 2018-10-16 19:31:25]
+faultModel:4
+[EXCEPTION -- 2018-10-16 19:31:25]
+gdbException: Não é possível acessar a memória no endereço 0x20007ffff7fb0010
+[EXCEPTION -- 2018-10-16 19:31:26]
+pythonException: empty range for randrange() (0,0, 0)
+[INFO -- 2018-10-16 19:31:26]
+Backtrace BEGIN:
+#0  0x0000555555555da3 in std::operator!=<int, char, std::char_traits<char>, long> (__x=..., __y=...) at /usr/include/c++/7/bits/stream_iterator.h:139
+#1  0x0000555555555cd3 in std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdc10, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1308
+#2  0x0000555555555bd4 in std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdc10, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1299
+#3  0x0000555555555949 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void> (this=0x7fffffffdc10, __first=..., __last=..., __a=...) at /usr/include/c++/7/bits/stl_vector.h:414
+#4  0x000055555555558c in main (argc=3, argv=0x7fffffffdf38) at main.cpp:32
+
+134	  ///  Return false if x and y are both end or not end, or x and y are the same.
+135	  template <class _Tp, class _CharT, class _Traits, class _Dist>
+136	    inline bool
+137	    operator!=(const istream_iterator<_Tp, _CharT, _Traits, _Dist>& __x,
+138		       const istream_iterator<_Tp, _CharT, _Traits, _Dist>& __y)
+139	    { return !__x._M_equal(__y); }
+140	
+141	  /**
+142	   *  @brief  Provides output iterator semantics for streams.
+143	   *
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x100xdc0xff0xff0xff0x7f0x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffda78
+address max offset: 8
+Memory content after  bitflip:0x100xdc0xff0xff0xff0x7f0x000x40
+frame name: std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> >
+symbol name: this
+symbol filename: main.cpp
+symbol line: 0
+value: 0x7fffffffdc10
+value address: 0x7fffffffda78
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 19:31:26]
+Fault Injection Successful after 1.044647455215454s
+[INFO -- 2018-10-16 19:31:26]
+event type: exit
+[EXCEPTION -- 2018-10-16 19:31:26]
+exit code: no exit code available

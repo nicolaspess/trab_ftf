@@ -1,0 +1,74 @@
+[INFO -- 2018-10-16 20:43:07]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 20:43:07]
+Initialization strings:
+[INFO -- 2018-10-16 20:43:07]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 20:43:07]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 20:43:07]
+initSignal:0
+[INFO -- 2018-10-16 20:43:07]
+endSignal:2
+[INFO -- 2018-10-16 20:43:07]
+faultModel:4
+[INFO -- 2018-10-16 20:43:07]
+Backtrace BEGIN:
+#0  0x0000555555557ffe in std::_Base_bitset<1ul>::_S_maskbit (__pos=140737488344712) at /usr/include/c++/7/bitset:402
+#1  0x00005555555584bd in std::bitset<16ul>::_Unchecked_test (this=0x7fffffffd688, __pos=11) at /usr/include/c++/7/bitset:1058
+#2  0x00005555555583c1 in std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x7fffffffd688, __s="1111", '0' <repete 12 vezes>, __zero=48 '0', __one=49 '1') at /usr/include/c++/7/bitset:1409
+#3  0x00005555555581ea in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1538
+#4  0x0000555555557798 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555782238: 0x5555557d5ed0) at RBTree.cpp:276
+#5  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557d5b48: 0x555555782230) at RBTree.cpp:271
+#6  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555580b250: 0x5555557d5b40) at RBTree.cpp:271
+#7  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557aa588: 0x55555580b240) at RBTree.cpp:279
+#8  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557712c0: 0x5555557aa580) at RBTree.cpp:271
+#9  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555771e58: 0x5555557712b0) at RBTree.cpp:279
+#10 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555796cc8: 0x555555771e50) at RBTree.cpp:271
+#11 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555772760: 0x555555796cc0) at RBTree.cpp:271
+#12 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555772a60: 0x555555772750) at RBTree.cpp:279
+#13 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555577add0: 0x555555772a50) at RBTree.cpp:279
+#14 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fd28: 0x55555577adc0) at RBTree.cpp:279
+#15 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576f938: 0x55555576fd20) at RBTree.cpp:271
+#16 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fe20: 0x55555576f930) at RBTree.cpp:271
+#17 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555770180: 0x55555576fe10) at RBTree.cpp:279
+#18 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fa58: 0x555555770170) at RBTree.cpp:279
+#19 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x7fffffffdc00: 0x55555576fa50) at RBTree.cpp:271
+#20 0x0000555555557841 in RBTree::inorder (this=0x7fffffffdc00) at RBTree.cpp:283
+#21 0x000055555555564c in main (argc=3, argv=0x7fffffffdf38) at main.cpp:58
+
+397	      static _GLIBCXX_CONSTEXPR size_t
+398	      _S_whichbit(size_t __pos) _GLIBCXX_NOEXCEPT
+399	      {  return __pos % _GLIBCXX_BITSET_BITS_PER_WORD; }
+400	
+401	      static _GLIBCXX_CONSTEXPR _WordT
+402	      _S_maskbit(size_t __pos) _GLIBCXX_NOEXCEPT
+403	      { return (static_cast<_WordT>(1)) << _S_whichbit(__pos); }
+404	
+405	      _WordT&
+406	      _M_getword(size_t) _GLIBCXX_NOEXCEPT
+
+Backtrace END
+Fliping a bit of the value pointed by a reference
+Fliping a bit of the pointer
+Memory content before bitflip:0x300xf90x760x550x550x550x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x55555576fe20
+address max offset: 8
+Memory content after  bitflip:0x300xf90x760x550x550x550x000x08
+frame name: RBTree::inorderBST
+symbol name: ptr
+symbol filename: RBTree.cpp
+symbol line: 267
+value: @0x55555576fe20
+value address: 0x55555576fe20
+Type: A reference type.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 20:43:07]
+Fault Injection Successful after 0.9866964817047119s
+[INFO -- 2018-10-16 20:43:08]
+event type: exit
+[EXCEPTION -- 2018-10-16 20:43:08]
+exit code: no exit code available

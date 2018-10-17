@@ -1,0 +1,63 @@
+[INFO -- 2018-10-16 21:24:53]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 21:24:53]
+Initialization strings:
+[INFO -- 2018-10-16 21:24:53]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 21:24:53]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 21:24:53]
+initSignal:0
+[INFO -- 2018-10-16 21:24:53]
+endSignal:2
+[INFO -- 2018-10-16 21:24:53]
+faultModel:4
+[INFO -- 2018-10-16 21:24:53]
+Backtrace BEGIN:
+#0  __strlen_avx2 () at ../sysdeps/x86_64/multiarch/strlen-avx2.S:338
+#1  0x00007ffff7b601f9 in std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x00005555555577a7 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555819260: 0x555555790300) at RBTree.cpp:276
+#3  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555586d650: 0x555555819250) at RBTree.cpp:279
+#4  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555772ca0: 0x55555586d640) at RBTree.cpp:279
+#5  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555798f80: 0x555555772c90) at RBTree.cpp:279
+#6  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557738c8: 0x555555798f70) at RBTree.cpp:279
+#7  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555770e40: 0x5555557738c0) at RBTree.cpp:271
+#8  0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555773268: 0x555555770e30) at RBTree.cpp:279
+#9  0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x5555557703e8: 0x555555773260) at RBTree.cpp:271
+#10 0x000055555555776a in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576faf0: 0x5555557703e0) at RBTree.cpp:271
+#11 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fe50: 0x55555576fae0) at RBTree.cpp:279
+#12 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576ffd0: 0x55555576fe40) at RBTree.cpp:279
+#13 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576f100: 0x55555576ffc0) at RBTree.cpp:279
+#14 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x555555771a40: 0x55555576f0f0) at RBTree.cpp:279
+#15 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x55555576fa60: 0x555555771a30) at RBTree.cpp:279
+#16 0x0000555555557804 in RBTree::inorderBST (this=0x7fffffffdc00, ptr=@0x7fffffffdc00: 0x55555576fa50) at RBTree.cpp:279
+#17 0x0000555555557841 in RBTree::inorder (this=0x7fffffffdc00) at RBTree.cpp:283
+#18 0x000055555555564c in main (argc=3, argv=0x7fffffffdf38) at main.cpp:58
+
+333	../sysdeps/x86_64/multiarch/strlen-avx2.S: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the value pointed by a reference
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: data
+Memory content before bitflip:0xd10x5e0x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x555555819250
+address max offset: 4
+Memory content after  bitflip:0xd10x5e0x000x80
+frame name: RBTree::inorderBST
+symbol name: ptr
+symbol filename: RBTree.cpp
+symbol line: 267
+value: @0x55555586d650
+value address: 0x55555586d650
+Type: A reference type.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 21:24:53]
+Fault Injection Successful after 0.45789122581481934s
+[INFO -- 2018-10-16 21:24:53]
+event type: exit
+[INFO -- 2018-10-16 21:24:53]
+exit code: 0

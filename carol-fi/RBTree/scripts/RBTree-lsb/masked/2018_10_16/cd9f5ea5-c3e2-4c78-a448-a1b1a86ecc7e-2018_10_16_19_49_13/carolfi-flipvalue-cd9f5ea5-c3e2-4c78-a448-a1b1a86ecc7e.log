@@ -1,0 +1,73 @@
+[INFO -- 2018-10-16 19:49:11]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 19:49:11]
+Initialization strings:
+[INFO -- 2018-10-16 19:49:11]
+(1) file /tmp/RBTree/main
+[INFO -- 2018-10-16 19:49:11]
+(2) set args  /tmp/RBTree/input_ /tmp/RBTree/output_
+[INFO -- 2018-10-16 19:49:11]
+initSignal:0
+[INFO -- 2018-10-16 19:49:11]
+endSignal:2
+[INFO -- 2018-10-16 19:49:11]
+faultModel:4
+[EXCEPTION -- 2018-10-16 19:49:12]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-10-16 19:49:12]
+Backtrace BEGIN:
+#0  0x0000555555556901 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x5555557d1320: 0x555555924910, ptr=@0x7fffffffdb60: 0x55555599f1f0) at RBTree.cpp:43
+#1  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555587d850: 0x5555557d1310, ptr=@0x7fffffffdb60: 0x55555599f1f0) at RBTree.cpp:47
+#2  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x5555557f2198: 0x55555587d840, ptr=@0x7fffffffdb60: 0x55555599f1f0) at RBTree.cpp:47
+#3  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555578c9e0: 0x5555557f2190, ptr=@0x7fffffffdb60: 0x55555599f1f0) at RBTree.cpp:44
+#4  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x5555557c64e8: 0x55555578c9d0, ptr=@0x7fffffffdb60: 0x55555599f1f0) at RBTree.cpp:47
+#5  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555577d200: 0x5555557c64e0, ptr=@0x7fffffffdb60: 0x55555599f1f0) at RBTree.cpp:44
+#6  0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555784ab8: 0x55555577d1f0, ptr=@0x7fffffffdb60: 0x55555599f1f0) at RBTree.cpp:47
+#7  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555773ce8: 0x555555784ab0, ptr=@0x7fffffffdb60: 0x55555599f1f0) at RBTree.cpp:44
+#8  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555780ac8: 0x555555773ce0, ptr=@0x7fffffffdb60: 0x55555599f1f0) at RBTree.cpp:44
+#9  0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x5555557709b8: 0x555555780ac0, ptr=@0x7fffffffdb60: 0x55555599f1f0) at RBTree.cpp:44
+#10 0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555770e08: 0x5555557709b0, ptr=@0x7fffffffdb60: 0x55555599f1f0) at RBTree.cpp:44
+#11 0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555576f0f8: 0x555555770e00, ptr=@0x7fffffffdb60: 0x55555599f1f0) at RBTree.cpp:44
+#12 0x000055555555692a in RBTree::insertBST (this=0x7fffffffdc00, root=@0x555555771a40: 0x55555576f0f0, ptr=@0x7fffffffdb60: 0x55555599f1f0) at RBTree.cpp:44
+#13 0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x55555576fa60: 0x555555771a30, ptr=@0x7fffffffdb60: 0x55555599f1f0) at RBTree.cpp:47
+#14 0x0000555555556981 in RBTree::insertBST (this=0x7fffffffdc00, root=@0x7fffffffdc00: 0x55555576fa50, ptr=@0x7fffffffdb60: 0x55555599f1f0) at RBTree.cpp:47
+#15 0x00005555555569fe in RBTree::insertValue (this=0x7fffffffdc00, n=16137) at RBTree.cpp:56
+#16 0x0000555555555610 in main (argc=3, argv=0x7fffffffdf38) at main.cpp:54
+
+38	
+39	Node* RBTree::insertBST(Node *&root, Node *&ptr) {
+40	    if (root == NULL)
+41	        return ptr;
+42	
+43	    if (ptr->data < root->data) {
+44	        root->left = insertBST(root->left, ptr);
+45	        root->left->parent = root;
+46	    } else if (ptr->data > root->data) {
+47	        root->right = insertBST(root->right, ptr);
+
+Backtrace END
+Fliping a bit of the value pointed by a reference
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: parent
+Fliping a bit of the pointer
+Memory content before bitflip:0x000x000x000x000x000x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x55555599f208
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x02
+frame name: RBTree::insertBST
+symbol name: ptr
+symbol filename: RBTree.cpp
+symbol line: 39
+value: @0x7fffffffdb60
+value address: 0x7fffffffdb60
+Type: A reference type.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 19:49:12]
+Fault Injection Successful after 1.119236946105957s
+[INFO -- 2018-10-16 19:49:12]
+event type: exit
+[INFO -- 2018-10-16 19:49:12]
+exit code: 0
