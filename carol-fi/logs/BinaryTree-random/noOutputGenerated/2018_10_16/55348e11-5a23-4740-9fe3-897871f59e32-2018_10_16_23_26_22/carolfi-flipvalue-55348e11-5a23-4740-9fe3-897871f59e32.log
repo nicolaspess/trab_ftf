@@ -1,0 +1,55 @@
+[INFO -- 2018-10-16 23:26:21]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 23:26:21]
+Initialization strings:
+[INFO -- 2018-10-16 23:26:21]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-10-16 23:26:21]
+(2) set args /tmp/Tree234/input_50000 /tmp/Tree234/output_50000
+[INFO -- 2018-10-16 23:26:21]
+initSignal:0
+[INFO -- 2018-10-16 23:26:21]
+endSignal:2
+[INFO -- 2018-10-16 23:26:21]
+faultModel:0
+[INFO -- 2018-10-16 23:26:21]
+Backtrace BEGIN:
+#0  0x00007ffff7df2517 in mprotect () at ../sysdeps/unix/syscall-template.S:84
+#1  0x00007ffff7de3cb8 in _dl_protect_relro (l=0x7ffff7fd9000) at dl-reloc.c:321
+#2  _dl_relocate_object (scope=<optimized out>, reloc_mode=<optimized out>, consider_profiling=<optimized out>, consider_profiling@entry=0) at dl-reloc.c:306
+#3  0x00007ffff7ddb0db in dl_main (phdr=<optimized out>, phnum=<optimized out>, user_entry=<optimized out>, auxv=<optimized out>) at rtld.c:2109
+#4  0x00007ffff7df0632 in _dl_sysdep_start (start_argptr=start_argptr@entry=0x7fffffffde70, dl_main=dl_main@entry=0x7ffff7dd91e0 <dl_main>) at ../elf/dl-sysdep.c:249
+#5  0x00007ffff7dd8c2a in _dl_start_final (arg=0x7fffffffde70) at rtld.c:323
+#6  _dl_start (arg=0x7fffffffde70) at rtld.c:429
+#7  0x00007ffff7dd7c38 in _start () from /lib64/ld-linux-x86-64.so.2
+#8  0x0000000000000003 in ?? ()
+#9  0x00007fffffffe20c in ?? ()
+#10 0x00007fffffffe21e in ?? ()
+#11 0x00007fffffffe237 in ?? ()
+#12 0x0000000000000000 in ?? ()
+
+79	in ../sysdeps/unix/syscall-template.S
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x000x900xfd0xf70xff0x7f0x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffdbe8
+address max offset: 8
+Memory content after  bitflip:0x000x900xf90xf70xff0x7f0x000x00
+frame name: _dl_protect_relro
+symbol name: l
+symbol filename: dl-reloc.c
+symbol line: 311
+value: 0x7ffff7fd9000
+value address: 0x7fffffffdbe8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 23:26:21]
+Fault Injection Successful after 0.5487444400787354s
+[INFO -- 2018-10-16 23:26:21]
+event type: exit
+[INFO -- 2018-10-16 23:26:21]
+exit code: 0

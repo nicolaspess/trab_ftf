@@ -1,0 +1,100 @@
+Faults Injected:;6774
+
+Fault Effect;#Effect;PVF
+Masked;0;N/A
+SDCs;0;N/A
+Crashes;6769;0.9992618836728668
+Hangs;5;0.0007381163271331562
+
+
+
+FaultModels Crashes:
+FaultModel ;#Crashes;percentage
+Single bit-flip;6769;100.0
+
+FaultModels Hangs:
+FaultModel ;#Hangs;percentage
+Single bit-flip;5;100.0
+
+Variables that caused Crash:
+PVF ;#flips ;#SDCs ;Var name ;file ;line number
+100.0;287;287;__pointer_chk_guard_local;rtld.c;96
+100.0;286;286;relocate_time;rtld.c;215
+100.0;280;280;preloadlist;rtld.c;745
+100.0;278;278;_dl_argc;rtld.c;82
+100.0;276;276;load_time;rtld.c;216
+100.0;276;276;library_path;rtld.c;743
+100.0;275;275;__libc_enable_secure;../elf/dl-sysdep.c;57
+100.0;275;275;user_entry;../elf/dl-sysdep.c;89
+100.0;273;273;__libc_multiple_libcs;../elf/dl-sysdep.c;58
+100.0;267;267;any_debug;rtld.c;2239
+100.0;266;266;_dl_skip_args;rtld.c;84
+100.0;262;262;_dl_argv;rtld.c;86
+100.0;262;262;__GI__dl_argv;rtld.c;83
+100.0;261;261;_rtld_global_ro;rtld.c;168
+100.0;260;260;version_info;rtld.c;747
+100.0;256;256;_rtld_local_ro;rtld.c;202
+100.0;256;256;_dl_rtld_libname2;rtld.c;211
+100.0;254;254;__GI___libc_enable_secure;../elf/dl-sysdep.c;56
+100.0;250;250;tls_init_tp_called;rtld.c;585
+100.0;250;250;start_time;rtld.c;217
+98.80478087649402;251;248;_rtld_global;rtld.c;140
+100.0;243;243;audit_list;rtld.c;124
+100.0;225;225;_dl_rtld_libname;rtld.c;210
+99.10313901345292;223;221;_rtld_local;rtld.c;162
+100.0;98;98;__PRETTY_FUNCTION__;rtld.c;0
+100.0;91;91;rtld_total_time;rtld.c;326
+100.0;91;91;file_size;rtld.c;794
+100.0;81;81;preload_file;rtld.c;1551
+100.0;31;31;ranges;dl-reloc.c;258
+100.0;9;9;end2;do-rel.h;51
+100.0;9;9;r2;do-rel.h;50
+100.0;4;4;skip_map;dl-lookup.c;805
+100.0;4;4;i;dl-lookup.c;820
+100.0;3;3;undef_name;dl-lookup.c;801
+100.0;3;3;flags;dl-lookup.c;805
+100.0;3;3;errcode;dl-error.c;171
+100.0;3;3;l;dl-reloc.c;311
+100.0;2;2;errstring;dl-deps.c;168
+100.0;2;2;_itoa_lower_digits;dl-minimal.c;342
+100.0;2;2;__stack_prot;dl-load.c;62
+100.0;2;2;strtab;dl-deps.c;231
+100.0;2;2;system_dirs_len;dl-load.c;110
+100.0;2;2;mallocedp;dl-error.c;162
+100.0;2;2;_dl_out_of_memory;dl-error.c;50
+100.0;2;2;symbol_scope;dl-lookup.c;803
+100.0;2;2;rtld_search_dirs;dl-load.c;425
+100.0;2;2;lazy;do-rel.h;44
+100.0;2;2;max_dirnamelen;dl-load.c;427
+100.0;2;2;args;dl-deps.c;232
+100.0;2;2;objname;dl-deps.c;169
+100.0;2;2;flags;dl-lookup.c;353
+100.0;1;1;primes;dl-misc.c;310
+100.0;1;1;max_capstrlen;dl-load.c;103
+100.0;1;1;malloced;dl-deps.c;253
+100.0;1;1;num_versions;dl-lookup.c;391
+100.0;1;1;reloc_addr;../sysdeps/x86_64/dl-machine.h;265
+100.0;1;1;new_hash;dl-lookup.c;350
+100.0;1;1;__PRETTY_FUNCTION__;dl-lookup.c;0
+100.0;1;1;needed_space_bytes;dl-deps.c;189
+100.0;1;1;old_hash;dl-lookup.c;808
+100.0;1;1;current_value;dl-lookup.c;809
+100.0;1;1;weak;dl-version.c;75
+100.0;1;1;undef_map;dl-lookup.c;213
+100.0;1;1;runp;dl-deps.c;162
+100.0;1;1;receiver;dl-error.c;60
+100.0;1;1;strtab;dl-lookup.c;396
+100.0;1;1;skip;dl-lookup.c;354
+100.0;1;1;old_hash;dl-lookup.c;351
+100.0;1;1;r;dl-load.c;881
+100.0;1;1;__PRETTY_FUNCTION__;dl-load.c;0
+100.0;1;1;__GI__itoa_lower_digits;dl-minimal.c;341
+100.0;1;1;symidx;dl-lookup.c;87
+100.0;1;1;textrels;dl-reloc.c;156
+100.0;1;1;ref;dl-lookup.c;351
+100.0;1;1;type_class;dl-lookup.c;354
+
+Variables that caused Hang:
+PVF ;#flips ;#SDCs ;Var name ;file ;line number
+1.1952191235059761;251;3;_rtld_global;rtld.c;140
+0.8968609865470852;223;2;_rtld_local;rtld.c;162

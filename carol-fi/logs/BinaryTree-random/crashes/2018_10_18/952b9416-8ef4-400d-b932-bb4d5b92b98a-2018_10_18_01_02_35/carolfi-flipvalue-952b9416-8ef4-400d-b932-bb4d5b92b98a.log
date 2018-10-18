@@ -1,0 +1,59 @@
+[INFO -- 2018-10-18 01:02:33]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-18 01:02:33]
+Initialization strings:
+[INFO -- 2018-10-18 01:02:33]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-10-18 01:02:33]
+(2) set args /tmp/Tree234/input_50000 /tmp/Tree234/output_50000
+[INFO -- 2018-10-18 01:02:33]
+initSignal:0
+[INFO -- 2018-10-18 01:02:33]
+endSignal:2
+[INFO -- 2018-10-18 01:02:33]
+faultModel:0
+[INFO -- 2018-10-18 01:02:33]
+Backtrace BEGIN:
+#0  0x00007ffff7df2387 in access () at ../sysdeps/unix/syscall-template.S:84
+#1  0x00007ffff7de648c in _dl_important_hwcaps (platform=0x7fffffffe1f9 "x86_64", platform_len=6, sz=sz@entry=0x7ffff7ffce28 <ncapstr>, max_capstrlen=max_capstrlen@entry=0x7ffff7ffce20 <max_capstrlen>) at dl-hwcaps.c:115
+#2  0x00007ffff7ddf4f5 in _dl_init_paths (llp=0x0) at dl-load.c:674
+#3  0x00007ffff7dda7f6 in dl_main (phdr=<optimized out>, phnum=9, user_entry=<optimized out>, auxv=<optimized out>) at rtld.c:1248
+#4  0x00007ffff7df0632 in _dl_sysdep_start (start_argptr=start_argptr@entry=0x7fffffffde70, dl_main=dl_main@entry=0x7ffff7dd91e0 <dl_main>) at ../elf/dl-sysdep.c:249
+#5  0x00007ffff7dd8c2a in _dl_start_final (arg=0x7fffffffde70) at rtld.c:323
+#6  _dl_start (arg=0x7fffffffde70) at rtld.c:429
+#7  0x00007ffff7dd7c38 in _start () from /lib64/ld-linux-x86-64.so.2
+#8  0x0000000000000003 in ?? ()
+#9  0x00007fffffffe20c in ?? ()
+#10 0x00007fffffffe21e in ?? ()
+#11 0x00007fffffffe237 in ?? ()
+#12 0x0000000000000000 in ?? ()
+
+79	in ../sysdeps/unix/syscall-template.S
+
+Backtrace END
+Fliping array at pos: 1
+Memory content before bitflip:0x1a0x000x000x000x000x000x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7ffff7df5d48 
+address max offset: 8
+Memory content after  bitflip:0x1a0x000x400x000x000x000x000x00
+frame name: _dl_init_paths
+symbol name: system_dirs_len
+symbol filename: dl-load.c
+symbol line: 110
+value: {22, 4194330, 5, 9}
+value address: 0x7ffff7df5d40 <system_dirs_len>
+Type: The type is an array.
+Type sizeof: 32
+Field name: None
+Field Type: A range type, that is, an integer type with bounds.
+Field Type sizeof: 8
+Field Type range: (0, 3)
+
+[INFO -- 2018-10-18 01:02:33]
+Fault Injection Successful after 0.30448365211486816s
+[INFO -- 2018-10-18 01:02:33]
+event type: exit
+[EXCEPTION -- 2018-10-18 01:02:33]
+exit code: no exit code available

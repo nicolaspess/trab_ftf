@@ -1,0 +1,55 @@
+[INFO -- 2018-10-18 01:02:14]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-18 01:02:14]
+Initialization strings:
+[INFO -- 2018-10-18 01:02:14]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-10-18 01:02:14]
+(2) set args /tmp/Tree234/input_50000 /tmp/Tree234/output_50000
+[INFO -- 2018-10-18 01:02:14]
+initSignal:0
+[INFO -- 2018-10-18 01:02:14]
+endSignal:2
+[INFO -- 2018-10-18 01:02:14]
+faultModel:0
+[INFO -- 2018-10-18 01:02:14]
+Backtrace BEGIN:
+#0  0x00007ffff72e7a00 in ?? ()
+#1  0x00007ffff7de3530 in elf_machine_lazy_rel (skip_ifunc=<optimized out>, reloc=0x7ffff72776f8, l_addr=140737339817984, map=0x7ffff7fd94e8) at ../sysdeps/x86_64/dl-machine.h:554
+#2  elf_dynamic_do_Rela (skip_ifunc=<optimized out>, lazy=<optimized out>, nrelative=<optimized out>, relsize=<optimized out>, reladdr=<optimized out>, map=0x7ffff7fd94e8) at do-rel.h:77
+#3  _dl_relocate_object (scope=<optimized out>, reloc_mode=<optimized out>, consider_profiling=<optimized out>, consider_profiling@entry=0) at dl-reloc.c:258
+#4  0x00007ffff7ddb0db in dl_main (phdr=<optimized out>, phnum=<optimized out>, user_entry=<optimized out>, auxv=<optimized out>) at rtld.c:2109
+#5  0x00007ffff7df0632 in _dl_sysdep_start (start_argptr=start_argptr@entry=0x7fffffffde70, dl_main=dl_main@entry=0x7ffff7dd91e0 <dl_main>) at ../elf/dl-sysdep.c:249
+#6  0x00007ffff7dd8c2a in _dl_start_final (arg=0x7fffffffde70) at rtld.c:323
+#7  _dl_start (arg=0x7fffffffde70) at rtld.c:429
+#8  0x00007ffff7dd7c38 in _start () from /lib64/ld-linux-x86-64.so.2
+#9  0x0000000000000003 in ?? ()
+#10 0x00007fffffffe20c in ?? ()
+#11 0x00007fffffffe21e in ?? ()
+#12 0x00007fffffffe237 in ?? ()
+#13 0x0000000000000000 in ?? ()
+
+1	in <built-in>
+
+Backtrace END
+Memory content before bitflip:0x540x500x080x000x000x000x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7ffff7ffcc68 
+address max offset: 8
+Memory content after  bitflip:0x540x500x080x000x020x000x000x00
+frame name: _dl_start
+symbol name: load_time
+symbol filename: rtld.c
+symbol line: 216
+value: 8590479444
+value address: 0x7ffff7ffcc68 <load_time>
+Type: The type is an integer type.
+Type sizeof: 8
+
+[INFO -- 2018-10-18 01:02:14]
+Fault Injection Successful after 0.9115042686462402s
+[INFO -- 2018-10-18 01:02:15]
+event type: exit
+[INFO -- 2018-10-18 01:02:15]
+exit code: 0

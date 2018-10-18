@@ -1,0 +1,63 @@
+[INFO -- 2018-10-17 01:22:00]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-17 01:22:00]
+Initialization strings:
+[INFO -- 2018-10-17 01:22:00]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-10-17 01:22:00]
+(2) set args /tmp/Tree234/input_50000 /tmp/Tree234/output_50000
+[INFO -- 2018-10-17 01:22:00]
+initSignal:0
+[INFO -- 2018-10-17 01:22:00]
+endSignal:2
+[INFO -- 2018-10-17 01:22:00]
+faultModel:0
+[INFO -- 2018-10-17 01:22:00]
+Backtrace BEGIN:
+#0  0x00007ffff7df2517 in mprotect () at ../sysdeps/unix/syscall-template.S:84
+#1  0x00007ffff7dde261 in _dl_map_segments (loader=0x7ffff7ff74d0, has_holes=true, maplength=3675136, nloadcmds=2, loadcmds=0x7fffffffd2d0, type=<optimized out>, header=0x7fffffffd648, fd=4, l=0x7ffff7ff74d0) at ./dl-map-segments.h:72
+#2  _dl_map_object_from_fd (name=name@entry=0x400789 "libstdc++.so.6", origname=origname@entry=0x0, fd=4, fbp=fbp@entry=0x7fffffffd640, realname=0x7ffff7ff74a0 "/usr/lib/x86_64-linux-gnu/libstdc++.so.6", loader=loader@entry=0x7ffff7ffe168, l_type=1, mode=0, stack_endp=0x7fffffffd638, nsid=0) at dl-load.c:1223
+#3  0x00007ffff7ddfc27 in _dl_map_object (loader=0x7ffff7ffe168, name=0x400789 "libstdc++.so.6", type=1, trace_mode=0, mode=<optimized out>, nsid=<optimized out>) at dl-load.c:2476
+#4  0x00007ffff7de4ba2 in openaux (a=a@entry=0x7fffffffdc20) at dl-deps.c:63
+#5  0x00007ffff7de7564 in _dl_catch_error (objname=objname@entry=0x7fffffffdc18, errstring=errstring@entry=0x7fffffffdc10, mallocedp=mallocedp@entry=0x7fffffffdc0f, operate=operate@entry=0x7ffff7de4b70 <openaux>, args=args@entry=0x7fffffffdc20) at dl-error.c:187
+#6  0x00007ffff7de51e2 in _dl_map_object_deps (map=map@entry=0x7ffff7ffe168, preloads=<optimized out>, npreloads=npreloads@entry=0, trace_mode=trace_mode@entry=0, open_mode=open_mode@entry=0) at dl-deps.c:254
+#7  0x00007ffff7ddaa29 in dl_main (phdr=<optimized out>, phnum=<optimized out>, user_entry=<optimized out>, auxv=<optimized out>) at rtld.c:1647
+#8  0x00007ffff7df0632 in _dl_sysdep_start (start_argptr=start_argptr@entry=0x7fffffffde70, dl_main=dl_main@entry=0x7ffff7dd91e0 <dl_main>) at ../elf/dl-sysdep.c:249
+#9  0x00007ffff7dd8c2a in _dl_start_final (arg=0x7fffffffde70) at rtld.c:323
+#10 _dl_start (arg=0x7fffffffde70) at rtld.c:429
+#11 0x00007ffff7dd7c38 in _start () from /lib64/ld-linux-x86-64.so.2
+#12 0x0000000000000003 in ?? ()
+#13 0x00007fffffffe20c in ?? ()
+#14 0x00007fffffffe21e in ?? ()
+#15 0x00007fffffffe237 in ?? ()
+#16 0x0000000000000000 in ?? ()
+
+79	in ../sysdeps/unix/syscall-template.S
+
+Backtrace END
+Fliping array at pos: 4
+Memory content before bitflip:0x6d
+Fault Model: Single bit-flip
+base address to flip value: 0x7ffff7df95a4  
+address max offset: 1
+Memory content after  bitflip:0x65
+frame name: _dl_map_segments
+symbol name: __PRETTY_FUNCTION__
+symbol filename: dl-load.c
+symbol line: 0
+value: "_dl_eap_object_from_fd"
+value address: 0x7ffff7df95a0 <__PRETTY_FUNCTION__.10186>
+Type: The type is an array.
+Type sizeof: 23
+Field name: None
+Field Type: A range type, that is, an integer type with bounds.
+Field Type sizeof: 8
+Field Type range: (0, 22)
+
+[INFO -- 2018-10-17 01:22:00]
+Fault Injection Successful after 0.6409769058227539s
+[INFO -- 2018-10-17 01:22:00]
+event type: exit
+[INFO -- 2018-10-17 01:22:00]
+exit code: 0

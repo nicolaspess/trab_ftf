@@ -1,0 +1,57 @@
+[INFO -- 2018-10-16 23:49:04]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-16 23:49:04]
+Initialization strings:
+[INFO -- 2018-10-16 23:49:04]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-10-16 23:49:04]
+(2) set args /tmp/Tree234/input_50000 /tmp/Tree234/output_50000
+[INFO -- 2018-10-16 23:49:04]
+initSignal:0
+[INFO -- 2018-10-16 23:49:04]
+endSignal:2
+[INFO -- 2018-10-16 23:49:04]
+faultModel:0
+[INFO -- 2018-10-16 23:49:04]
+Backtrace BEGIN:
+#0  0x00007ffff7def196 in _dl_cache_libcmp (p1=p1@entry=0x400789 "libstdc++.so.6", p2=0x7ffff7fe6adc "libtbbmalloc.so.2") at dl-cache.c:138
+#1  0x00007ffff7def36d in _dl_load_cache_lookup (name=name@entry=0x400789 "libstdc++.so.6") at dl-cache.c:281
+#2  0x00007ffff7de0169 in _dl_map_object (loader=0x7ffff7ffe168, name=0x400789 "libstdc++.so.6", type=1, trace_mode=0, mode=<optimized out>, nsid=<optimized out>) at dl-load.c:2342
+#3  0x00007ffff7de4ba2 in openaux (a=a@entry=0x7fffffffdc20) at dl-deps.c:63
+#4  0x00007ffff7de7564 in _dl_catch_error (objname=objname@entry=0x7fffffffdc18, errstring=errstring@entry=0x7fffffffdc10, mallocedp=mallocedp@entry=0x7fffffffdc0f, operate=operate@entry=0x7ffff7de4b70 <openaux>, args=args@entry=0x7fffffffdc20) at dl-error.c:187
+#5  0x00007ffff7de51e2 in _dl_map_object_deps (map=map@entry=0x7ffff7ffe168, preloads=<optimized out>, npreloads=npreloads@entry=0, trace_mode=trace_mode@entry=0, open_mode=open_mode@entry=0) at dl-deps.c:254
+#6  0x00007ffff7ddaa29 in dl_main (phdr=<optimized out>, phnum=<optimized out>, user_entry=<optimized out>, auxv=<optimized out>) at rtld.c:1647
+#7  0x00007ffff7df0632 in _dl_sysdep_start (start_argptr=start_argptr@entry=0x7fffffffde70, dl_main=dl_main@entry=0x7ffff7dd91e0 <dl_main>) at ../elf/dl-sysdep.c:249
+#8  0x00007ffff7dd8c2a in _dl_start_final (arg=0x7fffffffde70) at rtld.c:323
+#9  _dl_start (arg=0x7fffffffde70) at rtld.c:429
+#10 0x00007ffff7dd7c38 in _start () from /lib64/ld-linux-x86-64.so.2
+#11 0x0000000000000003 in ?? ()
+#12 0x00007fffffffe20c in ?? ()
+#13 0x00007fffffffe21e in ?? ()
+#14 0x00007fffffffe237 in ?? ()
+#15 0x0000000000000000 in ?? ()
+
+133	in dl-cache.c
+
+Backtrace END
+Memory content before bitflip:0x000x000x000x000x000x000x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7ffff7ffcc68 
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x010x000x000x000x00
+frame name: _dl_start
+symbol name: load_time
+symbol filename: rtld.c
+symbol line: 216
+value: 16777216
+value address: 0x7ffff7ffcc68 <load_time>
+Type: The type is an integer type.
+Type sizeof: 8
+
+[INFO -- 2018-10-16 23:49:04]
+Fault Injection Successful after 0.07492518424987793s
+[INFO -- 2018-10-16 23:49:04]
+event type: exit
+[INFO -- 2018-10-16 23:49:04]
+exit code: 0

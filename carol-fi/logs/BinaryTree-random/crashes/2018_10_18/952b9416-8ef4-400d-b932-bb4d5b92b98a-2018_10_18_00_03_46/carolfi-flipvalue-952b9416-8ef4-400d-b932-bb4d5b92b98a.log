@@ -1,0 +1,53 @@
+[INFO -- 2018-10-18 00:03:44]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-10-18 00:03:44]
+Initialization strings:
+[INFO -- 2018-10-18 00:03:44]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-10-18 00:03:44]
+(2) set args /tmp/Tree234/input_50000 /tmp/Tree234/output_50000
+[INFO -- 2018-10-18 00:03:44]
+initSignal:0
+[INFO -- 2018-10-18 00:03:44]
+endSignal:2
+[INFO -- 2018-10-18 00:03:44]
+faultModel:0
+[INFO -- 2018-10-18 00:03:44]
+Backtrace BEGIN:
+#0  0x00007ffff7df14b5 in __brk (addr=addr@entry=0x0) at ../sysdeps/unix/sysv/linux/x86_64/brk.c:31
+#1  0x00007ffff7df04d5 in frob_brk () at ../sysdeps/unix/sysv/linux/dl-sysdep.c:35
+#2  _dl_sysdep_start (start_argptr=start_argptr@entry=0x7fffffffde70, dl_main=dl_main@entry=0x7ffff7dd91e0 <dl_main>) at ../elf/dl-sysdep.c:223
+#3  0x00007ffff7dd8c2a in _dl_start_final (arg=0x7fffffffde70) at rtld.c:323
+#4  _dl_start (arg=0x7fffffffde70) at rtld.c:429
+#5  0x00007ffff7dd7c38 in _start () from /lib64/ld-linux-x86-64.so.2
+#6  0x0000000000000003 in ?? ()
+#7  0x00007fffffffe20c in ?? ()
+#8  0x00007fffffffe21e in ?? ()
+#9  0x00007fffffffe237 in ?? ()
+#10 0x0000000000000000 in ?? ()
+
+26	in ../sysdeps/unix/sysv/linux/x86_64/brk.c
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x780xde0xff0xff0xff0x7f0x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7ffff7ffcc80 
+address max offset: 8
+Memory content after  bitflip:0x780xde0xff0xff0xff0x7f0x000x20
+frame name: _dl_start
+symbol name: _dl_argv
+symbol filename: rtld.c
+symbol line: 86
+value: 0x7fffffffde78
+value address: 0x7ffff7ffcc80 <_dl_argv>
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-10-18 00:03:44]
+Fault Injection Successful after 0.6198470592498779s
+[INFO -- 2018-10-18 00:03:44]
+event type: exit
+[EXCEPTION -- 2018-10-18 00:03:44]
+exit code: no exit code available
