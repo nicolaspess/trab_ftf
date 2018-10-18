@@ -1,0 +1,45 @@
+Faults Injected:;3022
+
+Fault Effect;#Effect;PVF
+Masked;2717;0.899073461283918
+SDCs;0;N/A
+Crashes;303;0.10026472534745202
+Hangs;2;0.0006618133686300463
+
+
+
+FaultModels Crashes:
+FaultModel ;#Crashes;percentage
+LSB bit-flip;75;24.752475247524753
+Random bit-flip;73;24.09240924092409
+Double bit-flip;67;22.112211221122113
+Single bit-flip;62;20.462046204620464
+Zero bit-flip;26;8.58085808580858
+
+FaultModels Hangs:
+FaultModel ;#Hangs;percentage
+LSB bit-flip;1;50.0
+Random bit-flip;1;50.0
+
+Variables that caused Crash:
+PVF ;#flips ;#SDCs ;Var name ;file ;line number
+99.17355371900827;121;120;user_entry;../elf/dl-sysdep.c;89
+76.10619469026548;113;86;_dl_skip_args;rtld.c;84
+21.804511278195488;133;29;__GI__dl_argv;rtld.c;83
+20.0;110;22;_dl_argv;rtld.c;86
+8.94308943089431;123;11;_rtld_global;rtld.c;140
+33.33333333333333;30;10;ranges;dl-reloc.c;258
+8.411214953271028;107;9;_rtld_local;rtld.c;162
+4.444444444444445;90;4;_rtld_global_ro;rtld.c;168
+3.8461538461538463;104;4;_rtld_local_ro;rtld.c;202
+100.0;2;2;symbol_scope;dl-lookup.c;803
+66.66666666666666;3;2;reloc_addr;../sysdeps/x86_64/dl-machine.h;265
+25.0;4;1;current_value;dl-lookup.c;809
+50.0;2;1;l;dl-reloc.c;311
+33.33333333333333;3;1;flags;dl-lookup.c;805
+100.0;1;1;version;dl-lookup.c;353
+
+Variables that caused Hang:
+PVF ;#flips ;#SDCs ;Var name ;file ;line number
+0.8264462809917356;121;1;library_path;rtld.c;743
+0.8403361344537815;119;1;audit_list;rtld.c;124
