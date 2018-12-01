@@ -1,0 +1,58 @@
+[INFO -- 2018-11-26 00:20:34]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-26 00:20:34]
+Initialization strings:
+[INFO -- 2018-11-26 00:20:34]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-26 00:20:34]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-26 00:20:34]
+initSignal:0
+[INFO -- 2018-11-26 00:20:34]
+endSignal:2
+[INFO -- 2018-11-26 00:20:34]
+faultModel:1
+[INFO -- 2018-11-26 00:20:35]
+Backtrace BEGIN:
+#0  0x000055555555663b in BTreeNode::insertNonFull (this=0x555555bffb80, k=2612279) at BTree_dup.cpp:537
+#1  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555eb0b60, k=2612279) at BTree_dup.cpp:535
+#2  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ce1fc0, k=2612279) at BTree_dup.cpp:535
+#3  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ce1f30, k=2612279) at BTree_dup.cpp:535
+#4  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ef6e20, k=2612279) at BTree_dup.cpp:535
+#5  0x0000555555556478 in BTree::insert (this=0x7fffffffda50, k=2612279) at BTree_dup.cpp:489
+#6  0x0000555555556c25 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#7  0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+532				if (keys[i+1] < k)
+533					i++;
+534			}
+535			C[i+1]->insertNonFull(k);
+536		}
+537	}
+538	
+539	// A utility function to split the child y of this node
+540	// Note that y must be full when this function is called
+541	void BTreeNode::splitChild(int i, BTreeNode *y)
+
+Backtrace END
+Memory content before bitflip:0x370xdc0x270x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffd934
+address max offset: 4
+Memory content after  bitflip:0x370xdc0x870x00
+frame name: BTreeNode::insertNonFull
+symbol name: k
+symbol filename: BTree_dup.cpp
+symbol line: 496
+value: 8903735
+value address: 0x7fffffffd934
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-11-26 00:20:35]
+Fault Injection Successful after 1.6815876960754395s
+[INFO -- 2018-11-26 00:20:36]
+event type: exit
+[INFO -- 2018-11-26 00:20:36]
+exit code: 0

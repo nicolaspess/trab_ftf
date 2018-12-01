@@ -1,0 +1,55 @@
+[INFO -- 2018-11-25 23:30:27]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 23:30:27]
+Initialization strings:
+[INFO -- 2018-11-25 23:30:27]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 23:30:27]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 23:30:27]
+initSignal:0
+[INFO -- 2018-11-25 23:30:27]
+endSignal:2
+[INFO -- 2018-11-25 23:30:27]
+faultModel:0
+[EXCEPTION -- 2018-11-25 23:30:28]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-11-25 23:30:28]
+Backtrace BEGIN:
+#0  0x00007ffff7adf190 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x000055555555588c in BTreeNode::BTreeNode (this=0x555555cdc6e0, t1=3, leaf1=true) at BTree_dup.cpp:164
+#2  0x000055555555667b in BTreeNode::splitChild (this=0x555555c145b0, i=3, y=0x555555c13e60) at BTree_dup.cpp:545
+#3  0x00005555555565ed in BTreeNode::insertNonFull (this=0x555555c145b0, k=3414147) at BTree_dup.cpp:527
+#4  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555be3470, k=3414147) at BTree_dup.cpp:535
+#5  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555bc39a0, k=3414147) at BTree_dup.cpp:535
+#6  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555be49d0, k=3414147) at BTree_dup.cpp:535
+#7  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555bee510, k=3414147) at BTree_dup.cpp:535
+#8  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555bee480, k=3414147) at BTree_dup.cpp:535
+#9  0x0000555555556478 in BTree::insert (this=0x7fffffffda50, k=3414147) at BTree_dup.cpp:489
+#10 0x0000555555556c25 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#11 0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+2284	in rtld.c
+
+Backtrace END
+Memory content before bitflip:0x400xdd0xff0xff0xff0x7f0x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffdd30
+address max offset: 8
+Memory content after  bitflip:0x400xdd0xff0xff0xff0x7f0x000x40
+frame name: main
+symbol name: stop_time
+symbol filename: BTree_dup.cpp
+symbol line: 698
+value: 4611826755915734336
+value address: 0x7fffffffdd30
+Type: The type is an integer type.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 23:30:28]
+Fault Injection Successful after 1.6743803024291992s
+[INFO -- 2018-11-25 23:30:29]
+event type: exit
+[INFO -- 2018-11-25 23:30:29]
+exit code: 0

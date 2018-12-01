@@ -1,0 +1,58 @@
+[INFO -- 2018-11-26 00:52:28]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-26 00:52:28]
+Initialization strings:
+[INFO -- 2018-11-26 00:52:28]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-26 00:52:28]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-26 00:52:28]
+initSignal:0
+[INFO -- 2018-11-26 00:52:28]
+endSignal:2
+[INFO -- 2018-11-26 00:52:28]
+faultModel:4
+[INFO -- 2018-11-26 00:52:30]
+Backtrace BEGIN:
+#0  malloc (n=14) at dl-minimal.c:50
+#1  <function called from gdb>
+#2  malloc (n=14) at dl-minimal.c:50
+#3  <function called from gdb>
+#4  0x00007ffff72bb219 in __GI___libc_malloc (bytes=<optimized out>) at malloc.c:3081
+#5  0x00007ffff7adf1a8 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#6  0x000055555555588c in BTreeNode::BTreeNode (this=0x555555ea7530, t1=3, leaf1=false) at BTree_dup.cpp:164
+#7  0x000055555555667b in BTreeNode::splitChild (this=0x555555df3ad0, i=3, y=0x555555d3ec30) at BTree_dup.cpp:545
+#8  0x00005555555565ed in BTreeNode::insertNonFull (this=0x555555df3ad0, k=2847237) at BTree_dup.cpp:527
+#9  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555e3bb60, k=2847237) at BTree_dup.cpp:535
+#10 0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555d8d0e0, k=2847237) at BTree_dup.cpp:535
+#11 0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ce1fc0, k=2847237) at BTree_dup.cpp:535
+#12 0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ce1f30, k=2847237) at BTree_dup.cpp:535
+#13 0x0000555555556478 in BTree::insert (this=0x7fffffffda50, k=2847237) at BTree_dup.cpp:489
+#14 0x0000555555556c25 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#15 0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+45	in dl-minimal.c
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x000x000x000x000x000x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7ffff76118f0 
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x40
+frame name: __GI___libc_malloc
+symbol name: __malloc_initialize_hook
+symbol filename: malloc.c
+symbol line: 1859
+value: 0x0
+value address: 0x7ffff76118f0 <__malloc_initialize_hook>
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-26 00:52:30]
+Fault Injection Successful after 2.062072515487671s
+[INFO -- 2018-11-26 00:52:31]
+event type: exit
+[INFO -- 2018-11-26 00:52:31]
+exit code: 0

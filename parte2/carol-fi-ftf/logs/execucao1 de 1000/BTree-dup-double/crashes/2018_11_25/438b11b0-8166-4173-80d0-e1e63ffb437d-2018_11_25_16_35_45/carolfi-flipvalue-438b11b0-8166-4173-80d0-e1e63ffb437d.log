@@ -1,0 +1,64 @@
+[INFO -- 2018-11-25 16:35:42]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 16:35:42]
+Initialization strings:
+[INFO -- 2018-11-25 16:35:42]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 16:35:42]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 16:35:42]
+initSignal:0
+[INFO -- 2018-11-25 16:35:42]
+endSignal:2
+[INFO -- 2018-11-25 16:35:42]
+faultModel:1
+[INFO -- 2018-11-25 16:35:43]
+Backtrace BEGIN:
+#0  0x000055555555689f in BTreeNode::traverse (this=0x5555558a5610) at BTree_dup.cpp:588
+#1  0x00005555555568d7 in BTreeNode::traverse (this=0x555555a57fb0) at BTree_dup.cpp:593
+#2  0x00005555555568d7 in BTreeNode::traverse (this=0x555555850560) at BTree_dup.cpp:593
+#3  0x00005555555568d7 in BTreeNode::traverse (this=0x5555559e2b30) at BTree_dup.cpp:593
+#4  0x000055555555695f in BTreeNode::traverse (this=0x555555a43a00) at BTree_dup.cpp:599
+#5  0x00005555555568d7 in BTreeNode::traverse (this=0x5555558d55e0) at BTree_dup.cpp:593
+#6  0x00005555555568d7 in BTreeNode::traverse (this=0x555555af22d0) at BTree_dup.cpp:593
+#7  0x00005555555568d7 in BTreeNode::traverse (this=0x555555815c40) at BTree_dup.cpp:593
+#8  0x00005555555568d7 in BTreeNode::traverse (this=0x555555a2ab30) at BTree_dup.cpp:593
+#9  0x00005555555572bb in BTree::traverse (this=0x7fffffffdd40) at BTree_dup.cpp:139
+#10 0x0000555555556fbd in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:718
+
+583	void BTreeNode::traverse()
+584	{
+585		// There are n keys and n+1 children, travers through n keys
+586		// and first n children
+587		int i;
+588		for (i = 0; i < n; i++)
+589		{
+590			// If this is not leaf, then before printing key[i],
+591			// traverse the subtree rooted with child C[i].
+592			if (leaf == false)
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: C
+Fliping a bit of the pointer
+Memory content before bitflip:0x000x800xa50x550x550x550x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x555555a57fc0
+address max offset: 8
+Memory content after  bitflip:0x810x800xa50x550x550x550x000x00
+frame name: BTreeNode::traverse
+symbol name: this
+symbol filename: BTree_dup.cpp
+symbol line: 0
+value: 0x555555a57fb0
+value address: 0x7fffffffdae8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 16:35:43]
+Fault Injection Successful after 1.2222225666046143s
+[INFO -- 2018-11-25 16:35:43]
+event type: exit
+[EXCEPTION -- 2018-11-25 16:35:43]
+exit code: no exit code available

@@ -1,0 +1,64 @@
+[INFO -- 2018-11-25 21:53:55]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 21:53:55]
+Initialization strings:
+[INFO -- 2018-11-25 21:53:55]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 21:53:55]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 21:53:55]
+initSignal:0
+[INFO -- 2018-11-25 21:53:55]
+endSignal:2
+[INFO -- 2018-11-25 21:53:55]
+faultModel:0
+[EXCEPTION -- 2018-11-25 21:53:56]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-11-25 21:53:56]
+Backtrace BEGIN:
+#0  0x00007ffff7b5eea0 in std::ostream::operator<<(std::ostream& (*)(std::ostream&)) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x0000555555556927 in BTreeNode::traverse (this=0x555555783f00) at BTree_dup.cpp:594
+#2  0x00005555555568d7 in BTreeNode::traverse (this=0x555555894ed0) at BTree_dup.cpp:593
+#3  0x00005555555568d7 in BTreeNode::traverse (this=0x555555a62ab0) at BTree_dup.cpp:593
+#4  0x00005555555568d7 in BTreeNode::traverse (this=0x555555a63e60) at BTree_dup.cpp:593
+#5  0x000055555555695f in BTreeNode::traverse (this=0x555555acfc20) at BTree_dup.cpp:599
+#6  0x00005555555568d7 in BTreeNode::traverse (this=0x5555557d44e0) at BTree_dup.cpp:593
+#7  0x000055555555695f in BTreeNode::traverse (this=0x5555558f2290) at BTree_dup.cpp:599
+#8  0x00005555555568d7 in BTreeNode::traverse (this=0x555555815c40) at BTree_dup.cpp:593
+#9  0x00005555555568d7 in BTreeNode::traverse (this=0x555555a2ab30) at BTree_dup.cpp:593
+#10 0x00005555555572bb in BTree::traverse (this=0x7fffffffdd40) at BTree_dup.cpp:139
+#11 0x0000555555556fbd in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:718
+
+687	        }
+688	    }
+689	}
+690	
+691	int main(int argc, char * argv[]) {
+692	
+693	    if (argc != 5){
+694	        cerr << "Uso correto: ./main [input file] [output file] [log file] [output2 file]" << endl;
+695	        return 0;
+696	    }
+
+Backtrace END
+Memory content before bitflip:0x390x710x550x550x550x550x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffdd38
+address max offset: 8
+Memory content after  bitflip:0x390x710x450x550x550x550x000x00
+frame name: main
+symbol name: diff_time
+symbol filename: BTree_dup.cpp
+symbol line: 699
+value: 4.6355704871028781e-310
+value address: 0x7fffffffdd38
+Type: A floating point type.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 21:53:56]
+Fault Injection Successful after 1.6595919132232666s
+[INFO -- 2018-11-25 21:53:57]
+event type: exit
+[INFO -- 2018-11-25 21:53:57]
+exit code: 0

@@ -1,0 +1,66 @@
+[INFO -- 2018-11-25 15:47:22]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 15:47:22]
+Initialization strings:
+[INFO -- 2018-11-25 15:47:22]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 15:47:22]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 15:47:22]
+initSignal:0
+[INFO -- 2018-11-25 15:47:22]
+endSignal:2
+[INFO -- 2018-11-25 15:47:22]
+faultModel:2
+[EXCEPTION -- 2018-11-25 15:47:24]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-11-25 15:47:24]
+Backtrace BEGIN:
+#0  malloc (n=14) at dl-minimal.c:50
+#1  <function called from gdb>
+#2  malloc (n=14) at dl-minimal.c:50
+#3  <function called from gdb>
+#4  malloc (n=14) at dl-minimal.c:50
+#5  <function called from gdb>
+#6  0x00007ffff72bb1f8 in __GI___libc_malloc (bytes=31) at malloc.c:3048
+#7  0x00007ffff7adf1a8 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#8  0x00007ffff7b70cfb in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#9  0x00007ffff7b716d0 in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_replace_aux(unsigned long, unsigned long, unsigned long, char) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#10 0x000055555555765b in std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x7fffffffdac0, __s="", __zero=48 '0', __one=49 '1') at /usr/include/c++/7/bitset:1407
+#11 0x00005555555573d7 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1538
+#12 0x0000555555556912 in BTreeNode::traverse (this=0x55555599e250) at BTree_dup.cpp:594
+#13 0x00005555555568d7 in BTreeNode::traverse (this=0x555555894ae0) at BTree_dup.cpp:593
+#14 0x00005555555568d7 in BTreeNode::traverse (this=0x555555a4cdf0) at BTree_dup.cpp:593
+#15 0x00005555555568d7 in BTreeNode::traverse (this=0x5555558e1ac0) at BTree_dup.cpp:593
+#16 0x000055555555695f in BTreeNode::traverse (this=0x5555558550c0) at BTree_dup.cpp:599
+#17 0x00005555555568d7 in BTreeNode::traverse (this=0x555555951b70) at BTree_dup.cpp:593
+#18 0x00005555555568d7 in BTreeNode::traverse (this=0x555555acfef0) at BTree_dup.cpp:593
+#19 0x00005555555568d7 in BTreeNode::traverse (this=0x555555815c40) at BTree_dup.cpp:593
+#20 0x00005555555568d7 in BTreeNode::traverse (this=0x555555a2ab30) at BTree_dup.cpp:593
+#21 0x00005555555572bb in BTree::traverse (this=0x7fffffffdd40) at BTree_dup.cpp:139
+#22 0x0000555555556fbd in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:718
+
+45	in dl-minimal.c
+
+Backtrace END
+Memory content before bitflip:0x010x000x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffdbfc
+address max offset: 4
+Memory content after  bitflip:0xde0xd70x840x75
+frame name: BTreeNode::traverse
+symbol name: i
+symbol filename: BTree_dup.cpp
+symbol line: 587
+value: 1971640286
+value address: 0x7fffffffdbfc
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-11-25 15:47:24]
+Fault Injection Successful after 2.611598253250122s
+[INFO -- 2018-11-25 15:47:24]
+event type: exit
+[EXCEPTION -- 2018-11-25 15:47:24]
+exit code: no exit code available

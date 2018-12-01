@@ -1,0 +1,59 @@
+[INFO -- 2018-11-25 15:32:45]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 15:32:45]
+Initialization strings:
+[INFO -- 2018-11-25 15:32:45]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 15:32:45]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 15:32:45]
+initSignal:0
+[INFO -- 2018-11-25 15:32:45]
+endSignal:2
+[INFO -- 2018-11-25 15:32:45]
+faultModel:2
+[INFO -- 2018-11-25 15:32:46]
+Backtrace BEGIN:
+#0  0x000055555555656d in BTreeNode::insertNonFull (this=0x5555559d73d0, k=2158779) at BTree_dup.cpp:520
+#1  0x0000555555556639 in BTreeNode::insertNonFull (this=0x55555591b780, k=2158779) at BTree_dup.cpp:535
+#2  0x0000555555556639 in BTreeNode::insertNonFull (this=0x5555558f20e0, k=2158779) at BTree_dup.cpp:535
+#3  0x0000555555556639 in BTreeNode::insertNonFull (this=0x5555558f2290, k=2158779) at BTree_dup.cpp:535
+#4  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555815c40, k=2158779) at BTree_dup.cpp:535
+#5  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555a2ab30, k=2158779) at BTree_dup.cpp:535
+#6  0x0000555555556478 in BTree::insert (this=0x7fffffffda50, k=2158779) at BTree_dup.cpp:489
+#7  0x0000555555556c25 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#8  0x0000555555556f51 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:711
+
+515			n = n+1;
+516		}
+517		else // If this node is not leaf
+518		{
+519			// Find the child which is going to have the new key
+520			while (i >= 0 && keys[i] > k)
+521				i--;
+522	
+523			// See if the found child is full
+524			if (C[i+1]->n == 2*t-1)
+
+Backtrace END
+Memory content before bitflip:0xbb0xf00x200x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffd9c4
+address max offset: 4
+Memory content after  bitflip:0xa40x470xdf0x98
+frame name: BTreeNode::insertNonFull
+symbol name: k
+symbol filename: BTree_dup.cpp
+symbol line: 496
+value: -1730197596
+value address: 0x7fffffffd9c4
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-11-25 15:32:46]
+Fault Injection Successful after 1.8891942501068115s
+[INFO -- 2018-11-25 15:32:48]
+event type: exit
+[INFO -- 2018-11-25 15:32:48]
+exit code: 0

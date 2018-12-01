@@ -1,0 +1,62 @@
+[INFO -- 2018-11-26 00:01:03]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-26 00:01:03]
+Initialization strings:
+[INFO -- 2018-11-26 00:01:03]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-26 00:01:03]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-26 00:01:03]
+initSignal:0
+[INFO -- 2018-11-26 00:01:03]
+endSignal:2
+[INFO -- 2018-11-26 00:01:03]
+faultModel:1
+[EXCEPTION -- 2018-11-26 00:01:04]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[EXCEPTION -- 2018-11-26 00:01:04]
+pythonException: empty range for randrange() (0,0, 0)
+[INFO -- 2018-11-26 00:01:04]
+Backtrace BEGIN:
+#0  __GI_raise (sig=sig@entry=6) at ../sysdeps/unix/sysv/linux/raise.c:51
+#1  0x00007ffff7264801 in __GI_abort () at abort.c:79
+#2  0x00007ffff72ad897 in __libc_message (action=action@entry=do_abort, fmt=fmt@entry=0x7ffff73dab9a "%s\n") at ../sysdeps/posix/libc_fatal.c:181
+#3  0x00007ffff72b490a in malloc_printerr (str=str@entry=0x7ffff73d8d88 "free(): invalid pointer") at malloc.c:5350
+#4  0x00007ffff72bbe1c in _int_free (have_lock=0, p=0x7ffff7f7aff2, av=0x7ffff760fc40 <main_arena>) at malloc.c:4157
+#5  __GI___libc_free (mem=0x7ffff7f7b002) at malloc.c:3124
+#6  0x0000555555557bb2 in __gnu_cxx::new_allocator<int>::deallocate (this=0x7fffffffdaa0, __p=0x7ffff7f7b002) at /usr/include/c++/7/ext/new_allocator.h:125
+#7  0x0000555555557a6f in std::allocator_traits<std::allocator<int> >::deallocate (__a=..., __p=0x7ffff7f7b002, __n=65539) at /usr/include/c++/7/bits/alloc_traits.h:462
+#8  0x000055555555799a in std::_Vector_base<int, std::allocator<int> >::_M_deallocate (this=0x7fffffffdaa0, __p=0x7ffff7f7b002, __n=65539) at /usr/include/c++/7/bits/stl_vector.h:180
+#9  0x0000555555557e2b in std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&> (this=0x7fffffffdaa0, __position=0, __args#0=@0x7fffffffd968: 2887062) at /usr/include/c++/7/bits/vector.tcc:448
+#10 0x0000555555557b6a in std::vector<int, std::allocator<int> >::emplace_back<int const&> (this=0x7fffffffdaa0, __args#0=@0x7fffffffd968: 2887062) at /usr/include/c++/7/bits/vector.tcc:105
+#11 0x00005555555579e7 in std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1310
+#12 0x0000555555557882 in std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1299
+#13 0x0000555555557569 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void> (this=0x7fffffffdaa0, __first=..., __last=..., __a=...) at /usr/include/c++/7/bits/stl_vector.h:414
+#14 0x0000555555556bbc in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:660
+#15 0x0000555555556f51 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:711
+
+46	../sysdeps/unix/sysv/linux/raise.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the value pointed by a reference
+Memory content before bitflip:0x960x0d0x2c0x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffd968
+address max offset: 4
+Memory content after  bitflip:0x120x0d0x2c0x00
+frame name: std::vector<int, std::allocator<int> >::emplace_back<int const&>
+symbol name: __args#0
+symbol filename: /usr/include/c++/7/bits/vector.tcc
+symbol line: 96
+value: @0x7fffffffd968
+value address: 0x7fffffffd968
+Type: A reference type.
+Type sizeof: 8
+
+[INFO -- 2018-11-26 00:01:05]
+Fault Injection Successful after 2.0298054218292236s
+[INFO -- 2018-11-26 00:01:05]
+event type: exit
+[EXCEPTION -- 2018-11-26 00:01:05]
+exit code: no exit code available

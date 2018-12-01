@@ -1,0 +1,62 @@
+[INFO -- 2018-11-25 15:51:57]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 15:51:57]
+Initialization strings:
+[INFO -- 2018-11-25 15:51:57]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 15:51:57]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 15:51:57]
+initSignal:0
+[INFO -- 2018-11-25 15:51:57]
+endSignal:2
+[INFO -- 2018-11-25 15:51:57]
+faultModel:0
+[EXCEPTION -- 2018-11-25 15:51:58]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[EXCEPTION -- 2018-11-25 15:51:58]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[EXCEPTION -- 2018-11-25 15:51:58]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-11-25 15:51:58]
+Backtrace BEGIN:
+#0  __GI__IO_fflush (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at iofflush.c:33
+#1  0x00007ffff7b5ef5e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x0000555555556927 in BTreeNode::traverse (this=0x5555559b38e0) at BTree_dup.cpp:594
+#3  0x000055555555695f in BTreeNode::traverse (this=0x55555593af80) at BTree_dup.cpp:599
+#4  0x00005555555568d7 in BTreeNode::traverse (this=0x555555b09850) at BTree_dup.cpp:593
+#5  0x000055555555695f in BTreeNode::traverse (this=0x5555559b5470) at BTree_dup.cpp:599
+#6  0x000055555555695f in BTreeNode::traverse (this=0x555555ac8f00) at BTree_dup.cpp:599
+#7  0x00005555555568d7 in BTreeNode::traverse (this=0x55555586a3f0) at BTree_dup.cpp:593
+#8  0x00005555555568d7 in BTreeNode::traverse (this=0x5555558f2290) at BTree_dup.cpp:593
+#9  0x00005555555568d7 in BTreeNode::traverse (this=0x555555815c40) at BTree_dup.cpp:593
+#10 0x00005555555568d7 in BTreeNode::traverse (this=0x555555a2ab30) at BTree_dup.cpp:593
+#11 0x00005555555572bb in BTree::traverse (this=0x7fffffffdd40) at BTree_dup.cpp:139
+#12 0x0000555555556fbd in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:718
+
+28	iofflush.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: t
+Memory content before bitflip:0x030x000x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x55555593af88
+address max offset: 4
+Memory content after  bitflip:0x430x000x000x00
+frame name: BTreeNode::traverse
+symbol name: this
+symbol filename: BTree_dup.cpp
+symbol line: 0
+value: 0x55555593af80
+value address: 0x7fffffffdae8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 15:51:58]
+Fault Injection Successful after 1.8386619091033936s
+[INFO -- 2018-11-25 15:51:59]
+event type: exit
+[INFO -- 2018-11-25 15:51:59]
+exit code: 0

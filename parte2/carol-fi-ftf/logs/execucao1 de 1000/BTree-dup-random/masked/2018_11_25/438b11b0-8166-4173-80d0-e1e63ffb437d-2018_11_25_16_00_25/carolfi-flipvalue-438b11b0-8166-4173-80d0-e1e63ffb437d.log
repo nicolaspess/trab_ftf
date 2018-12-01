@@ -1,0 +1,69 @@
+[INFO -- 2018-11-25 16:00:22]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 16:00:22]
+Initialization strings:
+[INFO -- 2018-11-25 16:00:22]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 16:00:22]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 16:00:22]
+initSignal:0
+[INFO -- 2018-11-25 16:00:22]
+endSignal:2
+[INFO -- 2018-11-25 16:00:22]
+faultModel:2
+[INFO -- 2018-11-25 16:00:23]
+Backtrace BEGIN:
+#0  0x000055555555689f in BTreeNode::traverse (this=0x5555559bd150) at BTree_dup.cpp:588
+#1  0x00005555555568d7 in BTreeNode::traverse (this=0x555555b010c0) at BTree_dup.cpp:593
+#2  0x00005555555568d7 in BTreeNode::traverse (this=0x5555557817a0) at BTree_dup.cpp:593
+#3  0x00005555555568d7 in BTreeNode::traverse (this=0x55555599c090) at BTree_dup.cpp:593
+#4  0x000055555555695f in BTreeNode::traverse (this=0x555555a16e80) at BTree_dup.cpp:599
+#5  0x00005555555568d7 in BTreeNode::traverse (this=0x555555af2000) at BTree_dup.cpp:593
+#6  0x00005555555568d7 in BTreeNode::traverse (this=0x5555557a21a0) at BTree_dup.cpp:593
+#7  0x00005555555568d7 in BTreeNode::traverse (this=0x555555815c40) at BTree_dup.cpp:593
+#8  0x00005555555568d7 in BTreeNode::traverse (this=0x555555a2ab30) at BTree_dup.cpp:593
+#9  0x00005555555572bb in BTree::traverse (this=0x7fffffffdd40) at BTree_dup.cpp:139
+#10 0x0000555555556fbd in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:718
+
+583	void BTreeNode::traverse()
+584	{
+585		// There are n keys and n+1 children, travers through n keys
+586		// and first n children
+587		int i;
+588		for (i = 0; i < n; i++)
+589		{
+590			// If this is not leaf, then before printing key[i],
+591			// traverse the subtree rooted with child C[i].
+592			if (leaf == false)
+
+Backtrace END
+Fliping value of field: root
+Fliping a bit of the pointer
+Memory content before bitflip:0x300xab0xa20x550x550x550x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffdd40
+address max offset: 8
+Memory content after  bitflip:0x560x370xa40x670xe40xc90xcd0xeb
+frame name: main
+symbol name: bTree1
+symbol filename: BTree_dup.cpp
+symbol line: 704
+value: {root = 0xebcdc9e467a43756, t = 3}
+value address: 0x7fffffffdd40
+Type: The type is a structure.
+Type sizeof: 16
+Field name: root
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: t
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+
+[INFO -- 2018-11-25 16:00:23]
+Fault Injection Successful after 1.54872727394104s
+[INFO -- 2018-11-25 16:00:24]
+event type: exit
+[INFO -- 2018-11-25 16:00:24]
+exit code: 0

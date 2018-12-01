@@ -1,0 +1,63 @@
+[INFO -- 2018-11-26 00:28:16]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-26 00:28:16]
+Initialization strings:
+[INFO -- 2018-11-26 00:28:16]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-26 00:28:16]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-26 00:28:16]
+initSignal:0
+[INFO -- 2018-11-26 00:28:16]
+endSignal:2
+[INFO -- 2018-11-26 00:28:16]
+faultModel:2
+[INFO -- 2018-11-26 00:28:18]
+Backtrace BEGIN:
+#0  0x0000555555557f15 in __gnu_cxx::new_allocator<int>::construct<int, int const&> (this=0x7fffffffdaa0, __p=0x7fffffffd88c, __args#0=@0x7ffff7b479b6: 1166755928) at /usr/include/c++/7/ext/new_allocator.h:135
+#1  0x0000555555557c3c in std::allocator_traits<std::allocator<int> >::construct<int, int const&> (__a=..., __p=0x555555bd8adc, __args#0=@0x7fffffffd968: 3076677) at /usr/include/c++/7/bits/alloc_traits.h:475
+#2  0x0000555555557b24 in std::vector<int, std::allocator<int> >::emplace_back<int const&> (this=0x7fffffffdaa0, __args#0=@0x7fffffffd968: 3076677) at /usr/include/c++/7/bits/vector.tcc:100
+#3  0x00005555555579e7 in std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1310
+#4  0x0000555555557882 in std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1299
+#5  0x0000555555557569 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void> (this=0x7fffffffdaa0, __first=..., __last=..., __a=...) at /usr/include/c++/7/bits/stl_vector.h:414
+#6  0x0000555555556bbc in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:660
+#7  0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+130	      { return size_t(-1) / sizeof(_Tp); }
+131	
+132	#if __cplusplus >= 201103L
+133	      template<typename _Up, typename... _Args>
+134		void
+135		construct(_Up* __p, _Args&&... __args)
+136		{ ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
+137	
+138	      template<typename _Up>
+139		void
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: std::_Vector_base<int, std::allocator<int> >
+Fliping value of field: _M_impl
+Fliping value of field: _M_end_of_storage
+Fliping a bit of the value pointed by a pointer
+Memory content before bitflip:0x000x000x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x555555bdb460
+address max offset: 4
+Memory content after  bitflip:0xb90x3c0xc50x09
+frame name: std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> >
+symbol name: this
+symbol filename: BTree_dup.cpp
+symbol line: 0
+value: 0x7fffffffdaa0
+value address: 0x7fffffffd918
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-26 00:28:18]
+Fault Injection Successful after 2.133284091949463s
+[INFO -- 2018-11-26 00:28:19]
+event type: exit
+[INFO -- 2018-11-26 00:28:19]
+exit code: 0

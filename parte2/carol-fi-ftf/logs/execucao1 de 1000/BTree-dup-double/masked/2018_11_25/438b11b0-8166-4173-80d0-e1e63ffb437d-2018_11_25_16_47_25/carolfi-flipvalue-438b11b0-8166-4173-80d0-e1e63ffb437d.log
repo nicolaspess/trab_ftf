@@ -1,0 +1,53 @@
+[INFO -- 2018-11-25 16:47:22]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 16:47:22]
+Initialization strings:
+[INFO -- 2018-11-25 16:47:22]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 16:47:22]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 16:47:22]
+initSignal:0
+[INFO -- 2018-11-25 16:47:22]
+endSignal:2
+[INFO -- 2018-11-25 16:47:22]
+faultModel:1
+[INFO -- 2018-11-25 16:47:23]
+Backtrace BEGIN:
+#0  BTree::insert (this=0x7fffffffda50, k=4348794) at BTree_dup.cpp:455
+#1  0x0000555555556c25 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#2  0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+450		return;
+451	}
+452	
+453	// The main function that inserts a new key in this B-Tree
+454	void BTree::insert(int k)
+455	{
+456		// If tree is empty
+457		if (root == NULL)
+458		{
+459			// Allocate memory for root
+
+Backtrace END
+Memory content before bitflip:0x390x710x550x550x550x550x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffdd38
+address max offset: 8
+Memory content after  bitflip:0x390x710x650x550x550x550x000x00
+frame name: main
+symbol name: diff_time
+symbol filename: BTree_dup.cpp
+symbol line: 699
+value: 4.6355705907159538e-310
+value address: 0x7fffffffdd38
+Type: A floating point type.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 16:47:23]
+Fault Injection Successful after 1.4212477207183838s
+[INFO -- 2018-11-25 16:47:24]
+event type: exit
+[INFO -- 2018-11-25 16:47:24]
+exit code: 0

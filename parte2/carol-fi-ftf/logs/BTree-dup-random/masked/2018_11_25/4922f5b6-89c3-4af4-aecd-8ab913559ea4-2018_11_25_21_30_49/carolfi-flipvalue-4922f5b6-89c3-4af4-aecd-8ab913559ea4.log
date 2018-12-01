@@ -1,0 +1,61 @@
+[INFO -- 2018-11-25 21:30:47]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 21:30:47]
+Initialization strings:
+[INFO -- 2018-11-25 21:30:47]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 21:30:47]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 21:30:47]
+initSignal:0
+[INFO -- 2018-11-25 21:30:47]
+endSignal:2
+[INFO -- 2018-11-25 21:30:47]
+faultModel:2
+[EXCEPTION -- 2018-11-25 21:30:47]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-11-25 21:30:48]
+Backtrace BEGIN:
+#0  0x0000555555556bdb in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:663
+#1  0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+658	    ifstream is(input);
+659	    istream_iterator<int> start(is), end;
+660	    vector<int> v_nodes(start, end);
+661	
+662	    //insere na arvore
+663	    for(int i = 0; i < v_nodes.size(); i++)
+664	        bTree.insert(v_nodes[i]);
+665	
+666	    return bTree;
+667	}
+
+Backtrace END
+Fliping value of field: t
+Memory content before bitflip:0x030x000x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffda58
+address max offset: 4
+Memory content after  bitflip:0xcf0xf30x730x00
+frame name: runner
+symbol name: bTree
+symbol filename: BTree_dup.cpp
+symbol line: 655
+value: {root = 0x555555ef6e20, t = 7599055}
+value address: 0x7fffffffda50
+Type: The type is a structure.
+Type sizeof: 16
+Field name: root
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: t
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+
+[INFO -- 2018-11-25 21:30:48]
+Fault Injection Successful after 1.1500203609466553s
+[INFO -- 2018-11-25 21:30:49]
+event type: exit
+[INFO -- 2018-11-25 21:30:49]
+exit code: 0

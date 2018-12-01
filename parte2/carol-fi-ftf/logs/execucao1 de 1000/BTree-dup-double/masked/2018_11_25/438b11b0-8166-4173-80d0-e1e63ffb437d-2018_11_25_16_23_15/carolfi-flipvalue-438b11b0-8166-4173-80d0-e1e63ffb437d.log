@@ -1,0 +1,73 @@
+[INFO -- 2018-11-25 16:23:12]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 16:23:12]
+Initialization strings:
+[INFO -- 2018-11-25 16:23:12]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 16:23:12]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 16:23:12]
+initSignal:0
+[INFO -- 2018-11-25 16:23:12]
+endSignal:2
+[INFO -- 2018-11-25 16:23:12]
+faultModel:1
+[INFO -- 2018-11-25 16:23:13]
+Backtrace BEGIN:
+#0  0x000055555555714b in operator new (__p=0x5555557876c0) at /usr/include/c++/7/new:169
+#1  0x0000555555557f3c in __gnu_cxx::new_allocator<int>::construct<int, int const&> (this=0x7fffffffdaa0, __p=0x5555557876c0, __args#0=@0x7fffffffd968: 1746017) at /usr/include/c++/7/ext/new_allocator.h:136
+#2  0x0000555555557c3c in std::allocator_traits<std::allocator<int> >::construct<int, int const&> (__a=..., __p=0x5555557876c0, __args#0=@0x7fffffffd968: 1746017) at /usr/include/c++/7/bits/alloc_traits.h:475
+#3  0x0000555555557b24 in std::vector<int, std::allocator<int> >::emplace_back<int const&> (this=0x7fffffffdaa0, __args#0=@0x7fffffffd968: 1746017) at /usr/include/c++/7/bits/vector.tcc:100
+#4  0x00005555555579e7 in std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1310
+#5  0x0000555555557882 in std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1299
+#6  0x0000555555557569 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void> (this=0x7fffffffdaa0, __first=..., __last=..., __a=...) at /usr/include/c++/7/bits/stl_vector.h:414
+#7  0x0000555555556bbc in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:660
+#8  0x0000555555556f51 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:711
+
+164	#endif // __cpp_sized_deallocation
+165	#endif // __cpp_aligned_new
+166	
+167	// Default placement versions of operator new.
+168	inline void* operator new(std::size_t, void* __p) _GLIBCXX_USE_NOEXCEPT
+169	{ return __p; }
+170	inline void* operator new[](std::size_t, void* __p) _GLIBCXX_USE_NOEXCEPT
+171	{ return __p; }
+172	
+173	// Default placement versions of operator delete.
+
+Backtrace END
+Fliping value of field: _M_stream
+Fliping a bit of the pointer
+Memory content before bitflip:0xc00xda0xff0xff0xff0x7f0x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffd9e0
+address max offset: 8
+Memory content after  bitflip:0xc00xda0xff0xff0xff0x2f0x000x00
+frame name: std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> >
+symbol name: __first
+symbol filename: /usr/include/c++/7/bits/stl_vector.h
+symbol line: 1294
+value: {<std::iterator<std::input_iterator_tag, int, long, int const*, int const&>> = {<No data fields>}, _M_stream = 0x2fffffffdac0, _M_value = 1101642, _M_ok = true}
+value address: 0x7fffffffd9e0
+Type: The type is a structure.
+Type sizeof: 16
+Field name: std::iterator<std::input_iterator_tag, int, long, int const*, int const&>
+Field Type: The type is a structure.
+Field Type sizeof: 1
+Field name: _M_stream
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: _M_value
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+Field name: _M_ok
+Field Type: A boolean type.
+Field Type sizeof: 1
+
+[INFO -- 2018-11-25 16:23:13]
+Fault Injection Successful after 1.9811155796051025s
+[INFO -- 2018-11-25 16:23:14]
+event type: exit
+[INFO -- 2018-11-25 16:23:14]
+exit code: 0

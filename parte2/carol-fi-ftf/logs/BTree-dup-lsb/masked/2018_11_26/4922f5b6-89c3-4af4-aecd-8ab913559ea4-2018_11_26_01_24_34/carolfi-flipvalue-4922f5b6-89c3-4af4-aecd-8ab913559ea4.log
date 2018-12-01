@@ -1,0 +1,65 @@
+[INFO -- 2018-11-26 01:24:28]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-26 01:24:28]
+Initialization strings:
+[INFO -- 2018-11-26 01:24:28]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-26 01:24:28]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-26 01:24:28]
+initSignal:0
+[INFO -- 2018-11-26 01:24:28]
+endSignal:2
+[INFO -- 2018-11-26 01:24:28]
+faultModel:4
+[EXCEPTION -- 2018-11-26 01:24:30]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-11-26 01:24:30]
+Backtrace BEGIN:
+#0  0x00005555555571db in std::ctype<char>::widen (this=0x7ffff7dd30a0, __c=49 '1') at /usr/include/c++/7/bits/locale_facets.h:875
+#1  0x00005555555573ae in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1538
+#2  0x0000555555556912 in BTreeNode::traverse (this=0x5555559fdce0) at BTree_dup.cpp:594
+#3  0x00005555555568d7 in BTreeNode::traverse (this=0x555555aea830) at BTree_dup.cpp:593
+#4  0x000055555555695f in BTreeNode::traverse (this=0x5555557aadb0) at BTree_dup.cpp:599
+#5  0x00005555555568d7 in BTreeNode::traverse (this=0x5555557d7930) at BTree_dup.cpp:593
+#6  0x00005555555568d7 in BTreeNode::traverse (this=0x5555558e7040) at BTree_dup.cpp:593
+#7  0x000055555555695f in BTreeNode::traverse (this=0x55555577e350) at BTree_dup.cpp:599
+#8  0x00005555555568d7 in BTreeNode::traverse (this=0x5555557a21a0) at BTree_dup.cpp:593
+#9  0x00005555555568d7 in BTreeNode::traverse (this=0x555555815c40) at BTree_dup.cpp:593
+#10 0x00005555555568d7 in BTreeNode::traverse (this=0x555555a2ab30) at BTree_dup.cpp:593
+#11 0x00005555555572bb in BTree::traverse (this=0x7fffffffdd40) at BTree_dup.cpp:139
+#12 0x0000555555556fbd in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:718
+
+870	      */
+871	      char_type
+872	      widen(char __c) const
+873	      {
+874		if (_M_widen_ok)
+875		  return _M_widen[static_cast<unsigned char>(__c)];
+876		this->_M_widen_init();
+877		return this->do_widen(__c);
+878	      }
+879	
+
+Backtrace END
+Memory content before bitflip:0x020x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdbfc
+address max offset: 4
+Memory content after  bitflip:0x020x000x000x40
+frame name: BTreeNode::traverse
+symbol name: i
+symbol filename: BTree_dup.cpp
+symbol line: 587
+value: 1073741826
+value address: 0x7fffffffdbfc
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-11-26 01:24:30]
+Fault Injection Successful after 2.963833808898926s
+[INFO -- 2018-11-26 01:24:31]
+event type: exit
+[INFO -- 2018-11-26 01:24:31]
+exit code: 0

@@ -1,0 +1,63 @@
+[INFO -- 2018-11-26 00:48:48]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-26 00:48:48]
+Initialization strings:
+[INFO -- 2018-11-26 00:48:48]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-26 00:48:48]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-26 00:48:48]
+initSignal:0
+[INFO -- 2018-11-26 00:48:48]
+endSignal:2
+[INFO -- 2018-11-26 00:48:48]
+faultModel:4
+[EXCEPTION -- 2018-11-26 00:48:49]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-11-26 00:48:49]
+Backtrace BEGIN:
+#0  0x0000555555556592 in BTreeNode::insertNonFull (this=0x5555558afae0, k=3366283) at BTree_dup.cpp:524
+#1  0x0000555555556639 in BTreeNode::insertNonFull (this=0x5555558c2ce0, k=3366283) at BTree_dup.cpp:535
+#2  0x0000555555556639 in BTreeNode::insertNonFull (this=0x5555558fce20, k=3366283) at BTree_dup.cpp:535
+#3  0x0000555555556639 in BTreeNode::insertNonFull (this=0x5555558fcfd0, k=3366283) at BTree_dup.cpp:535
+#4  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555961c80, k=3366283) at BTree_dup.cpp:535
+#5  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555a2aaa0, k=3366283) at BTree_dup.cpp:535
+#6  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555a2abc0, k=3366283) at BTree_dup.cpp:535
+#7  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555a2ab30, k=3366283) at BTree_dup.cpp:535
+#8  0x0000555555556478 in BTree::insert (this=0x7fffffffda50, k=3366283) at BTree_dup.cpp:489
+#9  0x0000555555556c25 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#10 0x0000555555556f51 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:711
+
+519			// Find the child which is going to have the new key
+520			while (i >= 0 && keys[i] > k)
+521				i--;
+522	
+523			// See if the found child is full
+524			if (C[i+1]->n == 2*t-1)
+525			{
+526				// If the child is full, then split it
+527				splitChild(i+1, C[i+1]);
+528	
+
+Backtrace END
+Memory content before bitflip:0xff0xff0xff0xff
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffd91c
+address max offset: 4
+Memory content after  bitflip:0xff0xff0xff0xfd
+frame name: BTreeNode::insertNonFull
+symbol name: i
+symbol filename: BTree_dup.cpp
+symbol line: 499
+value: -33554433
+value address: 0x7fffffffd91c
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-11-26 00:48:49]
+Fault Injection Successful after 1.6761324405670166s
+[INFO -- 2018-11-26 00:48:50]
+event type: exit
+[INFO -- 2018-11-26 00:48:50]
+exit code: 0

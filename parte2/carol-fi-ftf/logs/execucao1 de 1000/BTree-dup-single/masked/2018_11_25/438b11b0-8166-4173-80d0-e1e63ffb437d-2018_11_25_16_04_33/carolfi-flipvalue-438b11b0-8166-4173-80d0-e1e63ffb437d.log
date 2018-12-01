@@ -1,0 +1,48 @@
+[INFO -- 2018-11-25 16:04:30]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 16:04:30]
+Initialization strings:
+[INFO -- 2018-11-25 16:04:30]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 16:04:30]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 16:04:30]
+initSignal:0
+[INFO -- 2018-11-25 16:04:30]
+endSignal:2
+[INFO -- 2018-11-25 16:04:30]
+faultModel:0
+[EXCEPTION -- 2018-11-25 16:04:30]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-11-25 16:04:32]
+Backtrace BEGIN:
+#0  __memchr_avx2 () at ../sysdeps/x86_64/multiarch/memchr-avx2.S:46
+#1  0x00007ffff7af68ff in std::istream::getline(char*, long, char) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x0000555555556d95 in compare_output (input1=0x7fffffffe246 "/tmp/BTree-dup/output_100000", input2=0x7fffffffe280 "/tmp/BTree-dup/output2_100000", detectLog=0x7fffffffe263 "/tmp/BTree-dup-detection.log") at BTree_dup.cpp:678
+#3  0x0000555555557034 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:730
+
+41	../sysdeps/x86_64/multiarch/memchr-avx2.S: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Memory content before bitflip:0x2f
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffe280 
+address max offset: 1
+Memory content after  bitflip:0x3f
+frame name: compare_output
+symbol name: input2
+symbol filename: BTree_dup.cpp
+symbol line: 669
+value: 0x7fffffffe280 "?tmp/BTree-dup/output2_100000"
+value address: 0x7fffffffd690
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 16:04:32]
+Fault Injection Successful after 2.179781436920166s
+[INFO -- 2018-11-25 16:04:32]
+event type: exit
+[INFO -- 2018-11-25 16:04:32]
+exit code: 0

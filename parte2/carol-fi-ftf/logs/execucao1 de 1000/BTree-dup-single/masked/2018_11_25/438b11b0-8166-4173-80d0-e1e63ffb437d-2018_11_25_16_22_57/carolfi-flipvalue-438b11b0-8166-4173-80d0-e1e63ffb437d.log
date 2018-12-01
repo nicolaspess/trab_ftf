@@ -1,0 +1,69 @@
+[INFO -- 2018-11-25 16:22:54]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 16:22:54]
+Initialization strings:
+[INFO -- 2018-11-25 16:22:54]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 16:22:54]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 16:22:54]
+initSignal:0
+[INFO -- 2018-11-25 16:22:54]
+endSignal:2
+[INFO -- 2018-11-25 16:22:54]
+faultModel:0
+[INFO -- 2018-11-25 16:22:55]
+Backtrace BEGIN:
+#0  0x0000555555557a9b in std::istream_iterator<int, char, std::char_traits<char>, long>::operator++ (this=0x0) at /usr/include/c++/7/bits/stream_iterator.h:90
+#1  0x00005555555579f3 in std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1308
+#2  0x0000555555557882 in std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1299
+#3  0x0000555555557569 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void> (this=0x7fffffffdaa0, __first=..., __last=..., __a=...) at /usr/include/c++/7/bits/stl_vector.h:414
+#4  0x0000555555556bbc in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:660
+#5  0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+85	
+86	      const _Tp*
+87	      operator->() const { return std::__addressof((operator*())); }
+88	
+89	      istream_iterator&
+90	      operator++()
+91	      {
+92		__glibcxx_requires_cond(_M_ok,
+93					_M_message(__gnu_debug::__msg_inc_istream)
+94					._M_iterator(*this));
+
+Backtrace END
+Fliping value of field: _M_ok
+Memory content before bitflip:0x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffd9fc
+address max offset: 1
+Memory content after  bitflip:0x40
+frame name: std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> >
+symbol name: __last
+symbol filename: /usr/include/c++/7/bits/stl_vector.h
+symbol line: 1294
+value: {<std::iterator<std::input_iterator_tag, int, long, int const*, int const&>> = {<No data fields>}, _M_stream = 0x0, _M_value = 0, _M_ok = 64}
+value address: 0x7fffffffd9f0
+Type: The type is a structure.
+Type sizeof: 16
+Field name: std::iterator<std::input_iterator_tag, int, long, int const*, int const&>
+Field Type: The type is a structure.
+Field Type sizeof: 1
+Field name: _M_stream
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: _M_value
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+Field name: _M_ok
+Field Type: A boolean type.
+Field Type sizeof: 1
+
+[INFO -- 2018-11-25 16:22:55]
+Fault Injection Successful after 1.6075398921966553s
+[INFO -- 2018-11-25 16:22:56]
+event type: exit
+[INFO -- 2018-11-25 16:22:56]
+exit code: 0

@@ -1,0 +1,58 @@
+[INFO -- 2018-11-25 23:56:24]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 23:56:24]
+Initialization strings:
+[INFO -- 2018-11-25 23:56:24]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 23:56:24]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 23:56:24]
+initSignal:0
+[INFO -- 2018-11-25 23:56:24]
+endSignal:2
+[INFO -- 2018-11-25 23:56:24]
+faultModel:0
+[INFO -- 2018-11-25 23:56:25]
+Backtrace BEGIN:
+#0  0x00007ffff7334154 in __GI___libc_write (fd=1, buf=0x55555576d0d0, nbytes=17) at ../sysdeps/unix/sysv/linux/write.c:27
+#1  0x00007ffff72af1bd in _IO_new_file_write (f=0x7ffff7610760 <_IO_2_1_stdout_>, data=0x55555576d0d0, n=17) at fileops.c:1203
+#2  0x00007ffff72b0f51 in new_do_write (to_do=17, data=0x55555576d0d0 "1000010001010100\n\320vUUU", fp=0x7ffff7610760 <_IO_2_1_stdout_>) at fileops.c:457
+#3  _IO_new_do_write (fp=0x7ffff7610760 <_IO_2_1_stdout_>, data=0x55555576d0d0 "1000010001010100\n\320vUUU", to_do=17) at fileops.c:433
+#4  0x00007ffff72ae788 in _IO_new_file_sync (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at fileops.c:813
+#5  0x00007ffff72a287d in __GI__IO_fflush (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at iofflush.c:40
+#6  0x00007ffff7b5ef5e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#7  0x0000555555556927 in BTreeNode::traverse (this=0x555556083690) at BTree_dup.cpp:594
+#8  0x00005555555568d7 in BTreeNode::traverse (this=0x55555607b920) at BTree_dup.cpp:593
+#9  0x000055555555695f in BTreeNode::traverse (this=0x55555607ece0) at BTree_dup.cpp:599
+#10 0x000055555555695f in BTreeNode::traverse (this=0x55555607f790) at BTree_dup.cpp:599
+#11 0x00005555555568d7 in BTreeNode::traverse (this=0x555555e995e0) at BTree_dup.cpp:593
+#12 0x000055555555695f in BTreeNode::traverse (this=0x555555fbe5c0) at BTree_dup.cpp:599
+#13 0x00005555555568d7 in BTreeNode::traverse (this=0x555555ce1f30) at BTree_dup.cpp:593
+#14 0x00005555555568d7 in BTreeNode::traverse (this=0x555555ef6e20) at BTree_dup.cpp:593
+#15 0x00005555555572bb in BTree::traverse (this=0x7fffffffdd50) at BTree_dup.cpp:139
+#16 0x0000555555556ff9 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:725
+
+22	../sysdeps/unix/sysv/linux/write.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Memory content before bitflip:0x390x710x550x550x550x550x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffdd38
+address max offset: 8
+Memory content after  bitflip:0x3b0x710x550x550x550x550x000x00
+frame name: main
+symbol name: diff_time
+symbol filename: BTree_dup.cpp
+symbol line: 699
+value: 4.6355705389095148e-310
+value address: 0x7fffffffdd38
+Type: A floating point type.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 23:56:25]
+Fault Injection Successful after 1.7984087467193604s
+[INFO -- 2018-11-25 23:56:26]
+event type: exit
+[INFO -- 2018-11-25 23:56:26]
+exit code: 0

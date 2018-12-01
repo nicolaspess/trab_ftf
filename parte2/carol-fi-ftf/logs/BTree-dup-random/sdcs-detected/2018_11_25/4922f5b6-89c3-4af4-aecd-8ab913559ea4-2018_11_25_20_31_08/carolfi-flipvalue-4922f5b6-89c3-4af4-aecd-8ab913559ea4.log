@@ -1,0 +1,59 @@
+[INFO -- 2018-11-25 20:31:05]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 20:31:05]
+Initialization strings:
+[INFO -- 2018-11-25 20:31:05]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 20:31:05]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 20:31:05]
+initSignal:0
+[INFO -- 2018-11-25 20:31:05]
+endSignal:2
+[INFO -- 2018-11-25 20:31:05]
+faultModel:2
+[INFO -- 2018-11-25 20:31:06]
+Backtrace BEGIN:
+#0  0x00007ffff73b2ef4 in __memset_avx2_unaligned () at ../sysdeps/x86_64/multiarch/memset-vec-unaligned-erms.S:109
+#1  0x00007ffff7b716a6 in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_replace_aux(unsigned long, unsigned long, unsigned long, char) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x000055555555765b in std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x7fffffffdac0, __s="", __zero=48 '0', __one=49 '1') at /usr/include/c++/7/bitset:1407
+#3  0x00005555555573d7 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1538
+#4  0x0000555555556912 in BTreeNode::traverse (this=0x555555862200) at BTree_dup.cpp:594
+#5  0x00005555555568d7 in BTreeNode::traverse (this=0x5555557f1610) at BTree_dup.cpp:593
+#6  0x000055555555695f in BTreeNode::traverse (this=0x55555588f4d0) at BTree_dup.cpp:599
+#7  0x00005555555568d7 in BTreeNode::traverse (this=0x555555895980) at BTree_dup.cpp:593
+#8  0x00005555555568d7 in BTreeNode::traverse (this=0x555555a51560) at BTree_dup.cpp:593
+#9  0x00005555555568d7 in BTreeNode::traverse (this=0x5555559d1280) at BTree_dup.cpp:593
+#10 0x00005555555568d7 in BTreeNode::traverse (this=0x5555559d1310) at BTree_dup.cpp:593
+#11 0x000055555555695f in BTreeNode::traverse (this=0x555555a2abc0) at BTree_dup.cpp:599
+#12 0x000055555555695f in BTreeNode::traverse (this=0x555555a2ab30) at BTree_dup.cpp:599
+#13 0x00005555555572bb in BTree::traverse (this=0x7fffffffdd40) at BTree_dup.cpp:139
+#14 0x0000555555556fbd in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:718
+
+104	../sysdeps/x86_64/multiarch/memset-vec-unaligned-erms.S: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: std::_Base_bitset<1>
+Fliping value of field: _M_w
+Memory content before bitflip:0x870xf10x000x000x000x000x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffdac0
+address max offset: 8
+Memory content after  bitflip:0x8e0x200x5c0x4b0xd60x7b0xe70x19
+frame name: std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> >
+symbol name: this
+symbol filename: BTree_dup.cpp
+symbol line: 0
+value: 0x7fffffffdac0
+value address: 0x7fffffffda08
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 20:31:06]
+Fault Injection Successful after 1.8269410133361816s
+[INFO -- 2018-11-25 20:31:07]
+event type: exit
+[INFO -- 2018-11-25 20:31:07]
+exit code: 0

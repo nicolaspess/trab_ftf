@@ -1,0 +1,55 @@
+[INFO -- 2018-11-25 21:09:17]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 21:09:17]
+Initialization strings:
+[INFO -- 2018-11-25 21:09:17]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 21:09:17]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 21:09:17]
+initSignal:0
+[INFO -- 2018-11-25 21:09:17]
+endSignal:2
+[INFO -- 2018-11-25 21:09:17]
+faultModel:2
+[INFO -- 2018-11-25 21:09:18]
+Backtrace BEGIN:
+#0  0x00005555555565ad in BTreeNode::insertNonFull (this=0x555555bee480, k=2284104) at BTree_dup.cpp:524
+#1  0x0000555555556478 in BTree::insert (this=0x7fffffffda50, k=2284104) at BTree_dup.cpp:489
+#2  0x0000555555556c25 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#3  0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+519			// Find the child which is going to have the new key
+520			while (i >= 0 && keys[i] > k)
+521				i--;
+522	
+523			// See if the found child is full
+524			if (C[i+1]->n == 2*t-1)
+525			{
+526				// If the child is full, then split it
+527				splitChild(i+1, C[i+1]);
+528	
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Memory content before bitflip:0x2f
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffe22a 
+address max offset: 1
+Memory content after  bitflip:0x4f
+frame name: runner
+symbol name: input
+symbol filename: BTree_dup.cpp
+symbol line: 653
+value: 0x7fffffffe22a "Otmp/BTree-dup/input_100000"
+value address: 0x7fffffffda38
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 21:09:18]
+Fault Injection Successful after 1.3295114040374756s
+[INFO -- 2018-11-25 21:09:19]
+event type: exit
+[INFO -- 2018-11-25 21:09:19]
+exit code: 0

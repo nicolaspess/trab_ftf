@@ -1,0 +1,62 @@
+[INFO -- 2018-11-25 22:45:24]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 22:45:24]
+Initialization strings:
+[INFO -- 2018-11-25 22:45:24]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 22:45:24]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 22:45:24]
+initSignal:0
+[INFO -- 2018-11-25 22:45:24]
+endSignal:2
+[INFO -- 2018-11-25 22:45:24]
+faultModel:4
+[EXCEPTION -- 2018-11-25 22:45:25]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-11-25 22:45:25]
+Backtrace BEGIN:
+#0  0x00007ffff7334154 in __GI___libc_write (fd=1, buf=0x55555576d0d0, nbytes=17) at ../sysdeps/unix/sysv/linux/write.c:27
+#1  0x00007ffff72af1bd in _IO_new_file_write (f=0x7ffff7610760 <_IO_2_1_stdout_>, data=0x55555576d0d0, n=17) at fileops.c:1203
+#2  0x00007ffff72b0f51 in new_do_write (to_do=17, data=0x55555576d0d0 "1001100101001101\n\320vUUU", fp=0x7ffff7610760 <_IO_2_1_stdout_>) at fileops.c:457
+#3  _IO_new_do_write (fp=0x7ffff7610760 <_IO_2_1_stdout_>, data=0x55555576d0d0 "1001100101001101\n\320vUUU", to_do=17) at fileops.c:433
+#4  0x00007ffff72ae788 in _IO_new_file_sync (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at fileops.c:813
+#5  0x00007ffff72a287d in __GI__IO_fflush (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at iofflush.c:40
+#6  0x00007ffff7b5ef5e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#7  0x0000555555556927 in BTreeNode::traverse (this=0x5555558969d0) at BTree_dup.cpp:594
+#8  0x00005555555568d7 in BTreeNode::traverse (this=0x5555558fcd00) at BTree_dup.cpp:593
+#9  0x00005555555568d7 in BTreeNode::traverse (this=0x555555987150) at BTree_dup.cpp:593
+#10 0x00005555555568d7 in BTreeNode::traverse (this=0x555555994200) at BTree_dup.cpp:593
+#11 0x00005555555568d7 in BTreeNode::traverse (this=0x555555994680) at BTree_dup.cpp:593
+#12 0x000055555555695f in BTreeNode::traverse (this=0x5555559e4870) at BTree_dup.cpp:599
+#13 0x00005555555568d7 in BTreeNode::traverse (this=0x555555815cd0) at BTree_dup.cpp:593
+#14 0x000055555555695f in BTreeNode::traverse (this=0x555555815c40) at BTree_dup.cpp:599
+#15 0x00005555555568d7 in BTreeNode::traverse (this=0x555555a2ab30) at BTree_dup.cpp:593
+#16 0x00005555555572bb in BTree::traverse (this=0x7fffffffdd40) at BTree_dup.cpp:139
+#17 0x0000555555556fbd in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:718
+
+22	../sysdeps/unix/sysv/linux/write.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x700x480x9e0x550x550x550x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdbe8
+address max offset: 8
+Memory content after  bitflip:0x700x480x9e0x550x550x550x000x80
+frame name: BTreeNode::traverse
+symbol name: this
+symbol filename: BTree_dup.cpp
+symbol line: 0
+value: 0x5555559e4870
+value address: 0x7fffffffdbe8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 22:45:25]
+Fault Injection Successful after 1.9066061973571777s
+[INFO -- 2018-11-25 22:45:26]
+event type: exit
+[INFO -- 2018-11-25 22:45:26]
+exit code: 0

@@ -1,0 +1,62 @@
+[INFO -- 2018-11-25 22:55:01]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 22:55:01]
+Initialization strings:
+[INFO -- 2018-11-25 22:55:01]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 22:55:01]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 22:55:01]
+initSignal:0
+[INFO -- 2018-11-25 22:55:01]
+endSignal:2
+[INFO -- 2018-11-25 22:55:01]
+faultModel:1
+[EXCEPTION -- 2018-11-25 22:55:02]
+gdbException: A syntax error in expression, near `...'.
+[INFO -- 2018-11-25 22:55:02]
+Backtrace BEGIN:
+#0  malloc (n=14) at dl-minimal.c:50
+#1  <function called from gdb>
+#2  0x00007ffff72bb071 in __GI___libc_malloc (bytes=31) at malloc.c:3028
+#3  0x00007ffff7adf1a8 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00007ffff7b70cfb in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#5  0x00007ffff7b716d0 in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_replace_aux(unsigned long, unsigned long, unsigned long, char) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#6  0x000055555555765b in std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x7fffffffdac0, __s="", __zero=48 '0', __one=49 '1') at /usr/include/c++/7/bitset:1407
+#7  0x00005555555573d7 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1538
+#8  0x0000555555556912 in BTreeNode::traverse (this=0x55555577f670) at BTree_dup.cpp:594
+#9  0x000055555555695f in BTreeNode::traverse (this=0x5555558b6bf0) at BTree_dup.cpp:599
+#10 0x00005555555568d7 in BTreeNode::traverse (this=0x555555ac5120) at BTree_dup.cpp:593
+#11 0x00005555555568d7 in BTreeNode::traverse (this=0x555555ac7c70) at BTree_dup.cpp:593
+#12 0x00005555555568d7 in BTreeNode::traverse (this=0x5555558d7950) at BTree_dup.cpp:593
+#13 0x00005555555568d7 in BTreeNode::traverse (this=0x55555586a3f0) at BTree_dup.cpp:593
+#14 0x00005555555568d7 in BTreeNode::traverse (this=0x5555558f2290) at BTree_dup.cpp:593
+#15 0x00005555555568d7 in BTreeNode::traverse (this=0x555555815c40) at BTree_dup.cpp:593
+#16 0x00005555555568d7 in BTreeNode::traverse (this=0x555555a2ab30) at BTree_dup.cpp:593
+#17 0x00005555555572bb in BTree::traverse (this=0x7fffffffdd40) at BTree_dup.cpp:139
+#18 0x0000555555556fbd in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:718
+
+45	in dl-minimal.c
+
+Backtrace END
+Memory content before bitflip:0x050x000x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffdd1c
+address max offset: 4
+Memory content after  bitflip:0x050x810x000x00
+frame name: main
+symbol name: argc
+symbol filename: BTree_dup.cpp
+symbol line: 691
+value: 33029
+value address: 0x7fffffffdd1c
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-11-25 22:55:02]
+Fault Injection Successful after 1.78556489944458s
+[INFO -- 2018-11-25 22:55:03]
+event type: exit
+[INFO -- 2018-11-25 22:55:03]
+exit code: 0

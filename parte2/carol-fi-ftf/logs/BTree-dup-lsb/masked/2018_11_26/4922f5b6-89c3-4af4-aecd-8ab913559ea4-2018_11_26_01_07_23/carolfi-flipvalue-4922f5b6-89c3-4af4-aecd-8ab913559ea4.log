@@ -1,0 +1,61 @@
+[INFO -- 2018-11-26 01:07:20]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-26 01:07:20]
+Initialization strings:
+[INFO -- 2018-11-26 01:07:20]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-26 01:07:20]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-26 01:07:20]
+initSignal:0
+[INFO -- 2018-11-26 01:07:20]
+endSignal:2
+[INFO -- 2018-11-26 01:07:20]
+faultModel:4
+[INFO -- 2018-11-26 01:07:21]
+Backtrace BEGIN:
+#0  malloc (n=14) at dl-minimal.c:50
+#1  <function called from gdb>
+#2  malloc (n=14) at dl-minimal.c:50
+#3  <function called from gdb>
+#4  __GI___libc_malloc (bytes=32) at malloc.c:3028
+#5  0x00007ffff7adf1a8 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#6  0x000055555555665c in BTreeNode::splitChild (this=0x555555d9ddc0, i=2, y=0x555555d08de0) at BTree_dup.cpp:545
+#7  0x00005555555565ed in BTreeNode::insertNonFull (this=0x555555d9ddc0, k=3420009) at BTree_dup.cpp:527
+#8  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555cff060, k=3420009) at BTree_dup.cpp:535
+#9  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ce36d0, k=3420009) at BTree_dup.cpp:535
+#10 0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ce3910, k=3420009) at BTree_dup.cpp:535
+#11 0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555bee510, k=3420009) at BTree_dup.cpp:535
+#12 0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ce1fc0, k=3420009) at BTree_dup.cpp:535
+#13 0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ce1f30, k=3420009) at BTree_dup.cpp:535
+#14 0x0000555555556478 in BTree::insert (this=0x7fffffffda50, k=3420009) at BTree_dup.cpp:489
+#15 0x0000555555556c25 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#16 0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+45	in dl-minimal.c
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: counts
+Fliping array at pos: 41
+Memory content before bitflip:0x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x55555575b039 
+address max offset: 1
+Memory content after  bitflip:0x20
+frame name: __GI___libc_malloc
+symbol name: tcache
+symbol filename: malloc.c
+symbol line: 2921
+value: 0x55555575b010
+value address: 0x7ffff7fdd6d0
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-26 01:07:21]
+Fault Injection Successful after 1.6748149394989014s
+[INFO -- 2018-11-26 01:07:22]
+event type: exit
+[INFO -- 2018-11-26 01:07:22]
+exit code: 0

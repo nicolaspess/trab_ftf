@@ -1,0 +1,56 @@
+[INFO -- 2018-11-25 22:52:15]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 22:52:15]
+Initialization strings:
+[INFO -- 2018-11-25 22:52:15]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 22:52:15]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 22:52:15]
+initSignal:0
+[INFO -- 2018-11-25 22:52:15]
+endSignal:2
+[INFO -- 2018-11-25 22:52:15]
+faultModel:4
+[EXCEPTION -- 2018-11-25 22:52:16]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-11-25 22:52:16]
+Backtrace BEGIN:
+#0  __GI__IO_fflush (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at iofflush.c:40
+#1  0x00007ffff7b5ef5e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x0000555555556927 in BTreeNode::traverse (this=0x555555931830) at BTree_dup.cpp:594
+#3  0x00005555555568d7 in BTreeNode::traverse (this=0x555555a43850) at BTree_dup.cpp:593
+#4  0x00005555555568d7 in BTreeNode::traverse (this=0x555555924930) at BTree_dup.cpp:593
+#5  0x00005555555568d7 in BTreeNode::traverse (this=0x555555a7d240) at BTree_dup.cpp:593
+#6  0x000055555555695f in BTreeNode::traverse (this=0x555555994680) at BTree_dup.cpp:599
+#7  0x000055555555695f in BTreeNode::traverse (this=0x5555559e4870) at BTree_dup.cpp:599
+#8  0x00005555555568d7 in BTreeNode::traverse (this=0x555555815cd0) at BTree_dup.cpp:593
+#9  0x000055555555695f in BTreeNode::traverse (this=0x555555815c40) at BTree_dup.cpp:599
+#10 0x00005555555568d7 in BTreeNode::traverse (this=0x555555a2ab30) at BTree_dup.cpp:593
+#11 0x00005555555572bb in BTree::traverse (this=0x7fffffffdd40) at BTree_dup.cpp:139
+#12 0x0000555555556fbd in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:718
+
+35	in iofflush.c
+
+Backtrace END
+Memory content before bitflip:0x010x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdb7c
+address max offset: 4
+Memory content after  bitflip:0x010x000x000x01
+frame name: BTreeNode::traverse
+symbol name: i
+symbol filename: BTree_dup.cpp
+symbol line: 587
+value: 16777217
+value address: 0x7fffffffdb7c
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-11-25 22:52:16]
+Fault Injection Successful after 1.6236295700073242s
+[INFO -- 2018-11-25 22:52:16]
+event type: exit
+[EXCEPTION -- 2018-11-25 22:52:16]
+exit code: no exit code available

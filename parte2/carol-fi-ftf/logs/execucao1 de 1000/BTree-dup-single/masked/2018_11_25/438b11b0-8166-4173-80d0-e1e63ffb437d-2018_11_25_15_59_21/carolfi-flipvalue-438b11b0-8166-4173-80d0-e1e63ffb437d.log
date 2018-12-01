@@ -1,0 +1,51 @@
+[INFO -- 2018-11-25 15:59:18]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 15:59:18]
+Initialization strings:
+[INFO -- 2018-11-25 15:59:18]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 15:59:18]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 15:59:18]
+initSignal:0
+[INFO -- 2018-11-25 15:59:18]
+endSignal:2
+[INFO -- 2018-11-25 15:59:18]
+faultModel:0
+[EXCEPTION -- 2018-11-25 15:59:19]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-11-25 15:59:19]
+Backtrace BEGIN:
+#0  0x00007ffff7b479e5 in std::istream::operator>>(int&) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x0000555555557742 in std::istream_iterator<int, char, std::char_traits<char>, long>::_M_read (this=0x7fffffffd960) at /usr/include/c++/7/bits/stream_iterator.h:121
+#2  0x0000555555557ab2 in std::istream_iterator<int, char, std::char_traits<char>, long>::operator++ (this=0x7fffffffd960) at /usr/include/c++/7/bits/stream_iterator.h:95
+#3  0x00005555555579f3 in std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1308
+#4  0x0000555555557882 in std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1299
+#5  0x0000555555557569 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void> (this=0x7fffffffdaa0, __first=..., __last=..., __a=...) at /usr/include/c++/7/bits/stl_vector.h:414
+#6  0x0000555555556bbc in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:660
+#7  0x0000555555556f51 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:711
+
+2284	in rtld.c
+
+Backtrace END
+Memory content before bitflip:0x390x710x550x550x550x550x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffdd38
+address max offset: 8
+Memory content after  bitflip:0x390x710x550x550x550x550x000x02
+frame name: main
+symbol name: diff_time
+symbol filename: BTree_dup.cpp
+symbol line: 699
+value: 4.8778578460510658e-299
+value address: 0x7fffffffdd38
+Type: A floating point type.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 15:59:19]
+Fault Injection Successful after 1.3172833919525146s
+[INFO -- 2018-11-25 15:59:20]
+event type: exit
+[INFO -- 2018-11-25 15:59:20]
+exit code: 0

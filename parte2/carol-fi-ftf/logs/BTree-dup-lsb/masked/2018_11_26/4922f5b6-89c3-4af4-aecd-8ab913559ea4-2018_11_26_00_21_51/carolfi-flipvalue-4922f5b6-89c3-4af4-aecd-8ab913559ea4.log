@@ -1,0 +1,62 @@
+[INFO -- 2018-11-26 00:21:49]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-26 00:21:49]
+Initialization strings:
+[INFO -- 2018-11-26 00:21:49]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-26 00:21:49]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-26 00:21:49]
+initSignal:0
+[INFO -- 2018-11-26 00:21:49]
+endSignal:2
+[INFO -- 2018-11-26 00:21:49]
+faultModel:4
+[INFO -- 2018-11-26 00:21:50]
+Backtrace BEGIN:
+#0  0x000055555555650a in BTreeNode::insertNonFull (this=0x555555fb2680, k=2825658) at BTree_dup.cpp:509
+#1  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555edfff0, k=2825658) at BTree_dup.cpp:535
+#2  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555d05f30, k=2825658) at BTree_dup.cpp:535
+#3  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555f270c0, k=2825658) at BTree_dup.cpp:535
+#4  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555fe9490, k=2825658) at BTree_dup.cpp:535
+#5  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555d8d0e0, k=2825658) at BTree_dup.cpp:535
+#6  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ce1fc0, k=2825658) at BTree_dup.cpp:535
+#7  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ce1f30, k=2825658) at BTree_dup.cpp:535
+#8  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ef6e20, k=2825658) at BTree_dup.cpp:535
+#9  0x0000555555556478 in BTree::insert (this=0x7fffffffda50, k=2825658) at BTree_dup.cpp:489
+#10 0x0000555555556c25 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#11 0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+504			// The following loop does two things
+505			// a) Finds the location of new key to be inserted
+506			// b) Moves all greater keys to one place ahead
+507			while (i >= 0 && keys[i] > k)
+508			{
+509				keys[i+1] = keys[i];
+510				i--;
+511			}
+512	
+513			// Insert the new key at found location
+
+Backtrace END
+Memory content before bitflip:0x020x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffd88c
+address max offset: 4
+Memory content after  bitflip:0x020x000x000x20
+frame name: BTreeNode::insertNonFull
+symbol name: i
+symbol filename: BTree_dup.cpp
+symbol line: 499
+value: 536870914
+value address: 0x7fffffffd88c
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-11-26 00:21:50]
+Fault Injection Successful after 1.2565357685089111s
+[INFO -- 2018-11-26 00:21:51]
+event type: exit
+[INFO -- 2018-11-26 00:21:51]
+exit code: 0

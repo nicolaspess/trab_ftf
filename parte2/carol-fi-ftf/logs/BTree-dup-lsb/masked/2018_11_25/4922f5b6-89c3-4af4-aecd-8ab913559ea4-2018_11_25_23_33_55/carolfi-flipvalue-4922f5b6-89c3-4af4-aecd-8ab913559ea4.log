@@ -1,0 +1,62 @@
+[INFO -- 2018-11-25 23:33:52]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 23:33:52]
+Initialization strings:
+[INFO -- 2018-11-25 23:33:52]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 23:33:52]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 23:33:52]
+initSignal:0
+[INFO -- 2018-11-25 23:33:52]
+endSignal:2
+[INFO -- 2018-11-25 23:33:52]
+faultModel:4
+[INFO -- 2018-11-25 23:33:53]
+Backtrace BEGIN:
+#0  __memmove_avx_unaligned_erms () at ../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:525
+#1  0x00005555555584e0 in std::__copy_move<true, true, std::random_access_iterator_tag>::__copy_m<int> (__first=0x555555bfb480, __last=0x555555c3b480, __result=0x555555c3b490) at /usr/include/c++/7/bits/stl_algobase.h:368
+#2  0x000055555555848e in std::__copy_move_a<true, int*, int*> (__first=0x555555bfb480, __last=0x555555c3b480, __result=0x555555c3b490) at /usr/include/c++/7/bits/stl_algobase.h:386
+#3  0x0000555555558428 in std::__copy_move_a2<true, int*, int*> (__first=0x555555bfb480, __last=0x555555c3b480, __result=0x555555c3b490) at /usr/include/c++/7/bits/stl_algobase.h:424
+#4  0x00005555555583b0 in std::copy<std::move_iterator<int*>, int*> (__first=..., __last=..., __result=0x555555c3b490) at /usr/include/c++/7/bits/stl_algobase.h:456
+#5  0x0000555555558369 in std::__uninitialized_copy<true>::__uninit_copy<std::move_iterator<int*>, int*> (__first=..., __last=..., __result=0x555555c3b490) at /usr/include/c++/7/bits/stl_uninitialized.h:101
+#6  0x0000555555558327 in std::uninitialized_copy<std::move_iterator<int*>, int*> (__first=..., __last=..., __result=0x555555c3b490) at /usr/include/c++/7/bits/stl_uninitialized.h:134
+#7  0x0000555555558261 in std::__uninitialized_copy_a<std::move_iterator<int*>, int*, int> (__first=..., __last=..., __result=0x555555c3b490) at /usr/include/c++/7/bits/stl_uninitialized.h:289
+#8  0x0000555555558171 in std::__uninitialized_move_if_noexcept_a<int*, int*, std::allocator<int> > (__first=0x555555bfb480, __last=0x555555c3b480, __result=0x555555c3b490, __alloc=...) at /usr/include/c++/7/bits/stl_uninitialized.h:312
+#9  0x0000555555557d85 in std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&> (this=0x7fffffffdaa0, __position=0, __args#0=@0x7fffffffd968: 2887062) at /usr/include/c++/7/bits/vector.tcc:424
+#10 0x0000555555557b6a in std::vector<int, std::allocator<int> >::emplace_back<int const&> (this=0x7fffffffdaa0, __args#0=@0x7fffffffd968: 2887062) at /usr/include/c++/7/bits/vector.tcc:105
+#11 0x00005555555579e7 in std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1310
+#12 0x0000555555557882 in std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1299
+#13 0x0000555555557569 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void> (this=0x7fffffffdaa0, __first=..., __last=..., __a=...) at /usr/include/c++/7/bits/stl_vector.h:414
+#14 0x0000555555556bbc in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:660
+#15 0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+520	../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping value of field: _M_current
+Fliping a bit of the value pointed by a pointer
+Memory content before bitflip:0x4a0xcf0x100x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x555555bfb480
+address max offset: 4
+Memory content after  bitflip:0x4a0xcf0x100x01
+frame name: std::uninitialized_copy<std::move_iterator<int*>, int*>
+symbol name: __first
+symbol filename: /usr/include/c++/7/bits/stl_uninitialized.h
+symbol line: 115
+value: {_M_current = 0x555555bfb480}
+value address: 0x7fffffffd7c8
+Type: The type is a structure.
+Type sizeof: 8
+Field name: _M_current
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+
+[INFO -- 2018-11-25 23:33:53]
+Fault Injection Successful after 1.8077476024627686s
+[INFO -- 2018-11-25 23:33:54]
+event type: exit
+[INFO -- 2018-11-25 23:33:54]
+exit code: 0

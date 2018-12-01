@@ -1,0 +1,57 @@
+[INFO -- 2018-11-25 21:33:20]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 21:33:20]
+Initialization strings:
+[INFO -- 2018-11-25 21:33:20]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 21:33:20]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 21:33:20]
+initSignal:0
+[INFO -- 2018-11-25 21:33:20]
+endSignal:2
+[INFO -- 2018-11-25 21:33:20]
+faultModel:0
+[INFO -- 2018-11-25 21:33:21]
+Backtrace BEGIN:
+#0  0x0000555555557ae5 in std::vector<int, std::allocator<int> >::emplace_back<int const&> (this=0x7fffffffdaa0, __args#0=@0x7fffffffd8f0: -9952) at /usr/include/c++/7/bits/vector.tcc:95
+#1  0x00005555555579e7 in std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1310
+#2  0x0000555555557882 in std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1299
+#3  0x0000555555557569 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void> (this=0x7fffffffdaa0, __first=..., __last=..., __a=...) at /usr/include/c++/7/bits/stl_vector.h:414
+#4  0x0000555555556bbc in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:660
+#5  0x0000555555556f51 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:711
+
+90	#if __cplusplus > 201402L
+91	      typename vector<_Tp, _Alloc>::reference
+92	#else
+93	      void
+94	#endif
+95	      vector<_Tp, _Alloc>::
+96	      emplace_back(_Args&&... __args)
+97	      {
+98		if (this->_M_impl._M_finish != this->_M_impl._M_end_of_storage)
+99		  {
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Memory content before bitflip:0x2f
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffe22a 
+address max offset: 1
+Memory content after  bitflip:0x2d
+frame name: runner
+symbol name: input
+symbol filename: BTree_dup.cpp
+symbol line: 653
+value: 0x7fffffffe22a "-tmp/BTree-dup/input_100000"
+value address: 0x7fffffffda38
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 21:33:21]
+Fault Injection Successful after 1.905932903289795s
+[INFO -- 2018-11-25 21:33:24]
+event type: exit
+[INFO -- 2018-11-25 21:33:24]
+exit code: 0

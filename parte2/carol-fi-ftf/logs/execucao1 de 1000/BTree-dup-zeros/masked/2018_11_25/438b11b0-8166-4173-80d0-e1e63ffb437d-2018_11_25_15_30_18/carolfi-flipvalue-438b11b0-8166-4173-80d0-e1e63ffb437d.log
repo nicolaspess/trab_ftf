@@ -1,0 +1,67 @@
+[INFO -- 2018-11-25 15:30:12]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 15:30:12]
+Initialization strings:
+[INFO -- 2018-11-25 15:30:12]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 15:30:12]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 15:30:12]
+initSignal:0
+[INFO -- 2018-11-25 15:30:12]
+endSignal:2
+[INFO -- 2018-11-25 15:30:12]
+faultModel:3
+[EXCEPTION -- 2018-11-25 15:30:13]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[EXCEPTION -- 2018-11-25 15:30:14]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-11-25 15:30:14]
+Backtrace BEGIN:
+#0  std::istream_iterator<int, char, std::char_traits<char>, long>::operator++ (this=0x7fffffffd960) at /usr/include/c++/7/bits/stream_iterator.h:95
+#1  0x00005555555579f3 in std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1308
+#2  0x0000555555557882 in std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1299
+#3  0x0000555555557569 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void> (this=0x7fffffffdaa0, __first=..., __last=..., __a=...) at /usr/include/c++/7/bits/stl_vector.h:414
+#4  0x0000555555556bbc in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:660
+#5  0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+90	      operator++()
+91	      {
+92		__glibcxx_requires_cond(_M_ok,
+93					_M_message(__gnu_debug::__msg_inc_istream)
+94					._M_iterator(*this));
+95		_M_read();
+96		return *this;
+97	      }
+98	
+99	      istream_iterator
+
+Backtrace END
+Fliping value of field: t
+Memory content before bitflip:0x030x000x000x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x7fffffffdd48
+address max offset: 4
+Memory content after  bitflip:0x000x000x000x00
+frame name: main
+symbol name: bTree1
+symbol filename: BTree_dup.cpp
+symbol line: 704
+value: {root = 0x555555a2ab30, t = 0}
+value address: 0x7fffffffdd40
+Type: The type is a structure.
+Type sizeof: 16
+Field name: root
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: t
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+
+[INFO -- 2018-11-25 15:30:14]
+Fault Injection Successful after 2.642481803894043s
+[INFO -- 2018-11-25 15:30:15]
+event type: exit
+[INFO -- 2018-11-25 15:30:15]
+exit code: 0

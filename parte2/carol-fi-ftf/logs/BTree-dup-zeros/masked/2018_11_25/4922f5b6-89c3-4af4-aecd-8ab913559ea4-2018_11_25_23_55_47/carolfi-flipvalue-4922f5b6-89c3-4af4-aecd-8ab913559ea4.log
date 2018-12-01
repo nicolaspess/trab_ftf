@@ -1,0 +1,56 @@
+[INFO -- 2018-11-25 23:55:44]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 23:55:44]
+Initialization strings:
+[INFO -- 2018-11-25 23:55:44]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 23:55:44]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 23:55:44]
+initSignal:0
+[INFO -- 2018-11-25 23:55:44]
+endSignal:2
+[INFO -- 2018-11-25 23:55:44]
+faultModel:3
+[INFO -- 2018-11-25 23:55:45]
+Backtrace BEGIN:
+#0  std::istream_iterator<int, char, std::char_traits<char>, long>::operator* (this=0x7fffffffd960) at /usr/include/c++/7/bits/stream_iterator.h:83
+#1  0x00005555555579d5 in std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1310
+#2  0x0000555555557882 in std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1299
+#3  0x0000555555557569 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void> (this=0x7fffffffdaa0, __first=..., __last=..., __a=...) at /usr/include/c++/7/bits/stl_vector.h:414
+#4  0x0000555555556bbc in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:660
+#5  0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+78	      operator*() const
+79	      {
+80		__glibcxx_requires_cond(_M_ok,
+81					_M_message(__gnu_debug::__msg_deref_istream)
+82					._M_iterator(*this));
+83		return _M_value;
+84	      }
+85	
+86	      const _Tp*
+87	      operator->() const { return std::__addressof((operator*())); }
+
+Backtrace END
+Memory content before bitflip:0x400xdd0xff0xff0xff0x7f0x000x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x7fffffffdd30
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x00
+frame name: main
+symbol name: stop_time
+symbol filename: BTree_dup.cpp
+symbol line: 698
+value: 0
+value address: 0x7fffffffdd30
+Type: The type is an integer type.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 23:55:45]
+Fault Injection Successful after 1.664736032485962s
+[INFO -- 2018-11-25 23:55:46]
+event type: exit
+[INFO -- 2018-11-25 23:55:46]
+exit code: 0

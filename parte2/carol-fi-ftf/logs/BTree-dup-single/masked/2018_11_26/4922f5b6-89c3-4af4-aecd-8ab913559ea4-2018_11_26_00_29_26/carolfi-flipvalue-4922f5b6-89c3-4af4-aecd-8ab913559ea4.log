@@ -1,0 +1,66 @@
+[INFO -- 2018-11-26 00:29:24]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-26 00:29:24]
+Initialization strings:
+[INFO -- 2018-11-26 00:29:24]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-26 00:29:24]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-26 00:29:24]
+initSignal:0
+[INFO -- 2018-11-26 00:29:24]
+endSignal:2
+[INFO -- 2018-11-26 00:29:24]
+faultModel:0
+[INFO -- 2018-11-26 00:29:26]
+Backtrace BEGIN:
+#0  0x00007ffff7b5fd50 in std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x00005555555573ea in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1539
+#2  0x0000555555556912 in BTreeNode::traverse (this=0x55555605a740) at BTree_dup.cpp:594
+#3  0x000055555555695f in BTreeNode::traverse (this=0x555555cc7680) at BTree_dup.cpp:599
+#4  0x00005555555568d7 in BTreeNode::traverse (this=0x555555ea50a0) at BTree_dup.cpp:593
+#5  0x00005555555568d7 in BTreeNode::traverse (this=0x555555bfe230) at BTree_dup.cpp:593
+#6  0x00005555555568d7 in BTreeNode::traverse (this=0x555555d7b8c0) at BTree_dup.cpp:593
+#7  0x000055555555695f in BTreeNode::traverse (this=0x555555bee510) at BTree_dup.cpp:599
+#8  0x00005555555568d7 in BTreeNode::traverse (this=0x555555ef6d90) at BTree_dup.cpp:593
+#9  0x00005555555568d7 in BTreeNode::traverse (this=0x555555ef6eb0) at BTree_dup.cpp:593
+#10 0x000055555555695f in BTreeNode::traverse (this=0x555555ef6e20) at BTree_dup.cpp:599
+#11 0x00005555555572bb in BTree::traverse (this=0x7fffffffdd50) at BTree_dup.cpp:139
+#12 0x0000555555556ff9 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:725
+
+677	    {
+678	        file1.getline(string1,256);
+679	        file2.getline(string2,256);
+680	        j++;
+681	        if(strcmp(string1,string2) != 0)
+682	        {
+683	            if (fp = fopen(detectLog, "a")) {
+684	                fprintf(fp, "[%d]: %s %s\n",j,string1,string2);
+685	                fclose(fp);
+686	            }
+
+Backtrace END
+Fliping a bit of the value pointed by a reference
+Fliping value of field: std::_Base_bitset<1>
+Fliping value of field: _M_w
+Memory content before bitflip:0xe50xe20x000x000x000x000x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffdac0
+address max offset: 8
+Memory content after  bitflip:0xe50xe20x040x000x000x000x000x00
+frame name: std::operator<< <char, std::char_traits<char>, 16ul>
+symbol name: __x
+symbol filename: /usr/include/c++/7/bitset
+symbol line: 1531
+value: std::bitset = {[0] = 1, [2] = 1, [5] = 1, [6] = 1, [7] = 1, [9] = 1, [13] = 1, [14] = 1, [15] = 1, [18] = 1}
+value address: 0x7fffffffdac0
+Type: A reference type.
+Type sizeof: 8
+
+[INFO -- 2018-11-26 00:29:26]
+Fault Injection Successful after 2.11080265045166s
+[INFO -- 2018-11-26 00:29:26]
+event type: exit
+[INFO -- 2018-11-26 00:29:26]
+exit code: 0

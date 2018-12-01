@@ -1,0 +1,45 @@
+[INFO -- 2018-11-25 21:00:42]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 21:00:42]
+Initialization strings:
+[INFO -- 2018-11-25 21:00:42]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 21:00:42]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 21:00:42]
+initSignal:0
+[INFO -- 2018-11-25 21:00:42]
+endSignal:2
+[INFO -- 2018-11-25 21:00:42]
+faultModel:3
+[INFO -- 2018-11-25 21:00:44]
+Backtrace BEGIN:
+#0  __strcmp_sse2_unaligned () at ../sysdeps/x86_64/multiarch/strcmp-sse2-unaligned.S:58
+#1  0x0000555555556dd3 in compare_output (input1=0x7fffffffe246 "/tmp/BTree-dup/output_100000", input2=0x7fffffffe280 "/tmp/BTree-dup/output2_100000", detectLog=0x7fffffffe263 "/tmp/BTree-dup-detection.log") at BTree_dup.cpp:681
+#2  0x0000555555557034 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:730
+
+53	../sysdeps/x86_64/multiarch/strcmp-sse2-unaligned.S: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x460xe20xff0xff0xff0x7f0x000x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x7fffffffd698
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x00
+frame name: compare_output
+symbol name: input1
+symbol filename: BTree_dup.cpp
+symbol line: 669
+value: 0x7fffffffe246 "/tmp/BTree-dup/output_100000"
+value address: 0x7fffffffd698
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 21:00:44]
+Fault Injection Successful after 2.177902936935425s
+[INFO -- 2018-11-25 21:00:44]
+event type: exit
+[INFO -- 2018-11-25 21:00:44]
+exit code: 0

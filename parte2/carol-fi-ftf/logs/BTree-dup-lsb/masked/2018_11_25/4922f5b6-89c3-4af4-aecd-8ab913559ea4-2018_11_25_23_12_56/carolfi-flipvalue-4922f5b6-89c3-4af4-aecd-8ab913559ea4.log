@@ -1,0 +1,58 @@
+[INFO -- 2018-11-25 23:12:54]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 23:12:54]
+Initialization strings:
+[INFO -- 2018-11-25 23:12:54]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 23:12:54]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 23:12:54]
+initSignal:0
+[INFO -- 2018-11-25 23:12:54]
+endSignal:2
+[INFO -- 2018-11-25 23:12:54]
+faultModel:4
+[INFO -- 2018-11-25 23:12:55]
+Backtrace BEGIN:
+#0  0x0000555555557c2d in std::allocator_traits<std::allocator<int> >::construct<int, int const&> (__a=..., __p=0x7ffff7fce634, __args#0=@0x7fffffffd968: 2225209) at /usr/include/c++/7/bits/alloc_traits.h:475
+#1  0x0000555555557b24 in std::vector<int, std::allocator<int> >::emplace_back<int const&> (this=0x7fffffffdaa0, __args#0=@0x7fffffffd968: 2225209) at /usr/include/c++/7/bits/vector.tcc:100
+#2  0x00005555555579e7 in std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1310
+#3  0x0000555555557882 in std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1299
+#4  0x0000555555557569 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void> (this=0x7fffffffdaa0, __first=..., __last=..., __a=...) at /usr/include/c++/7/bits/stl_vector.h:414
+#5  0x0000555555556bbc in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:660
+#6  0x0000555555556f51 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:711
+
+470	       *  Calls <tt> __a.construct(__p, std::forward<Args>(__args)...) </tt>
+471	      */
+472	      template<typename _Up, typename... _Args>
+473		static void
+474		construct(allocator_type& __a, _Up* __p, _Args&&... __args)
+475		{ __a.construct(__p, std::forward<_Args>(__args)...); }
+476	
+477	      /**
+478	       *  @brief  Destroy an object of type @a _Up
+479	       *  @param  __a  An allocator.
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x2a0xe20xff0xff0xff0x7f0x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffda38
+address max offset: 8
+Memory content after  bitflip:0x2a0xe20xff0xff0xff0x7f0x000x08
+frame name: runner
+symbol name: input
+symbol filename: BTree_dup.cpp
+symbol line: 653
+value: 0x7fffffffe22a "/tmp/BTree-dup/input_100000"
+value address: 0x7fffffffda38
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 23:12:55]
+Fault Injection Successful after 1.184222936630249s
+[INFO -- 2018-11-25 23:12:56]
+event type: exit
+[INFO -- 2018-11-25 23:12:56]
+exit code: 0

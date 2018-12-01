@@ -1,0 +1,58 @@
+[INFO -- 2018-11-26 01:12:36]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-26 01:12:36]
+Initialization strings:
+[INFO -- 2018-11-26 01:12:36]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-26 01:12:36]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-26 01:12:36]
+initSignal:0
+[INFO -- 2018-11-26 01:12:36]
+endSignal:2
+[INFO -- 2018-11-26 01:12:36]
+faultModel:2
+[INFO -- 2018-11-26 01:12:37]
+Backtrace BEGIN:
+#0  std::forward<int const&> (__t=@0x555555557765: -1958165879) at /usr/include/c++/7/bits/move.h:73
+#1  0x0000555555557b0a in std::vector<int, std::allocator<int> >::emplace_back<int const&> (this=0x7fffffffdaa0, __args#0=@0x7fffffffd968: 4193452) at /usr/include/c++/7/bits/vector.tcc:100
+#2  0x00005555555579e7 in std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1310
+#3  0x0000555555557882 in std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1299
+#4  0x0000555555557569 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void> (this=0x7fffffffdaa0, __first=..., __last=..., __a=...) at /usr/include/c++/7/bits/stl_vector.h:414
+#5  0x0000555555556bbc in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:660
+#6  0x0000555555556f51 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:711
+
+68	   *
+69	   *  This function is used to implement "perfect forwarding".
+70	   */
+71	  template<typename _Tp>
+72	    constexpr _Tp&&
+73	    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+74	    { return static_cast<_Tp&&>(__t); }
+75	
+76	  /**
+77	   *  @brief  Forward an rvalue.
+
+Backtrace END
+Fliping a bit of the value pointed by a reference
+Memory content before bitflip:0x890xc20x480x8b
+Fault Model: Random bit-flip
+base address to flip value: 0x555555557765 
+address max offset: 4
+Memory content after  bitflip:0x1b0x2c0xab0x69
+frame name: std::forward<int const&>
+symbol name: __t
+symbol filename: /usr/include/c++/7/bits/move.h
+symbol line: 73
+value: @0x555555557765
+value address: 0x555555557765 <std::istream_iterator<int, char, std::char_traits<char>, long>::_M_read()+155>
+Type: A reference type.
+Type sizeof: 8
+
+[INFO -- 2018-11-26 01:12:37]
+Fault Injection Successful after 1.373326301574707s
+[INFO -- 2018-11-26 01:12:37]
+event type: exit
+[EXCEPTION -- 2018-11-26 01:12:37]
+exit code: no exit code available

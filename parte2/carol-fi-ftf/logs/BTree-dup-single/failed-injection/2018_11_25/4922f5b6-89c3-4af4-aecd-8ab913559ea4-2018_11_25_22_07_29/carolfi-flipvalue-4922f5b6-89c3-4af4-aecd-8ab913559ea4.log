@@ -1,0 +1,25 @@
+[INFO -- 2018-11-25 22:07:26]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 22:07:26]
+Initialization strings:
+[INFO -- 2018-11-25 22:07:26]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 22:07:26]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 22:07:26]
+initSignal:0
+[INFO -- 2018-11-25 22:07:26]
+endSignal:2
+[INFO -- 2018-11-25 22:07:26]
+faultModel:0
+[EXCEPTION -- 2018-11-25 22:07:27]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[EXCEPTION -- 2018-11-25 22:07:27]
+pythonException: empty range for randrange() (0,0, 0)
+[EXCEPTION -- 2018-11-25 22:07:27]
+pythonException: empty range for randrange() (0,0, 0)
+[INFO -- 2018-11-25 22:07:28]
+event type: exit
+[INFO -- 2018-11-25 22:07:28]
+exit code: 0

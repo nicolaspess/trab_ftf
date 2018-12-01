@@ -1,0 +1,99 @@
+[INFO -- 2018-11-25 23:43:16]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 23:43:16]
+Initialization strings:
+[INFO -- 2018-11-25 23:43:16]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 23:43:16]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 23:43:16]
+initSignal:0
+[INFO -- 2018-11-25 23:43:16]
+endSignal:2
+[INFO -- 2018-11-25 23:43:16]
+faultModel:0
+[EXCEPTION -- 2018-11-25 23:43:17]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[EXCEPTION -- 2018-11-25 23:43:17]
+pythonException: empty range for randrange() (0,0, 0)
+[INFO -- 2018-11-25 23:43:18]
+Backtrace BEGIN:
+#0  __GI_raise (sig=sig@entry=6) at ../sysdeps/unix/sysv/linux/raise.c:51
+#1  0x00007ffff7264801 in __GI_abort () at abort.c:79
+#2  0x00007ffff72ad897 in __libc_message (action=action@entry=do_abort, fmt=fmt@entry=0x7ffff73dab9a "%s\n") at ../sysdeps/posix/libc_fatal.c:181
+#3  0x00007ffff72b490a in malloc_printerr (str=str@entry=0x7ffff73d8d88 "free(): invalid pointer") at malloc.c:5350
+#4  0x00007ffff72bbe1c in _int_free (have_lock=0, p=0x7ffff7efa001, av=0x7ffff760fc40 <main_arena>) at malloc.c:4157
+#5  __GI___libc_free (mem=0x7ffff7efa011) at malloc.c:3124
+#6  0x0000555555557bb2 in __gnu_cxx::new_allocator<int>::deallocate (this=0x7fffffffdaa0, __p=0x7ffff7efa011) at /usr/include/c++/7/ext/new_allocator.h:125
+#7  0x0000555555557a6f in std::allocator_traits<std::allocator<int> >::deallocate (__a=..., __p=0x7ffff7efa011, __n=131071) at /usr/include/c++/7/bits/alloc_traits.h:462
+#8  0x000055555555799a in std::_Vector_base<int, std::allocator<int> >::_M_deallocate (this=0x7fffffffdaa0, __p=0x7ffff7efa011, __n=131071) at /usr/include/c++/7/bits/stl_vector.h:180
+#9  0x000055555555780d in std::_Vector_base<int, std::allocator<int> >::~_Vector_base (this=0x7fffffffdaa0, __in_chrg=<optimized out>) at /usr/include/c++/7/bits/stl_vector.h:162
+#10 0x00005555555575e5 in std::vector<int, std::allocator<int> >::~vector (this=0x7fffffffdaa0, __in_chrg=<optimized out>) at /usr/include/c++/7/bits/stl_vector.h:435
+#11 0x0000555555556c4b in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:660
+#12 0x0000555555556f51 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:711
+
+46	../sysdeps/unix/sysv/linux/raise.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping value of field: next_free
+Fliping a bit of the pointer
+Memory content before bitflip:0x000x000x000x000x000x000x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7ffff76104b8 
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x080x000x000x000x00
+frame name: _int_free
+symbol name: main_arena
+symbol filename: malloc.c
+symbol line: 1761
+value: {mutex = 0, flags = 0, have_fastchunks = 0, fastbinsY = {0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, top = 0x555555bbc400, last_remainder = 0x0, bins = {0x7ffff760fca0 <main_arena+96>, 0x7ffff760fca0 <main_arena+96>, 0x7ffff760fcb0 <main_arena+112>, 0x7ffff760fcb0 <main_arena+112>, 0x7ffff760fcc0 <main_arena+128>, 0x7ffff760fcc0 <main_arena+128>, 0x7ffff760fcd0 <main_arena+144>, 0x7ffff760fcd0 <main_arena+144>, 0x7ffff760fce0 <main_arena+160>, 0x7ffff760fce0 <main_arena+160>, 0x7ffff760fcf0 <main_arena+176>, 0x7ffff760fcf0 <main_arena+176>, 0x7ffff760fd00 <main_arena+192>, 0x7ffff760fd00 <main_arena+192>, 0x7ffff760fd10 <main_arena+208>, 0x7ffff760fd10 <main_arena+208>, 0x7ffff760fd20 <main_arena+224>, 0x7ffff760fd20 <main_arena+224>, 0x7ffff760fd30 <main_arena+240>, 0x7ffff760fd30 <main_arena+240>, 0x7ffff760fd40 <main_arena+256>, 0x7ffff760fd40 <main_arena+256>, 0x7ffff760fd50 <main_arena+272>, 0x7ffff760fd50 <main_arena+272>, 0x7ffff760fd60 <main_arena+288>, 0x7ffff760fd60 <main_arena+288>, 0x7ffff760fd70 <main_arena+304>, 0x7ffff760fd70 <main_arena+304>, 0x7ffff760fd80 <main_arena+320>, 0x7ffff760fd80 <main_arena+320>, 0x7ffff760fd90 <main_arena+336>, 0x7ffff760fd90 <main_arena+336>, 0x7ffff760fda0 <main_arena+352>, 0x7ffff760fda0 <main_arena+352>, 0x7ffff760fdb0 <main_arena+368>, 0x7ffff760fdb0 <main_arena+368>, 0x7ffff760fdc0 <main_arena+384>, 0x7ffff760fdc0 <main_arena+384>, 0x7ffff760fdd0 <main_arena+400>, 0x7ffff760fdd0 <main_arena+400>, 0x7ffff760fde0 <main_arena+416>, 0x7ffff760fde0 <main_arena+416>, 0x7ffff760fdf0 <main_arena+432>, 0x7ffff760fdf0 <main_arena+432>, 0x7ffff760fe00 <main_arena+448>, 0x7ffff760fe00 <main_arena+448>, 0x7ffff760fe10 <main_arena+464>, 0x7ffff760fe10 <main_arena+464>, 0x7ffff760fe20 <main_arena+480>, 0x7ffff760fe20 <main_arena+480>, 0x7ffff760fe30 <main_arena+496>, 0x7ffff760fe30 <main_arena+496>, 0x7ffff760fe40 <main_arena+512>, 0x7ffff760fe40 <main_arena+512>, 0x7ffff760fe50 <main_arena+528>, 0x7ffff760fe50 <main_arena+528>, 0x7ffff760fe60 <main_arena+544>, 0x7ffff760fe60 <main_arena+544>, 0x7ffff760fe70 <main_arena+560>, 0x7ffff760fe70 <main_arena+560>, 0x7ffff760fe80 <main_arena+576>, 0x7ffff760fe80 <main_arena+576>, 0x7ffff760fe90 <main_arena+592>, 0x7ffff760fe90 <main_arena+592>, 0x7ffff760fea0 <main_arena+608>, 0x7ffff760fea0 <main_arena+608>, 0x7ffff760feb0 <main_arena+624>, 0x7ffff760feb0 <main_arena+624>, 0x7ffff760fec0 <main_arena+640>, 0x7ffff760fec0 <main_arena+640>, 0x7ffff760fed0 <main_arena+656>, 0x7ffff760fed0 <main_arena+656>, 0x7ffff760fee0 <main_arena+672>, 0x7ffff760fee0 <main_arena+672>, 0x7ffff760fef0 <main_arena+688>, 0x7ffff760fef0 <main_arena+688>, 0x7ffff760ff00 <main_arena+704>, 0x7ffff760ff00 <main_arena+704>, 0x7ffff760ff10 <main_arena+720>, 0x7ffff760ff10 <main_arena+720>, 0x7ffff760ff20 <main_arena+736>, 0x7ffff760ff20 <main_arena+736>, 0x7ffff760ff30 <main_arena+752>, 0x7ffff760ff30 <main_arena+752>, 0x7ffff760ff40 <main_arena+768>, 0x7ffff760ff40 <main_arena+768>, 0x7ffff760ff50 <main_arena+784>, 0x7ffff760ff50 <main_arena+784>, 0x7ffff760ff60 <main_arena+800>, 0x7ffff760ff60 <main_arena+800>, 0x7ffff760ff70 <main_arena+816>, 0x7ffff760ff70 <main_arena+816>, 0x7ffff760ff80 <main_arena+832>, 0x7ffff760ff80 <main_arena+832>, 0x7ffff760ff90 <main_arena+848>, 0x7ffff760ff90 <main_arena+848>, 0x7ffff760ffa0 <main_arena+864>, 0x7ffff760ffa0 <main_arena+864>, 0x7ffff760ffb0 <main_arena+880>, 0x7ffff760ffb0 <main_arena+880>, 0x7ffff760ffc0 <main_arena+896>, 0x7ffff760ffc0 <main_arena+896>, 0x7ffff760ffd0 <main_arena+912>, 0x7ffff760ffd0 <main_arena+912>, 0x7ffff760ffe0 <main_arena+928>, 0x7ffff760ffe0 <main_arena+928>, 0x7ffff760fff0 <main_arena+944>, 0x7ffff760fff0 <main_arena+944>, 0x7ffff7610000 <main_arena+960>, 0x7ffff7610000 <main_arena+960>, 0x7ffff7610010 <main_arena+976>, 0x7ffff7610010 <main_arena+976>, 0x7ffff7610020 <main_arena+992>, 0x7ffff7610020 <main_arena+992>, 0x7ffff7610030 <main_arena+1008>, 0x7ffff7610030 <main_arena+1008>, 0x7ffff7610040 <main_arena+1024>, 0x7ffff7610040 <main_arena+1024>, 0x7ffff7610050 <main_arena+1040>, 0x7ffff7610050 <main_arena+1040>, 0x7ffff7610060 <main_arena+1056>, 0x7ffff7610060 <main_arena+1056>, 0x7ffff7610070 <main_arena+1072>, 0x7ffff7610070 <main_arena+1072>, 0x7ffff7610080 <main_arena+1088>, 0x7ffff7610080 <main_arena+1088>, 0x7ffff7610090 <main_arena+1104>, 0x7ffff7610090 <main_arena+1104>, 0x7ffff76100a0 <main_arena+1120>, 0x7ffff76100a0 <main_arena+1120>, 0x7ffff76100b0 <main_arena+1136>, 0x7ffff76100b0 <main_arena+1136>, 0x7ffff76100c0 <main_arena+1152>, 0x7ffff76100c0 <main_arena+1152>, 0x7ffff76100d0 <main_arena+1168>, 0x7ffff76100d0 <main_arena+1168>, 0x7ffff76100e0 <main_arena+1184>, 0x7ffff76100e0 <main_arena+1184>, 0x7ffff76100f0 <main_arena+1200>, 0x7ffff76100f0 <main_arena+1200>, 0x7ffff7610100 <main_arena+1216>, 0x7ffff7610100 <main_arena+1216>, 0x7ffff7610110 <main_arena+1232>, 0x7ffff7610110 <main_arena+1232>, 0x7ffff7610120 <main_arena+1248>, 0x7ffff7610120 <main_arena+1248>, 0x7ffff7610130 <main_arena+1264>, 0x7ffff7610130 <main_arena+1264>, 0x7ffff7610140 <main_arena+1280>, 0x7ffff7610140 <main_arena+1280>, 0x7ffff7610150 <main_arena+1296>, 0x7ffff7610150 <main_arena+1296>, 0x7ffff7610160 <main_arena+1312>, 0x7ffff7610160 <main_arena+1312>, 0x7ffff7610170 <main_arena+1328>, 0x7ffff7610170 <main_arena+1328>, 0x7ffff7610180 <main_arena+1344>, 0x7ffff7610180 <main_arena+1344>, 0x7ffff7610190 <main_arena+1360>, 0x7ffff7610190 <main_arena+1360>, 0x7ffff76101a0 <main_arena+1376>, 0x7ffff76101a0 <main_arena+1376>, 0x7ffff76101b0 <main_arena+1392>, 0x7ffff76101b0 <main_arena+1392>, 0x7ffff76101c0 <main_arena+1408>, 0x7ffff76101c0 <main_arena+1408>, 0x7ffff76101d0 <main_arena+1424>, 0x7ffff76101d0 <main_arena+1424>, 0x7ffff76101e0 <main_arena+1440>, 0x7ffff76101e0 <main_arena+1440>, 0x7ffff76101f0 <main_arena+1456>, 0x7ffff76101f0 <main_arena+1456>, 0x7ffff7610200 <main_arena+1472>, 0x7ffff7610200 <main_arena+1472>, 0x7ffff7610210 <main_arena+1488>, 0x7ffff7610210 <main_arena+1488>, 0x7ffff7610220 <main_arena+1504>, 0x7ffff7610220 <main_arena+1504>, 0x7ffff7610230 <main_arena+1520>, 0x7ffff7610230 <main_arena+1520>, 0x7ffff7610240 <main_arena+1536>, 0x7ffff7610240 <main_arena+1536>, 0x7ffff7610250 <main_arena+1552>, 0x7ffff7610250 <main_arena+1552>, 0x7ffff7610260 <main_arena+1568>, 0x7ffff7610260 <main_arena+1568>, 0x7ffff7610270 <main_arena+1584>, 0x7ffff7610270 <main_arena+1584>, 0x7ffff7610280 <main_arena+1600>, 0x7ffff7610280 <main_arena+1600>, 0x7ffff7610290 <main_arena+1616>, 0x7ffff7610290 <main_arena+1616>, 0x7ffff76102a0 <main_arena+1632>, 0x7ffff76102a0 <main_arena+1632>, 0x7ffff76102b0 <main_arena+1648>, 0x7ffff76102b0 <main_arena+1648>, 0x7ffff76102c0 <main_arena+1664>, 0x7ffff76102c0 <main_arena+1664>, 0x7ffff76102d0 <main_arena+1680>, 0x7ffff76102d0 <main_arena+1680>...}, binmap = {0, 0, 0, 0}, next = 0x7ffff760fc40 <main_arena>, next_free = 0x8000000, attached_threads = 1, system_mem = 4677632, max_system_mem = 4677632}
+value address: 0x7ffff760fc40 <main_arena>
+Type: The type is a structure.
+Type sizeof: 2200
+Field name: mutex
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+Field name: flags
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+Field name: have_fastchunks
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+Field name: fastbinsY
+Field Type: The type is an array.
+Field Type sizeof: 80
+Field name: top
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: last_remainder
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: bins
+Field Type: The type is an array.
+Field Type sizeof: 2032
+Field name: binmap
+Field Type: The type is an array.
+Field Type sizeof: 16
+Field name: next
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: next_free
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: attached_threads
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: system_mem
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: max_system_mem
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+
+[INFO -- 2018-11-25 23:43:18]
+Fault Injection Successful after 2.0306897163391113s
+[INFO -- 2018-11-25 23:43:18]
+event type: exit
+[EXCEPTION -- 2018-11-25 23:43:18]
+exit code: no exit code available

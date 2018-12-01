@@ -1,0 +1,59 @@
+[INFO -- 2018-11-25 20:47:33]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 20:47:33]
+Initialization strings:
+[INFO -- 2018-11-25 20:47:33]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 20:47:33]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 20:47:33]
+initSignal:0
+[INFO -- 2018-11-25 20:47:33]
+endSignal:2
+[INFO -- 2018-11-25 20:47:33]
+faultModel:4
+[EXCEPTION -- 2018-11-25 20:47:34]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-11-25 20:47:34]
+Backtrace BEGIN:
+#0  std::istream_iterator<int, char, std::char_traits<char>, long>::operator++ (this=0x7fffffffd960) at /usr/include/c++/7/bits/stream_iterator.h:97
+#1  0x00005555555579f3 in std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1308
+#2  0x0000555555557882 in std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1299
+#3  0x0000555555557569 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void> (this=0x7fffffffdaa0, __first=..., __last=..., __a=...) at /usr/include/c++/7/bits/stl_vector.h:414
+#4  0x0000555555556bbc in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:660
+#5  0x0000555555556f51 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:711
+
+92		__glibcxx_requires_cond(_M_ok,
+93					_M_message(__gnu_debug::__msg_inc_istream)
+94					._M_iterator(*this));
+95		_M_read();
+96		return *this;
+97	      }
+98	
+99	      istream_iterator
+100	      operator++(int)
+101	      {
+
+Backtrace END
+Fliping a bit of the reference
+Memory content before bitflip:0xff0xff0xff0xff0xff0x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffda4b
+address max offset: 8
+Memory content after  bitflip:0xff0xff0xff0xff0xff0x000x000x20
+frame name: std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void>
+symbol name: __a
+symbol filename: /usr/include/c++/7/bits/stl_vector.h
+symbol line: 412
+value: @0x7fffffffda4b
+value address: 0x7fffffffda4b
+Type: A reference type.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 20:47:34]
+Fault Injection Successful after 1.8755922317504883s
+[INFO -- 2018-11-25 20:47:35]
+event type: exit
+[EXCEPTION -- 2018-11-25 20:47:35]
+exit code: no exit code available

@@ -1,0 +1,66 @@
+[INFO -- 2018-11-26 00:43:29]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-26 00:43:29]
+Initialization strings:
+[INFO -- 2018-11-26 00:43:29]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-26 00:43:29]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-26 00:43:29]
+initSignal:0
+[INFO -- 2018-11-26 00:43:29]
+endSignal:2
+[INFO -- 2018-11-26 00:43:29]
+faultModel:0
+[EXCEPTION -- 2018-11-26 00:43:30]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[EXCEPTION -- 2018-11-26 00:43:30]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-11-26 00:43:31]
+Backtrace BEGIN:
+#0  0x00007ffff7b2a580 in ?? () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x00007ffff7b58ddd in std::istreambuf_iterator<char, std::char_traits<char> > std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char> > >::_M_extract_int<long>(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, std::_Ios_Iostate&, long&) const () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x00007ffff7b479b6 in std::istream::operator>>(int&) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#3  0x0000555555557742 in std::istream_iterator<int, char, std::char_traits<char>, long>::_M_read (this=0x7fffffffd960) at /usr/include/c++/7/bits/stream_iterator.h:121
+#4  0x0000555555557ab2 in std::istream_iterator<int, char, std::char_traits<char>, long>::operator++ (this=0x7fffffffd960) at /usr/include/c++/7/bits/stream_iterator.h:95
+#5  0x00005555555579f3 in std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1308
+#6  0x0000555555557882 in std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1299
+#7  0x0000555555557569 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void> (this=0x7fffffffdaa0, __first=..., __last=..., __a=...) at /usr/include/c++/7/bits/stl_vector.h:414
+#8  0x0000555555556bbc in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:660
+#9  0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+697	
+698		 clock_t start_time, stop_time;
+699	    double diff_time;
+700	
+701	    start_time = clock();
+702	    
+703	
+704	    BTree bTree1(3);
+705	    BTree bTree2(3); 
+706	    // char output2[9] = "output2_";
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: _M_value
+Memory content before bitflip:0x420x7b0x160x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffd968
+address max offset: 4
+Memory content after  bitflip:0x4a0x7b0x160x00
+frame name: std::istream_iterator<int, char, std::char_traits<char>, long>::_M_read
+symbol name: this
+symbol filename: BTree_dup.cpp
+symbol line: 0
+value: 0x7fffffffd960
+value address: 0x7fffffffd8c8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-26 00:43:31]
+Fault Injection Successful after 2.171544075012207s
+[INFO -- 2018-11-26 00:43:32]
+event type: exit
+[INFO -- 2018-11-26 00:43:32]
+exit code: 0

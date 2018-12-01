@@ -1,0 +1,62 @@
+[INFO -- 2018-11-25 23:23:41]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 23:23:41]
+Initialization strings:
+[INFO -- 2018-11-25 23:23:41]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 23:23:41]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 23:23:41]
+initSignal:0
+[INFO -- 2018-11-25 23:23:41]
+endSignal:2
+[INFO -- 2018-11-25 23:23:41]
+faultModel:4
+[EXCEPTION -- 2018-11-25 23:23:42]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-11-25 23:23:42]
+Backtrace BEGIN:
+#0  0x00007ffff7334154 in __GI___libc_write (fd=1, buf=0x55555576d0d0, nbytes=17) at ../sysdeps/unix/sysv/linux/write.c:27
+#1  0x00007ffff72af1bd in _IO_new_file_write (f=0x7ffff7610760 <_IO_2_1_stdout_>, data=0x55555576d0d0, n=17) at fileops.c:1203
+#2  0x00007ffff72b0f51 in new_do_write (to_do=17, data=0x55555576d0d0 "1010100101001010\n\320vUUU", fp=0x7ffff7610760 <_IO_2_1_stdout_>) at fileops.c:457
+#3  _IO_new_do_write (fp=0x7ffff7610760 <_IO_2_1_stdout_>, data=0x55555576d0d0 "1010100101001010\n\320vUUU", to_do=17) at fileops.c:433
+#4  0x00007ffff72ae788 in _IO_new_file_sync (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at fileops.c:813
+#5  0x00007ffff72a287d in __GI__IO_fflush (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at iofflush.c:40
+#6  0x00007ffff7b5ef5e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#7  0x0000555555556927 in BTreeNode::traverse (this=0x555556040d30) at BTree_dup.cpp:594
+#8  0x00005555555568d7 in BTreeNode::traverse (this=0x555555e20f50) at BTree_dup.cpp:593
+#9  0x00005555555568d7 in BTreeNode::traverse (this=0x555555eeb090) at BTree_dup.cpp:593
+#10 0x00005555555568d7 in BTreeNode::traverse (this=0x555556077630) at BTree_dup.cpp:593
+#11 0x00005555555568d7 in BTreeNode::traverse (this=0x55555607f700) at BTree_dup.cpp:593
+#12 0x00005555555568d7 in BTreeNode::traverse (this=0x555555e8b450) at BTree_dup.cpp:593
+#13 0x000055555555695f in BTreeNode::traverse (this=0x555555bee480) at BTree_dup.cpp:599
+#14 0x00005555555568d7 in BTreeNode::traverse (this=0x555555ce1f30) at BTree_dup.cpp:593
+#15 0x00005555555568d7 in BTreeNode::traverse (this=0x555555ef6e20) at BTree_dup.cpp:593
+#16 0x00005555555572bb in BTree::traverse (this=0x7fffffffdd50) at BTree_dup.cpp:139
+#17 0x0000555555556ff9 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:725
+
+22	in ../sysdeps/unix/sysv/linux/write.c
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x000xf70x070x560x550x550x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdba8
+address max offset: 8
+Memory content after  bitflip:0x000xf70x070x560x550x550x000x02
+frame name: BTreeNode::traverse
+symbol name: this
+symbol filename: BTree_dup.cpp
+symbol line: 0
+value: 0x55555607f700
+value address: 0x7fffffffdba8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 23:23:42]
+Fault Injection Successful after 1.6480395793914795s
+[INFO -- 2018-11-25 23:23:42]
+event type: exit
+[EXCEPTION -- 2018-11-25 23:23:42]
+exit code: no exit code available

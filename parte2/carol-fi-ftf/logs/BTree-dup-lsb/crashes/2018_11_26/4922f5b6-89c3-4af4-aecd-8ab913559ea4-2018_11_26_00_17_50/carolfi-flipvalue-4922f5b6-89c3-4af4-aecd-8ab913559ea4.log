@@ -1,0 +1,55 @@
+[INFO -- 2018-11-26 00:17:47]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-26 00:17:47]
+Initialization strings:
+[INFO -- 2018-11-26 00:17:47]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-26 00:17:47]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-26 00:17:47]
+initSignal:0
+[INFO -- 2018-11-26 00:17:47]
+endSignal:2
+[INFO -- 2018-11-26 00:17:47]
+faultModel:4
+[EXCEPTION -- 2018-11-26 00:17:48]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-11-26 00:17:48]
+Backtrace BEGIN:
+#0  0x0000555555556c14 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#1  0x0000555555556f51 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:711
+
+659	    istream_iterator<int> start(is), end;
+660	    vector<int> v_nodes(start, end);
+661	
+662	    //insere na arvore
+663	    for(int i = 0; i < v_nodes.size(); i++)
+664	        bTree.insert(v_nodes[i]);
+665	
+666	    return bTree;
+667	}
+668	
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x680xde0xff0xff0xff0x7f0x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdd10
+address max offset: 8
+Memory content after  bitflip:0x680xde0xff0xff0xff0x7f0x000x04
+frame name: main
+symbol name: argv
+symbol filename: BTree_dup.cpp
+symbol line: 691
+value: 0x7fffffffde68
+value address: 0x7fffffffdd10
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-26 00:17:48]
+Fault Injection Successful after 1.88260817527771s
+[INFO -- 2018-11-26 00:17:49]
+event type: exit
+[EXCEPTION -- 2018-11-26 00:17:49]
+exit code: no exit code available

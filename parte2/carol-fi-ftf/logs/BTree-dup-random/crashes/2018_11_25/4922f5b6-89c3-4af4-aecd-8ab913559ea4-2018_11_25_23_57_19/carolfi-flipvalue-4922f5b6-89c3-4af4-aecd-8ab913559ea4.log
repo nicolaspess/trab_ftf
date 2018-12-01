@@ -1,0 +1,63 @@
+[INFO -- 2018-11-25 23:57:16]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 23:57:16]
+Initialization strings:
+[INFO -- 2018-11-25 23:57:16]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 23:57:16]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 23:57:16]
+initSignal:0
+[INFO -- 2018-11-25 23:57:16]
+endSignal:2
+[INFO -- 2018-11-25 23:57:16]
+faultModel:2
+[INFO -- 2018-11-25 23:57:18]
+Backtrace BEGIN:
+#0  std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset<error reading variable: Não é possível acessar a memória no endereço 0x0>) at /usr/include/c++/7/bitset:1530
+#1  0x0000555555556912 in BTreeNode::traverse (this=0x555555d217a0) at BTree_dup.cpp:594
+#2  0x00005555555568d7 in BTreeNode::traverse (this=0x555555fea9f0) at BTree_dup.cpp:593
+#3  0x00005555555568d7 in BTreeNode::traverse (this=0x555555cd8990) at BTree_dup.cpp:593
+#4  0x00005555555568d7 in BTreeNode::traverse (this=0x555555d1cc40) at BTree_dup.cpp:593
+#5  0x00005555555568d7 in BTreeNode::traverse (this=0x555555f0fcf0) at BTree_dup.cpp:593
+#6  0x00005555555568d7 in BTreeNode::traverse (this=0x555555da18d0) at BTree_dup.cpp:593
+#7  0x00005555555568d7 in BTreeNode::traverse (this=0x555555fbe5c0) at BTree_dup.cpp:593
+#8  0x00005555555568d7 in BTreeNode::traverse (this=0x555555ce1f30) at BTree_dup.cpp:593
+#9  0x00005555555568d7 in BTreeNode::traverse (this=0x555555ef6e20) at BTree_dup.cpp:593
+#10 0x00005555555572bb in BTree::traverse (this=0x7fffffffdd50) at BTree_dup.cpp:139
+#11 0x0000555555556ff9 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:725
+
+1525	      return __is;
+1526	    }
+1527	
+1528	  template <class _CharT, class _Traits, size_t _Nb>
+1529	    std::basic_ostream<_CharT, _Traits>&
+1530	    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+1531		       const bitset<_Nb>& __x)
+1532	    {
+1533	      std::basic_string<_CharT, _Traits> __tmp;
+1534	
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0xf00xa90xfe0x550x550x550x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffdae8
+address max offset: 8
+Memory content after  bitflip:0xed0xd70xd20xfc0x6a0x3d0x500x27
+frame name: BTreeNode::traverse
+symbol name: this
+symbol filename: BTree_dup.cpp
+symbol line: 0
+value: 0x555555fea9f0
+value address: 0x7fffffffdae8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 23:57:18]
+Fault Injection Successful after 2.3411343097686768s
+[INFO -- 2018-11-25 23:57:18]
+event type: exit
+[EXCEPTION -- 2018-11-25 23:57:18]
+exit code: no exit code available

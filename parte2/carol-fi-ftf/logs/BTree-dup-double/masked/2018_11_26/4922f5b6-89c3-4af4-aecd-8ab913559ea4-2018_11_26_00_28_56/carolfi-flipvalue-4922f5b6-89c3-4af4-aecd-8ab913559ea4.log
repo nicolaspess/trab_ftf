@@ -1,0 +1,59 @@
+[INFO -- 2018-11-26 00:28:53]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-26 00:28:53]
+Initialization strings:
+[INFO -- 2018-11-26 00:28:53]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-26 00:28:53]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-26 00:28:53]
+initSignal:0
+[INFO -- 2018-11-26 00:28:53]
+endSignal:2
+[INFO -- 2018-11-26 00:28:53]
+faultModel:1
+[INFO -- 2018-11-26 00:28:54]
+Backtrace BEGIN:
+#0  0x000055555555689f in BTreeNode::traverse (this=0x555555e6e560) at BTree_dup.cpp:588
+#1  0x000055555555695f in BTreeNode::traverse (this=0x555555f4ce00) at BTree_dup.cpp:599
+#2  0x00005555555568d7 in BTreeNode::traverse (this=0x555555f4d4c0) at BTree_dup.cpp:593
+#3  0x00005555555568d7 in BTreeNode::traverse (this=0x555555e8b450) at BTree_dup.cpp:593
+#4  0x000055555555695f in BTreeNode::traverse (this=0x555555bee480) at BTree_dup.cpp:599
+#5  0x00005555555568d7 in BTreeNode::traverse (this=0x555555ce1f30) at BTree_dup.cpp:593
+#6  0x00005555555568d7 in BTreeNode::traverse (this=0x555555ef6e20) at BTree_dup.cpp:593
+#7  0x00005555555572bb in BTree::traverse (this=0x7fffffffdd50) at BTree_dup.cpp:139
+#8  0x0000555555556ff9 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:725
+
+583	void BTreeNode::traverse()
+584	{
+585		// There are n keys and n+1 children, travers through n keys
+586		// and first n children
+587		int i;
+588		for (i = 0; i < n; i++)
+589		{
+590			// If this is not leaf, then before printing key[i],
+591			// traverse the subtree rooted with child C[i].
+592			if (leaf == false)
+
+Backtrace END
+Memory content before bitflip:0x040x000x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffdb7c
+address max offset: 4
+Memory content after  bitflip:0x040x280x000x00
+frame name: BTreeNode::traverse
+symbol name: i
+symbol filename: BTree_dup.cpp
+symbol line: 587
+value: 10244
+value address: 0x7fffffffdb7c
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-11-26 00:28:54]
+Fault Injection Successful after 1.8321492671966553s
+[INFO -- 2018-11-26 00:28:55]
+event type: exit
+[INFO -- 2018-11-26 00:28:55]
+exit code: 0

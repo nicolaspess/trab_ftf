@@ -1,0 +1,57 @@
+[INFO -- 2018-11-25 20:44:13]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 20:44:13]
+Initialization strings:
+[INFO -- 2018-11-25 20:44:13]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 20:44:13]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 20:44:13]
+initSignal:0
+[INFO -- 2018-11-25 20:44:13]
+endSignal:2
+[INFO -- 2018-11-25 20:44:13]
+faultModel:4
+[INFO -- 2018-11-25 20:44:14]
+Backtrace BEGIN:
+#0  0x0000555555556629 in BTreeNode::insertNonFull (this=0x555555acfef0, k=1809347) at BTree_dup.cpp:535
+#1  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555815c40, k=1809347) at BTree_dup.cpp:535
+#2  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555a2ab30, k=1809347) at BTree_dup.cpp:535
+#3  0x0000555555556478 in BTree::insert (this=0x7fffffffda50, k=1809347) at BTree_dup.cpp:489
+#4  0x0000555555556c25 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#5  0x0000555555556f51 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:711
+
+530				// C[i] is splitted into two. See which of the two
+531				// is going to have the new key
+532				if (keys[i+1] < k)
+533					i++;
+534			}
+535			C[i+1]->insertNonFull(k);
+536		}
+537	}
+538	
+539	// A utility function to split the child y of this node
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x300xab0xa20x550x550x550x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffd9c8
+address max offset: 8
+Memory content after  bitflip:0x300xab0xa20x550x550x550x000x40
+frame name: BTreeNode::insertNonFull
+symbol name: this
+symbol filename: BTree_dup.cpp
+symbol line: 0
+value: 0x555555a2ab30
+value address: 0x7fffffffd9c8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 20:44:14]
+Fault Injection Successful after 1.9692490100860596s
+[INFO -- 2018-11-25 20:44:15]
+event type: exit
+[INFO -- 2018-11-25 20:44:15]
+exit code: 0

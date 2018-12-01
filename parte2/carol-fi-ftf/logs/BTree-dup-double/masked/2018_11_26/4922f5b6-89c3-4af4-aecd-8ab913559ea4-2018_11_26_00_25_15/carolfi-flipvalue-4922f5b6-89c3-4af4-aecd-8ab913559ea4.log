@@ -1,0 +1,71 @@
+[INFO -- 2018-11-26 00:25:12]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-26 00:25:12]
+Initialization strings:
+[INFO -- 2018-11-26 00:25:12]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-26 00:25:12]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-26 00:25:12]
+initSignal:0
+[INFO -- 2018-11-26 00:25:12]
+endSignal:2
+[INFO -- 2018-11-26 00:25:12]
+faultModel:1
+[INFO -- 2018-11-26 00:25:13]
+Backtrace BEGIN:
+#0  0x00005555555565ad in BTreeNode::insertNonFull (this=0x555555c153c0, k=4658258) at BTree_dup.cpp:524
+#1  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555c18660, k=4658258) at BTree_dup.cpp:535
+#2  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555d2c570, k=4658258) at BTree_dup.cpp:535
+#3  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555d8d170, k=4658258) at BTree_dup.cpp:535
+#4  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ce1f30, k=4658258) at BTree_dup.cpp:535
+#5  0x0000555555556478 in BTree::insert (this=0x7fffffffda50, k=4658258) at BTree_dup.cpp:489
+#6  0x0000555555556c25 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#7  0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+519			// Find the child which is going to have the new key
+520			while (i >= 0 && keys[i] > k)
+521				i--;
+522	
+523			// See if the found child is full
+524			if (C[i+1]->n == 2*t-1)
+525			{
+526				// If the child is full, then split it
+527				splitChild(i+1, C[i+1]);
+528	
+
+Backtrace END
+Fliping value of field: _M_value
+Memory content before bitflip:0x000x000x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffda78
+address max offset: 4
+Memory content after  bitflip:0x240x000x000x00
+frame name: runner
+symbol name: end
+symbol filename: BTree_dup.cpp
+symbol line: 659
+value: {<std::iterator<std::input_iterator_tag, int, long, int const*, int const&>> = {<No data fields>}, _M_stream = 0x0, _M_value = 36, _M_ok = false}
+value address: 0x7fffffffda70
+Type: The type is a structure.
+Type sizeof: 16
+Field name: std::iterator<std::input_iterator_tag, int, long, int const*, int const&>
+Field Type: The type is a structure.
+Field Type sizeof: 1
+Field name: _M_stream
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: _M_value
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+Field name: _M_ok
+Field Type: A boolean type.
+Field Type sizeof: 1
+
+[INFO -- 2018-11-26 00:25:13]
+Fault Injection Successful after 1.604959487915039s
+[INFO -- 2018-11-26 00:25:14]
+event type: exit
+[INFO -- 2018-11-26 00:25:14]
+exit code: 0

@@ -1,0 +1,66 @@
+[INFO -- 2018-11-25 21:15:28]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 21:15:28]
+Initialization strings:
+[INFO -- 2018-11-25 21:15:28]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 21:15:28]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 21:15:28]
+initSignal:0
+[INFO -- 2018-11-25 21:15:28]
+endSignal:2
+[INFO -- 2018-11-25 21:15:28]
+faultModel:0
+[EXCEPTION -- 2018-11-25 21:15:29]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[EXCEPTION -- 2018-11-25 21:15:30]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-11-25 21:15:30]
+Backtrace BEGIN:
+#0  malloc (n=14) at dl-minimal.c:50
+#1  <function called from gdb>
+#2  0x00007ffff72bb1f8 in __GI___libc_malloc (bytes=20) at malloc.c:3048
+#3  0x00007ffff7adf1a8 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x000055555555588c in BTreeNode::BTreeNode (this=0x555555c38910, t1=3, leaf1=true) at BTree_dup.cpp:164
+#5  0x000055555555667b in BTreeNode::splitChild (this=0x555555be76d0, i=3, y=0x555555bcaea0) at BTree_dup.cpp:545
+#6  0x00005555555565ed in BTreeNode::insertNonFull (this=0x555555be76d0, k=3830860) at BTree_dup.cpp:527
+#7  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555bbdfa0, k=3830860) at BTree_dup.cpp:535
+#8  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555c16800, k=3830860) at BTree_dup.cpp:535
+#9  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555bd4290, k=3830860) at BTree_dup.cpp:535
+#10 0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555bee510, k=3830860) at BTree_dup.cpp:535
+#11 0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555bee480, k=3830860) at BTree_dup.cpp:535
+#12 0x0000555555556478 in BTree::insert (this=0x7fffffffda50, k=3830860) at BTree_dup.cpp:489
+#13 0x0000555555556c25 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#14 0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+45	in dl-minimal.c
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: C
+Fliping a bit of the value pointed by a pointer
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: keys
+Fliping a bit of the value pointed by a pointer
+Memory content before bitflip:0x370x3d0x3a0x00
+Fault Model: Single bit-flip
+base address to flip value: 0x555555bbca70
+address max offset: 4
+Memory content after  bitflip:0x370x3d0x7a0x00
+frame name: BTreeNode::insertNonFull
+symbol name: this
+symbol filename: BTree_dup.cpp
+symbol line: 0
+value: 0x555555bbdfa0
+value address: 0x7fffffffd908
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 21:15:30]
+Fault Injection Successful after 2.460697889328003s
+[INFO -- 2018-11-25 21:15:31]
+event type: exit
+[INFO -- 2018-11-25 21:15:31]
+exit code: 0

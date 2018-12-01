@@ -1,0 +1,57 @@
+[INFO -- 2018-11-26 00:50:38]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-26 00:50:38]
+Initialization strings:
+[INFO -- 2018-11-26 00:50:38]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-26 00:50:38]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-26 00:50:38]
+initSignal:0
+[INFO -- 2018-11-26 00:50:38]
+endSignal:2
+[INFO -- 2018-11-26 00:50:38]
+faultModel:4
+[INFO -- 2018-11-26 00:50:40]
+Backtrace BEGIN:
+#0  malloc (n=10) at dl-minimal.c:50
+#1  <function called from gdb>
+#2  0x00007ffff72bba1e in _int_free (have_lock=0, p=0x55555576d090, av=0x7ffff760fc40 <main_arena>) at malloc.c:4171
+#3  __GI___libc_free (mem=0x55555576d0a0) at malloc.c:3124
+#4  0x00005555555573f9 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1533
+#5  0x0000555555556912 in BTreeNode::traverse (this=0x555555974a00) at BTree_dup.cpp:594
+#6  0x00005555555568d7 in BTreeNode::traverse (this=0x55555591c500) at BTree_dup.cpp:593
+#7  0x000055555555695f in BTreeNode::traverse (this=0x555555792240) at BTree_dup.cpp:599
+#8  0x000055555555695f in BTreeNode::traverse (this=0x555555924c90) at BTree_dup.cpp:599
+#9  0x00005555555568d7 in BTreeNode::traverse (this=0x555555994680) at BTree_dup.cpp:593
+#10 0x000055555555695f in BTreeNode::traverse (this=0x5555559e4870) at BTree_dup.cpp:599
+#11 0x00005555555568d7 in BTreeNode::traverse (this=0x555555815cd0) at BTree_dup.cpp:593
+#12 0x000055555555695f in BTreeNode::traverse (this=0x555555815c40) at BTree_dup.cpp:599
+#13 0x00005555555568d7 in BTreeNode::traverse (this=0x555555a2ab30) at BTree_dup.cpp:593
+#14 0x00005555555572bb in BTree::traverse (this=0x7fffffffdd40) at BTree_dup.cpp:139
+#15 0x0000555555556fbd in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:718
+
+45	dl-minimal.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Memory content before bitflip:0x010x000x000x000x000x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7ffff760f268 
+address max offset: 8
+Memory content after  bitflip:0x010x000x000x000x000x000x000x20
+frame name: _int_free
+symbol name: narenas
+symbol filename: arena.c
+symbol line: 82
+value: 2305843009213693953
+value address: 0x7ffff760f268 <narenas>
+Type: The type is an integer type.
+Type sizeof: 8
+
+[INFO -- 2018-11-26 00:50:40]
+Fault Injection Successful after 2.2060465812683105s
+[INFO -- 2018-11-26 00:50:40]
+event type: exit
+[INFO -- 2018-11-26 00:50:40]
+exit code: 0

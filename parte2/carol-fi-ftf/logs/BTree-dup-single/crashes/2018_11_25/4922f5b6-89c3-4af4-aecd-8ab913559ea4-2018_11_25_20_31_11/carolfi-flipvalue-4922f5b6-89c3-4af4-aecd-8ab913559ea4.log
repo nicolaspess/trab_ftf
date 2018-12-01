@@ -1,0 +1,56 @@
+[INFO -- 2018-11-25 20:31:08]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 20:31:08]
+Initialization strings:
+[INFO -- 2018-11-25 20:31:08]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 20:31:08]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 20:31:08]
+initSignal:0
+[INFO -- 2018-11-25 20:31:08]
+endSignal:2
+[INFO -- 2018-11-25 20:31:08]
+faultModel:0
+[EXCEPTION -- 2018-11-25 20:31:09]
+gdbException: Não é possível acessar a memória no endereço 0x555575c3b490
+[EXCEPTION -- 2018-11-25 20:31:09]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-11-25 20:31:09]
+Backtrace BEGIN:
+#0  0x0000555555556c12 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#1  0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+659	    istream_iterator<int> start(is), end;
+660	    vector<int> v_nodes(start, end);
+661	
+662	    //insere na arvore
+663	    for(int i = 0; i < v_nodes.size(); i++)
+664	        bTree.insert(v_nodes[i]);
+665	
+666	    return bTree;
+667	}
+668	
+
+Backtrace END
+Memory content before bitflip:0x390x710x550x550x550x550x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffdd38
+address max offset: 8
+Memory content after  bitflip:0x390x710x550x510x550x550x000x00
+frame name: main
+symbol name: diff_time
+symbol filename: BTree_dup.cpp
+symbol line: 699
+value: 4.6355672232909926e-310
+value address: 0x7fffffffdd38
+Type: A floating point type.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 20:31:09]
+Fault Injection Successful after 1.895836591720581s
+[INFO -- 2018-11-25 20:31:10]
+event type: exit
+[EXCEPTION -- 2018-11-25 20:31:10]
+exit code: no exit code available

@@ -1,0 +1,67 @@
+[INFO -- 2018-11-25 21:05:21]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 21:05:21]
+Initialization strings:
+[INFO -- 2018-11-25 21:05:21]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 21:05:21]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 21:05:21]
+initSignal:0
+[INFO -- 2018-11-25 21:05:21]
+endSignal:2
+[INFO -- 2018-11-25 21:05:21]
+faultModel:0
+[EXCEPTION -- 2018-11-25 21:05:22]
+pythonException: empty range for randrange() (0,0, 0)
+[INFO -- 2018-11-25 21:05:23]
+Backtrace BEGIN:
+#0  0x0000555555557750 in std::istream_iterator<int, char, std::char_traits<char>, long>::_M_read (this=0x7fffffffd960) at /usr/include/c++/7/bits/stream_iterator.h:122
+#1  0x0000555555557ab2 in std::istream_iterator<int, char, std::char_traits<char>, long>::operator++ (this=0x7fffffffd960) at /usr/include/c++/7/bits/stream_iterator.h:95
+#2  0x00005555555579f3 in std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1308
+#3  0x0000555555557882 in std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1299
+#4  0x0000555555557569 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void> (this=0x7fffffffdaa0, __first=..., __last=..., __a=...) at /usr/include/c++/7/bits/stl_vector.h:414
+#5  0x0000555555556bbc in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:660
+#6  0x0000555555556f51 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:711
+
+117	      {
+118		_M_ok = (_M_stream && *_M_stream) ? true : false;
+119		if (_M_ok)
+120		  {
+121		    *_M_stream >> _M_value;
+122		    _M_ok = *_M_stream ? true : false;
+123		  }
+124	      }
+125	    };
+126	
+
+Backtrace END
+Fliping value of field: root
+Fliping a bit of the pointer
+Memory content before bitflip:0x000x000x000x000x000x000x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffdd40
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x040x000x000x00
+frame name: main
+symbol name: bTree1
+symbol filename: BTree_dup.cpp
+symbol line: 704
+value: {root = 0x400000000, t = 3}
+value address: 0x7fffffffdd40
+Type: The type is a structure.
+Type sizeof: 16
+Field name: root
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: t
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+
+[INFO -- 2018-11-25 21:05:23]
+Fault Injection Successful after 2.1824235916137695s
+[INFO -- 2018-11-25 21:05:24]
+event type: exit
+[INFO -- 2018-11-25 21:05:24]
+exit code: 0

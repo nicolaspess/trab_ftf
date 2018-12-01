@@ -1,0 +1,25 @@
+[INFO -- 2018-11-26 00:23:12]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-26 00:23:12]
+Initialization strings:
+[INFO -- 2018-11-26 00:23:12]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-26 00:23:12]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-26 00:23:12]
+initSignal:0
+[INFO -- 2018-11-26 00:23:12]
+endSignal:2
+[INFO -- 2018-11-26 00:23:12]
+faultModel:2
+[EXCEPTION -- 2018-11-26 00:23:13]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[EXCEPTION -- 2018-11-26 00:23:14]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[EXCEPTION -- 2018-11-26 00:23:14]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-11-26 00:23:15]
+event type: exit
+[INFO -- 2018-11-26 00:23:15]
+exit code: 0

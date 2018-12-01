@@ -1,0 +1,54 @@
+[INFO -- 2018-11-25 22:32:17]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 22:32:17]
+Initialization strings:
+[INFO -- 2018-11-25 22:32:17]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 22:32:17]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 22:32:17]
+initSignal:0
+[INFO -- 2018-11-25 22:32:17]
+endSignal:2
+[INFO -- 2018-11-25 22:32:17]
+faultModel:2
+[INFO -- 2018-11-25 22:32:19]
+Backtrace BEGIN:
+#0  0x00007ffff7b47570 in std::istream::sentry::sentry(std::istream&, bool) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x00007ffff7af6827 in std::istream::getline(char*, long, char) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x0000555555556db3 in compare_output (input1=0x7fffffffe246 "/tmp/BTree-dup/output_100000", input2=0x7fffffffe280 "/tmp/BTree-dup/output2_100000", detectLog=0x7fffffffe263 "/tmp/BTree-dup-detection.log") at BTree_dup.cpp:679
+#3  0x0000555555557034 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:730
+
+677	    {
+678	        file1.getline(string1,256);
+679	        file2.getline(string2,256);
+680	        j++;
+681	        if(strcmp(string1,string2) != 0)
+682	        {
+683	            if (fp = fopen(detectLog, "a")) {
+684	                fprintf(fp, "[%d]: %s %s\n",j,string1,string2);
+685	                fclose(fp);
+686	            }
+
+Backtrace END
+Memory content before bitflip:0x540x0f0x000x000x000x000x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffdd28
+address max offset: 8
+Memory content after  bitflip:0x500x6e0xbe0xbe0x600xed0xeb0x73
+frame name: main
+symbol name: start_time
+symbol filename: BTree_dup.cpp
+symbol line: 698
+value: 8353030933661511248
+value address: 0x7fffffffdd28
+Type: The type is an integer type.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 22:32:19]
+Fault Injection Successful after 2.412281036376953s
+[INFO -- 2018-11-25 22:32:19]
+event type: exit
+[INFO -- 2018-11-25 22:32:19]
+exit code: 0

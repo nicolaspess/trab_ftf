@@ -1,0 +1,56 @@
+[INFO -- 2018-11-26 00:08:52]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-26 00:08:52]
+Initialization strings:
+[INFO -- 2018-11-26 00:08:52]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-26 00:08:52]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-26 00:08:52]
+initSignal:0
+[INFO -- 2018-11-26 00:08:52]
+endSignal:2
+[INFO -- 2018-11-26 00:08:52]
+faultModel:2
+[INFO -- 2018-11-26 00:08:53]
+Backtrace BEGIN:
+#0  malloc (n=14) at dl-minimal.c:50
+#1  <function called from gdb>
+#2  __GI___libc_malloc (bytes=32) at malloc.c:3028
+#3  0x00007ffff7adf1a8 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x000055555555665c in BTreeNode::splitChild (this=0x555555bc7780, i=3, y=0x555555bff310) at BTree_dup.cpp:545
+#5  0x00005555555565ed in BTreeNode::insertNonFull (this=0x555555bc7780, k=749219) at BTree_dup.cpp:527
+#6  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555c17580, k=749219) at BTree_dup.cpp:535
+#7  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555be4a60, k=749219) at BTree_dup.cpp:535
+#8  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555bf7b40, k=749219) at BTree_dup.cpp:535
+#9  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ce1e10, k=749219) at BTree_dup.cpp:535
+#10 0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555bee480, k=749219) at BTree_dup.cpp:535
+#11 0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ce1f30, k=749219) at BTree_dup.cpp:535
+#12 0x0000555555556478 in BTree::insert (this=0x7fffffffda50, k=749219) at BTree_dup.cpp:489
+#13 0x0000555555556c25 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#14 0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+45	dl-minimal.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Memory content before bitflip:0x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7ffff7fdd6d8
+address max offset: 1
+Memory content after  bitflip:0x4f
+frame name: __GI___libc_malloc
+symbol name: tcache_shutting_down
+symbol filename: malloc.c
+symbol line: 2920
+value: 79
+value address: 0x7ffff7fdd6d8
+Type: A boolean type.
+Type sizeof: 1
+
+[INFO -- 2018-11-26 00:08:53]
+Fault Injection Successful after 1.4612040519714355s
+[INFO -- 2018-11-26 00:08:54]
+event type: exit
+[INFO -- 2018-11-26 00:08:54]
+exit code: 0

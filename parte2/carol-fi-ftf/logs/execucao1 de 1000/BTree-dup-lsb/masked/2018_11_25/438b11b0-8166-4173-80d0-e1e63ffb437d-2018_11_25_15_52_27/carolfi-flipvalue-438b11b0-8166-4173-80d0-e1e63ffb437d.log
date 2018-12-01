@@ -1,0 +1,45 @@
+[INFO -- 2018-11-25 15:52:24]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 15:52:24]
+Initialization strings:
+[INFO -- 2018-11-25 15:52:24]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 15:52:24]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 15:52:24]
+initSignal:0
+[INFO -- 2018-11-25 15:52:24]
+endSignal:2
+[INFO -- 2018-11-25 15:52:24]
+faultModel:4
+[INFO -- 2018-11-25 15:52:26]
+Backtrace BEGIN:
+#0  0x00007ffff7334947 in __GI___close_nocancel (fd=1) at ../sysdeps/unix/sysv/linux/close.c:37
+#1  0x00007ffff72b01f8 in _IO_new_file_close_it (fp=fp@entry=0x7ffff7610760 <_IO_2_1_stdout_>) at fileops.c:143
+#2  0x00007ffff72a2387 in _IO_new_fclose (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at iofclose.c:53
+#3  0x0000555555556fcc in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:719
+
+32	../sysdeps/unix/sysv/linux/close.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Memory content before bitflip:0x690x130x000x000x000x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdd28
+address max offset: 8
+Memory content after  bitflip:0x690x130x000x000x000x000x000x80
+frame name: main
+symbol name: start_time
+symbol filename: BTree_dup.cpp
+symbol line: 698
+value: -9223372036854770839
+value address: 0x7fffffffdd28
+Type: The type is an integer type.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 15:52:26]
+Fault Injection Successful after 2.1305480003356934s
+[INFO -- 2018-11-25 15:52:26]
+event type: exit
+[INFO -- 2018-11-25 15:52:26]
+exit code: 0

@@ -1,0 +1,65 @@
+[INFO -- 2018-11-26 00:43:23]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-26 00:43:23]
+Initialization strings:
+[INFO -- 2018-11-26 00:43:23]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-26 00:43:23]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-26 00:43:23]
+initSignal:0
+[INFO -- 2018-11-26 00:43:23]
+endSignal:2
+[INFO -- 2018-11-26 00:43:23]
+faultModel:4
+[INFO -- 2018-11-26 00:43:24]
+Backtrace BEGIN:
+#0  0x00007ffff7b399b4 in __gnu_cxx::stdio_sync_filebuf<char, std::char_traits<char> >::sync() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x00007ffff7b5ef5e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x0000555555556927 in BTreeNode::traverse (this=0x5555559a2810) at BTree_dup.cpp:594
+#3  0x00005555555568d7 in BTreeNode::traverse (this=0x5555557c3ec0) at BTree_dup.cpp:593
+#4  0x000055555555695f in BTreeNode::traverse (this=0x5555558c2e00) at BTree_dup.cpp:599
+#5  0x000055555555695f in BTreeNode::traverse (this=0x555555866610) at BTree_dup.cpp:599
+#6  0x000055555555695f in BTreeNode::traverse (this=0x5555557d43c0) at BTree_dup.cpp:599
+#7  0x00005555555568d7 in BTreeNode::traverse (this=0x5555557d44e0) at BTree_dup.cpp:593
+#8  0x000055555555695f in BTreeNode::traverse (this=0x5555558f2290) at BTree_dup.cpp:599
+#9  0x00005555555568d7 in BTreeNode::traverse (this=0x555555815c40) at BTree_dup.cpp:593
+#10 0x00005555555568d7 in BTreeNode::traverse (this=0x555555a2ab30) at BTree_dup.cpp:593
+#11 0x00005555555572bb in BTree::traverse (this=0x7fffffffdd40) at BTree_dup.cpp:139
+#12 0x0000555555556fbd in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:718
+
+677	    {
+678	        file1.getline(string1,256);
+679	        file2.getline(string2,256);
+680	        j++;
+681	        if(strcmp(string1,string2) != 0)
+682	        {
+683	            if (fp = fopen(detectLog, "a")) {
+684	                fprintf(fp, "[%d]: %s %s\n",j,string1,string2);
+685	                fclose(fp);
+686	            }
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: n
+Memory content before bitflip:0x030x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x5555557d44f8
+address max offset: 4
+Memory content after  bitflip:0x030x000x000x40
+frame name: BTreeNode::traverse
+symbol name: this
+symbol filename: BTree_dup.cpp
+symbol line: 0
+value: 0x5555557d44e0
+value address: 0x7fffffffdbe8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-26 00:43:24]
+Fault Injection Successful after 1.9104275703430176s
+[INFO -- 2018-11-26 00:43:25]
+event type: exit
+[EXCEPTION -- 2018-11-26 00:43:25]
+exit code: no exit code available

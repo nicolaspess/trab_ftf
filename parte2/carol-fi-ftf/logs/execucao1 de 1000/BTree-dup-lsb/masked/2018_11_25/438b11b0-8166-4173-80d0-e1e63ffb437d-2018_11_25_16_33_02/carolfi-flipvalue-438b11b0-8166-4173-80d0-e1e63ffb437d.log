@@ -1,0 +1,59 @@
+[INFO -- 2018-11-25 16:32:57]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 16:32:57]
+Initialization strings:
+[INFO -- 2018-11-25 16:32:57]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 16:32:57]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 16:32:57]
+initSignal:0
+[INFO -- 2018-11-25 16:32:57]
+endSignal:2
+[INFO -- 2018-11-25 16:32:57]
+faultModel:4
+[EXCEPTION -- 2018-11-25 16:32:58]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-11-25 16:32:58]
+Backtrace BEGIN:
+#0  0x00005555555564c6 in BTreeNode::insertNonFull (this=0x555555e73390, k=3663749) at BTree_dup.cpp:499
+#1  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555d51c80, k=3663749) at BTree_dup.cpp:535
+#2  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555d8d170, k=3663749) at BTree_dup.cpp:535
+#3  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ce1f30, k=3663749) at BTree_dup.cpp:535
+#4  0x0000555555556478 in BTree::insert (this=0x7fffffffda50, k=3663749) at BTree_dup.cpp:489
+#5  0x0000555555556c25 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#6  0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+494	// The assumption is, the node must be non-full when this
+495	// function is called
+496	void BTreeNode::insertNonFull(int k)
+497	{
+498		// Initialize index as index of rightmost element
+499		int i = n-1;
+500	
+501		// If this is a leaf node
+502		if (leaf == true)
+503		{
+
+Backtrace END
+Memory content before bitflip:0x020x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffd9dc
+address max offset: 4
+Memory content after  bitflip:0x020x000x000x10
+frame name: BTreeNode::insertNonFull
+symbol name: i
+symbol filename: BTree_dup.cpp
+symbol line: 499
+value: 268435458
+value address: 0x7fffffffd9dc
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-11-25 16:32:58]
+Fault Injection Successful after 1.698838472366333s
+[INFO -- 2018-11-25 16:32:59]
+event type: exit
+[INFO -- 2018-11-25 16:32:59]
+exit code: 0

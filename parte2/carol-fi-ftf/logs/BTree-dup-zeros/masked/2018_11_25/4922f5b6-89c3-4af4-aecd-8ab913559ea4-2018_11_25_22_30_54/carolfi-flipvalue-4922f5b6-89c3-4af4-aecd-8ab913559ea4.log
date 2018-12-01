@@ -1,0 +1,60 @@
+[INFO -- 2018-11-25 22:30:51]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 22:30:51]
+Initialization strings:
+[INFO -- 2018-11-25 22:30:51]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 22:30:51]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 22:30:51]
+initSignal:0
+[INFO -- 2018-11-25 22:30:51]
+endSignal:2
+[INFO -- 2018-11-25 22:30:51]
+faultModel:3
+[EXCEPTION -- 2018-11-25 22:30:52]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-11-25 22:30:52]
+Backtrace BEGIN:
+#0  malloc (n=14) at dl-minimal.c:50
+#1  <function called from gdb>
+#2  0x00007ffff72b831f in _int_malloc (av=av@entry=0x7ffff760fc40 <main_arena>, bytes=bytes@entry=48) at malloc.c:3557
+#3  0x00007ffff72bb0fc in __GI___libc_malloc (bytes=48) at malloc.c:3057
+#4  0x00007ffff7adf1a8 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#5  0x00005555555558ca in BTreeNode::BTreeNode (this=0x5555557ff200, t1=3, leaf1=true) at BTree_dup.cpp:165
+#6  0x000055555555667b in BTreeNode::splitChild (this=0x5555557a1030, i=1, y=0x5555557adcf0) at BTree_dup.cpp:545
+#7  0x00005555555565ed in BTreeNode::insertNonFull (this=0x5555557a1030, k=1377560) at BTree_dup.cpp:527
+#8  0x0000555555556639 in BTreeNode::insertNonFull (this=0x5555557b12f0, k=1377560) at BTree_dup.cpp:535
+#9  0x0000555555556639 in BTreeNode::insertNonFull (this=0x5555557d3f40, k=1377560) at BTree_dup.cpp:535
+#10 0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555795330, k=1377560) at BTree_dup.cpp:535
+#11 0x0000555555556639 in BTreeNode::insertNonFull (this=0x55555577e350, k=1377560) at BTree_dup.cpp:535
+#12 0x0000555555556639 in BTreeNode::insertNonFull (this=0x5555557a21a0, k=1377560) at BTree_dup.cpp:535
+#13 0x0000555555556478 in BTree::insert (this=0x7fffffffda50, k=1377560) at BTree_dup.cpp:489
+#14 0x0000555555556c25 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#15 0x0000555555556f51 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:711
+
+45	dl-minimal.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x000x000x000x000x000x000x000x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x7ffff7611938 
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x00
+frame name: _int_malloc
+symbol name: dumped_main_arena_start
+symbol filename: malloc.c
+symbol line: 1773
+value: 0x0
+value address: 0x7ffff7611938 <dumped_main_arena_start>
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 22:30:52]
+Fault Injection Successful after 1.7622871398925781s
+[INFO -- 2018-11-25 22:30:53]
+event type: exit
+[INFO -- 2018-11-25 22:30:53]
+exit code: 0

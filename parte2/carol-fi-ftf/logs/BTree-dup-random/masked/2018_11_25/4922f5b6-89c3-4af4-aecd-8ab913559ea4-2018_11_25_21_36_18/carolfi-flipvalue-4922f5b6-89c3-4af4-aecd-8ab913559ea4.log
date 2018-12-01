@@ -1,0 +1,45 @@
+[INFO -- 2018-11-25 21:36:15]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 21:36:15]
+Initialization strings:
+[INFO -- 2018-11-25 21:36:15]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 21:36:15]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 21:36:15]
+initSignal:0
+[INFO -- 2018-11-25 21:36:15]
+endSignal:2
+[INFO -- 2018-11-25 21:36:15]
+faultModel:2
+[INFO -- 2018-11-25 21:36:17]
+Backtrace BEGIN:
+#0  __memchr_avx2 () at ../sysdeps/x86_64/multiarch/memchr-avx2.S:46
+#1  0x00007ffff7af68ff in std::istream::getline(char*, long, char) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x0000555555556d95 in compare_output (input1=0x7fffffffe246 "/tmp/BTree-dup/output_100000", input2=0x7fffffffe280 "/tmp/BTree-dup/output2_100000", detectLog=0x7fffffffe263 "/tmp/BTree-dup-detection.log") at BTree_dup.cpp:678
+#3  0x0000555555557034 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:730
+
+41	../sysdeps/x86_64/multiarch/memchr-avx2.S: Arquivo ou diretório inexistente.
+
+Backtrace END
+Memory content before bitflip:0x2d0xbf0x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffd6a4
+address max offset: 4
+Memory content after  bitflip:0x930x1a0xdc0x0c
+frame name: compare_output
+symbol name: j
+symbol filename: BTree_dup.cpp
+symbol line: 674
+value: 215751315
+value address: 0x7fffffffd6a4
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-11-25 21:36:17]
+Fault Injection Successful after 2.7078731060028076s
+[INFO -- 2018-11-25 21:36:17]
+event type: exit
+[INFO -- 2018-11-25 21:36:17]
+exit code: 0

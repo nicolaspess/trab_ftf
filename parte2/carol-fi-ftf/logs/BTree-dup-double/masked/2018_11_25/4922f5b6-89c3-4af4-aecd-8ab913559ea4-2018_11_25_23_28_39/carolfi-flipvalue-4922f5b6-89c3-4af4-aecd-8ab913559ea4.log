@@ -1,0 +1,52 @@
+[INFO -- 2018-11-25 23:28:36]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 23:28:36]
+Initialization strings:
+[INFO -- 2018-11-25 23:28:37]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 23:28:37]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 23:28:37]
+initSignal:0
+[INFO -- 2018-11-25 23:28:37]
+endSignal:2
+[INFO -- 2018-11-25 23:28:37]
+faultModel:1
+[EXCEPTION -- 2018-11-25 23:28:37]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-11-25 23:28:38]
+Backtrace BEGIN:
+#0  0x00007ffff7b44884 in std::basic_ios<char, std::char_traits<char> >::operator bool() const () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x0000555555557765 in std::istream_iterator<int, char, std::char_traits<char>, long>::_M_read (this=0x7fffffffd960) at /usr/include/c++/7/bits/stream_iterator.h:122
+#2  0x0000555555557ab2 in std::istream_iterator<int, char, std::char_traits<char>, long>::operator++ (this=0x7fffffffd960) at /usr/include/c++/7/bits/stream_iterator.h:95
+#3  0x00005555555579f3 in std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1308
+#4  0x0000555555557882 in std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1299
+#5  0x0000555555557569 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void> (this=0x7fffffffdaa0, __first=..., __last=..., __a=...) at /usr/include/c++/7/bits/stl_vector.h:414
+#6  0x0000555555556bbc in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:660
+#7  0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+2284	in rtld.c
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0xa00xda0xff0xff0xff0x7f0x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffd9d8
+address max offset: 8
+Memory content after  bitflip:0xa00xda0xff0xb70xff0x7f0x000x00
+frame name: std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void>
+symbol name: this
+symbol filename: BTree_dup.cpp
+symbol line: 0
+value: 0x7fffffffdaa0
+value address: 0x7fffffffd9d8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 23:28:38]
+Fault Injection Successful after 1.1954805850982666s
+[INFO -- 2018-11-25 23:28:39]
+event type: exit
+[INFO -- 2018-11-25 23:28:39]
+exit code: 0

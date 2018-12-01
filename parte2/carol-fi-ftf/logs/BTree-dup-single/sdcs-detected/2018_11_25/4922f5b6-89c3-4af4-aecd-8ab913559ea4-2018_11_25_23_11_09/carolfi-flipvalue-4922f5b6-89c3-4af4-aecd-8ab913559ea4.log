@@ -1,0 +1,68 @@
+[INFO -- 2018-11-25 23:11:03]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 23:11:03]
+Initialization strings:
+[INFO -- 2018-11-25 23:11:03]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 23:11:03]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 23:11:03]
+initSignal:0
+[INFO -- 2018-11-25 23:11:03]
+endSignal:2
+[INFO -- 2018-11-25 23:11:03]
+faultModel:0
+[EXCEPTION -- 2018-11-25 23:11:04]
+gdbException: A syntax error in expression, near `...'.
+[INFO -- 2018-11-25 23:11:04]
+Backtrace BEGIN:
+#0  malloc (n=14) at dl-minimal.c:50
+#1  <function called from gdb>
+#2  malloc (n=14) at dl-minimal.c:50
+#3  <function called from gdb>
+#4  malloc (n=14) at dl-minimal.c:50
+#5  <function called from gdb>
+#6  malloc (n=14) at dl-minimal.c:50
+#7  <function called from gdb>
+#8  malloc (n=14) at dl-minimal.c:50
+#9  <function called from gdb>
+#10 _int_malloc (av=av@entry=0x7ffff760fc40 <main_arena>, bytes=bytes@entry=20) at malloc.c:4100
+#11 0x00007ffff72bb0fc in __GI___libc_malloc (bytes=20) at malloc.c:3057
+#12 0x00007ffff7adf1a8 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#13 0x000055555555588c in BTreeNode::BTreeNode (this=0x555555968fd0, t1=3, leaf1=true) at BTree_dup.cpp:164
+#14 0x000055555555667b in BTreeNode::splitChild (this=0x5555558410b0, i=3, y=0x5555558ba8b0) at BTree_dup.cpp:545
+#15 0x00005555555565ed in BTreeNode::insertNonFull (this=0x5555558410b0, k=1615555) at BTree_dup.cpp:527
+#16 0x0000555555556639 in BTreeNode::insertNonFull (this=0x5555557ca490, k=1615555) at BTree_dup.cpp:535
+#17 0x0000555555556639 in BTreeNode::insertNonFull (this=0x55555577e2c0, k=1615555) at BTree_dup.cpp:535
+#18 0x0000555555556639 in BTreeNode::insertNonFull (this=0x5555557d43c0, k=1615555) at BTree_dup.cpp:535
+#19 0x0000555555556639 in BTreeNode::insertNonFull (this=0x5555557d44e0, k=1615555) at BTree_dup.cpp:535
+#20 0x0000555555556639 in BTreeNode::insertNonFull (this=0x5555558f2290, k=1615555) at BTree_dup.cpp:535
+#21 0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555815c40, k=1615555) at BTree_dup.cpp:535
+#22 0x0000555555556478 in BTree::insert (this=0x7fffffffda50, k=1615555) at BTree_dup.cpp:489
+#23 0x0000555555556c25 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#24 0x0000555555556f51 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:711
+
+45	in dl-minimal.c
+
+Backtrace END
+Memory content before bitflip:0x020x000x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffd8bc
+address max offset: 4
+Memory content after  bitflip:0x030x000x000x00
+frame name: BTreeNode::insertNonFull
+symbol name: i
+symbol filename: BTree_dup.cpp
+symbol line: 499
+value: 3
+value address: 0x7fffffffd8bc
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-11-25 23:11:04]
+Fault Injection Successful after 1.855555534362793s
+[INFO -- 2018-11-25 23:11:05]
+event type: exit
+[INFO -- 2018-11-25 23:11:05]
+exit code: 0

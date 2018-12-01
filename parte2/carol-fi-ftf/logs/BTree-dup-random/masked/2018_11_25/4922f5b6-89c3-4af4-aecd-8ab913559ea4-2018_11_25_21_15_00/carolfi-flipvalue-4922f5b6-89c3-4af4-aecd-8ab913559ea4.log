@@ -1,0 +1,66 @@
+[INFO -- 2018-11-25 21:14:54]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 21:14:54]
+Initialization strings:
+[INFO -- 2018-11-25 21:14:54]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 21:14:54]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 21:14:54]
+initSignal:0
+[INFO -- 2018-11-25 21:14:54]
+endSignal:2
+[INFO -- 2018-11-25 21:14:54]
+faultModel:2
+[INFO -- 2018-11-25 21:14:56]
+Backtrace BEGIN:
+#0  malloc (n=14) at dl-minimal.c:50
+#1  <function called from gdb>
+#2  malloc (n=14) at dl-minimal.c:50
+#3  <function called from gdb>
+#4  0x00007ffff733a4b9 in __brk (addr=addr@entry=0x555555f4f000) at ../sysdeps/unix/sysv/linux/x86_64/brk.c:31
+#5  0x00007ffff733a591 in __GI___sbrk (increment=135168) at sbrk.c:56
+#6  0x00007ffff72bf199 in __GI___default_morecore (increment=<optimized out>) at morecore.c:47
+#7  0x00007ffff72b7dac in sysmalloc (nb=nb@entry=64, av=av@entry=0x7ffff760fc40 <main_arena>) at malloc.c:2489
+#8  0x00007ffff72b8ff0 in _int_malloc (av=av@entry=0x7ffff760fc40 <main_arena>, bytes=bytes@entry=48) at malloc.c:4125
+#9  0x00007ffff72bb0fc in __GI___libc_malloc (bytes=48) at malloc.c:3057
+#10 0x00007ffff7adf1a8 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#11 0x00005555555558ca in BTreeNode::BTreeNode (this=0x555555f2df90, t1=3, leaf1=true) at BTree_dup.cpp:165
+#12 0x000055555555667b in BTreeNode::splitChild (this=0x555555e1e760, i=1, y=0x555555e1e7f0) at BTree_dup.cpp:545
+#13 0x00005555555565ed in BTreeNode::insertNonFull (this=0x555555e1e760, k=3559915) at BTree_dup.cpp:527
+#14 0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ec2650, k=3559915) at BTree_dup.cpp:535
+#15 0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555d577a0, k=3559915) at BTree_dup.cpp:535
+#16 0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555e2dee0, k=3559915) at BTree_dup.cpp:535
+#17 0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555e2df70, k=3559915) at BTree_dup.cpp:535
+#18 0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ef6d90, k=3559915) at BTree_dup.cpp:535
+#19 0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ef6eb0, k=3559915) at BTree_dup.cpp:535
+#20 0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ef6e20, k=3559915) at BTree_dup.cpp:535
+#21 0x0000555555556478 in BTree::insert (this=0x7fffffffda50, k=3559915) at BTree_dup.cpp:489
+#22 0x0000555555556c25 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#23 0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+45	in dl-minimal.c
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x000x000x000x000x000x000x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7ffff7611920 
+address max offset: 8
+Memory content after  bitflip:0x370x010x4a0xd70xe90xcc0x9a0x99
+frame name: __GI___libc_malloc
+symbol name: free_list
+symbol filename: arena.c
+symbol line: 83
+value: 0x0
+value address: 0x7ffff7611920 <free_list>
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 21:14:56]
+Fault Injection Successful after 2.275517702102661s
+[INFO -- 2018-11-25 21:14:57]
+event type: exit
+[INFO -- 2018-11-25 21:14:57]
+exit code: 0

@@ -1,0 +1,64 @@
+[INFO -- 2018-11-26 01:17:41]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-26 01:17:41]
+Initialization strings:
+[INFO -- 2018-11-26 01:17:41]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-26 01:17:41]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-26 01:17:41]
+initSignal:0
+[INFO -- 2018-11-26 01:17:41]
+endSignal:2
+[INFO -- 2018-11-26 01:17:41]
+faultModel:3
+[INFO -- 2018-11-26 01:17:43]
+Backtrace BEGIN:
+#0  0x0000555555557155 in std::char_traits<char>::assign (__c1=@0x55555576d0aa: 48 '0', __c2=@0x7fffffffd9f8: 49 '1') at /usr/include/c++/7/bits/char_traits.h:284
+#1  0x00005555555576b2 in std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x7fffffffdac0, __s="1110100100000000", __zero=48 '0', __one=49 '1') at /usr/include/c++/7/bitset:1410
+#2  0x00005555555573d7 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1538
+#3  0x0000555555556912 in BTreeNode::traverse (this=0x555555f25770) at BTree_dup.cpp:594
+#4  0x000055555555695f in BTreeNode::traverse (this=0x555555ec7c60) at BTree_dup.cpp:599
+#5  0x000055555555695f in BTreeNode::traverse (this=0x555555f15930) at BTree_dup.cpp:599
+#6  0x00005555555568d7 in BTreeNode::traverse (this=0x555555cedb10) at BTree_dup.cpp:593
+#7  0x00005555555568d7 in BTreeNode::traverse (this=0x555555fbe140) at BTree_dup.cpp:593
+#8  0x00005555555568d7 in BTreeNode::traverse (this=0x555555bca630) at BTree_dup.cpp:593
+#9  0x00005555555568d7 in BTreeNode::traverse (this=0x555555bee480) at BTree_dup.cpp:593
+#10 0x00005555555568d7 in BTreeNode::traverse (this=0x555555ce1f30) at BTree_dup.cpp:593
+#11 0x00005555555568d7 in BTreeNode::traverse (this=0x555555ef6e20) at BTree_dup.cpp:593
+#12 0x00005555555572bb in BTree::traverse (this=0x7fffffffdd50) at BTree_dup.cpp:139
+#13 0x0000555555556ff9 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:725
+
+279	      typedef streampos         pos_type;
+280	      typedef streamoff         off_type;
+281	      typedef mbstate_t         state_type;
+282	
+283	      static _GLIBCXX17_CONSTEXPR void
+284	      assign(char_type& __c1, const char_type& __c2) _GLIBCXX_NOEXCEPT
+285	      { __c1 = __c2; }
+286	
+287	      static _GLIBCXX_CONSTEXPR bool
+288	      eq(const char_type& __c1, const char_type& __c2) _GLIBCXX_NOEXCEPT
+
+Backtrace END
+Memory content before bitflip:0x820x0e0x000x000x000x000x000x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x7fffffffdd28
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x00
+frame name: main
+symbol name: start_time
+symbol filename: BTree_dup.cpp
+symbol line: 698
+value: 0
+value address: 0x7fffffffdd28
+Type: The type is an integer type.
+Type sizeof: 8
+
+[INFO -- 2018-11-26 01:17:43]
+Fault Injection Successful after 2.651905059814453s
+[INFO -- 2018-11-26 01:17:44]
+event type: exit
+[INFO -- 2018-11-26 01:17:44]
+exit code: 0

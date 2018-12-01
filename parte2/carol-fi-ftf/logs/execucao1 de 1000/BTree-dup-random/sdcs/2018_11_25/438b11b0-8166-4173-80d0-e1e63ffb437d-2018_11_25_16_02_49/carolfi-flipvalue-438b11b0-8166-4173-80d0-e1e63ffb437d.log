@@ -1,0 +1,58 @@
+[INFO -- 2018-11-25 16:02:46]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 16:02:46]
+Initialization strings:
+[INFO -- 2018-11-25 16:02:46]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 16:02:46]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 16:02:46]
+initSignal:0
+[INFO -- 2018-11-25 16:02:46]
+endSignal:2
+[INFO -- 2018-11-25 16:02:46]
+faultModel:2
+[EXCEPTION -- 2018-11-25 16:02:47]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-11-25 16:02:47]
+Backtrace BEGIN:
+#0  0x00005555555564c6 in BTreeNode::insertNonFull (this=0x555555815b20, k=1559745) at BTree_dup.cpp:499
+#1  0x0000555555556639 in BTreeNode::insertNonFull (this=0x5555557a21a0, k=1559745) at BTree_dup.cpp:535
+#2  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555815c40, k=1559745) at BTree_dup.cpp:535
+#3  0x0000555555556478 in BTree::insert (this=0x7fffffffda50, k=1559745) at BTree_dup.cpp:489
+#4  0x0000555555556c25 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#5  0x0000555555556f51 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:711
+
+494	// The assumption is, the node must be non-full when this
+495	// function is called
+496	void BTreeNode::insertNonFull(int k)
+497	{
+498		// Initialize index as index of rightmost element
+499		int i = n-1;
+500	
+501		// If this is a leaf node
+502		if (leaf == true)
+503		{
+
+Backtrace END
+Memory content before bitflip:0xc10xcc0x170x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffd964
+address max offset: 4
+Memory content after  bitflip:0xb90x460xbb0x22
+frame name: BTreeNode::insertNonFull
+symbol name: k
+symbol filename: BTree_dup.cpp
+symbol line: 496
+value: 582698681
+value address: 0x7fffffffd964
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-11-25 16:02:47]
+Fault Injection Successful after 1.5742504596710205s
+[INFO -- 2018-11-25 16:02:48]
+event type: exit
+[INFO -- 2018-11-25 16:02:48]
+exit code: 0

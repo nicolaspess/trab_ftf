@@ -1,0 +1,60 @@
+[INFO -- 2018-11-25 20:45:43]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 20:45:43]
+Initialization strings:
+[INFO -- 2018-11-25 20:45:43]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 20:45:43]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 20:45:43]
+initSignal:0
+[INFO -- 2018-11-25 20:45:43]
+endSignal:2
+[INFO -- 2018-11-25 20:45:43]
+faultModel:2
+[INFO -- 2018-11-25 20:45:44]
+Backtrace BEGIN:
+#0  0x0000555555557acb in std::forward<int const&> (__t=@0x555555555730: -1991643855) at /usr/include/c++/7/bits/move.h:73
+#1  0x0000555555557f29 in __gnu_cxx::new_allocator<int>::construct<int, int const&> (this=0x7fffffffdaa0, __p=0x7ffff7fd4960, __args#0=@0x7fffffffd968: 693526) at /usr/include/c++/7/ext/new_allocator.h:136
+#2  0x0000555555557c3c in std::allocator_traits<std::allocator<int> >::construct<int, int const&> (__a=..., __p=0x7ffff7fd4960, __args#0=@0x7fffffffd968: 693526) at /usr/include/c++/7/bits/alloc_traits.h:475
+#3  0x0000555555557b24 in std::vector<int, std::allocator<int> >::emplace_back<int const&> (this=0x7fffffffdaa0, __args#0=@0x7fffffffd968: 693526) at /usr/include/c++/7/bits/vector.tcc:100
+#4  0x00005555555579e7 in std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1310
+#5  0x0000555555557882 in std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1299
+#6  0x0000555555557569 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void> (this=0x7fffffffdaa0, __first=..., __last=..., __a=...) at /usr/include/c++/7/bits/stl_vector.h:414
+#7  0x0000555555556bbc in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:660
+#8  0x0000555555556f51 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:711
+
+68	   *
+69	   *  This function is used to implement "perfect forwarding".
+70	   */
+71	  template<typename _Tp>
+72	    constexpr _Tp&&
+73	    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+74	    { return static_cast<_Tp&&>(__t); }
+75	
+76	  /**
+77	   *  @brief  Forward an rvalue.
+
+Backtrace END
+Fliping a bit of the value pointed by a reference
+Memory content before bitflip:0x160x950x0a0x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffd968
+address max offset: 4
+Memory content after  bitflip:0x6e0x470x090xb8
+frame name: __gnu_cxx::new_allocator<int>::construct<int, int const&>
+symbol name: __args#0
+symbol filename: /usr/include/c++/7/ext/new_allocator.h
+symbol line: 135
+value: @0x7fffffffd968
+value address: 0x7fffffffd968
+Type: A reference type.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 20:45:44]
+Fault Injection Successful after 1.7336125373840332s
+[INFO -- 2018-11-25 20:45:46]
+event type: exit
+[INFO -- 2018-11-25 20:45:46]
+exit code: 0

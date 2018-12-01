@@ -1,0 +1,64 @@
+[INFO -- 2018-11-25 22:13:06]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 22:13:06]
+Initialization strings:
+[INFO -- 2018-11-25 22:13:06]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 22:13:06]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 22:13:06]
+initSignal:0
+[INFO -- 2018-11-25 22:13:06]
+endSignal:2
+[INFO -- 2018-11-25 22:13:06]
+faultModel:4
+[INFO -- 2018-11-25 22:13:08]
+Backtrace BEGIN:
+#0  0x00005555555576b7 in std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x7fffffffdac0, __s="0000011100001000", __zero=48 '0', __one=49 '1') at /usr/include/c++/7/bitset:1408
+#1  0x00005555555573d7 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1538
+#2  0x0000555555556912 in BTreeNode::traverse (this=0x555555fdae80) at BTree_dup.cpp:594
+#3  0x00005555555568d7 in BTreeNode::traverse (this=0x555555e49360) at BTree_dup.cpp:593
+#4  0x000055555555695f in BTreeNode::traverse (this=0x555555e64a20) at BTree_dup.cpp:599
+#5  0x00005555555568d7 in BTreeNode::traverse (this=0x555555f18870) at BTree_dup.cpp:593
+#6  0x000055555555695f in BTreeNode::traverse (this=0x555555fbe140) at BTree_dup.cpp:599
+#7  0x00005555555568d7 in BTreeNode::traverse (this=0x555555bca630) at BTree_dup.cpp:593
+#8  0x00005555555568d7 in BTreeNode::traverse (this=0x555555bee480) at BTree_dup.cpp:593
+#9  0x00005555555568d7 in BTreeNode::traverse (this=0x555555ce1f30) at BTree_dup.cpp:593
+#10 0x00005555555568d7 in BTreeNode::traverse (this=0x555555ef6e20) at BTree_dup.cpp:593
+#11 0x00005555555572bb in BTree::traverse (this=0x7fffffffdd50) at BTree_dup.cpp:139
+#12 0x0000555555556ff9 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:725
+
+1403	      bitset<_Nb>::
+1404	      _M_copy_to_string(std::basic_string<_CharT, _Traits, _Alloc>& __s,
+1405				_CharT __zero, _CharT __one) const
+1406	      {
+1407		__s.assign(_Nb, __zero);
+1408		for (size_t __i = _Nb; __i > 0; --__i)
+1409		  if (_Unchecked_test(__i - 1))
+1410		    _Traits::assign(__s[_Nb - __i], __one);
+1411	      }
+1412	
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x680xde0xff0xff0xff0x7f0x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdd10
+address max offset: 8
+Memory content after  bitflip:0x680xde0xff0xff0xff0x7f0x000x20
+frame name: main
+symbol name: argv
+symbol filename: BTree_dup.cpp
+symbol line: 691
+value: 0x7fffffffde68
+value address: 0x7fffffffdd10
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 22:13:08]
+Fault Injection Successful after 2.527961254119873s
+[INFO -- 2018-11-25 22:13:09]
+event type: exit
+[EXCEPTION -- 2018-11-25 22:13:09]
+exit code: no exit code available

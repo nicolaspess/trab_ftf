@@ -1,0 +1,61 @@
+[INFO -- 2018-11-25 16:30:08]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 16:30:08]
+Initialization strings:
+[INFO -- 2018-11-25 16:30:08]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 16:30:08]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 16:30:08]
+initSignal:0
+[INFO -- 2018-11-25 16:30:08]
+endSignal:2
+[INFO -- 2018-11-25 16:30:08]
+faultModel:1
+[INFO -- 2018-11-25 16:30:09]
+Backtrace BEGIN:
+#0  0x00005555555558d1 in BTreeNode::BTreeNode (this=0x555555eb4280, t1=3, leaf1=false) at BTree_dup.cpp:165
+#1  0x000055555555667b in BTreeNode::splitChild (this=0x555555c34a10, i=0, y=0x555555c33ff0) at BTree_dup.cpp:545
+#2  0x00005555555565ed in BTreeNode::insertNonFull (this=0x555555c34a10, k=3544970) at BTree_dup.cpp:527
+#3  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555be48b0, k=3544970) at BTree_dup.cpp:535
+#4  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555e2dee0, k=3544970) at BTree_dup.cpp:535
+#5  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555e2df70, k=3544970) at BTree_dup.cpp:535
+#6  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ce1fc0, k=3544970) at BTree_dup.cpp:535
+#7  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ce1f30, k=3544970) at BTree_dup.cpp:535
+#8  0x0000555555556478 in BTree::insert (this=0x7fffffffda50, k=3544970) at BTree_dup.cpp:489
+#9  0x0000555555556c25 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#10 0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+160		leaf = leaf1;
+161	
+162		// Allocate memory for maximum number of possible keys
+163		// and child pointers
+164		keys = new int[2*t-1];
+165		C = new BTreeNode *[2*t];
+166	
+167		// Initialize the number of keys as 0
+168		n = 0;
+169	}
+
+Backtrace END
+Memory content before bitflip:0x390x710x550x550x550x550x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffdd38
+address max offset: 8
+Memory content after  bitflip:0x390x710x550x550x550x550x0c0x00
+frame name: main
+symbol name: diff_time
+symbol filename: BTree_dup.cpp
+symbol line: 699
+value: 1.7151610992694952e-308
+value address: 0x7fffffffdd38
+Type: A floating point type.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 16:30:09]
+Fault Injection Successful after 1.9333992004394531s
+[INFO -- 2018-11-25 16:30:10]
+event type: exit
+[INFO -- 2018-11-25 16:30:10]
+exit code: 0

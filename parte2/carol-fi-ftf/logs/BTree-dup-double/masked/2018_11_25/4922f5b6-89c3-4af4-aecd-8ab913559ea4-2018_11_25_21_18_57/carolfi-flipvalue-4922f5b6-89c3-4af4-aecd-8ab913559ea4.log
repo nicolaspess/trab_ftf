@@ -1,0 +1,62 @@
+[INFO -- 2018-11-25 21:18:54]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 21:18:54]
+Initialization strings:
+[INFO -- 2018-11-25 21:18:54]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 21:18:54]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 21:18:54]
+initSignal:0
+[INFO -- 2018-11-25 21:18:54]
+endSignal:2
+[INFO -- 2018-11-25 21:18:54]
+faultModel:1
+[INFO -- 2018-11-25 21:18:55]
+Backtrace BEGIN:
+#0  BTreeNode::insertNonFull (this=0x555555e56410, k=2011451) at BTree_dup.cpp:514
+#1  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555d23cc0, k=2011451) at BTree_dup.cpp:535
+#2  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555f1b4e0, k=2011451) at BTree_dup.cpp:535
+#3  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555f514e0, k=2011451) at BTree_dup.cpp:535
+#4  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555e01630, k=2011451) at BTree_dup.cpp:535
+#5  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555e1de60, k=2011451) at BTree_dup.cpp:535
+#6  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555dbe580, k=2011451) at BTree_dup.cpp:535
+#7  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ce1f30, k=2011451) at BTree_dup.cpp:535
+#8  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ef6e20, k=2011451) at BTree_dup.cpp:535
+#9  0x0000555555556478 in BTree::insert (this=0x7fffffffda50, k=2011451) at BTree_dup.cpp:489
+#10 0x0000555555556c25 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#11 0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+509				keys[i+1] = keys[i];
+510				i--;
+511			}
+512	
+513			// Insert the new key at found location
+514			keys[i+1] = k;
+515			n = n+1;
+516		}
+517		else // If this node is not leaf
+518		{
+
+Backtrace END
+Memory content before bitflip:0xff0xff0xff0xff
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffd8bc
+address max offset: 4
+Memory content after  bitflip:0xff0xfa0xff0xff
+frame name: BTreeNode::insertNonFull
+symbol name: i
+symbol filename: BTree_dup.cpp
+symbol line: 499
+value: -1281
+value address: 0x7fffffffd8bc
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-11-25 21:18:55]
+Fault Injection Successful after 1.9652020931243896s
+[INFO -- 2018-11-25 21:18:56]
+event type: exit
+[INFO -- 2018-11-25 21:18:56]
+exit code: 0

@@ -1,0 +1,57 @@
+[INFO -- 2018-11-25 15:53:13]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 15:53:13]
+Initialization strings:
+[INFO -- 2018-11-25 15:53:13]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 15:53:13]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 15:53:13]
+initSignal:0
+[INFO -- 2018-11-25 15:53:13]
+endSignal:2
+[INFO -- 2018-11-25 15:53:13]
+faultModel:1
+[EXCEPTION -- 2018-11-25 15:53:15]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-11-25 15:53:16]
+Backtrace BEGIN:
+#0  __memset_avx2_unaligned () at ../sysdeps/x86_64/multiarch/memset-vec-unaligned-erms.S:109
+#1  0x00007ffff7b716a6 in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_replace_aux(unsigned long, unsigned long, unsigned long, char) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x000055555555765b in std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x7fffffffdb40, __s="", __zero=48 '0', __one=49 '1') at /usr/include/c++/7/bitset:1407
+#3  0x00005555555573d7 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1538
+#4  0x0000555555556912 in BTreeNode::traverse (this=0x555555d8efd0) at BTree_dup.cpp:594
+#5  0x00005555555568d7 in BTreeNode::traverse (this=0x555555dc9110) at BTree_dup.cpp:593
+#6  0x00005555555568d7 in BTreeNode::traverse (this=0x555555dc92c0) at BTree_dup.cpp:593
+#7  0x00005555555568d7 in BTreeNode::traverse (this=0x555555e2df70) at BTree_dup.cpp:593
+#8  0x00005555555568d7 in BTreeNode::traverse (this=0x555555ef6d90) at BTree_dup.cpp:593
+#9  0x00005555555568d7 in BTreeNode::traverse (this=0x555555ef6eb0) at BTree_dup.cpp:593
+#10 0x000055555555695f in BTreeNode::traverse (this=0x555555ef6e20) at BTree_dup.cpp:599
+#11 0x00005555555572bb in BTree::traverse (this=0x7fffffffdd50) at BTree_dup.cpp:139
+#12 0x0000555555556ff9 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:725
+
+104	in ../sysdeps/x86_64/multiarch/memset-vec-unaligned-erms.S
+
+Backtrace END
+Fliping a bit of the reference
+Memory content before bitflip:0xb00x870xdc0xf70xff0x7f0x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7ffff7dd30a0
+address max offset: 8
+Memory content after  bitflip:0xb00x870xdc0xf70xde0x7f0x000x00
+frame name: std::operator<< <char, std::char_traits<char>, 16ul>
+symbol name: __ct
+symbol filename: /usr/include/c++/7/bitset
+symbol line: 1537
+value: @0x7ffff7dd30a0
+value address: 0x7ffff7dd30a0
+Type: A reference type.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 15:53:16]
+Fault Injection Successful after 3.5788047313690186s
+[INFO -- 2018-11-25 15:53:16]
+event type: exit
+[EXCEPTION -- 2018-11-25 15:53:16]
+exit code: no exit code available

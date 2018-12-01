@@ -1,0 +1,60 @@
+[INFO -- 2018-11-25 22:35:11]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 22:35:11]
+Initialization strings:
+[INFO -- 2018-11-25 22:35:11]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 22:35:11]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 22:35:11]
+initSignal:0
+[INFO -- 2018-11-25 22:35:11]
+endSignal:2
+[INFO -- 2018-11-25 22:35:11]
+faultModel:3
+[INFO -- 2018-11-25 22:35:12]
+Backtrace BEGIN:
+#0  0x00007ffff7b58dbc in std::istreambuf_iterator<char, std::char_traits<char> > std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char> > >::_M_extract_int<long>(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, std::_Ios_Iostate&, long&) const () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x00007ffff7b479b6 in std::istream::operator>>(int&) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x0000555555557742 in std::istream_iterator<int, char, std::char_traits<char>, long>::_M_read (this=0x7fffffffd960) at /usr/include/c++/7/bits/stream_iterator.h:121
+#3  0x0000555555557ab2 in std::istream_iterator<int, char, std::char_traits<char>, long>::operator++ (this=0x7fffffffd960) at /usr/include/c++/7/bits/stream_iterator.h:95
+#4  0x00005555555579f3 in std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1308
+#5  0x0000555555557882 in std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1299
+#6  0x0000555555557569 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void> (this=0x7fffffffdaa0, __first=..., __last=..., __a=...) at /usr/include/c++/7/bits/stl_vector.h:414
+#7  0x0000555555556bbc in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:660
+#8  0x0000555555556f51 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:711
+
+677	    {
+678	        file1.getline(string1,256);
+679	        file2.getline(string2,256);
+680	        j++;
+681	        if(strcmp(string1,string2) != 0)
+682	        {
+683	            if (fp = fopen(detectLog, "a")) {
+684	                fprintf(fp, "[%d]: %s %s\n",j,string1,string2);
+685	                fclose(fp);
+686	            }
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x600xd90xff0xff0xff0x7f0x000x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x7fffffffd8c8
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x00
+frame name: std::istream_iterator<int, char, std::char_traits<char>, long>::_M_read
+symbol name: this
+symbol filename: BTree_dup.cpp
+symbol line: 0
+value: 0x7fffffffd960
+value address: 0x7fffffffd8c8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 22:35:12]
+Fault Injection Successful after 1.8391270637512207s
+[INFO -- 2018-11-25 22:35:13]
+event type: exit
+[EXCEPTION -- 2018-11-25 22:35:13]
+exit code: no exit code available

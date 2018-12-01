@@ -1,0 +1,63 @@
+[INFO -- 2018-11-25 22:50:46]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 22:50:46]
+Initialization strings:
+[INFO -- 2018-11-25 22:50:46]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 22:50:46]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 22:50:46]
+initSignal:0
+[INFO -- 2018-11-25 22:50:46]
+endSignal:2
+[INFO -- 2018-11-25 22:50:46]
+faultModel:0
+[INFO -- 2018-11-25 22:50:47]
+Backtrace BEGIN:
+#0  0x00005555555565ad in BTreeNode::insertNonFull (this=0x555555e995e0, k=1049833) at BTree_dup.cpp:524
+#1  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555bee480, k=1049833) at BTree_dup.cpp:535
+#2  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ce1f30, k=1049833) at BTree_dup.cpp:535
+#3  0x0000555555556478 in BTree::insert (this=0x7fffffffda50, k=1049833) at BTree_dup.cpp:489
+#4  0x0000555555556c25 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#5  0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+519			// Find the child which is going to have the new key
+520			while (i >= 0 && keys[i] > k)
+521				i--;
+522	
+523			// See if the found child is full
+524			if (C[i+1]->n == 2*t-1)
+525			{
+526				// If the child is full, then split it
+527				splitChild(i+1, C[i+1]);
+528	
+
+Backtrace END
+Fliping value of field: t
+Memory content before bitflip:0x030x000x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffdd48
+address max offset: 4
+Memory content after  bitflip:0x030x000x040x00
+frame name: main
+symbol name: bTree1
+symbol filename: BTree_dup.cpp
+symbol line: 704
+value: {root = 0x555555a2ab30, t = 262147}
+value address: 0x7fffffffdd40
+Type: The type is a structure.
+Type sizeof: 16
+Field name: root
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: t
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+
+[INFO -- 2018-11-25 22:50:47]
+Fault Injection Successful after 1.894510269165039s
+[INFO -- 2018-11-25 22:50:48]
+event type: exit
+[INFO -- 2018-11-25 22:50:48]
+exit code: 0

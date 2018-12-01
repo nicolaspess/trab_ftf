@@ -1,0 +1,53 @@
+[INFO -- 2018-11-25 23:09:34]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 23:09:34]
+Initialization strings:
+[INFO -- 2018-11-25 23:09:34]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 23:09:34]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 23:09:34]
+initSignal:0
+[INFO -- 2018-11-25 23:09:34]
+endSignal:2
+[INFO -- 2018-11-25 23:09:34]
+faultModel:4
+[INFO -- 2018-11-25 23:09:35]
+Backtrace BEGIN:
+#0  0x0000555555557621 in std::vector<int, std::allocator<int> >::operator[] (this=0x7fffffffdaa0, __n=47866) at /usr/include/c++/7/bits/stl_vector.h:798
+#1  0x0000555555556c12 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#2  0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+793	       */
+794	      reference
+795	      operator[](size_type __n) _GLIBCXX_NOEXCEPT
+796	      {
+797		__glibcxx_requires_subscript(__n);
+798		return *(this->_M_impl._M_start + __n);
+799	      }
+800	
+801	      /**
+802	       *  @brief  Subscript access to the data contained in the %vector.
+
+Backtrace END
+Memory content before bitflip:0x050x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdd1c
+address max offset: 4
+Memory content after  bitflip:0x050x000x000x08
+frame name: main
+symbol name: argc
+symbol filename: BTree_dup.cpp
+symbol line: 691
+value: 134217733
+value address: 0x7fffffffdd1c
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-11-25 23:09:35]
+Fault Injection Successful after 1.9074785709381104s
+[INFO -- 2018-11-25 23:09:36]
+event type: exit
+[INFO -- 2018-11-25 23:09:36]
+exit code: 0

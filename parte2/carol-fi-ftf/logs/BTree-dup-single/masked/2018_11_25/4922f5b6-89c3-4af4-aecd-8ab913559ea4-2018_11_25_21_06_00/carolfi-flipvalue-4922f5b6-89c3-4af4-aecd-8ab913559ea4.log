@@ -1,0 +1,57 @@
+[INFO -- 2018-11-25 21:05:57]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 21:05:57]
+Initialization strings:
+[INFO -- 2018-11-25 21:05:57]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 21:05:57]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 21:05:57]
+initSignal:0
+[INFO -- 2018-11-25 21:05:57]
+endSignal:2
+[INFO -- 2018-11-25 21:05:57]
+faultModel:0
+[INFO -- 2018-11-25 21:05:59]
+Backtrace BEGIN:
+#0  0x0000555555556634 in BTreeNode::insertNonFull (this=0x555555e9d570, k=4456372) at BTree_dup.cpp:535
+#1  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555e9d600, k=4456372) at BTree_dup.cpp:535
+#2  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ef6eb0, k=4456372) at BTree_dup.cpp:535
+#3  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ef6e20, k=4456372) at BTree_dup.cpp:535
+#4  0x0000555555556478 in BTree::insert (this=0x7fffffffda50, k=4456372) at BTree_dup.cpp:489
+#5  0x0000555555556c25 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#6  0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+530				// C[i] is splitted into two. See which of the two
+531				// is going to have the new key
+532				if (keys[i+1] < k)
+533					i++;
+534			}
+535			C[i+1]->insertNonFull(k);
+536		}
+537	}
+538	
+539	// A utility function to split the child y of this node
+
+Backtrace END
+Memory content before bitflip:0xb40xff0x430x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffd9c4
+address max offset: 4
+Memory content after  bitflip:0xb40xff0x530x00
+frame name: BTreeNode::insertNonFull
+symbol name: k
+symbol filename: BTree_dup.cpp
+symbol line: 496
+value: 5504948
+value address: 0x7fffffffd9c4
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-11-25 21:05:59]
+Fault Injection Successful after 2.0712602138519287s
+[INFO -- 2018-11-25 21:05:59]
+event type: exit
+[INFO -- 2018-11-25 21:05:59]
+exit code: 0

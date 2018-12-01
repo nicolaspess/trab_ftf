@@ -1,0 +1,57 @@
+[INFO -- 2018-11-25 16:17:48]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 16:17:48]
+Initialization strings:
+[INFO -- 2018-11-25 16:17:48]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 16:17:48]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 16:17:48]
+initSignal:0
+[INFO -- 2018-11-25 16:17:48]
+endSignal:2
+[INFO -- 2018-11-25 16:17:48]
+faultModel:0
+[EXCEPTION -- 2018-11-25 16:17:49]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-11-25 16:17:50]
+Backtrace BEGIN:
+#0  0x00007ffff72a2899 in _IO_acquire_lock_fct (p=<synthetic pointer>) at libioP.h:797
+#1  __GI__IO_fflush (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at iofflush.c:39
+#2  0x00007ffff7b5ef5e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#3  0x0000555555556927 in BTreeNode::traverse (this=0x555555fb4f00) at BTree_dup.cpp:594
+#4  0x00005555555568d7 in BTreeNode::traverse (this=0x555555da9d00) at BTree_dup.cpp:593
+#5  0x00005555555568d7 in BTreeNode::traverse (this=0x555555d65a50) at BTree_dup.cpp:593
+#6  0x00005555555568d7 in BTreeNode::traverse (this=0x555555d66230) at BTree_dup.cpp:593
+#7  0x000055555555695f in BTreeNode::traverse (this=0x555555cffd50) at BTree_dup.cpp:599
+#8  0x000055555555695f in BTreeNode::traverse (this=0x555555dbe3d0) at BTree_dup.cpp:599
+#9  0x00005555555568d7 in BTreeNode::traverse (this=0x555555f9c1e0) at BTree_dup.cpp:593
+#10 0x00005555555568d7 in BTreeNode::traverse (this=0x555555ce1f30) at BTree_dup.cpp:593
+#11 0x00005555555568d7 in BTreeNode::traverse (this=0x555555ef6e20) at BTree_dup.cpp:593
+#12 0x00005555555572bb in BTree::traverse (this=0x7fffffffdd50) at BTree_dup.cpp:139
+#13 0x0000555555556ff9 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:725
+
+792	libioP.h: Arquivo ou diretório inexistente.
+
+Backtrace END
+Memory content before bitflip:0x010x000x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffdafc
+address max offset: 4
+Memory content after  bitflip:0x010x000x400x00
+frame name: BTreeNode::traverse
+symbol name: i
+symbol filename: BTree_dup.cpp
+symbol line: 587
+value: 4194305
+value address: 0x7fffffffdafc
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-11-25 16:17:50]
+Fault Injection Successful after 2.1870527267456055s
+[INFO -- 2018-11-25 16:17:50]
+event type: exit
+[EXCEPTION -- 2018-11-25 16:17:50]
+exit code: no exit code available

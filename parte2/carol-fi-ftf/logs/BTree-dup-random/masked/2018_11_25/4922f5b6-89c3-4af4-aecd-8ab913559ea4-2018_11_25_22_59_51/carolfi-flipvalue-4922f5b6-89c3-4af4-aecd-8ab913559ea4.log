@@ -1,0 +1,65 @@
+[INFO -- 2018-11-25 22:59:45]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 22:59:45]
+Initialization strings:
+[INFO -- 2018-11-25 22:59:45]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 22:59:45]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 22:59:45]
+initSignal:0
+[INFO -- 2018-11-25 22:59:45]
+endSignal:2
+[INFO -- 2018-11-25 22:59:45]
+faultModel:2
+[EXCEPTION -- 2018-11-25 22:59:48]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-11-25 22:59:48]
+Backtrace BEGIN:
+#0  0x000055555555725b in std::_Base_bitset<1ul>::_M_getword (this=0xf) at /usr/include/c++/7/bitset:410
+#1  0x00005555555578fe in std::bitset<16ul>::_Unchecked_test (this=0x7fffffffdb40, __pos=14) at /usr/include/c++/7/bitset:1058
+#2  0x0000555555557681 in std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x7fffffffdb40, __s='0' <repete 16 vezes>, __zero=48 '0', __one=49 '1') at /usr/include/c++/7/bitset:1409
+#3  0x00005555555573d7 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1538
+#4  0x0000555555556912 in BTreeNode::traverse (this=0x555555e5ee70) at BTree_dup.cpp:594
+#5  0x000055555555695f in BTreeNode::traverse (this=0x555555d3a430) at BTree_dup.cpp:599
+#6  0x00005555555568d7 in BTreeNode::traverse (this=0x555556029690) at BTree_dup.cpp:593
+#7  0x000055555555695f in BTreeNode::traverse (this=0x555555d51c80) at BTree_dup.cpp:599
+#8  0x00005555555568d7 in BTreeNode::traverse (this=0x555555d8d170) at BTree_dup.cpp:593
+#9  0x00005555555568d7 in BTreeNode::traverse (this=0x555555ef6eb0) at BTree_dup.cpp:593
+#10 0x000055555555695f in BTreeNode::traverse (this=0x555555ef6e20) at BTree_dup.cpp:599
+#11 0x00005555555572bb in BTree::traverse (this=0x7fffffffdd50) at BTree_dup.cpp:139
+#12 0x0000555555556ff9 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:725
+
+405	      _WordT&
+406	      _M_getword(size_t) _GLIBCXX_NOEXCEPT
+407	      { return _M_w; }
+408	
+409	      _GLIBCXX_CONSTEXPR _WordT
+410	      _M_getword(size_t) const _GLIBCXX_NOEXCEPT
+411	      { return _M_w; }
+412	
+413	#if __cplusplus >= 201103L
+414	      const _WordT*
+
+Backtrace END
+Memory content before bitflip:0x30
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffda7c 
+address max offset: 1
+Memory content after  bitflip:0xe6
+frame name: std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> >
+symbol name: __zero
+symbol filename: /usr/include/c++/7/bitset
+symbol line: 1405
+value: -26 '\346'
+value address: 0x7fffffffda7c "\346\177"
+Type: The type is an integer type.
+Type sizeof: 1
+
+[INFO -- 2018-11-25 22:59:48]
+Fault Injection Successful after 3.8197009563446045s
+[INFO -- 2018-11-25 22:59:48]
+event type: exit
+[INFO -- 2018-11-25 22:59:48]
+exit code: 0

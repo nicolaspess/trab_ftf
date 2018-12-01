@@ -1,0 +1,60 @@
+[INFO -- 2018-11-25 23:57:28]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 23:57:28]
+Initialization strings:
+[INFO -- 2018-11-25 23:57:28]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 23:57:28]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 23:57:28]
+initSignal:0
+[INFO -- 2018-11-25 23:57:28]
+endSignal:2
+[INFO -- 2018-11-25 23:57:28]
+faultModel:4
+[INFO -- 2018-11-25 23:57:30]
+Backtrace BEGIN:
+#0  0x00005555555558ca in BTreeNode::BTreeNode (this=0x555555da8830, t1=3, leaf1=false) at BTree_dup.cpp:165
+#1  0x000055555555667b in BTreeNode::splitChild (this=0x555555d21290, i=0, y=0x555555bfa060) at BTree_dup.cpp:545
+#2  0x00005555555565ed in BTreeNode::insertNonFull (this=0x555555d21290, k=1836955) at BTree_dup.cpp:527
+#3  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555cde6f0, k=1836955) at BTree_dup.cpp:535
+#4  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555c207c0, k=1836955) at BTree_dup.cpp:535
+#5  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555bee480, k=1836955) at BTree_dup.cpp:535
+#6  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555ce1f30, k=1836955) at BTree_dup.cpp:535
+#7  0x0000555555556478 in BTree::insert (this=0x7fffffffda50, k=1836955) at BTree_dup.cpp:489
+#8  0x0000555555556c25 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#9  0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+160		leaf = leaf1;
+161	
+162		// Allocate memory for maximum number of possible keys
+163		// and child pointers
+164		keys = new int[2*t-1];
+165		C = new BTreeNode *[2*t];
+166	
+167		// Initialize the number of keys as 0
+168		n = 0;
+169	}
+
+Backtrace END
+Memory content before bitflip:0x000x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffd94c
+address max offset: 4
+Memory content after  bitflip:0x000x000x000x08
+frame name: BTreeNode::insertNonFull
+symbol name: i
+symbol filename: BTree_dup.cpp
+symbol line: 499
+value: 134217728
+value address: 0x7fffffffd94c
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-11-25 23:57:30]
+Fault Injection Successful after 2.0825862884521484s
+[INFO -- 2018-11-25 23:57:30]
+event type: exit
+[INFO -- 2018-11-25 23:57:30]
+exit code: 0

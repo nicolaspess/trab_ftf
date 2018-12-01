@@ -1,0 +1,124 @@
+[INFO -- 2018-11-25 22:02:08]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 22:02:08]
+Initialization strings:
+[INFO -- 2018-11-25 22:02:08]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 22:02:08]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 22:02:08]
+initSignal:0
+[INFO -- 2018-11-25 22:02:08]
+endSignal:2
+[INFO -- 2018-11-25 22:02:08]
+faultModel:1
+[INFO -- 2018-11-25 22:02:09]
+Backtrace BEGIN:
+#0  0x00007ffff7334154 in __GI___libc_write (fd=1, buf=0x55555576d0d0, nbytes=17) at ../sysdeps/unix/sysv/linux/write.c:27
+#1  0x00007ffff72af1bd in _IO_new_file_write (f=0x7ffff7610760 <_IO_2_1_stdout_>, data=0x55555576d0d0, n=17) at fileops.c:1203
+#2  0x00007ffff72b0f51 in new_do_write (to_do=17, data=0x55555576d0d0 "1101000110101011\n\320vUUU", fp=0x7ffff7610760 <_IO_2_1_stdout_>) at fileops.c:457
+#3  _IO_new_do_write (fp=0x7ffff7610760 <_IO_2_1_stdout_>, data=0x55555576d0d0 "1101000110101011\n\320vUUU", to_do=17) at fileops.c:433
+#4  0x00007ffff72ae788 in _IO_new_file_sync (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at fileops.c:813
+#5  0x00007ffff72a287d in __GI__IO_fflush (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at iofflush.c:40
+#6  0x00007ffff7b5ef5e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#7  0x0000555555556927 in BTreeNode::traverse (this=0x55555581c210) at BTree_dup.cpp:594
+#8  0x00005555555568d7 in BTreeNode::traverse (this=0x555555b14620) at BTree_dup.cpp:593
+#9  0x00005555555568d7 in BTreeNode::traverse (this=0x5555557b3c00) at BTree_dup.cpp:593
+#10 0x00005555555568d7 in BTreeNode::traverse (this=0x555555b21490) at BTree_dup.cpp:593
+#11 0x000055555555695f in BTreeNode::traverse (this=0x555555a778d0) at BTree_dup.cpp:599
+#12 0x00005555555568d7 in BTreeNode::traverse (this=0x555555b76d20) at BTree_dup.cpp:593
+#13 0x00005555555568d7 in BTreeNode::traverse (this=0x555555af22d0) at BTree_dup.cpp:593
+#14 0x00005555555568d7 in BTreeNode::traverse (this=0x555555815c40) at BTree_dup.cpp:593
+#15 0x00005555555568d7 in BTreeNode::traverse (this=0x555555a2ab30) at BTree_dup.cpp:593
+#16 0x00005555555572bb in BTree::traverse (this=0x7fffffffdd40) at BTree_dup.cpp:139
+#17 0x0000555555556fbd in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:718
+
+22	../sysdeps/unix/sysv/linux/write.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping value of field: __close
+Fliping a bit of the pointer
+Memory content before bitflip:0x400xe80x2a0xf70xff0x7f0x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7ffff760c328 
+address max offset: 8
+Memory content after  bitflip:0x400xe80x2a0xf70xff0x7f0x0c0x00
+frame name: _IO_new_file_write
+symbol name: __GI__IO_file_jumps
+symbol filename: fileops.c
+symbol line: 1455
+value: {__dummy = 0, __dummy2 = 0, __finish = 0x7ffff72b0330 <_IO_new_file_finish>, __overflow = 0x7ffff72b1300 <_IO_new_file_overflow>, __underflow = 0x7ffff72b1020 <_IO_new_file_underflow>, __uflow = 0x7ffff72b23c0 <__GI__IO_default_uflow>, __pbackfail = 0x7ffff72b3c50 <__GI__IO_default_pbackfail>, __xsputn = 0x7ffff72af930 <_IO_new_file_xsputn>, __xsgetn = 0x7ffff72af590 <__GI__IO_file_xsgetn>, __seekoff = 0x7ffff72aeb90 <_IO_new_file_seekoff>, __seekpos = 0x7ffff72b2990 <_IO_default_seekpos>, __setbuf = 0x7ffff72ae850 <_IO_new_file_setbuf>, __sync = 0x7ffff72ae6d0 <_IO_new_file_sync>, __doallocate = 0x7ffff72a2100 <__GI__IO_file_doallocate>, __read = 0x7ffff72af910 <__GI__IO_file_read>, __write = 0x7ffff72af190 <_IO_new_file_write>, __seek = 0x7ffff72ae910 <__GI__IO_file_seek>, __close = 0xc7ffff72ae840, __stat = 0x7ffff72af180 <__GI__IO_file_stat>, __showmanyc = 0x7ffff72b3dd0 <_IO_default_showmanyc>, __imbue = 0x7ffff72b3de0 <_IO_default_imbue>}
+value address: 0x7ffff760c2a0 <_IO_file_jumps>
+Type: The type is a structure.
+Type sizeof: 168
+Field name: __dummy
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: __dummy2
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: __finish
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __overflow
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __underflow
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __uflow
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __pbackfail
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __xsputn
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __xsgetn
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __seekoff
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __seekpos
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __setbuf
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __sync
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __doallocate
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __read
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __write
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __seek
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __close
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __stat
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __showmanyc
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __imbue
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+
+[INFO -- 2018-11-25 22:02:09]
+Fault Injection Successful after 1.3825500011444092s
+[INFO -- 2018-11-25 22:02:10]
+event type: exit
+[EXCEPTION -- 2018-11-25 22:02:10]
+exit code: no exit code available

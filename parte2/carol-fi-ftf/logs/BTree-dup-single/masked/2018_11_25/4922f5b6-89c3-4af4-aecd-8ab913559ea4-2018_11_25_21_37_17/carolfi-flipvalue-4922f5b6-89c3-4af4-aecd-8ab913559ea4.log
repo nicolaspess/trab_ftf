@@ -1,0 +1,65 @@
+[INFO -- 2018-11-25 21:37:10]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 21:37:10]
+Initialization strings:
+[INFO -- 2018-11-25 21:37:10]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 21:37:10]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 21:37:10]
+initSignal:0
+[INFO -- 2018-11-25 21:37:10]
+endSignal:2
+[INFO -- 2018-11-25 21:37:10]
+faultModel:0
+[EXCEPTION -- 2018-11-25 21:37:11]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-11-25 21:37:12]
+Backtrace BEGIN:
+#0  0x00007ffff7b58ad7 in std::istreambuf_iterator<char, std::char_traits<char> > std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char> > >::_M_extract_int<long>(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, std::_Ios_Iostate&, long&) const () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x00007ffff7b479b6 in std::istream::operator>>(int&) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x0000555555557742 in std::istream_iterator<int, char, std::char_traits<char>, long>::_M_read (this=0x7fffffffd960) at /usr/include/c++/7/bits/stream_iterator.h:121
+#3  0x0000555555557ab2 in std::istream_iterator<int, char, std::char_traits<char>, long>::operator++ (this=0x7fffffffd960) at /usr/include/c++/7/bits/stream_iterator.h:95
+#4  0x00005555555579f3 in std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1308
+#5  0x0000555555557882 in std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1299
+#6  0x0000555555557569 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void> (this=0x7fffffffdaa0, __first=..., __last=..., __a=...) at /usr/include/c++/7/bits/stl_vector.h:414
+#7  0x0000555555556bbc in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:660
+#8  0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+2284	in rtld.c
+
+Backtrace END
+Fliping value of field: _M_ok
+Memory content before bitflip:0xff
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffd9d4
+address max offset: 1
+Memory content after  bitflip:0xfd
+frame name: std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void>
+symbol name: __last
+symbol filename: /usr/include/c++/7/bits/stl_vector.h
+symbol line: 411
+value: {<std::iterator<std::input_iterator_tag, int, long, int const*, int const&>> = {<No data fields>}, _M_stream = 0x7fffffffda90, _M_value = -9600, _M_ok = 253}
+value address: 0x7fffffffd9c8
+Type: The type is a structure.
+Type sizeof: 16
+Field name: std::iterator<std::input_iterator_tag, int, long, int const*, int const&>
+Field Type: The type is a structure.
+Field Type sizeof: 1
+Field name: _M_stream
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: _M_value
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+Field name: _M_ok
+Field Type: A boolean type.
+Field Type sizeof: 1
+
+[INFO -- 2018-11-25 21:37:12]
+Fault Injection Successful after 2.258268356323242s
+[INFO -- 2018-11-25 21:37:14]
+event type: exit
+[INFO -- 2018-11-25 21:37:14]
+exit code: 0

@@ -1,0 +1,59 @@
+[INFO -- 2018-11-26 00:46:45]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-26 00:46:45]
+Initialization strings:
+[INFO -- 2018-11-26 00:46:45]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-26 00:46:45]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-26 00:46:45]
+initSignal:0
+[INFO -- 2018-11-26 00:46:45]
+endSignal:2
+[INFO -- 2018-11-26 00:46:45]
+faultModel:0
+[INFO -- 2018-11-26 00:46:47]
+Backtrace BEGIN:
+#0  __strcmp_sse2_unaligned () at ../sysdeps/x86_64/multiarch/strcmp-sse2-unaligned.S:33
+#1  0x00007ffff7ae06b0 in __cxxabiv1::__vmi_class_type_info::__do_dyncast(long, __cxxabiv1::__class_type_info::__sub_kind, __cxxabiv1::__class_type_info const*, void const*, __cxxabiv1::__class_type_info const*, void const*, __cxxabiv1::__class_type_info::__dyncast_result&) const () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x00007ffff7add3b6 in __dynamic_cast () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#3  0x00007ffff7b5033b in std::ctype<char> const& std::use_facet<std::ctype<char> >(std::locale const&) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x000055555555738d in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1537
+#5  0x0000555555556912 in BTreeNode::traverse (this=0x5555558d9f00) at BTree_dup.cpp:594
+#6  0x00005555555568d7 in BTreeNode::traverse (this=0x555555a11750) at BTree_dup.cpp:593
+#7  0x00005555555568d7 in BTreeNode::traverse (this=0x555555a8c390) at BTree_dup.cpp:593
+#8  0x00005555555568d7 in BTreeNode::traverse (this=0x555555795210) at BTree_dup.cpp:593
+#9  0x000055555555695f in BTreeNode::traverse (this=0x5555559ea9c0) at BTree_dup.cpp:599
+#10 0x00005555555568d7 in BTreeNode::traverse (this=0x555555acfdd0) at BTree_dup.cpp:593
+#11 0x00005555555568d7 in BTreeNode::traverse (this=0x555555acfef0) at BTree_dup.cpp:593
+#12 0x00005555555568d7 in BTreeNode::traverse (this=0x555555815c40) at BTree_dup.cpp:593
+#13 0x00005555555568d7 in BTreeNode::traverse (this=0x555555a2ab30) at BTree_dup.cpp:593
+#14 0x00005555555572bb in BTree::traverse (this=0x7fffffffdd40) at BTree_dup.cpp:139
+#15 0x0000555555556fbd in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:718
+
+28	../sysdeps/x86_64/multiarch/strcmp-sse2-unaligned.S: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: n
+Memory content before bitflip:0x040x000x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x5555558d9f18
+address max offset: 4
+Memory content after  bitflip:0x040x000x010x00
+frame name: BTreeNode::traverse
+symbol name: this
+symbol filename: BTree_dup.cpp
+symbol line: 0
+value: 0x5555558d9f00
+value address: 0x7fffffffdaa8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-26 00:46:47]
+Fault Injection Successful after 2.160496473312378s
+[INFO -- 2018-11-26 00:46:50]
+event type: exit
+[INFO -- 2018-11-26 00:46:50]
+exit code: 0

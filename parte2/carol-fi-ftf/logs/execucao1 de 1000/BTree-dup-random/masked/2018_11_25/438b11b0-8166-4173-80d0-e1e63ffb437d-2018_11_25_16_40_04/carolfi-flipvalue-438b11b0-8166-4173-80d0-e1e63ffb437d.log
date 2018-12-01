@@ -1,0 +1,69 @@
+[INFO -- 2018-11-25 16:40:02]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 16:40:02]
+Initialization strings:
+[INFO -- 2018-11-25 16:40:02]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 16:40:02]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 16:40:02]
+initSignal:0
+[INFO -- 2018-11-25 16:40:02]
+endSignal:2
+[INFO -- 2018-11-25 16:40:02]
+faultModel:2
+[EXCEPTION -- 2018-11-25 16:40:02]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-11-25 16:40:03]
+Backtrace BEGIN:
+#0  0x00007ffff7af0ad0 in std::locale::id::_M_id() const () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x00007ffff7b50310 in std::ctype<char> const& std::use_facet<std::ctype<char> >(std::locale const&) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x000055555555738d in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1537
+#3  0x0000555555556912 in BTreeNode::traverse (this=0x555555dd5710) at BTree_dup.cpp:594
+#4  0x00005555555568d7 in BTreeNode::traverse (this=0x555555dd8380) at BTree_dup.cpp:593
+#5  0x00005555555568d7 in BTreeNode::traverse (this=0x555555ecd270) at BTree_dup.cpp:593
+#6  0x00005555555568d7 in BTreeNode::traverse (this=0x555555ecda50) at BTree_dup.cpp:593
+#7  0x000055555555695f in BTreeNode::traverse (this=0x555555ffc330) at BTree_dup.cpp:599
+#8  0x00005555555568d7 in BTreeNode::traverse (this=0x555555dbe580) at BTree_dup.cpp:593
+#9  0x00005555555568d7 in BTreeNode::traverse (this=0x555555ce1f30) at BTree_dup.cpp:593
+#10 0x00005555555568d7 in BTreeNode::traverse (this=0x555555ef6e20) at BTree_dup.cpp:593
+#11 0x00005555555572bb in BTree::traverse (this=0x7fffffffdd50) at BTree_dup.cpp:139
+#12 0x0000555555556ff9 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:725
+
+2284	in rtld.c
+
+Backtrace END
+Fliping value of field: _M_string_length
+Memory content before bitflip:0x000x000x000x000x000x000x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffda98
+address max offset: 8
+Memory content after  bitflip:0x7f0xc20x0e0x270xdd0x560x950x43
+frame name: std::operator<< <char, std::char_traits<char>, 16ul>
+symbol name: __tmp
+symbol filename: /usr/include/c++/7/bitset
+symbol line: 1533
+value: "\000\332\377\377\377\177\000\000&sUUUU\000\000\350\231\027\000\000\000\000\000\000\203\325M\220oQdÙ", '\000' <repete 14 vezes>, "\020\333\377\377\377\177\000\000\022iUUUU\000\000`\336\377\377\377\177\000\000\020W\335UUU\000\000\000\000\000\000\000\000\000\000\210\347*\367\002\000\000\000\350\231\000\000\000\000\000\000\000\203\325M\220oQdP\333\377\377\377\177\000\000\327hUUUU\000\000\240\302`\367\377\177\000\000\200\203\335UUU\000\000\060WUUUU\000\000@\240uU\000\000\000\000\220\333\377\377\377\177\000\000\000\203\325M\220oQd\220\333\377\377\377\177\000\000\327hUUUU\000\000`\336\377\377\377\177\000\000"...
+value address: 0x7fffffffda90
+Type: The type is a structure.
+Type sizeof: 32
+Field name: npos
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: _M_dataplus
+Field Type: The type is a structure.
+Field Type sizeof: 8
+Field name: _M_string_length
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: None
+Field Type: The type is a union.
+Field Type sizeof: 16
+
+[INFO -- 2018-11-25 16:40:03]
+Fault Injection Successful after 1.7073049545288086s
+[INFO -- 2018-11-25 16:40:03]
+event type: exit
+[INFO -- 2018-11-25 16:40:03]
+exit code: 0

@@ -1,0 +1,56 @@
+[INFO -- 2018-11-26 00:02:32]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-26 00:02:32]
+Initialization strings:
+[INFO -- 2018-11-26 00:02:32]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-26 00:02:32]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-26 00:02:32]
+initSignal:0
+[INFO -- 2018-11-26 00:02:32]
+endSignal:2
+[INFO -- 2018-11-26 00:02:32]
+faultModel:4
+[EXCEPTION -- 2018-11-26 00:02:33]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-11-26 00:02:34]
+Backtrace BEGIN:
+#0  0x00007ffff7b50300 in std::ctype<char> const& std::use_facet<std::ctype<char> >(std::locale const&) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x000055555555738d in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1537
+#2  0x0000555555556912 in BTreeNode::traverse (this=0x555555ce03a0) at BTree_dup.cpp:594
+#3  0x00005555555568d7 in BTreeNode::traverse (this=0x555555d8c6c0) at BTree_dup.cpp:593
+#4  0x000055555555695f in BTreeNode::traverse (this=0x555555dca040) at BTree_dup.cpp:599
+#5  0x000055555555695f in BTreeNode::traverse (this=0x555555bf7ab0) at BTree_dup.cpp:599
+#6  0x00005555555568d7 in BTreeNode::traverse (this=0x555555fcb160) at BTree_dup.cpp:593
+#7  0x000055555555695f in BTreeNode::traverse (this=0x555555ce1e10) at BTree_dup.cpp:599
+#8  0x00005555555568d7 in BTreeNode::traverse (this=0x555555fbe5c0) at BTree_dup.cpp:593
+#9  0x00005555555568d7 in BTreeNode::traverse (this=0x555555ce1f30) at BTree_dup.cpp:593
+#10 0x00005555555568d7 in BTreeNode::traverse (this=0x555555ef6e20) at BTree_dup.cpp:593
+#11 0x00005555555572bb in BTree::traverse (this=0x7fffffffdd50) at BTree_dup.cpp:139
+#12 0x0000555555556ff9 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:725
+
+2284	in rtld.c
+
+Backtrace END
+Memory content before bitflip:0x010x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdc7c
+address max offset: 4
+Memory content after  bitflip:0x010x000x000x08
+frame name: BTreeNode::traverse
+symbol name: i
+symbol filename: BTree_dup.cpp
+symbol line: 587
+value: 134217729
+value address: 0x7fffffffdc7c
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-11-26 00:02:34]
+Fault Injection Successful after 2.0028247833251953s
+[INFO -- 2018-11-26 00:02:34]
+event type: exit
+[EXCEPTION -- 2018-11-26 00:02:34]
+exit code: no exit code available

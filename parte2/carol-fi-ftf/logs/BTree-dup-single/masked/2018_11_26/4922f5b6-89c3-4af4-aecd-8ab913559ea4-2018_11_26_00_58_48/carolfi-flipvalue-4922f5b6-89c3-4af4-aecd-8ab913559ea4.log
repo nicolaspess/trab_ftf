@@ -1,0 +1,57 @@
+[INFO -- 2018-11-26 00:58:45]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-26 00:58:45]
+Initialization strings:
+[INFO -- 2018-11-26 00:58:45]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-26 00:58:45]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-26 00:58:45]
+initSignal:0
+[INFO -- 2018-11-26 00:58:45]
+endSignal:2
+[INFO -- 2018-11-26 00:58:45]
+faultModel:0
+[EXCEPTION -- 2018-11-26 00:58:46]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-11-26 00:58:47]
+Backtrace BEGIN:
+#0  0x00007ffff7b5eea0 in std::ostream::operator<<(std::ostream& (*)(std::ostream&)) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x0000555555556927 in BTreeNode::traverse (this=0x555555a59240) at BTree_dup.cpp:594
+#2  0x000055555555695f in BTreeNode::traverse (this=0x555555a5b370) at BTree_dup.cpp:599
+#3  0x000055555555695f in BTreeNode::traverse (this=0x5555558474d0) at BTree_dup.cpp:599
+#4  0x000055555555695f in BTreeNode::traverse (this=0x5555557d8b30) at BTree_dup.cpp:599
+#5  0x00005555555568d7 in BTreeNode::traverse (this=0x5555557f3bc0) at BTree_dup.cpp:593
+#6  0x00005555555568d7 in BTreeNode::traverse (this=0x555555ba1f50) at BTree_dup.cpp:593
+#7  0x000055555555695f in BTreeNode::traverse (this=0x555555815cd0) at BTree_dup.cpp:599
+#8  0x000055555555695f in BTreeNode::traverse (this=0x555555815c40) at BTree_dup.cpp:599
+#9  0x00005555555568d7 in BTreeNode::traverse (this=0x555555a2ab30) at BTree_dup.cpp:593
+#10 0x00005555555572bb in BTree::traverse (this=0x7fffffffdd40) at BTree_dup.cpp:139
+#11 0x0000555555556fbd in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:718
+
+2284	in rtld.c
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: t
+Memory content before bitflip:0x030x000x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffdd48
+address max offset: 4
+Memory content after  bitflip:0x030x000x800x00
+frame name: BTree::traverse
+symbol name: this
+symbol filename: BTree_dup.cpp
+symbol line: 0
+value: 0x7fffffffdd40
+value address: 0x7fffffffdce8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-26 00:58:47]
+Fault Injection Successful after 2.0091731548309326s
+[INFO -- 2018-11-26 00:58:47]
+event type: exit
+[INFO -- 2018-11-26 00:58:47]
+exit code: 0

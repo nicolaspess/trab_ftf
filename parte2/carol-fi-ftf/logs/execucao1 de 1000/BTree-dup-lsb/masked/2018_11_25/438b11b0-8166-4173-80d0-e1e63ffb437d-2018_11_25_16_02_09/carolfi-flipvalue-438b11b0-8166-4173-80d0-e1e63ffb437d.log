@@ -1,0 +1,59 @@
+[INFO -- 2018-11-25 16:02:06]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 16:02:06]
+Initialization strings:
+[INFO -- 2018-11-25 16:02:06]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 16:02:06]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 16:02:06]
+initSignal:0
+[INFO -- 2018-11-25 16:02:06]
+endSignal:2
+[INFO -- 2018-11-25 16:02:06]
+faultModel:4
+[INFO -- 2018-11-25 16:02:07]
+Backtrace BEGIN:
+#0  BTreeNode::insertNonFull (this=0x555555bc87d0, k=1901483) at BTree_dup.cpp:507
+#1  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555bc8d70, k=1901483) at BTree_dup.cpp:535
+#2  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555bc90d0, k=1901483) at BTree_dup.cpp:535
+#3  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555bca5a0, k=1901483) at BTree_dup.cpp:535
+#4  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555bbfbc0, k=1901483) at BTree_dup.cpp:535
+#5  0x0000555555556639 in BTreeNode::insertNonFull (this=0x555555bca630, k=1901483) at BTree_dup.cpp:535
+#6  0x0000555555556478 in BTree::insert (this=0x7fffffffda50, k=1901483) at BTree_dup.cpp:489
+#7  0x0000555555556c25 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#8  0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+502		if (leaf == true)
+503		{
+504			// The following loop does two things
+505			// a) Finds the location of new key to be inserted
+506			// b) Moves all greater keys to one place ahead
+507			while (i >= 0 && keys[i] > k)
+508			{
+509				keys[i+1] = keys[i];
+510				i--;
+511			}
+
+Backtrace END
+Memory content before bitflip:0x010x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffd97c
+address max offset: 4
+Memory content after  bitflip:0x010x000x000x02
+frame name: BTreeNode::insertNonFull
+symbol name: i
+symbol filename: BTree_dup.cpp
+symbol line: 499
+value: 33554433
+value address: 0x7fffffffd97c
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-11-25 16:02:07]
+Fault Injection Successful after 1.5868685245513916s
+[INFO -- 2018-11-25 16:02:08]
+event type: exit
+[INFO -- 2018-11-25 16:02:08]
+exit code: 0

@@ -1,0 +1,57 @@
+[INFO -- 2018-11-25 22:02:23]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 22:02:23]
+Initialization strings:
+[INFO -- 2018-11-25 22:02:23]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 22:02:23]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 22:02:23]
+initSignal:0
+[INFO -- 2018-11-25 22:02:23]
+endSignal:2
+[INFO -- 2018-11-25 22:02:23]
+faultModel:1
+[EXCEPTION -- 2018-11-25 22:02:24]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-11-25 22:02:24]
+Backtrace BEGIN:
+#0  0x00007ffff7b5f764 in std::ostream::sentry::~sentry() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x00007ffff7b5fe5a in std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x00005555555573ea in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1539
+#3  0x0000555555556912 in BTreeNode::traverse (this=0x555555a91910) at BTree_dup.cpp:594
+#4  0x000055555555695f in BTreeNode::traverse (this=0x5555559489c0) at BTree_dup.cpp:599
+#5  0x00005555555568d7 in BTreeNode::traverse (this=0x55555594ac10) at BTree_dup.cpp:593
+#6  0x00005555555568d7 in BTreeNode::traverse (this=0x555555857310) at BTree_dup.cpp:593
+#7  0x00005555555568d7 in BTreeNode::traverse (this=0x55555586a3f0) at BTree_dup.cpp:593
+#8  0x00005555555568d7 in BTreeNode::traverse (this=0x5555558f2290) at BTree_dup.cpp:593
+#9  0x00005555555568d7 in BTreeNode::traverse (this=0x555555815c40) at BTree_dup.cpp:593
+#10 0x00005555555568d7 in BTreeNode::traverse (this=0x555555a2ab30) at BTree_dup.cpp:593
+#11 0x00005555555572bb in BTree::traverse (this=0x7fffffffdd40) at BTree_dup.cpp:139
+#12 0x0000555555556fbd in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:718
+
+2284	in rtld.c
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x900x220x8f0x550x550x550x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffdc28
+address max offset: 8
+Memory content after  bitflip:0x900x220x8f0x550x550x550x000x18
+frame name: BTreeNode::traverse
+symbol name: this
+symbol filename: BTree_dup.cpp
+symbol line: 0
+value: 0x5555558f2290
+value address: 0x7fffffffdc28
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-25 22:02:24]
+Fault Injection Successful after 1.8890717029571533s
+[INFO -- 2018-11-25 22:02:25]
+event type: exit
+[EXCEPTION -- 2018-11-25 22:02:25]
+exit code: no exit code available

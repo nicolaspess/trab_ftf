@@ -1,0 +1,67 @@
+[INFO -- 2018-11-26 00:57:10]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-26 00:57:10]
+Initialization strings:
+[INFO -- 2018-11-26 00:57:10]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-26 00:57:10]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-26 00:57:10]
+initSignal:0
+[INFO -- 2018-11-26 00:57:10]
+endSignal:2
+[INFO -- 2018-11-26 00:57:10]
+faultModel:1
+[INFO -- 2018-11-26 00:57:11]
+Backtrace BEGIN:
+#0  0x00007ffff7b4df21 in ?? () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x00007ffff7b59250 in std::istreambuf_iterator<char, std::char_traits<char> > std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char> > >::_M_extract_int<long>(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, std::_Ios_Iostate&, long&) const () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x00007ffff7b479b6 in std::istream::operator>>(int&) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#3  0x0000555555557742 in std::istream_iterator<int, char, std::char_traits<char>, long>::_M_read (this=0x7fffffffd960) at /usr/include/c++/7/bits/stream_iterator.h:121
+#4  0x0000555555557ab2 in std::istream_iterator<int, char, std::char_traits<char>, long>::operator++ (this=0x7fffffffd960) at /usr/include/c++/7/bits/stream_iterator.h:95
+#5  0x00005555555579f3 in std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1308
+#6  0x0000555555557882 in std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdaa0, __first=..., __last=...) at /usr/include/c++/7/bits/stl_vector.h:1299
+#7  0x0000555555557569 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void> (this=0x7fffffffdaa0, __first=..., __last=..., __a=...) at /usr/include/c++/7/bits/stl_vector.h:414
+#8  0x0000555555556bbc in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:660
+#9  0x0000555555556f51 in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:711
+
+687	        }
+688	    }
+689	}
+690	
+691	int main(int argc, char * argv[]) {
+692	
+693	    if (argc != 5){
+694	        cerr << "Uso correto: ./main [input file] [output file] [log file] [output2 file]" << endl;
+695	        return 0;
+696	    }
+
+Backtrace END
+Fliping value of field: std::_Vector_base<int, std::allocator<int> >
+Fliping value of field: _M_impl
+Fliping value of field: _M_start
+Fliping a bit of the pointer
+Memory content before bitflip:0x100xa00xef0xf70xff0x7f0x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffdaa0
+address max offset: 8
+Memory content after  bitflip:0x020xa00xef0xf70xff0x7f0x000x00
+frame name: runner
+symbol name: v_nodes
+symbol filename: BTree_dup.cpp
+symbol line: 660
+value: std::vector of length 90580, capacity 131075 = {0, 268566528, 8, -817233920, -442236912, -1667628998, -2086272949, 1383858202, 915865660, 1125187642, 800981034, 1963262021, -1427111924, 1888419875, 2144469050, 739508294, 544407574, 698613767, -1801388015, 71172154, 1832910864, -885456870, 401670211, -2111897547, 264175641, -316276698, -822673352, 619970612, 1214644253, 226951206, 1232470091, -173342684, 1377239061, -524156921, -829161399, 1996554307, -942276536, -565968848, 817823770, 1532362807, -1257570296, 56950793, 491257865, -859111357, 1989607488, 1784086555, 1175650328, -726990775, 1433665536, -1755643838, 179568706, -2016935921, 166658121, -1127677883, 534446129, 305135667, 1750270003, -578748385, 1356005394, -510590974, 2075197449, -1150222317, -938213302, 1671757878, 1022689306, 586088492, -112132094, 1999831053, -865402870, 1650982963, 365690902, -988741588, 596901911, -1072627679, 1063518221, 1224605702, -1519714245, 662175768, 1295581218, 1477312581, 1081212974, -1021968323, -1744502782, -559480765, -1089929184, 214106144, -338165744, 1470627870, -1804468163, 87621653, 1999110157, -869728238, 1761083463, 1005518900, -1983971282, -874512367, -858652604, -1621688253, -280231903, 639434809, -876937215, 963313694, 650379293, -1848311801, 1123483685, 1283784736, -1889992666, 57868288, -656670651, -1480785855, -1195442144, 479199250, 1257898036, 649723952, -2025848761, -2045050848, -469958622, -1187905502, 1661272083, -729743322, -739508172, 2055929902, -1879048156, -2055471096, -406257600, 735445026, -975896505, -1719402484, -121176038, -404946904, 1891172367, 1619394606, -1038090173, -932184001, -163708900, 1137442823, 1296498747, 505675833, -240648157, -116260838, -1560543200, -185663427, -587464654, -1705443272, 294715455, 1926430757, -569376744, -1411842026, -1745092565, 1050542134, -384565227, 441843717, 732758071, -1621557195, -1230634958, 1145110567, -1391525862, -1463025659, -1713045501, -1958084537, -780992440, -952238036, 579993660, -151453659, -2055667666, 1330053173, -975110084, -1690304441, -218955704, -2122710999, 1078984741, 1516830747, 1812201524, 1242300455, -717946858, -1249968123, -1963720691, 1572339753, -747765692, -305397692, 559874096, 1724973057, -1751908303, -979107766, 2033713198, -1469972453, -373096433, 665321519, 1938096167, 1822818350, -418447310, -279969790, 1966997569, 1294467132, -1434451947, 1526792239, -408813512, 1354366992, -1912078305, -1899757512...}
+value address: 0x7fffffffdaa0
+Type: The type is a structure.
+Type sizeof: 24
+Field name: std::_Vector_base<int, std::allocator<int> >
+Field Type: The type is a structure.
+Field Type sizeof: 24
+
+[INFO -- 2018-11-26 00:57:11]
+Fault Injection Successful after 1.5700645446777344s
+[INFO -- 2018-11-26 00:57:11]
+event type: exit
+[EXCEPTION -- 2018-11-26 00:57:11]
+exit code: no exit code available

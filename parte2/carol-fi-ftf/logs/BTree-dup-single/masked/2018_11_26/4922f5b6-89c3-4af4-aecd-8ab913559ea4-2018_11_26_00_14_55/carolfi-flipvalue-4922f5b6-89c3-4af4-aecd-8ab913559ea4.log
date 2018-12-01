@@ -1,0 +1,56 @@
+[INFO -- 2018-11-26 00:14:49]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-26 00:14:49]
+Initialization strings:
+[INFO -- 2018-11-26 00:14:49]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-26 00:14:49]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-26 00:14:49]
+initSignal:0
+[INFO -- 2018-11-26 00:14:49]
+endSignal:2
+[INFO -- 2018-11-26 00:14:49]
+faultModel:0
+[EXCEPTION -- 2018-11-26 00:14:50]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-11-26 00:14:51]
+Backtrace BEGIN:
+#0  BTree::insert (this=0x7fffffffda50, k=4877894) at BTree_dup.cpp:491
+#1  0x0000555555556c25 in runner (input=0x7fffffffe22a "/tmp/BTree-dup/input_100000") at BTree_dup.cpp:664
+#2  0x0000555555556f7a in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:712
+
+486				root = s;
+487			}
+488			else // If root is not full, call insertNonFull for root
+489				root->insertNonFull(k);
+490		}
+491	}
+492	
+493	// A utility function to insert a new key in this node
+494	// The assumption is, the node must be non-full when this
+495	// function is called
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x2a0xe20xff0xff0xff0x7f0x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffda38
+address max offset: 8
+Memory content after  bitflip:0x2a0xe20xff0xff0xbf0x7f0x000x00
+frame name: runner
+symbol name: input
+symbol filename: BTree_dup.cpp
+symbol line: 653
+value: 0x7fffffffe22a "/tmp/BTree-dup/input_100000"
+value address: 0x7fffffffda38
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-26 00:14:51]
+Fault Injection Successful after 2.2002007961273193s
+[INFO -- 2018-11-26 00:14:52]
+event type: exit
+[INFO -- 2018-11-26 00:14:52]
+exit code: 0

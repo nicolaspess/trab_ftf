@@ -1,0 +1,64 @@
+[INFO -- 2018-11-25 21:57:54]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-25 21:57:54]
+Initialization strings:
+[INFO -- 2018-11-25 21:57:54]
+(1) file /tmp/BTree-dup/main
+[INFO -- 2018-11-25 21:57:54]
+(2)  set args /tmp/BTree-dup/input_100000 /tmp/BTree-dup/output_100000 /tmp/BTree-dup-detection.log /tmp/BTree-dup/output2_100000
+[INFO -- 2018-11-25 21:57:54]
+initSignal:0
+[INFO -- 2018-11-25 21:57:54]
+endSignal:2
+[INFO -- 2018-11-25 21:57:54]
+faultModel:1
+[INFO -- 2018-11-25 21:57:55]
+Backtrace BEGIN:
+#0  0x0000555555557255 in std::_Base_bitset<1ul>::_S_maskbit (__pos=0) at /usr/include/c++/7/bitset:403
+#1  0x000055555555790d in std::bitset<16ul>::_Unchecked_test (this=0x7fffffffdb00, __pos=0) at /usr/include/c++/7/bitset:1058
+#2  0x0000555555557681 in std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x7fffffffdb00, __s="1111000001011000", __zero=48 '0', __one=49 '1') at /usr/include/c++/7/bitset:1409
+#3  0x00005555555573d7 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/7/bitset:1538
+#4  0x0000555555556912 in BTreeNode::traverse (this=0x55555584a530) at BTree_dup.cpp:594
+#5  0x00005555555568d7 in BTreeNode::traverse (this=0x555555865fe0) at BTree_dup.cpp:593
+#6  0x00005555555568d7 in BTreeNode::traverse (this=0x555555874680) at BTree_dup.cpp:593
+#7  0x00005555555568d7 in BTreeNode::traverse (this=0x5555558d5310) at BTree_dup.cpp:593
+#8  0x00005555555568d7 in BTreeNode::traverse (this=0x555555b76d20) at BTree_dup.cpp:593
+#9  0x00005555555568d7 in BTreeNode::traverse (this=0x555555af22d0) at BTree_dup.cpp:593
+#10 0x00005555555568d7 in BTreeNode::traverse (this=0x555555815c40) at BTree_dup.cpp:593
+#11 0x00005555555568d7 in BTreeNode::traverse (this=0x555555a2ab30) at BTree_dup.cpp:593
+#12 0x00005555555572bb in BTree::traverse (this=0x7fffffffdd40) at BTree_dup.cpp:139
+#13 0x0000555555556fbd in main (argc=5, argv=0x7fffffffde68) at BTree_dup.cpp:718
+
+398	      _S_whichbit(size_t __pos) _GLIBCXX_NOEXCEPT
+399	      {  return __pos % _GLIBCXX_BITSET_BITS_PER_WORD; }
+400	
+401	      static _GLIBCXX_CONSTEXPR _WordT
+402	      _S_maskbit(size_t __pos) _GLIBCXX_NOEXCEPT
+403	      { return (static_cast<_WordT>(1)) << _S_whichbit(__pos); }
+404	
+405	      _WordT&
+406	      _M_getword(size_t) _GLIBCXX_NOEXCEPT
+407	      { return _M_w; }
+
+Backtrace END
+Memory content before bitflip:0x30
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffda3c 
+address max offset: 1
+Memory content after  bitflip:0xa0
+frame name: std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> >
+symbol name: __zero
+symbol filename: /usr/include/c++/7/bitset
+symbol line: 1405
+value: -96 '\240'
+value address: 0x7fffffffda3c "\240\177"
+Type: The type is an integer type.
+Type sizeof: 1
+
+[INFO -- 2018-11-25 21:57:55]
+Fault Injection Successful after 1.9417617321014404s
+[INFO -- 2018-11-25 21:57:56]
+event type: exit
+[INFO -- 2018-11-25 21:57:56]
+exit code: 0
