@@ -1,0 +1,48 @@
+[INFO -- 2018-12-01 07:32:47]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 07:32:47]
+Initialization strings:
+[INFO -- 2018-12-01 07:32:47]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 07:32:47]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 07:32:47]
+initSignal:0
+[INFO -- 2018-12-01 07:32:47]
+endSignal:5
+[INFO -- 2018-12-01 07:32:47]
+faultModel:0
+[INFO -- 2018-12-01 07:32:47]
+Backtrace BEGIN:
+#0  _int_malloc (av=av@entry=0x7ffff7e0fc40 <main_arena>, bytes=bytes@entry=24) at malloc.c:4086
+#1  0x00007ffff7cc0c23 in __GI___libc_malloc (bytes=24) at malloc.c:3041
+#2  0x00007ffff7ec2248 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#3  0x0000555555557845 in New_Node (key=1939704) at splay.cpp:112
+#4  0x00005555555578ca in Insert (key=1939704, root=0x55555581efd0) at splay.cpp:136
+#5  0x00005555555564bb in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:31
+
+4081	in malloc.c
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0xd00xef0x810x550x550x550x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffdc48
+address max offset: 8
+Memory content after  bitflip:0xd00xef0x810x5d0x550x550x000x00
+frame name: main
+symbol name: root
+symbol filename: main.cpp
+symbol line: 22
+value: 0x55555581efd0
+value address: 0x7fffffffdc48
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-01 07:32:47]
+Fault Injection Successful after 0.9637420177459717s
+[INFO -- 2018-12-01 07:32:48]
+event type: exit
+[INFO -- 2018-12-01 07:32:48]
+exit code: 0

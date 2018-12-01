@@ -1,0 +1,55 @@
+[INFO -- 2018-11-30 18:00:25]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-30 18:00:25]
+Initialization strings:
+[INFO -- 2018-11-30 18:00:25]
+(1) file /tmp/splay/main
+[INFO -- 2018-11-30 18:00:25]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-11-30 18:00:25]
+initSignal:0
+[INFO -- 2018-11-30 18:00:25]
+endSignal:5
+[INFO -- 2018-11-30 18:00:25]
+faultModel:4
+[INFO -- 2018-11-30 18:00:26]
+Backtrace BEGIN:
+#0  0x0000555555557cab in RR_Rotate (k2=0x55555573eb10) at splay.cpp:18
+#1  0x0000555555557711 in Splay (key=3139471, root=0x55555573eb10) at splay.cpp:66
+#2  0x0000555555557916 in Insert (key=3139471, root=0x55555573f3f0) at splay.cpp:145
+#3  0x00005555555564bb in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:31
+
+13	    X   Y                    Y    Z
+14	*/
+15	inline splay* RR_Rotate(splay* k2)
+16	{
+17		splay* k1 = k2->lchild;
+18		k2->lchild = k1->rchild;
+19		k1->rchild = k2;
+20		return k1;
+21	}
+22	
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x100xf40x730x550x550x550x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x55555555b2a0 
+address max offset: 8
+Memory content after  bitflip:0x100xf40x730x550x550x550x000x08
+frame name: Insert
+symbol name: p_node
+symbol filename: splay.cpp
+symbol line: 134
+value: 0x55555573f410
+value address: 0x55555555b2a0 <Insert(int, splay*)::p_node>
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-30 18:00:26]
+Fault Injection Successful after 1.1501023769378662s
+[INFO -- 2018-11-30 18:00:26]
+event type: exit
+[EXCEPTION -- 2018-11-30 18:00:26]
+exit code: no exit code available

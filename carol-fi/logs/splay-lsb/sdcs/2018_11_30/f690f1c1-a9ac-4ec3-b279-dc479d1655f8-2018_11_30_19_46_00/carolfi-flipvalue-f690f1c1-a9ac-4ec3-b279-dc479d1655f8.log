@@ -1,0 +1,59 @@
+[INFO -- 2018-11-30 19:45:59]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-30 19:45:59]
+Initialization strings:
+[INFO -- 2018-11-30 19:45:59]
+(1) file /tmp/splay/main
+[INFO -- 2018-11-30 19:45:59]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-11-30 19:45:59]
+initSignal:0
+[INFO -- 2018-11-30 19:45:59]
+endSignal:5
+[INFO -- 2018-11-30 19:45:59]
+faultModel:4
+[EXCEPTION -- 2018-11-30 19:45:59]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[EXCEPTION -- 2018-11-30 19:45:59]
+pythonException: empty range for randrange() (0,0, 0)
+[EXCEPTION -- 2018-11-30 19:45:59]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-11-30 19:45:59]
+Backtrace BEGIN:
+#0  Splay (key=1098703, root=0x5555557a4510) at splay.cpp:64
+#1  0x0000555555557916 in Insert (key=1098703, root=0x5555557a6ef0) at splay.cpp:145
+#2  0x00005555555564bb in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:31
+
+59		{
+60			if(key < root->key)
+61			{
+62				if(!root->lchild)
+63					break;
+64				if(key < root->lchild->key)
+65				{
+66					root = RR_Rotate(root); /* only zig-zig mode need to rotate once,
+67											   because zig-zag mode is handled as zig
+68											   mode, which doesn't require rotate, 
+
+Backtrace END
+Memory content before bitflip:0xcf0xc30x100x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdc1c
+address max offset: 4
+Memory content after  bitflip:0xcf0xc30x100x01
+frame name: Insert
+symbol name: key
+symbol filename: splay.cpp
+symbol line: 132
+value: 17875919
+value address: 0x7fffffffdc1c
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-11-30 19:45:59]
+Fault Injection Successful after 0.6239972114562988s
+[INFO -- 2018-11-30 19:45:59]
+event type: exit
+[INFO -- 2018-11-30 19:45:59]
+exit code: 0

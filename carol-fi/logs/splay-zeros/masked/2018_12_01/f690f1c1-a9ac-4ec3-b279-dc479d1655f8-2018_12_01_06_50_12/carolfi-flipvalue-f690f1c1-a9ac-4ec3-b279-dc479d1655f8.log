@@ -1,0 +1,53 @@
+[INFO -- 2018-12-01 06:50:11]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 06:50:11]
+Initialization strings:
+[INFO -- 2018-12-01 06:50:11]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 06:50:11]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 06:50:11]
+initSignal:0
+[INFO -- 2018-12-01 06:50:11]
+endSignal:5
+[INFO -- 2018-12-01 06:50:11]
+faultModel:3
+[INFO -- 2018-12-01 06:50:11]
+Backtrace BEGIN:
+#0  Splay (key=1252756, root=0x55555557faf0) at splay.cpp:89
+#1  0x0000555555557916 in Insert (key=1252756, root=0x5555557c9c30) at splay.cpp:145
+#2  0x00005555555564bb in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:31
+
+84				{
+85					root = LL_Rotate(root);/* only zag-zag mode need to rotate once,
+86											  because zag-zig mode is handled as zag
+87											  mode, which doesn't require rotate, 
+88											  just linking it to L Tree */
+89					if(!root->rchild)
+90						break;
+91				}
+92				/* Link to L Tree */
+93				LeftTreeMax->rchild = root;
+
+Backtrace END
+Memory content before bitflip:0x030x000x000x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x7fffffffdc3c
+address max offset: 4
+Memory content after  bitflip:0x000x000x000x00
+frame name: main
+symbol name: argc
+symbol filename: main.cpp
+symbol line: 14
+value: 0
+value address: 0x7fffffffdc3c
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-12-01 06:50:11]
+Fault Injection Successful after 0.7191345691680908s
+[INFO -- 2018-12-01 06:50:11]
+event type: exit
+[INFO -- 2018-12-01 06:50:11]
+exit code: 0

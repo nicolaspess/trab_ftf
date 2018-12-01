@@ -1,0 +1,87 @@
+[INFO -- 2018-12-01 13:12:29]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 13:12:29]
+Initialization strings:
+[INFO -- 2018-12-01 13:12:29]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 13:12:29]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 13:12:29]
+initSignal:0
+[INFO -- 2018-12-01 13:12:29]
+endSignal:5
+[INFO -- 2018-12-01 13:12:29]
+faultModel:4
+[EXCEPTION -- 2018-12-01 13:12:29]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-12-01 13:12:30]
+Backtrace BEGIN:
+#0  0x00007ffff7d34fd4 in __GI___libc_write (fd=1, buf=0x55555587dcf0, nbytes=17) at ../sysdeps/unix/sysv/linux/write.c:26
+#1  0x00007ffff7cb633d in _IO_new_file_write (f=0x7ffff7e10760 <_IO_2_1_stdout_>, data=0x55555587dcf0, n=17) at fileops.c:1183
+#2  0x00007ffff7cb7a71 in new_do_write (to_do=17, data=0x55555587dcf0 "1101100011011110\n", fp=0x7ffff7e10760 <_IO_2_1_stdout_>) at libioP.h:839
+#3  _IO_new_do_write (fp=0x7ffff7e10760 <_IO_2_1_stdout_>, data=0x55555587dcf0 "1101100011011110\n", to_do=17) at fileops.c:433
+#4  0x00007ffff7cb56f8 in _IO_new_file_sync (fp=0x7ffff7e10760 <_IO_2_1_stdout_>) at fileops.c:819
+#5  0x00007ffff7caa32d in __GI__IO_fflush (fp=0x7ffff7e10760 <_IO_2_1_stdout_>) at libioP.h:839
+#6  0x00007ffff7f4201e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#7  0x0000555555557afd in InOrder (root=0x555555579210) at splay.cpp:253
+#8  0x0000555555557abd in InOrder (root=0x5555555f2f30) at splay.cpp:252
+#9  0x0000555555557b0d in InOrder (root=0x55555557c670) at splay.cpp:254
+#10 0x0000555555557b0d in InOrder (root=0x5555557064f0) at splay.cpp:254
+#11 0x0000555555557abd in InOrder (root=0x555555786470) at splay.cpp:252
+#12 0x0000555555557b0d in InOrder (root=0x5555558113b0) at splay.cpp:254
+#13 0x0000555555557abd in InOrder (root=0x555555698d90) at splay.cpp:252
+#14 0x0000555555557b0d in InOrder (root=0x5555556ea010) at splay.cpp:254
+#15 0x0000555555557b0d in InOrder (root=0x555555658530) at splay.cpp:254
+#16 0x0000555555557abd in InOrder (root=0x555555854430) at splay.cpp:252
+#17 0x0000555555557abd in InOrder (root=0x5555556961d0) at splay.cpp:252
+#18 0x0000555555557abd in InOrder (root=0x555555668ed0) at splay.cpp:252
+#19 0x0000555555557abd in InOrder (root=0x555555866670) at splay.cpp:252
+#20 0x0000555555557abd in InOrder (root=0x555555704d70) at splay.cpp:252
+#21 0x0000555555557abd in InOrder (root=0x55555576eaf0) at splay.cpp:252
+#22 0x0000555555557b0d in InOrder (root=0x555555867d50) at splay.cpp:254
+#23 0x0000555555557b0d in InOrder (root=0x5555555e9c50) at splay.cpp:254
+#24 0x0000555555557abd in InOrder (root=0x55555586f870) at splay.cpp:252
+#25 0x0000555555557abd in InOrder (root=0x5555556a8190) at splay.cpp:252
+#26 0x0000555555557b0d in InOrder (root=0x555555876df0) at splay.cpp:254
+#27 0x0000555555557b0d in InOrder (root=0x5555556d5eb0) at splay.cpp:254
+#28 0x0000555555557abd in InOrder (root=0x5555558762b0) at splay.cpp:252
+#29 0x0000555555557b0d in InOrder (root=0x5555557d3eb0) at splay.cpp:254
+#30 0x0000555555557abd in InOrder (root=0x555555573c10) at splay.cpp:252
+#31 0x0000555555557abd in InOrder (root=0x55555587acb0) at splay.cpp:252
+#32 0x0000555555557abd in InOrder (root=0x5555555e1a70) at splay.cpp:252
+#33 0x0000555555557abd in InOrder (root=0x5555555c09f0) at splay.cpp:252
+#34 0x0000555555557abd in InOrder (root=0x55555587d3f0) at splay.cpp:252
+#35 0x0000555555557b0d in InOrder (root=0x555555652510) at splay.cpp:254
+#36 0x0000555555557abd in InOrder (root=0x55555587d5d0) at splay.cpp:252
+#37 0x0000555555557b0d in InOrder (root=0x55555587d5b0) at splay.cpp:254
+#38 0x0000555555557abd in InOrder (root=0x5555556732d0) at splay.cpp:252
+#39 0x0000555555557abd in InOrder (root=0x555555693810) at splay.cpp:252
+#40 0x0000555555557b0d in InOrder (root=0x555555634c10) at splay.cpp:254
+#41 0x0000555555557b0d in InOrder (root=0x55555587dcd0) at splay.cpp:254
+#42 0x00005555555564fe in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:35
+
+21	in ../sysdeps/unix/sysv/linux/write.c
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x100x920x570x550x550x550x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffd5a8
+address max offset: 8
+Memory content after  bitflip:0x100x920x570x550x550x550x000x02
+frame name: InOrder
+symbol name: root
+symbol filename: splay.cpp
+symbol line: 248
+value: 0x555555579210
+value address: 0x7fffffffd5a8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-01 13:12:30]
+Fault Injection Successful after 1.0368995666503906s
+[INFO -- 2018-12-01 13:12:30]
+event type: exit
+[EXCEPTION -- 2018-12-01 13:12:30]
+exit code: no exit code available

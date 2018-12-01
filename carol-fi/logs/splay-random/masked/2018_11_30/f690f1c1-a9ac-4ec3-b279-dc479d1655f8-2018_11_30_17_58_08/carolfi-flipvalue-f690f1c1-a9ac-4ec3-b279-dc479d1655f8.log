@@ -1,0 +1,76 @@
+[INFO -- 2018-11-30 17:58:07]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-30 17:58:07]
+Initialization strings:
+[INFO -- 2018-11-30 17:58:07]
+(1) file /tmp/splay/main
+[INFO -- 2018-11-30 17:58:07]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-11-30 17:58:07]
+initSignal:0
+[INFO -- 2018-11-30 17:58:07]
+endSignal:5
+[INFO -- 2018-11-30 17:58:07]
+faultModel:2
+[EXCEPTION -- 2018-11-30 17:58:07]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[EXCEPTION -- 2018-11-30 17:58:07]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-11-30 17:58:08]
+Backtrace BEGIN:
+#0  0x00007ffff7d34fd4 in __GI___libc_write (fd=1, buf=0x55555587dcf0, nbytes=17) at ../sysdeps/unix/sysv/linux/write.c:26
+#1  0x00007ffff7cb633d in _IO_new_file_write (f=0x7ffff7e10760 <_IO_2_1_stdout_>, data=0x55555587dcf0, n=17) at fileops.c:1183
+#2  0x00007ffff7cb7a71 in new_do_write (to_do=17, data=0x55555587dcf0 "0101011110110010\n", fp=0x7ffff7e10760 <_IO_2_1_stdout_>) at libioP.h:839
+#3  _IO_new_do_write (fp=0x7ffff7e10760 <_IO_2_1_stdout_>, data=0x55555587dcf0 "0101011110110010\n", to_do=17) at fileops.c:433
+#4  0x00007ffff7cb56f8 in _IO_new_file_sync (fp=0x7ffff7e10760 <_IO_2_1_stdout_>) at fileops.c:819
+#5  0x00007ffff7caa32d in __GI__IO_fflush (fp=0x7ffff7e10760 <_IO_2_1_stdout_>) at libioP.h:839
+#6  0x00007ffff7f4201e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#7  0x0000555555557afd in InOrder (root=0x555555823950) at splay.cpp:253
+#8  0x0000555555557abd in InOrder (root=0x55555585cab0) at splay.cpp:252
+#9  0x0000555555557abd in InOrder (root=0x55555585e5b0) at splay.cpp:252
+#10 0x0000555555557abd in InOrder (root=0x555555860850) at splay.cpp:252
+#11 0x0000555555557b0d in InOrder (root=0x55555581cc90) at splay.cpp:254
+#12 0x0000555555557b0d in InOrder (root=0x5555558646d0) at splay.cpp:254
+#13 0x0000555555557abd in InOrder (root=0x55555561cfd0) at splay.cpp:252
+#14 0x0000555555557b0d in InOrder (root=0x555555870a50) at splay.cpp:254
+#15 0x0000555555557b0d in InOrder (root=0x55555587d9d0) at splay.cpp:254
+#16 0x0000555555557b0d in InOrder (root=0x5555555d7910) at splay.cpp:254
+#17 0x0000555555557b0d in InOrder (root=0x55555587d8d0) at splay.cpp:254
+#18 0x0000555555557b0d in InOrder (root=0x5555557cfed0) at splay.cpp:254
+#19 0x0000555555557b0d in InOrder (root=0x555555774190) at splay.cpp:254
+#20 0x0000555555557b0d in InOrder (root=0x555555774870) at splay.cpp:254
+#21 0x0000555555557abd in InOrder (root=0x55555587dcb0) at splay.cpp:252
+#22 0x0000555555557b0d in InOrder (root=0x555555693810) at splay.cpp:254
+#23 0x0000555555557b0d in InOrder (root=0x555555634c10) at splay.cpp:254
+#24 0x0000555555557b0d in InOrder (root=0x55555587dcd0) at splay.cpp:254
+#25 0x00005555555564fe in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:35
+
+21	in ../sysdeps/unix/sysv/linux/write.c
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: rchild
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: lchild
+Fliping a bit of the pointer
+Memory content before bitflip:0x000x000x000x000x000x000x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x55555581cc98
+address max offset: 8
+Memory content after  bitflip:0xb50xd80x8d0xed0xc30x580x9f0x8c
+frame name: InOrder
+symbol name: root
+symbol filename: splay.cpp
+symbol line: 248
+value: 0x5555558646d0
+value address: 0x7fffffffd9c8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-30 17:58:08]
+Fault Injection Successful after 1.0211694240570068s
+[INFO -- 2018-11-30 17:58:08]
+event type: exit
+[INFO -- 2018-11-30 17:58:08]
+exit code: 0

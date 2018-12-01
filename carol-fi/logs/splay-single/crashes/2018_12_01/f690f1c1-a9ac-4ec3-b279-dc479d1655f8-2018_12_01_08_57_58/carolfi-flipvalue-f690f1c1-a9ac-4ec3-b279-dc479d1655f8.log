@@ -1,0 +1,86 @@
+[INFO -- 2018-12-01 08:57:57]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 08:57:57]
+Initialization strings:
+[INFO -- 2018-12-01 08:57:57]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 08:57:57]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 08:57:57]
+initSignal:0
+[INFO -- 2018-12-01 08:57:57]
+endSignal:5
+[INFO -- 2018-12-01 08:57:57]
+faultModel:0
+[EXCEPTION -- 2018-12-01 08:57:57]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-12-01 08:57:57]
+Backtrace BEGIN:
+#0  0x0000555555557f30 in std::bitset<16ul>::_Unchecked_test (this=0x7fffffffd6d0, __pos=6) at /usr/include/c++/8/bitset:1063
+#1  0x0000555555557eb3 in std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x7fffffffd6d0, __s="0101100010000000", __zero=48 '0', __one=49 '1') at /usr/include/c++/8/bitset:1413
+#2  0x0000555555557ded in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/8/bitset:1542
+#3  0x0000555555557ae8 in InOrder (root=0x5555555b2910) at splay.cpp:253
+#4  0x0000555555557abd in InOrder (root=0x55555576e6f0) at splay.cpp:252
+#5  0x0000555555557b0d in InOrder (root=0x5555555dfeb0) at splay.cpp:254
+#6  0x0000555555557b0d in InOrder (root=0x555555820690) at splay.cpp:254
+#7  0x0000555555557b0d in InOrder (root=0x5555557eb4f0) at splay.cpp:254
+#8  0x0000555555557abd in InOrder (root=0x555555705170) at splay.cpp:252
+#9  0x0000555555557abd in InOrder (root=0x555555834550) at splay.cpp:252
+#10 0x0000555555557b0d in InOrder (root=0x555555839770) at splay.cpp:254
+#11 0x0000555555557b0d in InOrder (root=0x5555555c5a90) at splay.cpp:254
+#12 0x0000555555557abd in InOrder (root=0x555555858470) at splay.cpp:252
+#13 0x0000555555557abd in InOrder (root=0x5555557fbf10) at splay.cpp:252
+#14 0x0000555555557b0d in InOrder (root=0x555555860b30) at splay.cpp:254
+#15 0x0000555555557b0d in InOrder (root=0x5555556763d0) at splay.cpp:254
+#16 0x0000555555557b0d in InOrder (root=0x555555762d90) at splay.cpp:254
+#17 0x0000555555557abd in InOrder (root=0x5555558745d0) at splay.cpp:252
+#18 0x0000555555557abd in InOrder (root=0x5555556c0630) at splay.cpp:252
+#19 0x0000555555557b0d in InOrder (root=0x555555874290) at splay.cpp:254
+#20 0x0000555555557abd in InOrder (root=0x555555875c90) at splay.cpp:252
+#21 0x0000555555557abd in InOrder (root=0x5555558799d0) at splay.cpp:252
+#22 0x0000555555557abd in InOrder (root=0x55555587cf10) at splay.cpp:252
+#23 0x0000555555557b0d in InOrder (root=0x55555566e6b0) at splay.cpp:254
+#24 0x0000555555557abd in InOrder (root=0x5555555d0d10) at splay.cpp:252
+#25 0x0000555555557b0d in InOrder (root=0x55555587d430) at splay.cpp:254
+#26 0x0000555555557b0d in InOrder (root=0x5555556f88b0) at splay.cpp:254
+#27 0x0000555555557b0d in InOrder (root=0x55555574fdf0) at splay.cpp:254
+#28 0x0000555555557abd in InOrder (root=0x555555683210) at splay.cpp:252
+#29 0x0000555555557abd in InOrder (root=0x55555587dc90) at splay.cpp:252
+#30 0x0000555555557abd in InOrder (root=0x555555696ef0) at splay.cpp:252
+#31 0x0000555555557abd in InOrder (root=0x55555587dcd0) at splay.cpp:252
+#32 0x00005555555564fe in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:35
+
+1058	      }
+1059	
+1060	      _GLIBCXX_CONSTEXPR bool
+1061	      _Unchecked_test(size_t __pos) const _GLIBCXX_NOEXCEPT
+1062	      { return ((this->_M_getword(__pos) & _Base::_S_maskbit(__pos))
+1063			!= static_cast<_WordT>(0)); }
+1064	      //@}
+1065	
+1066	      // Set, reset, and flip.
+1067	      /**
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x300x060x6c0x550x550x550x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffd998
+address max offset: 8
+Memory content after  bitflip:0x300x060x6c0x550x550x550x000x08
+frame name: InOrder
+symbol name: root
+symbol filename: splay.cpp
+symbol line: 248
+value: 0x5555556c0630
+value address: 0x7fffffffd998
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-01 08:57:57]
+Fault Injection Successful after 0.9240498542785645s
+[INFO -- 2018-12-01 08:57:58]
+event type: exit
+[EXCEPTION -- 2018-12-01 08:57:58]
+exit code: no exit code available

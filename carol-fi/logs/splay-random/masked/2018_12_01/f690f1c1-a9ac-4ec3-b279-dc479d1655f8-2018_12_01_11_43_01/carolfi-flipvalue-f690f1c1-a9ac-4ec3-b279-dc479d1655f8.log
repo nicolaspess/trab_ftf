@@ -1,0 +1,91 @@
+[INFO -- 2018-12-01 11:43:00]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 11:43:00]
+Initialization strings:
+[INFO -- 2018-12-01 11:43:00]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 11:43:00]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 11:43:00]
+initSignal:0
+[INFO -- 2018-12-01 11:43:00]
+endSignal:5
+[INFO -- 2018-12-01 11:43:00]
+faultModel:2
+[INFO -- 2018-12-01 11:43:00]
+Backtrace BEGIN:
+#0  0x00007ffff7d34fd4 in __GI___libc_write (fd=1, buf=0x55555587dcf0, nbytes=17) at ../sysdeps/unix/sysv/linux/write.c:26
+#1  0x00007ffff7cb633d in _IO_new_file_write (f=0x7ffff7e10760 <_IO_2_1_stdout_>, data=0x55555587dcf0, n=17) at fileops.c:1183
+#2  0x00007ffff7cb7a71 in new_do_write (to_do=17, data=0x55555587dcf0 "0011011111011100\n", fp=0x7ffff7e10760 <_IO_2_1_stdout_>) at libioP.h:839
+#3  _IO_new_do_write (fp=0x7ffff7e10760 <_IO_2_1_stdout_>, data=0x55555587dcf0 "0011011111011100\n", to_do=17) at fileops.c:433
+#4  0x00007ffff7cb56f8 in _IO_new_file_sync (fp=0x7ffff7e10760 <_IO_2_1_stdout_>) at fileops.c:819
+#5  0x00007ffff7caa32d in __GI__IO_fflush (fp=0x7ffff7e10760 <_IO_2_1_stdout_>) at libioP.h:839
+#6  0x00007ffff7f4201e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#7  0x0000555555557afd in InOrder (root=0x5555556b4470) at splay.cpp:253
+#8  0x0000555555557abd in InOrder (root=0x55555557a990) at splay.cpp:252
+#9  0x0000555555557b0d in InOrder (root=0x555555672750) at splay.cpp:254
+#10 0x0000555555557b0d in InOrder (root=0x5555555828d0) at splay.cpp:254
+#11 0x0000555555557b0d in InOrder (root=0x5555556ebcd0) at splay.cpp:254
+#12 0x0000555555557b0d in InOrder (root=0x55555560fc90) at splay.cpp:254
+#13 0x0000555555557abd in InOrder (root=0x555555646370) at splay.cpp:252
+#14 0x0000555555557abd in InOrder (root=0x555555849070) at splay.cpp:252
+#15 0x0000555555557b0d in InOrder (root=0x555555848630) at splay.cpp:254
+#16 0x0000555555557abd in InOrder (root=0x555555852d30) at splay.cpp:252
+#17 0x0000555555557abd in InOrder (root=0x55555578a750) at splay.cpp:252
+#18 0x0000555555557b0d in InOrder (root=0x555555872210) at splay.cpp:254
+#19 0x0000555555557abd in InOrder (root=0x55555586fd90) at splay.cpp:252
+#20 0x0000555555557b0d in InOrder (root=0x55555569bb70) at splay.cpp:254
+#21 0x0000555555557abd in InOrder (root=0x5555556211d0) at splay.cpp:252
+#22 0x0000555555557b0d in InOrder (root=0x5555556456d0) at splay.cpp:254
+#23 0x0000555555557abd in InOrder (root=0x5555558736d0) at splay.cpp:252
+#24 0x0000555555557b0d in InOrder (root=0x55555558a270) at splay.cpp:254
+#25 0x0000555555557b0d in InOrder (root=0x555555815a50) at splay.cpp:254
+#26 0x0000555555557abd in InOrder (root=0x5555557bfc10) at splay.cpp:252
+#27 0x0000555555557b0d in InOrder (root=0x55555587a430) at splay.cpp:254
+#28 0x0000555555557abd in InOrder (root=0x55555587b550) at splay.cpp:252
+#29 0x0000555555557abd in InOrder (root=0x55555564f1d0) at splay.cpp:252
+#30 0x0000555555557b0d in InOrder (root=0x55555587ccf0) at splay.cpp:254
+#31 0x0000555555557abd in InOrder (root=0x5555557cf250) at splay.cpp:252
+#32 0x0000555555557b0d in InOrder (root=0x5555555ccd90) at splay.cpp:254
+#33 0x0000555555557abd in InOrder (root=0x555555788630) at splay.cpp:252
+#34 0x0000555555557abd in InOrder (root=0x55555587d570) at splay.cpp:252
+#35 0x0000555555557b0d in InOrder (root=0x55555587d6b0) at splay.cpp:254
+#36 0x0000555555557abd in InOrder (root=0x5555556e1d70) at splay.cpp:252
+#37 0x0000555555557b0d in InOrder (root=0x5555555852d0) at splay.cpp:254
+#38 0x0000555555557abd in InOrder (root=0x55555587d9d0) at splay.cpp:252
+#39 0x0000555555557b0d in InOrder (root=0x5555555d7910) at splay.cpp:254
+#40 0x0000555555557b0d in InOrder (root=0x55555587d8d0) at splay.cpp:254
+#41 0x0000555555557b0d in InOrder (root=0x5555557cfed0) at splay.cpp:254
+#42 0x0000555555557b0d in InOrder (root=0x555555774190) at splay.cpp:254
+#43 0x0000555555557b0d in InOrder (root=0x555555774870) at splay.cpp:254
+#44 0x0000555555557abd in InOrder (root=0x55555587dcb0) at splay.cpp:252
+#45 0x0000555555557b0d in InOrder (root=0x555555693810) at splay.cpp:254
+#46 0x0000555555557b0d in InOrder (root=0x555555634c10) at splay.cpp:254
+#47 0x0000555555557b0d in InOrder (root=0x55555587dcd0) at splay.cpp:254
+#48 0x00005555555564fe in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:35
+
+21	in ../sysdeps/unix/sysv/linux/write.c
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x700x480x770x550x550x550x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffdb48
+address max offset: 8
+Memory content after  bitflip:0x680x250x7f0x250x370xc90x120x3a
+frame name: InOrder
+symbol name: root
+symbol filename: splay.cpp
+symbol line: 248
+value: 0x555555774870
+value address: 0x7fffffffdb48
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-01 11:43:00]
+Fault Injection Successful after 0.8861217498779297s
+[INFO -- 2018-12-01 11:43:00]
+event type: exit
+[INFO -- 2018-12-01 11:43:00]
+exit code: 0

@@ -1,0 +1,55 @@
+[INFO -- 2018-12-01 00:38:14]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 00:38:14]
+Initialization strings:
+[INFO -- 2018-12-01 00:38:14]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 00:38:14]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 00:38:14]
+initSignal:0
+[INFO -- 2018-12-01 00:38:14]
+endSignal:5
+[INFO -- 2018-12-01 00:38:14]
+faultModel:4
+[EXCEPTION -- 2018-12-01 00:38:15]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-12-01 00:38:15]
+Backtrace BEGIN:
+#0  Splay (key=3132978, root=0x5555555a34f0) at splay.cpp:75
+#1  0x0000555555557916 in Insert (key=3132978, root=0x555555649270) at splay.cpp:145
+#2  0x00005555555564bb in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:31
+
+70					if(!root->lchild)
+71						break;
+72				}
+73				/* Link to R Tree */
+74				RightTreeMin->lchild = root;
+75				RightTreeMin = RightTreeMin->lchild;
+76				root = root->lchild;
+77				RightTreeMin->lchild = NULL;
+78			}
+79			else if(key > root->key)
+
+Backtrace END
+Memory content before bitflip:0x320xce0x2f0x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdbcc
+address max offset: 4
+Memory content after  bitflip:0x320xce0x2f0x80
+frame name: Splay
+symbol name: key
+symbol filename: splay.cpp
+symbol line: 43
+value: -2144350670
+value address: 0x7fffffffdbcc
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-12-01 00:38:15]
+Fault Injection Successful after 1.2656993865966797s
+[INFO -- 2018-12-01 00:38:15]
+event type: exit
+[INFO -- 2018-12-01 00:38:15]
+exit code: 0

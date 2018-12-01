@@ -1,0 +1,87 @@
+[INFO -- 2018-11-30 16:37:25]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-30 16:37:25]
+Initialization strings:
+[INFO -- 2018-11-30 16:37:25]
+(1) file /tmp/splay/main
+[INFO -- 2018-11-30 16:37:25]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-11-30 16:37:25]
+initSignal:0
+[INFO -- 2018-11-30 16:37:25]
+endSignal:5
+[INFO -- 2018-11-30 16:37:25]
+faultModel:2
+[INFO -- 2018-11-30 16:37:26]
+Backtrace BEGIN:
+#0  0x0000555555557ab5 in InOrder (root=0x5555556e7c30) at splay.cpp:252
+#1  0x0000555555557abd in InOrder (root=0x555555782b90) at splay.cpp:252
+#2  0x0000555555557b0d in InOrder (root=0x5555557c1c70) at splay.cpp:254
+#3  0x0000555555557abd in InOrder (root=0x5555556bffb0) at splay.cpp:252
+#4  0x0000555555557abd in InOrder (root=0x555555573330) at splay.cpp:252
+#5  0x0000555555557abd in InOrder (root=0x55555581fb10) at splay.cpp:252
+#6  0x0000555555557b0d in InOrder (root=0x555555792e70) at splay.cpp:254
+#7  0x0000555555557b0d in InOrder (root=0x5555558250f0) at splay.cpp:254
+#8  0x0000555555557b0d in InOrder (root=0x5555558335d0) at splay.cpp:254
+#9  0x0000555555557b0d in InOrder (root=0x55555583c830) at splay.cpp:254
+#10 0x0000555555557b0d in InOrder (root=0x55555567cd90) at splay.cpp:254
+#11 0x0000555555557b0d in InOrder (root=0x555555840e30) at splay.cpp:254
+#12 0x0000555555557b0d in InOrder (root=0x5555556bba10) at splay.cpp:254
+#13 0x0000555555557abd in InOrder (root=0x55555580cf10) at splay.cpp:252
+#14 0x0000555555557b0d in InOrder (root=0x55555584fa90) at splay.cpp:254
+#15 0x0000555555557abd in InOrder (root=0x555555768a30) at splay.cpp:252
+#16 0x0000555555557abd in InOrder (root=0x555555858510) at splay.cpp:252
+#17 0x0000555555557abd in InOrder (root=0x555555697430) at splay.cpp:252
+#18 0x0000555555557abd in InOrder (root=0x55555584ef90) at splay.cpp:252
+#19 0x0000555555557abd in InOrder (root=0x55555587cd50) at splay.cpp:252
+#20 0x0000555555557b0d in InOrder (root=0x5555556dbef0) at splay.cpp:254
+#21 0x0000555555557b0d in InOrder (root=0x55555587d7f0) at splay.cpp:254
+#22 0x0000555555557b0d in InOrder (root=0x555555645730) at splay.cpp:254
+#23 0x0000555555557abd in InOrder (root=0x5555557992b0) at splay.cpp:252
+#24 0x0000555555557b0d in InOrder (root=0x55555587db30) at splay.cpp:254
+#25 0x0000555555557abd in InOrder (root=0x55555587da30) at splay.cpp:252
+#26 0x0000555555557abd in InOrder (root=0x55555587dbb0) at splay.cpp:252
+#27 0x0000555555557abd in InOrder (root=0x5555557cfed0) at splay.cpp:252
+#28 0x0000555555557b0d in InOrder (root=0x555555774190) at splay.cpp:254
+#29 0x0000555555557b0d in InOrder (root=0x555555774870) at splay.cpp:254
+#30 0x0000555555557abd in InOrder (root=0x55555587dcb0) at splay.cpp:252
+#31 0x0000555555557b0d in InOrder (root=0x555555693810) at splay.cpp:254
+#32 0x0000555555557b0d in InOrder (root=0x555555634c10) at splay.cpp:254
+#33 0x0000555555557b0d in InOrder (root=0x55555587dcd0) at splay.cpp:254
+#34 0x00005555555564fe in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:35
+
+247	
+248	void InOrder(splay* root)
+249	{
+250		if(root)
+251		{
+252			InOrder(root->lchild);
+253			std::cout<<std::bitset<16>(root->key)<<std::endl;
+254			InOrder(root->rchild);
+255		}
+256	}
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: key
+Memory content before bitflip:0x0b0x660x440x00
+Fault Model: Random bit-flip
+base address to flip value: 0x55555587dcb0
+address max offset: 4
+Memory content after  bitflip:0x770x3a0x530x0f
+frame name: InOrder
+symbol name: root
+symbol filename: splay.cpp
+symbol line: 248
+value: 0x55555587dcb0
+value address: 0x7fffffffdb78
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-30 16:37:26]
+Fault Injection Successful after 1.2664883136749268s
+[INFO -- 2018-11-30 16:37:26]
+event type: exit
+[INFO -- 2018-11-30 16:37:26]
+exit code: 0

@@ -1,0 +1,53 @@
+[INFO -- 2018-11-30 20:26:11]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-30 20:26:11]
+Initialization strings:
+[INFO -- 2018-11-30 20:26:11]
+(1) file /tmp/splay/main
+[INFO -- 2018-11-30 20:26:11]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-11-30 20:26:11]
+initSignal:0
+[INFO -- 2018-11-30 20:26:11]
+endSignal:5
+[INFO -- 2018-11-30 20:26:11]
+faultModel:1
+[INFO -- 2018-11-30 20:26:12]
+Backtrace BEGIN:
+#0  0x00005555555564aa in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:31
+
+26	    std::istream_iterator<KEY_TYPE> start(is), end;
+27	    std::vector<KEY_TYPE> v_nodes(start, end);
+28	
+29	    //insere na arvore
+30	    for(int i = 0; i < v_nodes.size(); i++)
+31	        root = Insert(v_nodes[i], root);
+32	
+33	    //salva print da saida em arquivo output
+34	    freopen(argv[2],"w",stdout);
+35	    InOrder(root);
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping a bit of the pointer
+Memory content before bitflip:0x060xe30xff0xff0xff0x7f0x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffdfb8
+address max offset: 8
+Memory content after  bitflip:0x060xe30xff0x3f0xff0x7f0x000x00
+frame name: main
+symbol name: argv
+symbol filename: main.cpp
+symbol line: 14
+value: 0x7fffffffdfb8
+value address: 0x7fffffffdc30
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-30 20:26:12]
+Fault Injection Successful after 1.1116771697998047s
+[INFO -- 2018-11-30 20:26:12]
+event type: exit
+[INFO -- 2018-11-30 20:26:12]
+exit code: 0

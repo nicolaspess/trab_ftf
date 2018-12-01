@@ -1,0 +1,81 @@
+[INFO -- 2018-12-01 09:57:16]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 09:57:16]
+Initialization strings:
+[INFO -- 2018-12-01 09:57:17]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 09:57:17]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 09:57:17]
+initSignal:0
+[INFO -- 2018-12-01 09:57:17]
+endSignal:5
+[INFO -- 2018-12-01 09:57:17]
+faultModel:1
+[EXCEPTION -- 2018-12-01 09:57:17]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-12-01 09:57:17]
+Backtrace BEGIN:
+#0  0x0000555555557c79 in std::_Base_bitset<1ul>::_S_maskbit (__pos=8) at /usr/include/c++/8/bitset:407
+#1  0x0000555555557f21 in std::bitset<16ul>::_Unchecked_test (this=0x7fffffffd850, __pos=8) at /usr/include/c++/8/bitset:1062
+#2  0x0000555555557eb3 in std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x7fffffffd850, __s="10011", '0' <repeats 11 times>, __zero=48 '0', __one=49 '1') at /usr/include/c++/8/bitset:1413
+#3  0x0000555555557ded in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/8/bitset:1542
+#4  0x0000555555557ae8 in InOrder (root=0x555555758350) at splay.cpp:253
+#5  0x0000555555557abd in InOrder (root=0x555555846690) at splay.cpp:252
+#6  0x0000555555557b0d in InOrder (root=0x555555865e10) at splay.cpp:254
+#7  0x0000555555557b0d in InOrder (root=0x555555876c50) at splay.cpp:254
+#8  0x0000555555557abd in InOrder (root=0x555555873830) at splay.cpp:252
+#9  0x0000555555557b0d in InOrder (root=0x5555555c3330) at splay.cpp:254
+#10 0x0000555555557b0d in InOrder (root=0x55555578bc90) at splay.cpp:254
+#11 0x0000555555557abd in InOrder (root=0x555555774eb0) at splay.cpp:252
+#12 0x0000555555557b0d in InOrder (root=0x5555558781f0) at splay.cpp:254
+#13 0x0000555555557b0d in InOrder (root=0x55555587a190) at splay.cpp:254
+#14 0x0000555555557abd in InOrder (root=0x5555558788d0) at splay.cpp:252
+#15 0x0000555555557b0d in InOrder (root=0x55555587c830) at splay.cpp:254
+#16 0x0000555555557abd in InOrder (root=0x55555571a7f0) at splay.cpp:252
+#17 0x0000555555557b0d in InOrder (root=0x55555571f9b0) at splay.cpp:254
+#18 0x0000555555557b0d in InOrder (root=0x55555587d890) at splay.cpp:254
+#19 0x0000555555557abd in InOrder (root=0x55555587dbd0) at splay.cpp:252
+#20 0x0000555555557b0d in InOrder (root=0x55555568bd90) at splay.cpp:254
+#21 0x0000555555557b0d in InOrder (root=0x55555587dcb0) at splay.cpp:254
+#22 0x0000555555557b0d in InOrder (root=0x555555693810) at splay.cpp:254
+#23 0x0000555555557b0d in InOrder (root=0x555555634c10) at splay.cpp:254
+#24 0x0000555555557b0d in InOrder (root=0x55555587dcd0) at splay.cpp:254
+#25 0x00005555555564fe in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:35
+
+402	      _S_whichbit(size_t __pos) _GLIBCXX_NOEXCEPT
+403	      {  return __pos % _GLIBCXX_BITSET_BITS_PER_WORD; }
+404	
+405	      static _GLIBCXX_CONSTEXPR _WordT
+406	      _S_maskbit(size_t __pos) _GLIBCXX_NOEXCEPT
+407	      { return (static_cast<_WordT>(1)) << _S_whichbit(__pos); }
+408	
+409	      _WordT&
+410	      _M_getword(size_t) _GLIBCXX_NOEXCEPT
+411	      { return _M_w; }
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: lchild
+Fliping a bit of the pointer
+Memory content before bitflip:0x900xbc0x780x550x550x550x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x555555774eb8
+address max offset: 8
+Memory content after  bitflip:0x900xbc0x780x550x550x550x000x09
+frame name: InOrder
+symbol name: root
+symbol filename: splay.cpp
+symbol line: 248
+value: 0x555555774eb0
+value address: 0x7fffffffd998
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-01 09:57:17]
+Fault Injection Successful after 0.977668285369873s
+[INFO -- 2018-12-01 09:57:17]
+event type: exit
+[INFO -- 2018-12-01 09:57:17]
+exit code: 0

@@ -1,0 +1,57 @@
+[INFO -- 2018-11-30 23:14:05]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-30 23:14:05]
+Initialization strings:
+[INFO -- 2018-11-30 23:14:05]
+(1) file /tmp/splay/main
+[INFO -- 2018-11-30 23:14:05]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-11-30 23:14:05]
+initSignal:0
+[INFO -- 2018-11-30 23:14:05]
+endSignal:5
+[INFO -- 2018-11-30 23:14:05]
+faultModel:4
+[INFO -- 2018-11-30 23:14:05]
+Backtrace BEGIN:
+#0  RR_Rotate (k2=0x55555575ea50) at splay.cpp:17
+#1  0x0000555555557711 in Splay (key=4809625, root=0x55555575ea50) at splay.cpp:66
+#2  0x0000555555557916 in Insert (key=4809625, root=0x5555558150d0) at splay.cpp:145
+#3  0x00005555555564bb in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:31
+
+12	     / \                      /  \
+13	    X   Y                    Y    Z
+14	*/
+15	inline splay* RR_Rotate(splay* k2)
+16	{
+17		splay* k1 = k2->lchild;
+18		k2->lchild = k1->rchild;
+19		k1->rchild = k2;
+20		return k1;
+21	}
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: lchild
+Fliping a bit of the pointer
+Memory content before bitflip:0x700x300x7a0x550x550x550x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x55555575ea58
+address max offset: 8
+Memory content after  bitflip:0x700x300x7a0x550x550x550x000x02
+frame name: RR_Rotate
+symbol name: k2
+symbol filename: splay.cpp
+symbol line: 15
+value: 0x55555575ea50
+value address: 0x7fffffffdb98
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-30 23:14:05]
+Fault Injection Successful after 0.7894606590270996s
+[INFO -- 2018-11-30 23:14:05]
+event type: exit
+[EXCEPTION -- 2018-11-30 23:14:05]
+exit code: no exit code available

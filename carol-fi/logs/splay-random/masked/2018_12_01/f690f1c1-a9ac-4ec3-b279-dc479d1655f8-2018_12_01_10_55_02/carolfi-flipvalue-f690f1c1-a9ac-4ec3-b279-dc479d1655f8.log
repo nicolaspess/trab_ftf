@@ -1,0 +1,86 @@
+[INFO -- 2018-12-01 10:55:00]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 10:55:00]
+Initialization strings:
+[INFO -- 2018-12-01 10:55:00]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 10:55:00]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 10:55:00]
+initSignal:0
+[INFO -- 2018-12-01 10:55:00]
+endSignal:5
+[INFO -- 2018-12-01 10:55:00]
+faultModel:2
+[INFO -- 2018-12-01 10:55:01]
+Backtrace BEGIN:
+#0  0x00007ffff7f566a4 in std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x0000555555557e00 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/8/bitset:1543
+#2  0x0000555555557ae8 in InOrder (root=0x5555556e6ff0) at splay.cpp:253
+#3  0x0000555555557b0d in InOrder (root=0x55555584ee30) at splay.cpp:254
+#4  0x0000555555557abd in InOrder (root=0x555555861110) at splay.cpp:252
+#5  0x0000555555557abd in InOrder (root=0x5555556e6ef0) at splay.cpp:252
+#6  0x0000555555557abd in InOrder (root=0x5555555a08d0) at splay.cpp:252
+#7  0x0000555555557b0d in InOrder (root=0x5555558693f0) at splay.cpp:254
+#8  0x0000555555557abd in InOrder (root=0x5555558742f0) at splay.cpp:252
+#9  0x0000555555557b0d in InOrder (root=0x55555566cc30) at splay.cpp:254
+#10 0x0000555555557b0d in InOrder (root=0x555555875f10) at splay.cpp:254
+#11 0x0000555555557abd in InOrder (root=0x55555587a430) at splay.cpp:252
+#12 0x0000555555557abd in InOrder (root=0x55555587b550) at splay.cpp:252
+#13 0x0000555555557abd in InOrder (root=0x55555564f1d0) at splay.cpp:252
+#14 0x0000555555557b0d in InOrder (root=0x55555587ccf0) at splay.cpp:254
+#15 0x0000555555557abd in InOrder (root=0x5555557cf250) at splay.cpp:252
+#16 0x0000555555557b0d in InOrder (root=0x5555555ccd90) at splay.cpp:254
+#17 0x0000555555557abd in InOrder (root=0x555555788630) at splay.cpp:252
+#18 0x0000555555557abd in InOrder (root=0x55555587d570) at splay.cpp:252
+#19 0x0000555555557b0d in InOrder (root=0x55555587d6b0) at splay.cpp:254
+#20 0x0000555555557abd in InOrder (root=0x5555556e1d70) at splay.cpp:252
+#21 0x0000555555557b0d in InOrder (root=0x5555555852d0) at splay.cpp:254
+#22 0x0000555555557abd in InOrder (root=0x55555587d9d0) at splay.cpp:252
+#23 0x0000555555557b0d in InOrder (root=0x5555555d7910) at splay.cpp:254
+#24 0x0000555555557b0d in InOrder (root=0x55555587d8d0) at splay.cpp:254
+#25 0x0000555555557b0d in InOrder (root=0x5555557cfed0) at splay.cpp:254
+#26 0x0000555555557b0d in InOrder (root=0x555555774190) at splay.cpp:254
+#27 0x0000555555557b0d in InOrder (root=0x555555774870) at splay.cpp:254
+#28 0x0000555555557abd in InOrder (root=0x55555587dcb0) at splay.cpp:252
+#29 0x0000555555557b0d in InOrder (root=0x555555693810) at splay.cpp:254
+#30 0x0000555555557b0d in InOrder (root=0x555555634c10) at splay.cpp:254
+#31 0x0000555555557b0d in InOrder (root=0x55555587dcd0) at splay.cpp:254
+#32 0x00005555555564fe in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:35
+
+1	#include "splay.h"
+2	#include <iostream>
+3	
+4	#include <algorithm>    // std::random_shuffle
+5	#include <vector>       // std::vector
+6	#include <cstdlib>      // std::rand, std::srand
+7	#include <cstdio>
+8	
+9	#include <iterator>
+10	#include <fstream>
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: rchild
+Fliping a bit of the pointer
+Memory content before bitflip:0x500xf20x7c0x550x550x550x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x5555555ccda0
+address max offset: 8
+Memory content after  bitflip:0xae0x260x890x3e0x020x530x590x0b
+frame name: InOrder
+symbol name: root
+symbol filename: splay.cpp
+symbol line: 248
+value: 0x5555555ccd90
+value address: 0x7fffffffd938
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-01 10:55:01]
+Fault Injection Successful after 1.8830864429473877s
+[INFO -- 2018-12-01 10:55:01]
+event type: exit
+[INFO -- 2018-12-01 10:55:01]
+exit code: 0

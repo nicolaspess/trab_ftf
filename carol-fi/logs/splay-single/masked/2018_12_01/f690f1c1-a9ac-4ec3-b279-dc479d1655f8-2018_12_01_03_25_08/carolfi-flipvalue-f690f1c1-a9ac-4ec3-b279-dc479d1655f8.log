@@ -1,0 +1,88 @@
+[INFO -- 2018-12-01 03:25:06]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 03:25:06]
+Initialization strings:
+[INFO -- 2018-12-01 03:25:06]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 03:25:06]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 03:25:06]
+initSignal:0
+[INFO -- 2018-12-01 03:25:06]
+endSignal:5
+[INFO -- 2018-12-01 03:25:06]
+faultModel:0
+[INFO -- 2018-12-01 03:25:07]
+Backtrace BEGIN:
+#0  0x0000555555557bfd in std::ctype<char>::widen (this=0x7ffff7fb70a0, __c=49 '1') at /usr/include/c++/8/bits/locale_facets.h:875
+#1  0x0000555555557dc4 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/8/bitset:1542
+#2  0x0000555555557ae8 in InOrder (root=0x555555741730) at splay.cpp:253
+#3  0x0000555555557b0d in InOrder (root=0x55555571e230) at splay.cpp:254
+#4  0x0000555555557b0d in InOrder (root=0x55555563f7b0) at splay.cpp:254
+#5  0x0000555555557abd in InOrder (root=0x555555750990) at splay.cpp:252
+#6  0x0000555555557abd in InOrder (root=0x55555564ed90) at splay.cpp:252
+#7  0x0000555555557b0d in InOrder (root=0x5555555892d0) at splay.cpp:254
+#8  0x0000555555557b0d in InOrder (root=0x5555557b9870) at splay.cpp:254
+#9  0x0000555555557b0d in InOrder (root=0x555555850c70) at splay.cpp:254
+#10 0x0000555555557abd in InOrder (root=0x555555702270) at splay.cpp:252
+#11 0x0000555555557abd in InOrder (root=0x55555586ce30) at splay.cpp:252
+#12 0x0000555555557abd in InOrder (root=0x555555871890) at splay.cpp:252
+#13 0x0000555555557abd in InOrder (root=0x5555558185d0) at splay.cpp:252
+#14 0x0000555555557b0d in InOrder (root=0x555555876890) at splay.cpp:254
+#15 0x0000555555557abd in InOrder (root=0x555555878f90) at splay.cpp:252
+#16 0x0000555555557abd in InOrder (root=0x555555842f10) at splay.cpp:252
+#17 0x0000555555557b0d in InOrder (root=0x5555557c2ad0) at splay.cpp:254
+#18 0x0000555555557b0d in InOrder (root=0x55555587a070) at splay.cpp:254
+#19 0x0000555555557b0d in InOrder (root=0x555555770670) at splay.cpp:254
+#20 0x0000555555557b0d in InOrder (root=0x55555587a710) at splay.cpp:254
+#21 0x0000555555557abd in InOrder (root=0x5555556168f0) at splay.cpp:252
+#22 0x0000555555557abd in InOrder (root=0x55555587ac30) at splay.cpp:252
+#23 0x0000555555557b0d in InOrder (root=0x55555587be10) at splay.cpp:254
+#24 0x0000555555557b0d in InOrder (root=0x5555557180f0) at splay.cpp:254
+#25 0x0000555555557b0d in InOrder (root=0x55555587ce70) at splay.cpp:254
+#26 0x0000555555557abd in InOrder (root=0x55555587d5f0) at splay.cpp:252
+#27 0x0000555555557abd in InOrder (root=0x55555570e5f0) at splay.cpp:252
+#28 0x0000555555557b0d in InOrder (root=0x55555572ac10) at splay.cpp:254
+#29 0x0000555555557b0d in InOrder (root=0x555555748390) at splay.cpp:254
+#30 0x0000555555557b0d in InOrder (root=0x55555587dbf0) at splay.cpp:254
+#31 0x0000555555557b0d in InOrder (root=0x55555587dc90) at splay.cpp:254
+#32 0x0000555555557abd in InOrder (root=0x555555696ef0) at splay.cpp:252
+#33 0x0000555555557abd in InOrder (root=0x55555587dcd0) at splay.cpp:252
+#34 0x00005555555564fe in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:35
+
+870	      */
+871	      char_type
+872	      widen(char __c) const
+873	      {
+874		if (_M_widen_ok)
+875		  return _M_widen[static_cast<unsigned char>(__c)];
+876		this->_M_widen_init();
+877		return this->do_widen(__c);
+878	      }
+879	
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: rchild
+Fliping a bit of the pointer
+Memory content before bitflip:0xd00x920x580x550x550x550x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x5555557b9880
+address max offset: 8
+Memory content after  bitflip:0xd00x920x580xd50x550x550x000x00
+frame name: InOrder
+symbol name: root
+symbol filename: splay.cpp
+symbol line: 248
+value: 0x5555557b9870
+value address: 0x7fffffffd758
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-01 03:25:07]
+Fault Injection Successful after 1.6314756870269775s
+[INFO -- 2018-12-01 03:25:07]
+event type: exit
+[INFO -- 2018-12-01 03:25:07]
+exit code: 0

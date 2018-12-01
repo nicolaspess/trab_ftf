@@ -1,0 +1,90 @@
+[INFO -- 2018-12-01 05:33:25]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 05:33:25]
+Initialization strings:
+[INFO -- 2018-12-01 05:33:25]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 05:33:25]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 05:33:25]
+initSignal:0
+[INFO -- 2018-12-01 05:33:25]
+endSignal:5
+[INFO -- 2018-12-01 05:33:25]
+faultModel:4
+[EXCEPTION -- 2018-12-01 05:33:26]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-12-01 05:33:26]
+Backtrace BEGIN:
+#0  0x0000555555557bf8 in std::ctype<char>::widen (this=0x7ffff7fb70a0, __c=49 '1') at /usr/include/c++/8/bits/locale_facets.h:875
+#1  0x0000555555557dc4 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/8/bitset:1542
+#2  0x0000555555557ae8 in InOrder (root=0x555555667730) at splay.cpp:253
+#3  0x0000555555557abd in InOrder (root=0x55555560cfb0) at splay.cpp:252
+#4  0x0000555555557abd in InOrder (root=0x55555574d8d0) at splay.cpp:252
+#5  0x0000555555557b0d in InOrder (root=0x5555555761b0) at splay.cpp:254
+#6  0x0000555555557b0d in InOrder (root=0x5555557bda70) at splay.cpp:254
+#7  0x0000555555557abd in InOrder (root=0x5555557c78b0) at splay.cpp:252
+#8  0x0000555555557abd in InOrder (root=0x55555562e870) at splay.cpp:252
+#9  0x0000555555557abd in InOrder (root=0x5555557904d0) at splay.cpp:252
+#10 0x0000555555557abd in InOrder (root=0x555555862950) at splay.cpp:252
+#11 0x0000555555557abd in InOrder (root=0x555555706710) at splay.cpp:252
+#12 0x0000555555557b0d in InOrder (root=0x55555586e9b0) at splay.cpp:254
+#13 0x0000555555557b0d in InOrder (root=0x555555870d50) at splay.cpp:254
+#14 0x0000555555557b0d in InOrder (root=0x555555879630) at splay.cpp:254
+#15 0x0000555555557b0d in InOrder (root=0x555555879ef0) at splay.cpp:254
+#16 0x0000555555557b0d in InOrder (root=0x5555556d24f0) at splay.cpp:254
+#17 0x0000555555557abd in InOrder (root=0x55555587a6b0) at splay.cpp:252
+#18 0x0000555555557abd in InOrder (root=0x5555556e5210) at splay.cpp:252
+#19 0x0000555555557b0d in InOrder (root=0x5555555e2fb0) at splay.cpp:254
+#20 0x0000555555557abd in InOrder (root=0x55555587a810) at splay.cpp:252
+#21 0x0000555555557b0d in InOrder (root=0x5555556b0df0) at splay.cpp:254
+#22 0x0000555555557abd in InOrder (root=0x55555579a3d0) at splay.cpp:252
+#23 0x0000555555557abd in InOrder (root=0x55555587ca30) at splay.cpp:252
+#24 0x0000555555557abd in InOrder (root=0x55555587cb90) at splay.cpp:252
+#25 0x0000555555557abd in InOrder (root=0x55555569cd70) at splay.cpp:252
+#26 0x0000555555557b0d in InOrder (root=0x555555651630) at splay.cpp:254
+#27 0x0000555555557b0d in InOrder (root=0x55555587d470) at splay.cpp:254
+#28 0x0000555555557abd in InOrder (root=0x55555587d530) at splay.cpp:252
+#29 0x0000555555557b0d in InOrder (root=0x5555555cec10) at splay.cpp:254
+#30 0x0000555555557abd in InOrder (root=0x5555556f88b0) at splay.cpp:252
+#31 0x0000555555557b0d in InOrder (root=0x55555574fdf0) at splay.cpp:254
+#32 0x0000555555557abd in InOrder (root=0x555555683210) at splay.cpp:252
+#33 0x0000555555557abd in InOrder (root=0x55555587dc90) at splay.cpp:252
+#34 0x0000555555557abd in InOrder (root=0x555555696ef0) at splay.cpp:252
+#35 0x0000555555557abd in InOrder (root=0x55555587dcd0) at splay.cpp:252
+#36 0x00005555555564fe in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:35
+
+870	      */
+871	      char_type
+872	      widen(char __c) const
+873	      {
+874		if (_M_widen_ok)
+875		  return _M_widen[static_cast<unsigned char>(__c)];
+876		this->_M_widen_init();
+877		return this->do_widen(__c);
+878	      }
+879	
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x500x0d0x870x550x550x550x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffd7e8
+address max offset: 8
+Memory content after  bitflip:0x500x0d0x870x550x550x550x000x10
+frame name: InOrder
+symbol name: root
+symbol filename: splay.cpp
+symbol line: 248
+value: 0x555555870d50
+value address: 0x7fffffffd7e8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-01 05:33:26]
+Fault Injection Successful after 1.48193359375s
+[INFO -- 2018-12-01 05:33:26]
+event type: exit
+[INFO -- 2018-12-01 05:33:26]
+exit code: 0

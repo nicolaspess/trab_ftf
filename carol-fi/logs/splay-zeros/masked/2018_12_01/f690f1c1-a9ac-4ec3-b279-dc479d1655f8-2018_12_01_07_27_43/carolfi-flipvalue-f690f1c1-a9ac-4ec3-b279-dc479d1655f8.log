@@ -1,0 +1,72 @@
+[INFO -- 2018-12-01 07:27:42]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 07:27:42]
+Initialization strings:
+[INFO -- 2018-12-01 07:27:42]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 07:27:42]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 07:27:42]
+initSignal:0
+[INFO -- 2018-12-01 07:27:42]
+endSignal:5
+[INFO -- 2018-12-01 07:27:42]
+faultModel:3
+[EXCEPTION -- 2018-12-01 07:27:42]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-12-01 07:27:42]
+Backtrace BEGIN:
+#0  0x0000555555557ab5 in InOrder (root=0x5555556ffff0) at splay.cpp:252
+#1  0x0000555555557abd in InOrder (root=0x55555586ea70) at splay.cpp:252
+#2  0x0000555555557b0d in InOrder (root=0x5555555bced0) at splay.cpp:254
+#3  0x0000555555557abd in InOrder (root=0x55555587ac90) at splay.cpp:252
+#4  0x0000555555557b0d in InOrder (root=0x55555587cb90) at splay.cpp:254
+#5  0x0000555555557abd in InOrder (root=0x55555569cd70) at splay.cpp:252
+#6  0x0000555555557b0d in InOrder (root=0x555555651630) at splay.cpp:254
+#7  0x0000555555557b0d in InOrder (root=0x55555587d470) at splay.cpp:254
+#8  0x0000555555557abd in InOrder (root=0x55555587d530) at splay.cpp:252
+#9  0x0000555555557b0d in InOrder (root=0x5555555cec10) at splay.cpp:254
+#10 0x0000555555557abd in InOrder (root=0x5555556f88b0) at splay.cpp:252
+#11 0x0000555555557b0d in InOrder (root=0x55555574fdf0) at splay.cpp:254
+#12 0x0000555555557abd in InOrder (root=0x555555683210) at splay.cpp:252
+#13 0x0000555555557abd in InOrder (root=0x55555587dc90) at splay.cpp:252
+#14 0x0000555555557abd in InOrder (root=0x555555696ef0) at splay.cpp:252
+#15 0x0000555555557abd in InOrder (root=0x55555587dcd0) at splay.cpp:252
+#16 0x00005555555564fe in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:35
+
+247	
+248	void InOrder(splay* root)
+249	{
+250		if(root)
+251		{
+252			InOrder(root->lchild);
+253			std::cout<<std::bitset<16>(root->key)<<std::endl;
+254			InOrder(root->rchild);
+255		}
+256	}
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: rchild
+Fliping a bit of the pointer
+Memory content before bitflip:0xb00x880x6f0x550x550x550x000x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x55555574fe00
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x00
+frame name: InOrder
+symbol name: root
+symbol filename: splay.cpp
+symbol line: 248
+value: 0x55555574fdf0
+value address: 0x7fffffffdb48
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-01 07:27:42]
+Fault Injection Successful after 0.789548397064209s
+[INFO -- 2018-12-01 07:27:42]
+event type: exit
+[INFO -- 2018-12-01 07:27:42]
+exit code: 0

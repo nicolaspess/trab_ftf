@@ -1,0 +1,97 @@
+[INFO -- 2018-11-30 21:03:45]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-30 21:03:45]
+Initialization strings:
+[INFO -- 2018-11-30 21:03:45]
+(1) file /tmp/splay/main
+[INFO -- 2018-11-30 21:03:45]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-11-30 21:03:45]
+initSignal:0
+[INFO -- 2018-11-30 21:03:45]
+endSignal:5
+[INFO -- 2018-11-30 21:03:45]
+faultModel:2
+[EXCEPTION -- 2018-11-30 21:03:46]
+gdbException: Cannot access memory at address 0xef1f8833db662155
+[INFO -- 2018-11-30 21:03:46]
+Backtrace BEGIN:
+#0  0x00007ffff7d34fd4 in __GI___libc_write (fd=1, buf=0x55555587dcf0, nbytes=17) at ../sysdeps/unix/sysv/linux/write.c:26
+#1  0x00007ffff7cb633d in _IO_new_file_write (f=0x7ffff7e10760 <_IO_2_1_stdout_>, data=0x55555587dcf0, n=17) at fileops.c:1183
+#2  0x00007ffff7cb7a71 in new_do_write (to_do=17, data=0x55555587dcf0 "0011000011100100\n", fp=0x7ffff7e10760 <_IO_2_1_stdout_>) at libioP.h:839
+#3  _IO_new_do_write (fp=0x7ffff7e10760 <_IO_2_1_stdout_>, data=0x55555587dcf0 "0011000011100100\n", to_do=17) at fileops.c:433
+#4  0x00007ffff7cb56f8 in _IO_new_file_sync (fp=0x7ffff7e10760 <_IO_2_1_stdout_>) at fileops.c:819
+#5  0x00007ffff7caa32d in __GI__IO_fflush (fp=0x7ffff7e10760 <_IO_2_1_stdout_>) at libioP.h:839
+#6  0x00007ffff7f4201e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#7  0x0000555555557afd in InOrder (root=0x5555556c3a10) at splay.cpp:253
+#8  0x0000555555557b0d in InOrder (root=0x55555558b830) at splay.cpp:254
+#9  0x0000555555557abd in InOrder (root=0x55555570dfb0) at splay.cpp:252
+#10 0x0000555555557abd in InOrder (root=0x555555669750) at splay.cpp:252
+#11 0x0000555555557b0d in InOrder (root=0x555555712210) at splay.cpp:254
+#12 0x0000555555557b0d in InOrder (root=0x5555556ab0f0) at splay.cpp:254
+#13 0x0000555555557abd in InOrder (root=0x55555570d750) at splay.cpp:252
+#14 0x0000555555557abd in InOrder (root=0x5555557ec1d0) at splay.cpp:252
+#15 0x0000555555557b0d in InOrder (root=0x55555580a3b0) at splay.cpp:254
+#16 0x0000555555557abd in InOrder (root=0x55555573a6b0) at splay.cpp:252
+#17 0x0000555555557b0d in InOrder (root=0x55555585ef50) at splay.cpp:254
+#18 0x0000555555557b0d in InOrder (root=0x5555556d6590) at splay.cpp:254
+#19 0x0000555555557abd in InOrder (root=0x5555556fe050) at splay.cpp:252
+#20 0x0000555555557b0d in InOrder (root=0x555555709290) at splay.cpp:254
+#21 0x0000555555557abd in InOrder (root=0x555555787af0) at splay.cpp:252
+#22 0x0000555555557abd in InOrder (root=0x555555870990) at splay.cpp:252
+#23 0x0000555555557abd in InOrder (root=0x555555857b30) at splay.cpp:252
+#24 0x0000555555557abd in InOrder (root=0x55555567a6f0) at splay.cpp:252
+#25 0x0000555555557abd in InOrder (root=0x555555723710) at splay.cpp:252
+#26 0x0000555555557abd in InOrder (root=0x555555873f10) at splay.cpp:252
+#27 0x0000555555557b0d in InOrder (root=0x555555572db0) at splay.cpp:254
+#28 0x0000555555557b0d in InOrder (root=0x555555874c30) at splay.cpp:254
+#29 0x0000555555557b0d in InOrder (root=0x55555587ae50) at splay.cpp:254
+#30 0x0000555555557b0d in InOrder (root=0x55555587b730) at splay.cpp:254
+#31 0x0000555555557b0d in InOrder (root=0x5555555a8b70) at splay.cpp:254
+#32 0x0000555555557abd in InOrder (root=0x55555587c170) at splay.cpp:252
+#33 0x0000555555557abd in InOrder (root=0x55555587c1d0) at splay.cpp:252
+#34 0x0000555555557abd in InOrder (root=0x55555587a330) at splay.cpp:252
+#35 0x0000555555557b0d in InOrder (root=0x55555587c4f0) at splay.cpp:254
+#36 0x0000555555557b0d in InOrder (root=0x5555556a9d30) at splay.cpp:254
+#37 0x0000555555557b0d in InOrder (root=0x55555587d870) at splay.cpp:254
+#38 0x0000555555557b0d in InOrder (root=0x555555720870) at splay.cpp:254
+#39 0x0000555555557b0d in InOrder (root=0x55555578fdf0) at splay.cpp:254
+#40 0x0000555555557b0d in InOrder (root=0x55555587da90) at splay.cpp:254
+#41 0x0000555555557b0d in InOrder (root=0x5555557d8790) at splay.cpp:254
+#42 0x0000555555557abd in InOrder (root=0x55555585f590) at splay.cpp:252
+#43 0x0000555555557b0d in InOrder (root=0x55555587db50) at splay.cpp:254
+#44 0x0000555555557abd in InOrder (root=0x555555774190) at splay.cpp:252
+#45 0x0000555555557b0d in InOrder (root=0x555555774870) at splay.cpp:254
+#46 0x0000555555557abd in InOrder (root=0x55555587dcb0) at splay.cpp:252
+#47 0x0000555555557b0d in InOrder (root=0x555555693810) at splay.cpp:254
+#48 0x0000555555557b0d in InOrder (root=0x555555634c10) at splay.cpp:254
+#49 0x0000555555557b0d in InOrder (root=0x55555587dcd0) at splay.cpp:254
+#50 0x00005555555564fe in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:35
+
+21	in ../sysdeps/unix/sysv/linux/write.c
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: rchild
+Fliping a bit of the pointer
+Memory content before bitflip:0x500xe30x620x550x550x550x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x55555587c180
+address max offset: 8
+Memory content after  bitflip:0x790x0c0xb50x6f0x180xdc0xa70x8a
+frame name: InOrder
+symbol name: root
+symbol filename: splay.cpp
+symbol line: 248
+value: 0x55555587c170
+value address: 0x7fffffffd8d8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-30 21:03:46]
+Fault Injection Successful after 1.463763952255249s
+[INFO -- 2018-11-30 21:03:46]
+event type: exit
+[EXCEPTION -- 2018-11-30 21:03:46]
+exit code: no exit code available

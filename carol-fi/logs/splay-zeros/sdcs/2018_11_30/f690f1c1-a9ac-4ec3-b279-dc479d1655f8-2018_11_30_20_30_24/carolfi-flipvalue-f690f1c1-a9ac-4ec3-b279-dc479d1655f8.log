@@ -1,0 +1,84 @@
+[INFO -- 2018-11-30 20:30:23]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-30 20:30:23]
+Initialization strings:
+[INFO -- 2018-11-30 20:30:23]
+(1) file /tmp/splay/main
+[INFO -- 2018-11-30 20:30:23]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-11-30 20:30:23]
+initSignal:0
+[INFO -- 2018-11-30 20:30:23]
+endSignal:5
+[INFO -- 2018-11-30 20:30:23]
+faultModel:3
+[INFO -- 2018-11-30 20:30:23]
+Backtrace BEGIN:
+#0  __strcmp_avx2 () at ../sysdeps/x86_64/multiarch/strcmp-avx2.S:93
+#1  0x00007ffff7ec3750 in __cxxabiv1::__vmi_class_type_info::__do_dyncast(long, __cxxabiv1::__class_type_info::__sub_kind, __cxxabiv1::__class_type_info const*, void const*, __cxxabiv1::__class_type_info const*, void const*, __cxxabiv1::__class_type_info::__dyncast_result&) const () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x00007ffff7ec0456 in __dynamic_cast () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#3  0x00007ffff7f333fb in std::ctype<char> const& std::use_facet<std::ctype<char> >(std::locale const&) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x0000555555557da3 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/8/bitset:1541
+#5  0x0000555555557ae8 in InOrder (root=0x5555555e2d50) at splay.cpp:253
+#6  0x0000555555557b0d in InOrder (root=0x555555656eb0) at splay.cpp:254
+#7  0x0000555555557b0d in InOrder (root=0x5555557432b0) at splay.cpp:254
+#8  0x0000555555557b0d in InOrder (root=0x55555576c3d0) at splay.cpp:254
+#9  0x0000555555557abd in InOrder (root=0x55555576d7d0) at splay.cpp:252
+#10 0x0000555555557b0d in InOrder (root=0x5555556497b0) at splay.cpp:254
+#11 0x0000555555557b0d in InOrder (root=0x555555839010) at splay.cpp:254
+#12 0x0000555555557abd in InOrder (root=0x55555583bc70) at splay.cpp:252
+#13 0x0000555555557abd in InOrder (root=0x555555649ed0) at splay.cpp:252
+#14 0x0000555555557b0d in InOrder (root=0x555555864570) at splay.cpp:254
+#15 0x0000555555557b0d in InOrder (root=0x555555620010) at splay.cpp:254
+#16 0x0000555555557abd in InOrder (root=0x55555586bf50) at splay.cpp:252
+#17 0x0000555555557b0d in InOrder (root=0x55555586b410) at splay.cpp:254
+#18 0x0000555555557b0d in InOrder (root=0x55555586e730) at splay.cpp:254
+#19 0x0000555555557b0d in InOrder (root=0x555555870cd0) at splay.cpp:254
+#20 0x0000555555557abd in InOrder (root=0x555555705410) at splay.cpp:252
+#21 0x0000555555557b0d in InOrder (root=0x5555556d8e70) at splay.cpp:254
+#22 0x0000555555557abd in InOrder (root=0x5555557d0290) at splay.cpp:252
+#23 0x0000555555557abd in InOrder (root=0x55555587cbd0) at splay.cpp:252
+#24 0x0000555555557abd in InOrder (root=0x55555587cf30) at splay.cpp:252
+#25 0x0000555555557abd in InOrder (root=0x55555563a2f0) at splay.cpp:252
+#26 0x0000555555557b0d in InOrder (root=0x555555581df0) at splay.cpp:254
+#27 0x0000555555557b0d in InOrder (root=0x55555560ac10) at splay.cpp:254
+#28 0x0000555555557b0d in InOrder (root=0x55555587d9b0) at splay.cpp:254
+#29 0x0000555555557b0d in InOrder (root=0x555555794190) at splay.cpp:254
+#30 0x0000555555557b0d in InOrder (root=0x555555771bf0) at splay.cpp:254
+#31 0x0000555555557b0d in InOrder (root=0x55555587dad0) at splay.cpp:254
+#32 0x0000555555557abd in InOrder (root=0x55555587d8d0) at splay.cpp:252
+#33 0x0000555555557b0d in InOrder (root=0x5555557cfed0) at splay.cpp:254
+#34 0x0000555555557b0d in InOrder (root=0x555555774190) at splay.cpp:254
+#35 0x0000555555557b0d in InOrder (root=0x555555774870) at splay.cpp:254
+#36 0x0000555555557abd in InOrder (root=0x55555587dcb0) at splay.cpp:252
+#37 0x0000555555557b0d in InOrder (root=0x555555693810) at splay.cpp:254
+#38 0x0000555555557b0d in InOrder (root=0x555555634c10) at splay.cpp:254
+#39 0x0000555555557b0d in InOrder (root=0x55555587dcd0) at splay.cpp:254
+#40 0x00005555555564fe in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:35
+
+88	in ../sysdeps/x86_64/multiarch/strcmp-avx2.S
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: key
+Memory content before bitflip:0xe70x510x370x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x555555705410
+address max offset: 4
+Memory content after  bitflip:0x000x000x000x00
+frame name: InOrder
+symbol name: root
+symbol filename: splay.cpp
+symbol line: 248
+value: 0x555555705410
+value address: 0x7fffffffd878
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-30 20:30:23]
+Fault Injection Successful after 0.6713764667510986s
+[INFO -- 2018-11-30 20:30:23]
+event type: exit
+[INFO -- 2018-11-30 20:30:23]
+exit code: 0

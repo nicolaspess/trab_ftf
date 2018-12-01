@@ -1,0 +1,55 @@
+[INFO -- 2018-11-30 22:19:19]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-30 22:19:19]
+Initialization strings:
+[INFO -- 2018-11-30 22:19:19]
+(1) file /tmp/splay/main
+[INFO -- 2018-11-30 22:19:19]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-11-30 22:19:19]
+initSignal:0
+[INFO -- 2018-11-30 22:19:19]
+endSignal:5
+[INFO -- 2018-11-30 22:19:19]
+faultModel:4
+[INFO -- 2018-11-30 22:19:19]
+Backtrace BEGIN:
+#0  Splay (key=1250105, root=0x55555565e910) at splay.cpp:93
+#1  0x0000555555557916 in Insert (key=1250105, root=0x5555556d69d0) at splay.cpp:145
+#2  0x00005555555564bb in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:31
+
+88											  just linking it to L Tree */
+89					if(!root->rchild)
+90						break;
+91				}
+92				/* Link to L Tree */
+93				LeftTreeMax->rchild = root;
+94				LeftTreeMax = LeftTreeMax->rchild;
+95				root = root->rchild;
+96				LeftTreeMax->rchild = NULL;
+97			}
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: key
+Memory content before bitflip:0x390x130x130x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x5555556d69f0
+address max offset: 4
+Memory content after  bitflip:0x390x130x130x20
+frame name: Insert
+symbol name: p_node
+symbol filename: splay.cpp
+symbol line: 134
+value: 0x5555556d69f0
+value address: 0x55555555b2a0 <Insert(int, splay*)::p_node>
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-30 22:19:19]
+Fault Injection Successful after 0.5272996425628662s
+[INFO -- 2018-11-30 22:19:19]
+event type: exit
+[INFO -- 2018-11-30 22:19:19]
+exit code: 0

@@ -1,0 +1,71 @@
+[INFO -- 2018-12-01 07:45:30]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 07:45:30]
+Initialization strings:
+[INFO -- 2018-12-01 07:45:30]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 07:45:30]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 07:45:30]
+initSignal:0
+[INFO -- 2018-12-01 07:45:30]
+endSignal:5
+[INFO -- 2018-12-01 07:45:30]
+faultModel:3
+[EXCEPTION -- 2018-12-01 07:45:30]
+pythonException: empty range for randrange() (0,0, 0)
+[INFO -- 2018-12-01 07:45:30]
+Backtrace BEGIN:
+#0  0x0000555555556826 in std::istream_iterator<int, char, std::char_traits<char>, long>::_M_read (this=0x7fffffffdb80) at /usr/include/c++/8/bits/stream_iterator.h:118
+#1  0x0000555555556bbc in std::istream_iterator<int, char, std::char_traits<char>, long>::operator++ (this=0x7fffffffdb80) at /usr/include/c++/8/bits/stream_iterator.h:95
+#2  0x0000555555556acc in std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdc90, __first=..., __last=...) at /usr/include/c++/8/bits/stl_vector.h:1447
+#3  0x00005555555569a6 in std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdc90, __first=..., __last=...) at /usr/include/c++/8/bits/stl_vector.h:1437
+#4  0x0000555555556728 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void> (this=0x7fffffffdc90, __first=..., __last=..., __a=...) at /usr/include/c++/8/bits/stl_vector.h:546
+#5  0x0000555555556452 in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:27
+
+113	
+114	    private:
+115	      void
+116	      _M_read()
+117	      {
+118		_M_ok = (_M_stream && *_M_stream) ? true : false;
+119		if (_M_ok)
+120		  {
+121		    *_M_stream >> _M_value;
+122		    _M_ok = *_M_stream ? true : false;
+
+Backtrace END
+Fliping value of field: _M_value
+Memory content before bitflip:0x000x000x000x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x7fffffffdbf8
+address max offset: 4
+Memory content after  bitflip:0x000x000x000x00
+frame name: std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> >
+symbol name: __last
+symbol filename: /usr/include/c++/8/bits/stl_vector.h
+symbol line: 1432
+value: {<std::iterator<std::input_iterator_tag, int, long, int const*, int const&>> = {<No data fields>}, _M_stream = 0x0, _M_value = 0, _M_ok = false}
+value address: 0x7fffffffdbf0
+Type: The type is a structure.
+Type sizeof: 16
+Field name: std::iterator<std::input_iterator_tag, int, long, int const*, int const&>
+Field Type: The type is a structure.
+Field Type sizeof: 1
+Field name: _M_stream
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: _M_value
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+Field name: _M_ok
+Field Type: A boolean type.
+Field Type sizeof: 1
+
+[INFO -- 2018-12-01 07:45:30]
+Fault Injection Successful after 0.7205703258514404s
+[INFO -- 2018-12-01 07:45:30]
+event type: exit
+[INFO -- 2018-12-01 07:45:30]
+exit code: 0

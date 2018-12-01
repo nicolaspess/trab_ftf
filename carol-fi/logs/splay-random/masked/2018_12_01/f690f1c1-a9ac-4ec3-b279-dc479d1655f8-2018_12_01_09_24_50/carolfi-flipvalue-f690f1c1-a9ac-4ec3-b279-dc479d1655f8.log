@@ -1,0 +1,56 @@
+[INFO -- 2018-12-01 09:24:49]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 09:24:49]
+Initialization strings:
+[INFO -- 2018-12-01 09:24:49]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 09:24:49]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 09:24:49]
+initSignal:0
+[INFO -- 2018-12-01 09:24:49]
+endSignal:5
+[INFO -- 2018-12-01 09:24:49]
+faultModel:2
+[EXCEPTION -- 2018-12-01 09:24:49]
+pythonException: empty range for randrange() (0,0, 0)
+[INFO -- 2018-12-01 09:24:49]
+Backtrace BEGIN:
+#0  Splay (key=4579767, root=0x5555555a46f0) at splay.cpp:83
+#1  0x0000555555557916 in Insert (key=4579767, root=0x5555555a4870) at splay.cpp:145
+#2  0x00005555555564bb in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:31
+
+78			}
+79			else if(key > root->key)
+80			{
+81				if(!root->rchild)
+82					break;
+83				if(key > root->rchild->key)
+84				{
+85					root = LL_Rotate(root);/* only zag-zag mode need to rotate once,
+86											  because zag-zig mode is handled as zag
+87											  mode, which doesn't require rotate, 
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x700x480x5a0x550x550x550x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffdc10
+address max offset: 8
+Memory content after  bitflip:0x4c0x9e0x9e0xa00x3c0xd40x9b0x94
+frame name: Insert
+symbol name: root
+symbol filename: splay.cpp
+symbol line: 132
+value: 0x5555555a4870
+value address: 0x7fffffffdc10
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-01 09:24:49]
+Fault Injection Successful after 0.5235309600830078s
+[INFO -- 2018-12-01 09:24:49]
+event type: exit
+[INFO -- 2018-12-01 09:24:49]
+exit code: 0

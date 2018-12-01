@@ -1,0 +1,76 @@
+[INFO -- 2018-12-01 04:26:21]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 04:26:21]
+Initialization strings:
+[INFO -- 2018-12-01 04:26:21]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 04:26:21]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 04:26:21]
+initSignal:0
+[INFO -- 2018-12-01 04:26:21]
+endSignal:5
+[INFO -- 2018-12-01 04:26:21]
+faultModel:0
+[INFO -- 2018-12-01 04:26:22]
+Backtrace BEGIN:
+#0  0x00007ffff7f42f51 in std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x0000555555557e00 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/8/bitset:1543
+#2  0x0000555555557ae8 in InOrder (root=0x555555876fb0) at splay.cpp:253
+#3  0x0000555555557b0d in InOrder (root=0x5555556c7370) at splay.cpp:254
+#4  0x0000555555557b0d in InOrder (root=0x555555877b30) at splay.cpp:254
+#5  0x0000555555557b0d in InOrder (root=0x5555557206b0) at splay.cpp:254
+#6  0x0000555555557abd in InOrder (root=0x555555878510) at splay.cpp:252
+#7  0x0000555555557abd in InOrder (root=0x55555587b0b0) at splay.cpp:252
+#8  0x0000555555557abd in InOrder (root=0x5555555bd690) at splay.cpp:252
+#9  0x0000555555557abd in InOrder (root=0x5555557cfd90) at splay.cpp:252
+#10 0x0000555555557abd in InOrder (root=0x55555587c7f0) at splay.cpp:252
+#11 0x0000555555557b0d in InOrder (root=0x55555564ccd0) at splay.cpp:254
+#12 0x0000555555557b0d in InOrder (root=0x55555587d990) at splay.cpp:254
+#13 0x0000555555557abd in InOrder (root=0x55555587da70) at splay.cpp:252
+#14 0x0000555555557abd in InOrder (root=0x5555555eff30) at splay.cpp:252
+#15 0x0000555555557abd in InOrder (root=0x555555602730) at splay.cpp:252
+#16 0x0000555555557abd in InOrder (root=0x55555587daf0) at splay.cpp:252
+#17 0x0000555555557abd in InOrder (root=0x55555587db70) at splay.cpp:252
+#18 0x0000555555557abd in InOrder (root=0x555555602350) at splay.cpp:252
+#19 0x0000555555557abd in InOrder (root=0x55555574fdf0) at splay.cpp:252
+#20 0x0000555555557abd in InOrder (root=0x555555683210) at splay.cpp:252
+#21 0x0000555555557abd in InOrder (root=0x55555587dc90) at splay.cpp:252
+#22 0x0000555555557abd in InOrder (root=0x555555696ef0) at splay.cpp:252
+#23 0x0000555555557abd in InOrder (root=0x55555587dcd0) at splay.cpp:252
+#24 0x00005555555564fe in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:35
+
+1	#include "splay.h"
+2	#include <iostream>
+3	
+4	#include <algorithm>    // std::random_shuffle
+5	#include <vector>       // std::vector
+6	#include <cstdlib>      // std::rand, std::srand
+7	#include <cstdio>
+8	
+9	#include <iterator>
+10	#include <fstream>
+
+Backtrace END
+Fliping a bit of the reference
+Memory content before bitflip:0xb00xc70xfa0xf70xff0x7f0x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7ffff7fb70a0
+address max offset: 8
+Memory content after  bitflip:0xb00xe70xfa0xf70xff0x7f0x000x00
+frame name: std::operator<< <char, std::char_traits<char>, 16ul>
+symbol name: __ct
+symbol filename: /usr/include/c++/8/bitset
+symbol line: 1541
+value: @0x7ffff7fb70a0
+value address: 0x7ffff7fb70a0
+Type: A reference type.
+Type sizeof: 8
+
+[INFO -- 2018-12-01 04:26:22]
+Fault Injection Successful after 1.1252357959747314s
+[INFO -- 2018-12-01 04:26:22]
+event type: exit
+[EXCEPTION -- 2018-12-01 04:26:22]
+exit code: no exit code available

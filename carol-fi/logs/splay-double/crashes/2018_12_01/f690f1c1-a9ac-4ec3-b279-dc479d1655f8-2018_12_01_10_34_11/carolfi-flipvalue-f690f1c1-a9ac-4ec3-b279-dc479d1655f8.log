@@ -1,0 +1,80 @@
+[INFO -- 2018-12-01 10:34:09]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 10:34:09]
+Initialization strings:
+[INFO -- 2018-12-01 10:34:09]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 10:34:09]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 10:34:09]
+initSignal:0
+[INFO -- 2018-12-01 10:34:09]
+endSignal:5
+[INFO -- 2018-12-01 10:34:09]
+faultModel:1
+[EXCEPTION -- 2018-12-01 10:34:10]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-12-01 10:34:10]
+Backtrace BEGIN:
+#0  0x00007ffff7cc0d20 in __GI___libc_malloc (bytes=31) at malloc.c:3029
+#1  0x00007ffff7ec2248 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x00007ffff7f53dbb in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#3  0x00007ffff7f54790 in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_replace_aux(unsigned long, unsigned long, unsigned long, char) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x0000555555557e8d in std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x7fffffffd6d0, __s="", __zero=48 '0', __one=49 '1') at /usr/include/c++/8/bitset:1411
+#5  0x0000555555557ded in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/8/bitset:1542
+#6  0x0000555555557ae8 in InOrder (root=0x555555593b30) at splay.cpp:253
+#7  0x0000555555557b0d in InOrder (root=0x55555576c1b0) at splay.cpp:254
+#8  0x0000555555557abd in InOrder (root=0x55555580ff70) at splay.cpp:252
+#9  0x0000555555557b0d in InOrder (root=0x55555563b610) at splay.cpp:254
+#10 0x0000555555557b0d in InOrder (root=0x555555708910) at splay.cpp:254
+#11 0x0000555555557b0d in InOrder (root=0x55555585c850) at splay.cpp:254
+#12 0x0000555555557abd in InOrder (root=0x555555637d30) at splay.cpp:252
+#13 0x0000555555557abd in InOrder (root=0x55555585d610) at splay.cpp:252
+#14 0x0000555555557b0d in InOrder (root=0x55555579b770) at splay.cpp:254
+#15 0x0000555555557abd in InOrder (root=0x555555638ff0) at splay.cpp:252
+#16 0x0000555555557b0d in InOrder (root=0x555555869a10) at splay.cpp:254
+#17 0x0000555555557abd in InOrder (root=0x55555586b9b0) at splay.cpp:252
+#18 0x0000555555557abd in InOrder (root=0x55555576def0) at splay.cpp:252
+#19 0x0000555555557abd in InOrder (root=0x55555586c730) at splay.cpp:252
+#20 0x0000555555557b0d in InOrder (root=0x55555560a770) at splay.cpp:254
+#21 0x0000555555557abd in InOrder (root=0x555555870450) at splay.cpp:252
+#22 0x0000555555557abd in InOrder (root=0x555555807ad0) at splay.cpp:252
+#23 0x0000555555557abd in InOrder (root=0x555555875dd0) at splay.cpp:252
+#24 0x0000555555557abd in InOrder (root=0x55555582a510) at splay.cpp:252
+#25 0x0000555555557abd in InOrder (root=0x5555558799b0) at splay.cpp:252
+#26 0x0000555555557abd in InOrder (root=0x5555557efed0) at splay.cpp:252
+#27 0x0000555555557abd in InOrder (root=0x5555556c5f50) at splay.cpp:252
+#28 0x0000555555557abd in InOrder (root=0x55555587d430) at splay.cpp:252
+#29 0x0000555555557b0d in InOrder (root=0x5555556f88b0) at splay.cpp:254
+#30 0x0000555555557b0d in InOrder (root=0x55555574fdf0) at splay.cpp:254
+#31 0x0000555555557abd in InOrder (root=0x555555683210) at splay.cpp:252
+#32 0x0000555555557abd in InOrder (root=0x55555587dc90) at splay.cpp:252
+#33 0x0000555555557abd in InOrder (root=0x555555696ef0) at splay.cpp:252
+#34 0x0000555555557abd in InOrder (root=0x55555587dcd0) at splay.cpp:252
+#35 0x00005555555564fe in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:35
+
+3024	in malloc.c
+
+Backtrace END
+Fliping a bit of the reference
+Memory content before bitflip:0x800xd60xff0xff0xff0x7f0x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffd670
+address max offset: 8
+Memory content after  bitflip:0x800xd60xff0xff0xff0x7f0x210x00
+frame name: std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> >
+symbol name: __s
+symbol filename: /usr/include/c++/8/bitset
+symbol line: 1408
+value: ""
+value address: 0x7fffffffd670
+Type: A reference type.
+Type sizeof: 8
+
+[INFO -- 2018-12-01 10:34:10]
+Fault Injection Successful after 1.3741786479949951s
+[INFO -- 2018-12-01 10:34:10]
+event type: exit
+[EXCEPTION -- 2018-12-01 10:34:10]
+exit code: no exit code available

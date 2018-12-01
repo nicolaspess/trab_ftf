@@ -1,0 +1,82 @@
+[INFO -- 2018-11-30 18:40:43]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-30 18:40:43]
+Initialization strings:
+[INFO -- 2018-11-30 18:40:43]
+(1) file /tmp/splay/main
+[INFO -- 2018-11-30 18:40:43]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-11-30 18:40:43]
+initSignal:0
+[INFO -- 2018-11-30 18:40:43]
+endSignal:5
+[INFO -- 2018-11-30 18:40:43]
+faultModel:2
+[INFO -- 2018-11-30 18:40:44]
+Backtrace BEGIN:
+#0  0x00007ffff7d34fd4 in __GI___libc_write (fd=1, buf=0x55555587dcf0, nbytes=17) at ../sysdeps/unix/sysv/linux/write.c:26
+#1  0x00007ffff7cb633d in _IO_new_file_write (f=0x7ffff7e10760 <_IO_2_1_stdout_>, data=0x55555587dcf0, n=17) at fileops.c:1183
+#2  0x00007ffff7cb7a71 in new_do_write (to_do=17, data=0x55555587dcf0 "0010100100101100\n", fp=0x7ffff7e10760 <_IO_2_1_stdout_>) at libioP.h:839
+#3  _IO_new_do_write (fp=0x7ffff7e10760 <_IO_2_1_stdout_>, data=0x55555587dcf0 "0010100100101100\n", to_do=17) at fileops.c:433
+#4  0x00007ffff7cb56f8 in _IO_new_file_sync (fp=0x7ffff7e10760 <_IO_2_1_stdout_>) at fileops.c:819
+#5  0x00007ffff7caa32d in __GI__IO_fflush (fp=0x7ffff7e10760 <_IO_2_1_stdout_>) at libioP.h:839
+#6  0x00007ffff7f4201e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#7  0x0000555555557afd in InOrder (root=0x5555556c2170) at splay.cpp:253
+#8  0x0000555555557b0d in InOrder (root=0x555555673710) at splay.cpp:254
+#9  0x0000555555557abd in InOrder (root=0x5555555e1d70) at splay.cpp:252
+#10 0x0000555555557b0d in InOrder (root=0x55555584ae70) at splay.cpp:254
+#11 0x0000555555557abd in InOrder (root=0x55555584f390) at splay.cpp:252
+#12 0x0000555555557b0d in InOrder (root=0x55555585f930) at splay.cpp:254
+#13 0x0000555555557abd in InOrder (root=0x555555869eb0) at splay.cpp:252
+#14 0x0000555555557abd in InOrder (root=0x55555586abb0) at splay.cpp:252
+#15 0x0000555555557abd in InOrder (root=0x55555571a750) at splay.cpp:252
+#16 0x0000555555557b0d in InOrder (root=0x5555557d1770) at splay.cpp:254
+#17 0x0000555555557b0d in InOrder (root=0x5555556f7130) at splay.cpp:254
+#18 0x0000555555557b0d in InOrder (root=0x55555586f9b0) at splay.cpp:254
+#19 0x0000555555557b0d in InOrder (root=0x55555560de90) at splay.cpp:254
+#20 0x0000555555557abd in InOrder (root=0x555555875df0) at splay.cpp:252
+#21 0x0000555555557abd in InOrder (root=0x5555555d4290) at splay.cpp:252
+#22 0x0000555555557b0d in InOrder (root=0x555555878170) at splay.cpp:254
+#23 0x0000555555557b0d in InOrder (root=0x555555771b90) at splay.cpp:254
+#24 0x0000555555557abd in InOrder (root=0x555555879290) at splay.cpp:252
+#25 0x0000555555557b0d in InOrder (root=0x55555565ca10) at splay.cpp:254
+#26 0x0000555555557b0d in InOrder (root=0x55555587d850) at splay.cpp:254
+#27 0x0000555555557b0d in InOrder (root=0x555555752030) at splay.cpp:254
+#28 0x0000555555557b0d in InOrder (root=0x55555587db90) at splay.cpp:254
+#29 0x0000555555557b0d in InOrder (root=0x55555585f590) at splay.cpp:254
+#30 0x0000555555557b0d in InOrder (root=0x55555587db50) at splay.cpp:254
+#31 0x0000555555557abd in InOrder (root=0x555555774190) at splay.cpp:252
+#32 0x0000555555557b0d in InOrder (root=0x555555774870) at splay.cpp:254
+#33 0x0000555555557abd in InOrder (root=0x55555587dcb0) at splay.cpp:252
+#34 0x0000555555557b0d in InOrder (root=0x555555693810) at splay.cpp:254
+#35 0x0000555555557b0d in InOrder (root=0x555555634c10) at splay.cpp:254
+#36 0x0000555555557b0d in InOrder (root=0x55555587dcd0) at splay.cpp:254
+#37 0x00005555555564fe in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:35
+
+21	in ../sysdeps/unix/sysv/linux/write.c
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: lchild
+Fliping a bit of the pointer
+Memory content before bitflip:0xf00x6e0x690x550x550x550x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x55555587dcd8
+address max offset: 8
+Memory content after  bitflip:0xdd0x5f0xa70x3e0x150x9a0x390x83
+frame name: main
+symbol name: root
+symbol filename: main.cpp
+symbol line: 22
+value: 0x55555587dcd0
+value address: 0x7fffffffdc48
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-30 18:40:44]
+Fault Injection Successful after 1.0604496002197266s
+[INFO -- 2018-11-30 18:40:44]
+event type: exit
+[INFO -- 2018-11-30 18:40:44]
+exit code: 0

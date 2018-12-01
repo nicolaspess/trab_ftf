@@ -1,0 +1,60 @@
+[INFO -- 2018-11-30 22:55:11]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-30 22:55:11]
+Initialization strings:
+[INFO -- 2018-11-30 22:55:11]
+(1) file /tmp/splay/main
+[INFO -- 2018-11-30 22:55:11]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-11-30 22:55:11]
+initSignal:0
+[INFO -- 2018-11-30 22:55:11]
+endSignal:5
+[INFO -- 2018-11-30 22:55:11]
+faultModel:4
+[INFO -- 2018-11-30 22:55:12]
+Backtrace BEGIN:
+#0  std::vector<int, std::allocator<int> >::emplace_back<int const&> (this=0x7fffffffdc90, __args#0=@0x7fffffffdb88: 4472891) at /usr/include/c++/8/bits/vector.tcc:100
+#1  0x0000555555556ac0 in std::vector<int, std::allocator<int> >::_M_range_initialize<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdc90, __first=..., __last=...) at /usr/include/c++/8/bits/stl_vector.h:1449
+#2  0x00005555555569a6 in std::vector<int, std::allocator<int> >::_M_initialize_dispatch<std::istream_iterator<int, char, std::char_traits<char>, long> > (this=0x7fffffffdc90, __first=..., __last=...) at /usr/include/c++/8/bits/stl_vector.h:1437
+#3  0x0000555555556728 in std::vector<int, std::allocator<int> >::vector<std::istream_iterator<int, char, std::char_traits<char>, long>, void> (this=0x7fffffffdc90, __first=..., __last=..., __a=...) at /usr/include/c++/8/bits/stl_vector.h:546
+#4  0x0000555555556452 in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:27
+
+95	      void
+96	#endif
+97	      vector<_Tp, _Alloc>::
+98	      emplace_back(_Args&&... __args)
+99	      {
+100		if (this->_M_impl._M_finish != this->_M_impl._M_end_of_storage)
+101		  {
+102		    _GLIBCXX_ASAN_ANNOTATE_GROW(1);
+103		    _Alloc_traits::construct(this->_M_impl, this->_M_impl._M_finish,
+104					     std::forward<_Args>(__args)...);
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: std::_Vector_base<int, std::allocator<int> >
+Fliping value of field: _M_impl
+Fliping value of field: _M_start
+Fliping a bit of the pointer
+Memory content before bitflip:0x100x700x9b0xf70xff0x7f0x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdc90
+address max offset: 8
+Memory content after  bitflip:0x100x700x9b0xf70xff0x7f0x000x80
+frame name: std::vector<int, std::allocator<int> >::emplace_back<int const&>
+symbol name: this
+symbol filename: main.cpp
+symbol line: 0
+value: 0x7fffffffdc90
+value address: 0x7fffffffdaf8
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-30 22:55:12]
+Fault Injection Successful after 1.0388212203979492s
+[INFO -- 2018-11-30 22:55:12]
+event type: exit
+[EXCEPTION -- 2018-11-30 22:55:12]
+exit code: no exit code available

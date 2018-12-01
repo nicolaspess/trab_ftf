@@ -1,0 +1,55 @@
+[INFO -- 2018-11-30 17:04:11]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-30 17:04:11]
+Initialization strings:
+[INFO -- 2018-11-30 17:04:11]
+(1) file /tmp/splay/main
+[INFO -- 2018-11-30 17:04:11]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-11-30 17:04:11]
+initSignal:0
+[INFO -- 2018-11-30 17:04:11]
+endSignal:5
+[INFO -- 2018-11-30 17:04:11]
+faultModel:3
+[INFO -- 2018-11-30 17:04:11]
+Backtrace BEGIN:
+#0  Splay (key=2324147, root=0x5555555791d0) at splay.cpp:60
+#1  0x0000555555557916 in Insert (key=2324147, root=0x55555574d090) at splay.cpp:145
+#2  0x00005555555564bb in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:31
+
+55		 The zig/zag mode would only happen when cannot find key and will reach
+56		 null on one side after RR or LL Rotation.
+57		 */
+58		while(1)
+59		{
+60			if(key < root->key)
+61			{
+62				if(!root->lchild)
+63					break;
+64				if(key < root->lchild->key)
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: key
+Memory content before bitflip:0x650x850x230x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x5555555791d0
+address max offset: 4
+Memory content after  bitflip:0x000x000x000x00
+frame name: Splay
+symbol name: root
+symbol filename: splay.cpp
+symbol line: 43
+value: 0x5555555791d0
+value address: 0x7fffffffdbc0
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-30 17:04:11]
+Fault Injection Successful after 0.5826377868652344s
+[INFO -- 2018-11-30 17:04:11]
+event type: exit
+[INFO -- 2018-11-30 17:04:11]
+exit code: 0

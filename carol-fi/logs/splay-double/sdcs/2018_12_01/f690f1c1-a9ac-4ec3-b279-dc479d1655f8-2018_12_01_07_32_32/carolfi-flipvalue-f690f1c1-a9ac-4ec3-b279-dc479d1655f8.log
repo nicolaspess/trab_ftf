@@ -1,0 +1,52 @@
+[INFO -- 2018-12-01 07:32:31]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 07:32:31]
+Initialization strings:
+[INFO -- 2018-12-01 07:32:31]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 07:32:31]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 07:32:31]
+initSignal:0
+[INFO -- 2018-12-01 07:32:31]
+endSignal:5
+[INFO -- 2018-12-01 07:32:31]
+faultModel:1
+[INFO -- 2018-12-01 07:32:31]
+Backtrace BEGIN:
+#0  0x00005555555578b0 in Insert (key=1590174, root=0x173ea) at splay.cpp:133
+#1  0x00005555555564bb in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:31
+
+128	
+129	NOTE: This implementation is much better! Reasons are as follows in implementation 2.
+130	NOTE: This implementation of splay tree doesn't allow nodes of duplicate keys!
+131	 */
+132	splay* Insert(KEY_TYPE key, splay* root)
+133	{
+134		static splay* p_node = NULL;
+135		if(!p_node)
+136			p_node = New_Node(key);
+137		else // could take advantage of the node remains because of there was duplicate key before.
+
+Backtrace END
+Memory content before bitflip:0xea0x730x010x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffdc44
+address max offset: 4
+Memory content after  bitflip:0xea0x730x010x0a
+frame name: main
+symbol name: i
+symbol filename: main.cpp
+symbol line: 30
+value: 167867370
+value address: 0x7fffffffdc44
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-12-01 07:32:31]
+Fault Injection Successful after 0.8089704513549805s
+[INFO -- 2018-12-01 07:32:32]
+event type: exit
+[INFO -- 2018-12-01 07:32:32]
+exit code: 0

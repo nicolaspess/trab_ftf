@@ -1,0 +1,54 @@
+[INFO -- 2018-12-01 10:05:49]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 10:05:49]
+Initialization strings:
+[INFO -- 2018-12-01 10:05:49]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 10:05:49]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 10:05:49]
+initSignal:0
+[INFO -- 2018-12-01 10:05:49]
+endSignal:5
+[INFO -- 2018-12-01 10:05:49]
+faultModel:1
+[INFO -- 2018-12-01 10:05:50]
+Backtrace BEGIN:
+#0  Splay (key=4424461, root=0x5555555730b0) at splay.cpp:66
+#1  0x0000555555557916 in Insert (key=4424461, root=0x555555627c10) at splay.cpp:145
+#2  0x00005555555564bb in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:31
+
+61			{
+62				if(!root->lchild)
+63					break;
+64				if(key < root->lchild->key)
+65				{
+66					root = RR_Rotate(root); /* only zig-zig mode need to rotate once,
+67											   because zig-zag mode is handled as zig
+68											   mode, which doesn't require rotate, 
+69											   just linking it to R Tree */
+70					if(!root->lchild)
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x700x2a0x5d0x550x550x550x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffdbd0
+address max offset: 8
+Memory content after  bitflip:0x700x2a0x5d0x550x550x550x060x00
+frame name: Splay
+symbol name: LeftTreeMax
+symbol filename: splay.cpp
+symbol line: 50
+value: 0x5555555d2a70
+value address: 0x7fffffffdbd0
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-01 10:05:50]
+Fault Injection Successful after 1.3285365104675293s
+[INFO -- 2018-12-01 10:05:50]
+event type: exit
+[EXCEPTION -- 2018-12-01 10:05:50]
+exit code: no exit code available

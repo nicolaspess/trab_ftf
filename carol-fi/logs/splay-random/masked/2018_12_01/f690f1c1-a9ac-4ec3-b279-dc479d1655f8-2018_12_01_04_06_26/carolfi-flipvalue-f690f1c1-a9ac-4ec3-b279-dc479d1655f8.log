@@ -1,0 +1,87 @@
+[INFO -- 2018-12-01 04:06:25]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 04:06:25]
+Initialization strings:
+[INFO -- 2018-12-01 04:06:25]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 04:06:25]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 04:06:25]
+initSignal:0
+[INFO -- 2018-12-01 04:06:25]
+endSignal:5
+[INFO -- 2018-12-01 04:06:25]
+faultModel:2
+[INFO -- 2018-12-01 04:06:25]
+Backtrace BEGIN:
+#0  0x00007ffff7ed3223 in std::locale::locale(std::locale const&) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x0000555555557bc8 in std::ios_base::getloc (this=0x55555555b048 <std::cout@@GLIBCXX_3.4+8>) at /usr/include/c++/8/bits/ios_base.h:766
+#2  0x0000555555557d97 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/8/bitset:1541
+#3  0x0000555555557ae8 in InOrder (root=0x5555555ce070) at splay.cpp:253
+#4  0x0000555555557b0d in InOrder (root=0x55555580b490) at splay.cpp:254
+#5  0x0000555555557abd in InOrder (root=0x5555555c01d0) at splay.cpp:252
+#6  0x0000555555557b0d in InOrder (root=0x555555602530) at splay.cpp:254
+#7  0x0000555555557abd in InOrder (root=0x555555814d30) at splay.cpp:252
+#8  0x0000555555557abd in InOrder (root=0x55555583ac10) at splay.cpp:252
+#9  0x0000555555557abd in InOrder (root=0x5555557d58d0) at splay.cpp:252
+#10 0x0000555555557b0d in InOrder (root=0x55555583af50) at splay.cpp:254
+#11 0x0000555555557b0d in InOrder (root=0x5555556253d0) at splay.cpp:254
+#12 0x0000555555557abd in InOrder (root=0x555555851850) at splay.cpp:252
+#13 0x0000555555557abd in InOrder (root=0x55555558beb0) at splay.cpp:252
+#14 0x0000555555557b0d in InOrder (root=0x555555705850) at splay.cpp:254
+#15 0x0000555555557b0d in InOrder (root=0x5555558613f0) at splay.cpp:254
+#16 0x0000555555557b0d in InOrder (root=0x55555585bdb0) at splay.cpp:254
+#17 0x0000555555557abd in InOrder (root=0x5555557ff3b0) at splay.cpp:252
+#18 0x0000555555557abd in InOrder (root=0x5555556520b0) at splay.cpp:252
+#19 0x0000555555557b0d in InOrder (root=0x55555587ba30) at splay.cpp:254
+#20 0x0000555555557abd in InOrder (root=0x55555587b890) at splay.cpp:252
+#21 0x0000555555557b0d in InOrder (root=0x5555556998b0) at splay.cpp:254
+#22 0x0000555555557abd in InOrder (root=0x55555587c730) at splay.cpp:252
+#23 0x0000555555557abd in InOrder (root=0x5555555da870) at splay.cpp:252
+#24 0x0000555555557b0d in InOrder (root=0x55555587d650) at splay.cpp:254
+#25 0x0000555555557b0d in InOrder (root=0x5555557882f0) at splay.cpp:254
+#26 0x0000555555557b0d in InOrder (root=0x55555587da30) at splay.cpp:254
+#27 0x0000555555557abd in InOrder (root=0x55555587dbb0) at splay.cpp:252
+#28 0x0000555555557abd in InOrder (root=0x5555557cfed0) at splay.cpp:252
+#29 0x0000555555557b0d in InOrder (root=0x555555774190) at splay.cpp:254
+#30 0x0000555555557b0d in InOrder (root=0x555555774870) at splay.cpp:254
+#31 0x0000555555557abd in InOrder (root=0x55555587dcb0) at splay.cpp:252
+#32 0x0000555555557b0d in InOrder (root=0x555555693810) at splay.cpp:254
+#33 0x0000555555557b0d in InOrder (root=0x555555634c10) at splay.cpp:254
+#34 0x0000555555557b0d in InOrder (root=0x55555587dcd0) at splay.cpp:254
+#35 0x00005555555564fe in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:35
+
+1	#include "splay.h"
+2	#include <iostream>
+3	
+4	#include <algorithm>    // std::random_shuffle
+5	#include <vector>       // std::vector
+6	#include <cstdlib>      // std::rand, std::srand
+7	#include <cstdio>
+8	
+9	#include <iterator>
+10	#include <fstream>
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0xb80xdf0xff0xff0xff0x7f0x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffdc30
+address max offset: 8
+Memory content after  bitflip:0xff0xee0x0c0x860x670xea0xfc0xda
+frame name: main
+symbol name: argv
+symbol filename: main.cpp
+symbol line: 14
+value: 0x7fffffffdfb8
+value address: 0x7fffffffdc30
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-01 04:06:25]
+Fault Injection Successful after 0.8858411312103271s
+[INFO -- 2018-12-01 04:06:25]
+event type: exit
+[INFO -- 2018-12-01 04:06:25]
+exit code: 0

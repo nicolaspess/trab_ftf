@@ -1,0 +1,99 @@
+[INFO -- 2018-11-30 23:46:07]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-30 23:46:07]
+Initialization strings:
+[INFO -- 2018-11-30 23:46:07]
+(1) file /tmp/splay/main
+[INFO -- 2018-11-30 23:46:07]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-11-30 23:46:07]
+initSignal:0
+[INFO -- 2018-11-30 23:46:07]
+endSignal:5
+[INFO -- 2018-11-30 23:46:07]
+faultModel:2
+[EXCEPTION -- 2018-11-30 23:46:07]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-11-30 23:46:08]
+Backtrace BEGIN:
+#0  0x0000555555557c82 in std::_Base_bitset<1ul>::_M_getword (this=0xd) at /usr/include/c++/8/bitset:414
+#1  0x0000555555557f12 in std::bitset<16ul>::_Unchecked_test (this=0x7fffffffd490, __pos=12) at /usr/include/c++/8/bitset:1062
+#2  0x0000555555557eb3 in std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x7fffffffd490, __s="101", '0' <repeats 13 times>, __zero=48 '0', __one=49 '1') at /usr/include/c++/8/bitset:1413
+#3  0x0000555555557ded in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/8/bitset:1542
+#4  0x0000555555557ae8 in InOrder (root=0x5555557b3310) at splay.cpp:253
+#5  0x0000555555557abd in InOrder (root=0x5555557c8bf0) at splay.cpp:252
+#6  0x0000555555557abd in InOrder (root=0x55555570aeb0) at splay.cpp:252
+#7  0x0000555555557b0d in InOrder (root=0x55555582df70) at splay.cpp:254
+#8  0x0000555555557abd in InOrder (root=0x5555556ed1f0) at splay.cpp:252
+#9  0x0000555555557abd in InOrder (root=0x555555854970) at splay.cpp:252
+#10 0x0000555555557b0d in InOrder (root=0x55555573d470) at splay.cpp:254
+#11 0x0000555555557abd in InOrder (root=0x5555555d55b0) at splay.cpp:252
+#12 0x0000555555557b0d in InOrder (root=0x55555585adf0) at splay.cpp:254
+#13 0x0000555555557abd in InOrder (root=0x5555555ee470) at splay.cpp:252
+#14 0x0000555555557b0d in InOrder (root=0x5555557b6030) at splay.cpp:254
+#15 0x0000555555557abd in InOrder (root=0x555555867b30) at splay.cpp:252
+#16 0x0000555555557abd in InOrder (root=0x55555586f690) at splay.cpp:252
+#17 0x0000555555557b0d in InOrder (root=0x55555586a150) at splay.cpp:254
+#18 0x0000555555557abd in InOrder (root=0x5555557603d0) at splay.cpp:252
+#19 0x0000555555557abd in InOrder (root=0x55555586fc50) at splay.cpp:252
+#20 0x0000555555557b0d in InOrder (root=0x555555874e10) at splay.cpp:254
+#21 0x0000555555557b0d in InOrder (root=0x555555697d90) at splay.cpp:254
+#22 0x0000555555557abd in InOrder (root=0x5555555f29d0) at splay.cpp:252
+#23 0x0000555555557b0d in InOrder (root=0x555555875db0) at splay.cpp:254
+#24 0x0000555555557abd in InOrder (root=0x555555600a30) at splay.cpp:252
+#25 0x0000555555557abd in InOrder (root=0x55555587a130) at splay.cpp:252
+#26 0x0000555555557abd in InOrder (root=0x555555853dd0) at splay.cpp:252
+#27 0x0000555555557b0d in InOrder (root=0x55555587a270) at splay.cpp:254
+#28 0x0000555555557abd in InOrder (root=0x55555587cef0) at splay.cpp:252
+#29 0x0000555555557b0d in InOrder (root=0x55555587cfd0) at splay.cpp:254
+#30 0x0000555555557abd in InOrder (root=0x555555707270) at splay.cpp:252
+#31 0x0000555555557b0d in InOrder (root=0x55555587d570) at splay.cpp:254
+#32 0x0000555555557b0d in InOrder (root=0x55555587d6b0) at splay.cpp:254
+#33 0x0000555555557abd in InOrder (root=0x5555556e1d70) at splay.cpp:252
+#34 0x0000555555557b0d in InOrder (root=0x5555555852d0) at splay.cpp:254
+#35 0x0000555555557abd in InOrder (root=0x55555587d9d0) at splay.cpp:252
+#36 0x0000555555557b0d in InOrder (root=0x5555555d7910) at splay.cpp:254
+#37 0x0000555555557b0d in InOrder (root=0x55555587d8d0) at splay.cpp:254
+#38 0x0000555555557b0d in InOrder (root=0x5555557cfed0) at splay.cpp:254
+#39 0x0000555555557b0d in InOrder (root=0x555555774190) at splay.cpp:254
+#40 0x0000555555557b0d in InOrder (root=0x555555774870) at splay.cpp:254
+#41 0x0000555555557abd in InOrder (root=0x55555587dcb0) at splay.cpp:252
+#42 0x0000555555557b0d in InOrder (root=0x555555693810) at splay.cpp:254
+#43 0x0000555555557b0d in InOrder (root=0x555555634c10) at splay.cpp:254
+#44 0x0000555555557b0d in InOrder (root=0x55555587dcd0) at splay.cpp:254
+#45 0x00005555555564fe in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:35
+
+409	      _WordT&
+410	      _M_getword(size_t) _GLIBCXX_NOEXCEPT
+411	      { return _M_w; }
+412	
+413	      _GLIBCXX_CONSTEXPR _WordT
+414	      _M_getword(size_t) const _GLIBCXX_NOEXCEPT
+415	      { return _M_w; }
+416	
+417	#if __cplusplus >= 201103L
+418	      const _WordT*
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x0d0x000x000x000x000x000x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffd388
+address max offset: 8
+Memory content after  bitflip:0x9f0xc30x6f0xfa0x950x850x570xa6
+frame name: std::_Base_bitset<1ul>::_M_getword
+symbol name: this
+symbol filename: splay.cpp
+symbol line: 0
+value: 0xd
+value address: 0x7fffffffd388
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-30 23:46:08]
+Fault Injection Successful after 1.1879196166992188s
+[INFO -- 2018-11-30 23:46:08]
+event type: exit
+[INFO -- 2018-11-30 23:46:08]
+exit code: 0

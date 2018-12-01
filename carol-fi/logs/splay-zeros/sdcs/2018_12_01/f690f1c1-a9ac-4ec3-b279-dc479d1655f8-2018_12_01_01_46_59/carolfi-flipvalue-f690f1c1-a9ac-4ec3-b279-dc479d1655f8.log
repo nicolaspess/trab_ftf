@@ -1,0 +1,88 @@
+[INFO -- 2018-12-01 01:46:58]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 01:46:58]
+Initialization strings:
+[INFO -- 2018-12-01 01:46:58]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 01:46:58]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 01:46:58]
+initSignal:0
+[INFO -- 2018-12-01 01:46:58]
+endSignal:5
+[INFO -- 2018-12-01 01:46:58]
+faultModel:3
+[INFO -- 2018-12-01 01:46:58]
+Backtrace BEGIN:
+#0  0x0000555555557de8 in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/8/bitset:1542
+#1  0x0000555555557ae8 in InOrder (root=0x5555556040b0) at splay.cpp:253
+#2  0x0000555555557abd in InOrder (root=0x555555799a30) at splay.cpp:252
+#3  0x0000555555557b0d in InOrder (root=0x555555655330) at splay.cpp:254
+#4  0x0000555555557b0d in InOrder (root=0x5555557d57d0) at splay.cpp:254
+#5  0x0000555555557b0d in InOrder (root=0x5555556e0830) at splay.cpp:254
+#6  0x0000555555557abd in InOrder (root=0x5555556c55b0) at splay.cpp:252
+#7  0x0000555555557abd in InOrder (root=0x5555557e5850) at splay.cpp:252
+#8  0x0000555555557b0d in InOrder (root=0x55555567a2d0) at splay.cpp:254
+#9  0x0000555555557abd in InOrder (root=0x555555872e30) at splay.cpp:252
+#10 0x0000555555557b0d in InOrder (root=0x5555558719f0) at splay.cpp:254
+#11 0x0000555555557b0d in InOrder (root=0x555555871990) at splay.cpp:254
+#12 0x0000555555557abd in InOrder (root=0x555555711350) at splay.cpp:252
+#13 0x0000555555557abd in InOrder (root=0x5555555dd390) at splay.cpp:252
+#14 0x0000555555557abd in InOrder (root=0x5555556f3090) at splay.cpp:252
+#15 0x0000555555557abd in InOrder (root=0x5555556494b0) at splay.cpp:252
+#16 0x0000555555557b0d in InOrder (root=0x555555876eb0) at splay.cpp:254
+#17 0x0000555555557b0d in InOrder (root=0x55555587bd70) at splay.cpp:254
+#18 0x0000555555557b0d in InOrder (root=0x55555579eb50) at splay.cpp:254
+#19 0x0000555555557abd in InOrder (root=0x555555572610) at splay.cpp:252
+#20 0x0000555555557abd in InOrder (root=0x55555587c890) at splay.cpp:252
+#21 0x0000555555557abd in InOrder (root=0x55555587d230) at splay.cpp:252
+#22 0x0000555555557abd in InOrder (root=0x5555555a98b0) at splay.cpp:252
+#23 0x0000555555557b0d in InOrder (root=0x555555643e30) at splay.cpp:254
+#24 0x0000555555557b0d in InOrder (root=0x55555587d3d0) at splay.cpp:254
+#25 0x0000555555557abd in InOrder (root=0x555555752030) at splay.cpp:252
+#26 0x0000555555557b0d in InOrder (root=0x55555587db90) at splay.cpp:254
+#27 0x0000555555557b0d in InOrder (root=0x55555585f590) at splay.cpp:254
+#28 0x0000555555557b0d in InOrder (root=0x55555587db50) at splay.cpp:254
+#29 0x0000555555557abd in InOrder (root=0x555555774190) at splay.cpp:252
+#30 0x0000555555557b0d in InOrder (root=0x555555774870) at splay.cpp:254
+#31 0x0000555555557abd in InOrder (root=0x55555587dcb0) at splay.cpp:252
+#32 0x0000555555557b0d in InOrder (root=0x555555693810) at splay.cpp:254
+#33 0x0000555555557b0d in InOrder (root=0x555555634c10) at splay.cpp:254
+#34 0x0000555555557b0d in InOrder (root=0x55555587dcd0) at splay.cpp:254
+#35 0x00005555555564fe in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:35
+
+1537	      std::basic_string<_CharT, _Traits> __tmp;
+1538	
+1539	      // _GLIBCXX_RESOLVE_LIB_DEFECTS
+1540	      // 396. what are characters zero and one.
+1541	      const ctype<_CharT>& __ct = use_facet<ctype<_CharT> >(__os.getloc());
+1542	      __x._M_copy_to_string(__tmp, __ct.widen('0'), __ct.widen('1'));
+1543	      return __os << __tmp;
+1544	    }
+1545	  //@}
+1546	
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: key
+Memory content before bitflip:0x290x7c0x2b0x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x555555774190
+address max offset: 4
+Memory content after  bitflip:0x000x000x000x00
+frame name: InOrder
+symbol name: root
+symbol filename: splay.cpp
+symbol line: 248
+value: 0x555555774190
+value address: 0x7fffffffdb18
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-01 01:46:58]
+Fault Injection Successful after 0.874924898147583s
+[INFO -- 2018-12-01 01:46:59]
+event type: exit
+[INFO -- 2018-12-01 01:46:59]
+exit code: 0

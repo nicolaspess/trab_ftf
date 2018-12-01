@@ -1,0 +1,56 @@
+[INFO -- 2018-12-01 08:55:01]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 08:55:01]
+Initialization strings:
+[INFO -- 2018-12-01 08:55:01]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 08:55:01]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 08:55:01]
+initSignal:0
+[INFO -- 2018-12-01 08:55:01]
+endSignal:5
+[INFO -- 2018-12-01 08:55:01]
+faultModel:4
+[INFO -- 2018-12-01 08:55:01]
+Backtrace BEGIN:
+#0  0x0000555555557746 in Splay (key=288353, root=0x5555555e4df0) at splay.cpp:76
+#1  0x0000555555557916 in Insert (key=288353, root=0x5555556bbc30) at splay.cpp:145
+#2  0x00005555555564bb in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:31
+
+71						break;
+72				}
+73				/* Link to R Tree */
+74				RightTreeMin->lchild = root;
+75				RightTreeMin = RightTreeMin->lchild;
+76				root = root->lchild;
+77				RightTreeMin->lchild = NULL;
+78			}
+79			else if(key > root->key)
+80			{
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: lchild
+Fliping a bit of the pointer
+Memory content before bitflip:0x000x000x000x000x000x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x5555556bbc38
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x02
+frame name: main
+symbol name: root
+symbol filename: main.cpp
+symbol line: 22
+value: 0x5555556bbc30
+value address: 0x7fffffffdc48
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-01 08:55:01]
+Fault Injection Successful after 0.4060091972351074s
+[INFO -- 2018-12-01 08:55:01]
+event type: exit
+[EXCEPTION -- 2018-12-01 08:55:01]
+exit code: no exit code available

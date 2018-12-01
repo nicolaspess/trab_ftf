@@ -1,0 +1,58 @@
+[INFO -- 2018-11-30 17:59:29]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-30 17:59:29]
+Initialization strings:
+[INFO -- 2018-11-30 17:59:29]
+(1) file /tmp/splay/main
+[INFO -- 2018-11-30 17:59:29]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-11-30 17:59:29]
+initSignal:0
+[INFO -- 2018-11-30 17:59:29]
+endSignal:5
+[INFO -- 2018-11-30 17:59:29]
+faultModel:2
+[INFO -- 2018-11-30 17:59:29]
+Backtrace BEGIN:
+#0  New_Node (key=4724482) at splay.cpp:120
+#1  0x00005555555578ca in Insert (key=4724482, root=0x55555577b330) at splay.cpp:136
+#2  0x00005555555564bb in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:31
+
+115			fprintf(stderr, "Out of memory!\n");
+116			exit(1);
+117		}
+118		p_node->key = key;
+119		p_node->lchild = p_node->rchild = NULL;
+120		return p_node;
+121	}
+122	
+123	/* Implementation 1: 
+124	   First Splay(key, root)(and assume the tree we get is called *), so root node and 
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: lchild
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: lchild
+Fliping a bit of the pointer
+Memory content before bitflip:0x900xa70x630x550x550x550x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x555555662598
+address max offset: 8
+Memory content after  bitflip:0xa40x5e0xe60xd10xcc0x260x460x36
+frame name: Insert
+symbol name: root
+symbol filename: splay.cpp
+symbol line: 132
+value: 0x55555577b330
+value address: 0x7fffffffdc10
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-30 17:59:29]
+Fault Injection Successful after 0.7766919136047363s
+[INFO -- 2018-11-30 17:59:29]
+event type: exit
+[EXCEPTION -- 2018-11-30 17:59:29]
+exit code: no exit code available

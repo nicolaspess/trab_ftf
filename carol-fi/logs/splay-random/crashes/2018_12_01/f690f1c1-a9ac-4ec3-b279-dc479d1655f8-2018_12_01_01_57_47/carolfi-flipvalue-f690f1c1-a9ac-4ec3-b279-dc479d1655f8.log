@@ -1,0 +1,54 @@
+[INFO -- 2018-12-01 01:57:46]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 01:57:46]
+Initialization strings:
+[INFO -- 2018-12-01 01:57:46]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 01:57:46]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 01:57:46]
+initSignal:0
+[INFO -- 2018-12-01 01:57:46]
+endSignal:5
+[INFO -- 2018-12-01 01:57:46]
+faultModel:2
+[INFO -- 2018-12-01 01:57:46]
+Backtrace BEGIN:
+#0  Splay (key=1782980, root=0x5555556c2390) at splay.cpp:81
+#1  0x0000555555557916 in Insert (key=1782980, root=0x5555556e5970) at splay.cpp:145
+#2  0x00005555555564bb in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:31
+
+76				root = root->lchild;
+77				RightTreeMin->lchild = NULL;
+78			}
+79			else if(key > root->key)
+80			{
+81				if(!root->rchild)
+82					break;
+83				if(key > root->rchild->key)
+84				{
+85					root = LL_Rotate(root);/* only zag-zag mode need to rotate once,
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x900x230x6c0x550x550x550x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffdbc0
+address max offset: 8
+Memory content after  bitflip:0xdc0x0b0xd00xa90x1b0x200x430x04
+frame name: Splay
+symbol name: root
+symbol filename: splay.cpp
+symbol line: 43
+value: 0x5555556c2390
+value address: 0x7fffffffdbc0
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-01 01:57:46]
+Fault Injection Successful after 0.7358443737030029s
+[INFO -- 2018-12-01 01:57:46]
+event type: exit
+[EXCEPTION -- 2018-12-01 01:57:46]
+exit code: no exit code available

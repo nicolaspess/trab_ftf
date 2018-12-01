@@ -1,0 +1,56 @@
+[INFO -- 2018-12-01 09:28:49]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 09:28:49]
+Initialization strings:
+[INFO -- 2018-12-01 09:28:49]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 09:28:49]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 09:28:49]
+initSignal:0
+[INFO -- 2018-12-01 09:28:49]
+endSignal:5
+[INFO -- 2018-12-01 09:28:49]
+faultModel:1
+[INFO -- 2018-12-01 09:28:50]
+Backtrace BEGIN:
+#0  Splay (key=3308475, root=0x555555680b30) at splay.cpp:64
+#1  0x0000555555557916 in Insert (key=3308475, root=0x555555680b30) at splay.cpp:145
+#2  0x00005555555564bb in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:31
+
+59		{
+60			if(key < root->key)
+61			{
+62				if(!root->lchild)
+63					break;
+64				if(key < root->lchild->key)
+65				{
+66					root = RR_Rotate(root); /* only zig-zig mode need to rotate once,
+67											   because zig-zag mode is handled as zig
+68											   mode, which doesn't require rotate, 
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: lchild
+Fliping a bit of the pointer
+Memory content before bitflip:0x000x000x000x000x000x000x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x555555680b58
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000xc00x000x00
+frame name: Insert
+symbol name: p_node
+symbol filename: splay.cpp
+symbol line: 134
+value: 0x555555680b50
+value address: 0x55555555b2a0 <Insert(int, splay*)::p_node>
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-01 09:28:50]
+Fault Injection Successful after 1.103482961654663s
+[INFO -- 2018-12-01 09:28:50]
+event type: exit
+[INFO -- 2018-12-01 09:28:50]
+exit code: 0

@@ -1,0 +1,54 @@
+[INFO -- 2018-12-01 10:26:49]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 10:26:49]
+Initialization strings:
+[INFO -- 2018-12-01 10:26:49]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 10:26:49]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 10:26:49]
+initSignal:0
+[INFO -- 2018-12-01 10:26:49]
+endSignal:5
+[INFO -- 2018-12-01 10:26:49]
+faultModel:3
+[INFO -- 2018-12-01 10:26:50]
+Backtrace BEGIN:
+#0  0x00005555555567b8 in std::vector<int, std::allocator<int> >::size (this=0x7fffffffdc90) at /usr/include/c++/8/bits/stl_vector.h:806
+#1  0x0000555555556483 in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:30
+
+801	
+802	      // [23.2.4.2] capacity
+803	      /**  Returns the number of elements in the %vector.  */
+804	      size_type
+805	      size() const _GLIBCXX_NOEXCEPT
+806	      { return size_type(this->_M_impl._M_finish - this->_M_impl._M_start); }
+807	
+808	      /**  Returns the size() of the largest possible %vector.  */
+809	      size_type
+810	      max_size() const _GLIBCXX_NOEXCEPT
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping a bit of the pointer
+Memory content before bitflip:0x060xe30xff0xff0xff0x7f0x000x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x7fffffffdfb8
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x00
+frame name: main
+symbol name: argv
+symbol filename: main.cpp
+symbol line: 14
+value: 0x7fffffffdfb8
+value address: 0x7fffffffdc30
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-01 10:26:50]
+Fault Injection Successful after 1.1594467163085938s
+[INFO -- 2018-12-01 10:26:50]
+event type: exit
+[INFO -- 2018-12-01 10:26:50]
+exit code: 0

@@ -1,0 +1,149 @@
+[INFO -- 2018-12-01 07:04:51]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 07:04:51]
+Initialization strings:
+[INFO -- 2018-12-01 07:04:51]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 07:04:51]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 07:04:51]
+initSignal:0
+[INFO -- 2018-12-01 07:04:51]
+endSignal:5
+[INFO -- 2018-12-01 07:04:51]
+faultModel:1
+[INFO -- 2018-12-01 07:04:52]
+Backtrace BEGIN:
+#0  0x00007ffff7d34fd4 in __GI___libc_write (fd=1, buf=0x55555587dcf0, nbytes=17) at ../sysdeps/unix/sysv/linux/write.c:26
+#1  0x00007ffff7cb633d in _IO_new_file_write (f=0x7ffff7e10760 <_IO_2_1_stdout_>, data=0x55555587dcf0, n=17) at fileops.c:1183
+#2  0x00007ffff7cb7a71 in new_do_write (to_do=17, data=0x55555587dcf0 "1111010000011100\n", fp=0x7ffff7e10760 <_IO_2_1_stdout_>) at libioP.h:839
+#3  _IO_new_do_write (fp=0x7ffff7e10760 <_IO_2_1_stdout_>, data=0x55555587dcf0 "1111010000011100\n", to_do=17) at fileops.c:433
+#4  0x00007ffff7cb56f8 in _IO_new_file_sync (fp=0x7ffff7e10760 <_IO_2_1_stdout_>) at fileops.c:819
+#5  0x00007ffff7caa32d in __GI__IO_fflush (fp=0x7ffff7e10760 <_IO_2_1_stdout_>) at libioP.h:839
+#6  0x00007ffff7f4201e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#7  0x0000555555557afd in InOrder (root=0x5555555a73b0) at splay.cpp:253
+#8  0x0000555555557b0d in InOrder (root=0x555555715f50) at splay.cpp:254
+#9  0x0000555555557abd in InOrder (root=0x555555725cb0) at splay.cpp:252
+#10 0x0000555555557b0d in InOrder (root=0x55555572c4b0) at splay.cpp:254
+#11 0x0000555555557b0d in InOrder (root=0x555555606f30) at splay.cpp:254
+#12 0x0000555555557abd in InOrder (root=0x5555556c0a90) at splay.cpp:252
+#13 0x0000555555557abd in InOrder (root=0x55555573ea30) at splay.cpp:252
+#14 0x0000555555557b0d in InOrder (root=0x5555557a0330) at splay.cpp:254
+#15 0x0000555555557b0d in InOrder (root=0x5555558186b0) at splay.cpp:254
+#16 0x0000555555557b0d in InOrder (root=0x5555556821b0) at splay.cpp:254
+#17 0x0000555555557abd in InOrder (root=0x555555681c90) at splay.cpp:252
+#18 0x0000555555557abd in InOrder (root=0x55555584bbf0) at splay.cpp:252
+#19 0x0000555555557b0d in InOrder (root=0x5555556af9f0) at splay.cpp:254
+#20 0x0000555555557abd in InOrder (root=0x55555585d170) at splay.cpp:252
+#21 0x0000555555557b0d in InOrder (root=0x555555878fb0) at splay.cpp:254
+#22 0x0000555555557b0d in InOrder (root=0x555555674fd0) at splay.cpp:254
+#23 0x0000555555557b0d in InOrder (root=0x555555879d70) at splay.cpp:254
+#24 0x0000555555557b0d in InOrder (root=0x555555645eb0) at splay.cpp:254
+#25 0x0000555555557abd in InOrder (root=0x555555873470) at splay.cpp:252
+#26 0x0000555555557b0d in InOrder (root=0x55555580d5d0) at splay.cpp:254
+#27 0x0000555555557b0d in InOrder (root=0x55555563a2f0) at splay.cpp:254
+#28 0x0000555555557b0d in InOrder (root=0x555555581df0) at splay.cpp:254
+#29 0x0000555555557b0d in InOrder (root=0x55555560ac10) at splay.cpp:254
+#30 0x0000555555557b0d in InOrder (root=0x55555587d9b0) at splay.cpp:254
+#31 0x0000555555557b0d in InOrder (root=0x555555794190) at splay.cpp:254
+#32 0x0000555555557b0d in InOrder (root=0x555555771bf0) at splay.cpp:254
+#33 0x0000555555557b0d in InOrder (root=0x55555587dad0) at splay.cpp:254
+#34 0x0000555555557abd in InOrder (root=0x55555587d8d0) at splay.cpp:252
+#35 0x0000555555557b0d in InOrder (root=0x5555557cfed0) at splay.cpp:254
+#36 0x0000555555557b0d in InOrder (root=0x555555774190) at splay.cpp:254
+#37 0x0000555555557b0d in InOrder (root=0x555555774870) at splay.cpp:254
+#38 0x0000555555557abd in InOrder (root=0x55555587dcb0) at splay.cpp:252
+#39 0x0000555555557b0d in InOrder (root=0x555555693810) at splay.cpp:254
+#40 0x0000555555557b0d in InOrder (root=0x555555634c10) at splay.cpp:254
+#41 0x0000555555557b0d in InOrder (root=0x55555587dcd0) at splay.cpp:254
+#42 0x00005555555564fe in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:35
+
+21	in ../sysdeps/unix/sysv/linux/write.c
+
+Backtrace END
+Fliping value of field: __seekpos
+Fliping a bit of the pointer
+Memory content before bitflip:0x100x960xcb0xf70xff0x7f0x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7ffff7e0c2f0 
+address max offset: 8
+Memory content after  bitflip:0x100x960xcb0xf70xff0x7f0x280x00
+frame name: new_do_write
+symbol name: __GI__IO_file_jumps
+symbol filename: fileops.c
+symbol line: 1440
+value: {__dummy = 0, __dummy2 = 0, __finish = 0x7ffff7cb6e30 <_IO_new_file_finish>, __overflow = 0x7ffff7cb7e00 <_IO_new_file_overflow>, __underflow = 0x7ffff7cb7b40 <_IO_new_file_underflow>, __uflow = 0x7ffff7cb8f60 <__GI__IO_default_uflow>, __pbackfail = 0x7ffff7cba5c0 <__GI__IO_default_pbackfail>, __xsputn = 0x7ffff7cb68f0 <_IO_new_file_xsputn>, __xsgetn = 0x7ffff7cb64c0 <__GI__IO_file_xsgetn>, __seekoff = 0x7ffff7cb5d20 <_IO_new_file_seekoff>, __seekpos = 0x287ffff7cb9610, __setbuf = 0x7ffff7cb5740 <_IO_new_file_setbuf>, __sync = 0x7ffff7cb5640 <_IO_new_file_sync>, __doallocate = 0x7ffff7ca9c10 <__GI__IO_file_doallocate>, __read = 0x7ffff7cb68d0 <__GI__IO_file_read>, __write = 0x7ffff7cb6310 <_IO_new_file_write>, __seek = 0x7ffff7cb5a60 <__GI__IO_file_seek>, __close = 0x7ffff7cb5730 <__GI__IO_file_close>, __stat = 0x7ffff7cb6300 <__GI__IO_file_stat>, __showmanyc = 0x7ffff7cba740 <_IO_default_showmanyc>, __imbue = 0x7ffff7cba750 <_IO_default_imbue>}
+value address: 0x7ffff7e0c2a0 <_IO_file_jumps>
+Type: The type is a structure.
+Type sizeof: 168
+Field name: __dummy
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: __dummy2
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: __finish
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __overflow
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __underflow
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __uflow
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __pbackfail
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __xsputn
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __xsgetn
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __seekoff
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __seekpos
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __setbuf
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __sync
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __doallocate
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __read
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __write
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __seek
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __close
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __stat
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __showmanyc
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __imbue
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+
+[INFO -- 2018-12-01 07:04:52]
+Fault Injection Successful after 1.0094597339630127s
+[INFO -- 2018-12-01 07:04:52]
+event type: exit
+[INFO -- 2018-12-01 07:04:52]
+exit code: 0

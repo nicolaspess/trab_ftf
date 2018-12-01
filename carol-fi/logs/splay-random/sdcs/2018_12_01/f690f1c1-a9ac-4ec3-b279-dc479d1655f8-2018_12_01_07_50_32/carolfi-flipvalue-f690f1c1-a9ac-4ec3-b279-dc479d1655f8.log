@@ -1,0 +1,89 @@
+[INFO -- 2018-12-01 07:50:30]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 07:50:30]
+Initialization strings:
+[INFO -- 2018-12-01 07:50:30]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 07:50:30]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 07:50:30]
+initSignal:0
+[INFO -- 2018-12-01 07:50:30]
+endSignal:5
+[INFO -- 2018-12-01 07:50:30]
+faultModel:2
+[INFO -- 2018-12-01 07:50:31]
+Backtrace BEGIN:
+#0  0x0000555555557c86 in std::_Base_bitset<1ul>::_M_getword (this=0x7fffffffd6a0) at /usr/include/c++/8/bitset:414
+#1  0x0000555555557f12 in std::bitset<16ul>::_Unchecked_test (this=0x7fffffffd6a0, __pos=5) at /usr/include/c++/8/bitset:1062
+#2  0x0000555555557eb3 in std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x7fffffffd6a0, __s="0100010100000000", __zero=48 '0', __one=49 '1') at /usr/include/c++/8/bitset:1413
+#3  0x0000555555557ded in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/8/bitset:1542
+#4  0x0000555555557ae8 in InOrder (root=0x555555683a90) at splay.cpp:253
+#5  0x0000555555557abd in InOrder (root=0x5555555986d0) at splay.cpp:252
+#6  0x0000555555557abd in InOrder (root=0x5555556aaaf0) at splay.cpp:252
+#7  0x0000555555557abd in InOrder (root=0x5555556bffd0) at splay.cpp:252
+#8  0x0000555555557abd in InOrder (root=0x5555557cdc50) at splay.cpp:252
+#9  0x0000555555557b0d in InOrder (root=0x5555556af130) at splay.cpp:254
+#10 0x0000555555557abd in InOrder (root=0x55555583ab10) at splay.cpp:252
+#11 0x0000555555557abd in InOrder (root=0x555555807390) at splay.cpp:252
+#12 0x0000555555557abd in InOrder (root=0x5555556c0db0) at splay.cpp:252
+#13 0x0000555555557abd in InOrder (root=0x555555864670) at splay.cpp:252
+#14 0x0000555555557b0d in InOrder (root=0x555555838250) at splay.cpp:254
+#15 0x0000555555557b0d in InOrder (root=0x5555557418d0) at splay.cpp:254
+#16 0x0000555555557b0d in InOrder (root=0x5555557635b0) at splay.cpp:254
+#17 0x0000555555557abd in InOrder (root=0x5555558784b0) at splay.cpp:252
+#18 0x0000555555557b0d in InOrder (root=0x555555876f50) at splay.cpp:254
+#19 0x0000555555557abd in InOrder (root=0x5555558789f0) at splay.cpp:252
+#20 0x0000555555557abd in InOrder (root=0x55555587c290) at splay.cpp:252
+#21 0x0000555555557abd in InOrder (root=0x555555736a30) at splay.cpp:252
+#22 0x0000555555557abd in InOrder (root=0x55555587cc90) at splay.cpp:252
+#23 0x0000555555557abd in InOrder (root=0x55555587d110) at splay.cpp:252
+#24 0x0000555555557abd in InOrder (root=0x55555561f0d0) at splay.cpp:252
+#25 0x0000555555557abd in InOrder (root=0x55555566cc10) at splay.cpp:252
+#26 0x0000555555557b0d in InOrder (root=0x5555555c3930) at splay.cpp:254
+#27 0x0000555555557b0d in InOrder (root=0x55555570e5f0) at splay.cpp:254
+#28 0x0000555555557b0d in InOrder (root=0x55555572ac10) at splay.cpp:254
+#29 0x0000555555557b0d in InOrder (root=0x555555748390) at splay.cpp:254
+#30 0x0000555555557b0d in InOrder (root=0x55555587dbf0) at splay.cpp:254
+#31 0x0000555555557b0d in InOrder (root=0x55555587dc90) at splay.cpp:254
+#32 0x0000555555557abd in InOrder (root=0x555555696ef0) at splay.cpp:252
+#33 0x0000555555557abd in InOrder (root=0x55555587dcd0) at splay.cpp:252
+#34 0x00005555555564fe in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:35
+
+409	      _WordT&
+410	      _M_getword(size_t) _GLIBCXX_NOEXCEPT
+411	      { return _M_w; }
+412	
+413	      _GLIBCXX_CONSTEXPR _WordT
+414	      _M_getword(size_t) const _GLIBCXX_NOEXCEPT
+415	      { return _M_w; }
+416	
+417	#if __cplusplus >= 201103L
+418	      const _WordT*
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: lchild
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: key
+Memory content before bitflip:0xe90x460x170x00
+Fault Model: Random bit-flip
+base address to flip value: 0x5555556c0db0
+address max offset: 4
+Memory content after  bitflip:0xbc0xf70x400xaa
+frame name: InOrder
+symbol name: root
+symbol filename: splay.cpp
+symbol line: 248
+value: 0x555555864670
+value address: 0x7fffffffd848
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-01 07:50:31]
+Fault Injection Successful after 1.362588882446289s
+[INFO -- 2018-12-01 07:50:31]
+event type: exit
+[INFO -- 2018-12-01 07:50:31]
+exit code: 0

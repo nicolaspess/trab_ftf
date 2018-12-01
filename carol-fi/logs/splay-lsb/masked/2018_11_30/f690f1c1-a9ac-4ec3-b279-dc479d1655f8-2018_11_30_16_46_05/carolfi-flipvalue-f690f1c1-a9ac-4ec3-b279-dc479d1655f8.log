@@ -1,0 +1,53 @@
+[INFO -- 2018-11-30 16:46:04]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-30 16:46:04]
+Initialization strings:
+[INFO -- 2018-11-30 16:46:04]
+(1) file /tmp/splay/main
+[INFO -- 2018-11-30 16:46:04]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-11-30 16:46:04]
+initSignal:0
+[INFO -- 2018-11-30 16:46:04]
+endSignal:5
+[INFO -- 2018-11-30 16:46:04]
+faultModel:4
+[INFO -- 2018-11-30 16:46:04]
+Backtrace BEGIN:
+#0  Splay (key=1469290, root=0x5555555db170) at splay.cpp:60
+#1  0x0000555555557916 in Insert (key=1469290, root=0x55555568c010) at splay.cpp:145
+#2  0x00005555555564bb in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:31
+
+55		 The zig/zag mode would only happen when cannot find key and will reach
+56		 null on one side after RR or LL Rotation.
+57		 */
+58		while(1)
+59		{
+60			if(key < root->key)
+61			{
+62				if(!root->lchild)
+63					break;
+64				if(key < root->lchild->key)
+
+Backtrace END
+Memory content before bitflip:0x6a0x6b0x160x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdc1c
+address max offset: 4
+Memory content after  bitflip:0x6a0x6b0x160x10
+frame name: Insert
+symbol name: key
+symbol filename: splay.cpp
+symbol line: 132
+value: 269904746
+value address: 0x7fffffffdc1c
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-11-30 16:46:04]
+Fault Injection Successful after 0.9324088096618652s
+[INFO -- 2018-11-30 16:46:05]
+event type: exit
+[INFO -- 2018-11-30 16:46:05]
+exit code: 0

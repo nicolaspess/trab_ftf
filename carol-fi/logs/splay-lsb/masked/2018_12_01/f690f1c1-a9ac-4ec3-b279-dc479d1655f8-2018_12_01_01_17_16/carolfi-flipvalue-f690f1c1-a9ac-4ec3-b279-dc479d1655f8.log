@@ -1,0 +1,81 @@
+[INFO -- 2018-12-01 01:17:15]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 01:17:15]
+Initialization strings:
+[INFO -- 2018-12-01 01:17:15]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 01:17:15]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 01:17:15]
+initSignal:0
+[INFO -- 2018-12-01 01:17:15]
+endSignal:5
+[INFO -- 2018-12-01 01:17:15]
+faultModel:4
+[INFO -- 2018-12-01 01:17:15]
+Backtrace BEGIN:
+#0  0x00007ffff7d34fd4 in __GI___libc_write (fd=1, buf=0x55555587dcf0, nbytes=17) at ../sysdeps/unix/sysv/linux/write.c:26
+#1  0x00007ffff7cb633d in _IO_new_file_write (f=0x7ffff7e10760 <_IO_2_1_stdout_>, data=0x55555587dcf0, n=17) at fileops.c:1183
+#2  0x00007ffff7cb7a71 in new_do_write (to_do=17, data=0x55555587dcf0 "0011011111001011\n", fp=0x7ffff7e10760 <_IO_2_1_stdout_>) at libioP.h:839
+#3  _IO_new_do_write (fp=0x7ffff7e10760 <_IO_2_1_stdout_>, data=0x55555587dcf0 "0011011111001011\n", to_do=17) at fileops.c:433
+#4  0x00007ffff7cb56f8 in _IO_new_file_sync (fp=0x7ffff7e10760 <_IO_2_1_stdout_>) at fileops.c:819
+#5  0x00007ffff7caa32d in __GI__IO_fflush (fp=0x7ffff7e10760 <_IO_2_1_stdout_>) at libioP.h:839
+#6  0x00007ffff7f4201e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#7  0x0000555555557afd in InOrder (root=0x5555556bfe70) at splay.cpp:253
+#8  0x0000555555557b0d in InOrder (root=0x55555574eb70) at splay.cpp:254
+#9  0x0000555555557abd in InOrder (root=0x55555571c870) at splay.cpp:252
+#10 0x0000555555557b0d in InOrder (root=0x55555557bd50) at splay.cpp:254
+#11 0x0000555555557abd in InOrder (root=0x555555772010) at splay.cpp:252
+#12 0x0000555555557b0d in InOrder (root=0x555555613d30) at splay.cpp:254
+#13 0x0000555555557abd in InOrder (root=0x555555816ff0) at splay.cpp:252
+#14 0x0000555555557abd in InOrder (root=0x5555558388d0) at splay.cpp:252
+#15 0x0000555555557b0d in InOrder (root=0x5555555a09b0) at splay.cpp:254
+#16 0x0000555555557abd in InOrder (root=0x555555753d30) at splay.cpp:252
+#17 0x0000555555557b0d in InOrder (root=0x555555875190) at splay.cpp:254
+#18 0x0000555555557abd in InOrder (root=0x55555587b590) at splay.cpp:252
+#19 0x0000555555557b0d in InOrder (root=0x55555587b970) at splay.cpp:254
+#20 0x0000555555557abd in InOrder (root=0x5555556f5b70) at splay.cpp:252
+#21 0x0000555555557abd in InOrder (root=0x5555555d3d70) at splay.cpp:252
+#22 0x0000555555557b0d in InOrder (root=0x5555556f65b0) at splay.cpp:254
+#23 0x0000555555557abd in InOrder (root=0x55555587bcf0) at splay.cpp:252
+#24 0x0000555555557abd in InOrder (root=0x555555784c30) at splay.cpp:252
+#25 0x0000555555557abd in InOrder (root=0x55555578b150) at splay.cpp:252
+#26 0x0000555555557abd in InOrder (root=0x55555587d910) at splay.cpp:252
+#27 0x0000555555557abd in InOrder (root=0x55555581be90) at splay.cpp:252
+#28 0x0000555555557b0d in InOrder (root=0x55555561e0f0) at splay.cpp:254
+#29 0x0000555555557b0d in InOrder (root=0x5555557b0cd0) at splay.cpp:254
+#30 0x0000555555557abd in InOrder (root=0x55555587dc70) at splay.cpp:252
+#31 0x0000555555557abd in InOrder (root=0x555555774870) at splay.cpp:252
+#32 0x0000555555557abd in InOrder (root=0x55555587dcb0) at splay.cpp:252
+#33 0x0000555555557b0d in InOrder (root=0x555555693810) at splay.cpp:254
+#34 0x0000555555557b0d in InOrder (root=0x555555634c10) at splay.cpp:254
+#35 0x0000555555557b0d in InOrder (root=0x55555587dcd0) at splay.cpp:254
+#36 0x00005555555564fe in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:35
+
+21	in ../sysdeps/unix/sysv/linux/write.c
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: rchild
+Fliping a bit of the pointer
+Memory content before bitflip:0x700xc80x710x550x550x550x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x55555557bd60
+address max offset: 8
+Memory content after  bitflip:0x700xc80x710x550x550x550x000x20
+frame name: InOrder
+symbol name: root
+symbol filename: splay.cpp
+symbol line: 248
+value: 0x55555557bd50
+value address: 0x7fffffffd758
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-01 01:17:15]
+Fault Injection Successful after 0.6585700511932373s
+[INFO -- 2018-12-01 01:17:15]
+event type: exit
+[INFO -- 2018-12-01 01:17:15]
+exit code: 0

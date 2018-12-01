@@ -1,0 +1,69 @@
+[INFO -- 2018-12-01 10:23:36]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 10:23:36]
+Initialization strings:
+[INFO -- 2018-12-01 10:23:36]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 10:23:36]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 10:23:36]
+initSignal:0
+[INFO -- 2018-12-01 10:23:36]
+endSignal:5
+[INFO -- 2018-12-01 10:23:36]
+faultModel:1
+[INFO -- 2018-12-01 10:23:37]
+Backtrace BEGIN:
+#0  RR_Rotate (k2=0x5555556df150) at splay.cpp:18
+#1  0x0000555555557711 in Splay (key=1825889, root=0x5555556df150) at splay.cpp:66
+#2  0x0000555555557916 in Insert (key=1825889, root=0x5555558150b0) at splay.cpp:145
+#3  0x00005555555564bb in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:31
+
+13	    X   Y                    Y    Z
+14	*/
+15	inline splay* RR_Rotate(splay* k2)
+16	{
+17		splay* k1 = k2->lchild;
+18		k2->lchild = k1->rchild;
+19		k1->rchild = k2;
+20		return k1;
+21	}
+22	
+
+Backtrace END
+Fliping value of field: lchild
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: rchild
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: rchild
+Fliping a bit of the pointer
+Memory content before bitflip:0x300x9c0x5d0x550x550x550x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x55555580a200
+address max offset: 8
+Memory content after  bitflip:0x300x9c0x0d0x550x550x550x000x00
+frame name: Splay
+symbol name: header
+symbol filename: splay.cpp
+symbol line: 47
+value: {key = -9040, lchild = 0x555555815070, rchild = 0x5555557da810}
+value address: 0x7fffffffdbe0
+Type: The type is a structure.
+Type sizeof: 24
+Field name: key
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+Field name: lchild
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: rchild
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+
+[INFO -- 2018-12-01 10:23:37]
+Fault Injection Successful after 1.234797716140747s
+[INFO -- 2018-12-01 10:23:37]
+event type: exit
+[EXCEPTION -- 2018-12-01 10:23:37]
+exit code: no exit code available

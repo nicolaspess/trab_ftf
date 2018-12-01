@@ -1,0 +1,86 @@
+[INFO -- 2018-12-01 07:51:54]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 07:51:54]
+Initialization strings:
+[INFO -- 2018-12-01 07:51:54]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 07:51:54]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 07:51:54]
+initSignal:0
+[INFO -- 2018-12-01 07:51:54]
+endSignal:5
+[INFO -- 2018-12-01 07:51:54]
+faultModel:1
+[INFO -- 2018-12-01 07:51:55]
+Backtrace BEGIN:
+#0  0x00007ffff7f53960 in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_create(unsigned long&, unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x00007ffff7f53dbb in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x00007ffff7f54790 in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_replace_aux(unsigned long, unsigned long, unsigned long, char) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#3  0x0000555555557e8d in std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x7fffffffd6d0, __s="", __zero=48 '0', __one=49 '1') at /usr/include/c++/8/bitset:1411
+#4  0x0000555555557ded in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/8/bitset:1542
+#5  0x0000555555557ae8 in InOrder (root=0x555555648a10) at splay.cpp:253
+#6  0x0000555555557b0d in InOrder (root=0x5555557a7570) at splay.cpp:254
+#7  0x0000555555557abd in InOrder (root=0x5555557bb2f0) at splay.cpp:252
+#8  0x0000555555557b0d in InOrder (root=0x5555557bbab0) at splay.cpp:254
+#9  0x0000555555557b0d in InOrder (root=0x5555556afd10) at splay.cpp:254
+#10 0x0000555555557b0d in InOrder (root=0x5555556a22d0) at splay.cpp:254
+#11 0x0000555555557abd in InOrder (root=0x5555557021b0) at splay.cpp:252
+#12 0x0000555555557abd in InOrder (root=0x55555563d6f0) at splay.cpp:252
+#13 0x0000555555557b0d in InOrder (root=0x555555670290) at splay.cpp:254
+#14 0x0000555555557b0d in InOrder (root=0x55555583fe10) at splay.cpp:254
+#15 0x0000555555557b0d in InOrder (root=0x55555563af30) at splay.cpp:254
+#16 0x0000555555557abd in InOrder (root=0x5555556d0610) at splay.cpp:252
+#17 0x0000555555557abd in InOrder (root=0x55555585b650) at splay.cpp:252
+#18 0x0000555555557b0d in InOrder (root=0x555555857cd0) at splay.cpp:254
+#19 0x0000555555557abd in InOrder (root=0x5555556240d0) at splay.cpp:252
+#20 0x0000555555557abd in InOrder (root=0x555555873610) at splay.cpp:252
+#21 0x0000555555557abd in InOrder (root=0x555555876ab0) at splay.cpp:252
+#22 0x0000555555557abd in InOrder (root=0x555555878d50) at splay.cpp:252
+#23 0x0000555555557abd in InOrder (root=0x55555566f7f0) at splay.cpp:252
+#24 0x0000555555557abd in InOrder (root=0x55555587ad50) at splay.cpp:252
+#25 0x0000555555557abd in InOrder (root=0x55555587ce70) at splay.cpp:252
+#26 0x0000555555557abd in InOrder (root=0x55555587d5f0) at splay.cpp:252
+#27 0x0000555555557abd in InOrder (root=0x55555570e5f0) at splay.cpp:252
+#28 0x0000555555557b0d in InOrder (root=0x55555572ac10) at splay.cpp:254
+#29 0x0000555555557b0d in InOrder (root=0x555555748390) at splay.cpp:254
+#30 0x0000555555557b0d in InOrder (root=0x55555587dbf0) at splay.cpp:254
+#31 0x0000555555557b0d in InOrder (root=0x55555587dc90) at splay.cpp:254
+#32 0x0000555555557abd in InOrder (root=0x555555696ef0) at splay.cpp:252
+#33 0x0000555555557abd in InOrder (root=0x55555587dcd0) at splay.cpp:252
+#34 0x00005555555564fe in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:35
+
+1	#include "splay.h"
+2	#include <iostream>
+3	
+4	#include <algorithm>    // std::random_shuffle
+5	#include <vector>       // std::vector
+6	#include <cstdlib>      // std::rand, std::srand
+7	#include <cstdio>
+8	
+9	#include <iterator>
+10	#include <fstream>
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0xd00xdc0x870x550x550x550x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7fffffffdc48
+address max offset: 8
+Memory content after  bitflip:0xd00xdc0x870x550x170x550x000x00
+frame name: main
+symbol name: root
+symbol filename: main.cpp
+symbol line: 22
+value: 0x55555587dcd0
+value address: 0x7fffffffdc48
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-01 07:51:55]
+Fault Injection Successful after 1.1621711254119873s
+[INFO -- 2018-12-01 07:51:55]
+event type: exit
+[INFO -- 2018-12-01 07:51:55]
+exit code: 0

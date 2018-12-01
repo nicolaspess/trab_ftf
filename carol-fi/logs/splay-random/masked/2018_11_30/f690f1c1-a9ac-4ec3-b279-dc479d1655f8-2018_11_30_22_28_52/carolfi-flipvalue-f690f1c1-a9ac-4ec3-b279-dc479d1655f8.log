@@ -1,0 +1,84 @@
+[INFO -- 2018-11-30 22:28:51]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-30 22:28:51]
+Initialization strings:
+[INFO -- 2018-11-30 22:28:51]
+(1) file /tmp/splay/main
+[INFO -- 2018-11-30 22:28:51]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-11-30 22:28:51]
+initSignal:0
+[INFO -- 2018-11-30 22:28:51]
+endSignal:5
+[INFO -- 2018-11-30 22:28:51]
+faultModel:2
+[EXCEPTION -- 2018-11-30 22:28:51]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[INFO -- 2018-11-30 22:28:52]
+Backtrace BEGIN:
+#0  std::bitset<16ul>::_Unchecked_test (this=0x7fffffffd730, __pos=7) at /usr/include/c++/8/bitset:1061
+#1  0x0000555555557eb3 in std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x7fffffffd730, __s="1100110000000000", __zero=48 '0', __one=49 '1') at /usr/include/c++/8/bitset:1413
+#2  0x0000555555557ded in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/8/bitset:1542
+#3  0x0000555555557ae8 in InOrder (root=0x5555556f3cd0) at splay.cpp:253
+#4  0x0000555555557b0d in InOrder (root=0x555555722750) at splay.cpp:254
+#5  0x0000555555557abd in InOrder (root=0x5555557c0b30) at splay.cpp:252
+#6  0x0000555555557b0d in InOrder (root=0x5555557f6b10) at splay.cpp:254
+#7  0x0000555555557abd in InOrder (root=0x5555555b4c50) at splay.cpp:252
+#8  0x0000555555557b0d in InOrder (root=0x55555562db90) at splay.cpp:254
+#9  0x0000555555557abd in InOrder (root=0x555555627990) at splay.cpp:252
+#10 0x0000555555557abd in InOrder (root=0x555555863830) at splay.cpp:252
+#11 0x0000555555557b0d in InOrder (root=0x55555568f210) at splay.cpp:254
+#12 0x0000555555557b0d in InOrder (root=0x55555586bc10) at splay.cpp:254
+#13 0x0000555555557abd in InOrder (root=0x55555586fe70) at splay.cpp:252
+#14 0x0000555555557b0d in InOrder (root=0x555555788cf0) at splay.cpp:254
+#15 0x0000555555557abd in InOrder (root=0x5555557922d0) at splay.cpp:252
+#16 0x0000555555557abd in InOrder (root=0x55555562e510) at splay.cpp:252
+#17 0x0000555555557abd in InOrder (root=0x55555560ac10) at splay.cpp:252
+#18 0x0000555555557b0d in InOrder (root=0x55555587d9b0) at splay.cpp:254
+#19 0x0000555555557b0d in InOrder (root=0x555555794190) at splay.cpp:254
+#20 0x0000555555557b0d in InOrder (root=0x555555771bf0) at splay.cpp:254
+#21 0x0000555555557b0d in InOrder (root=0x55555587dad0) at splay.cpp:254
+#22 0x0000555555557abd in InOrder (root=0x55555587d8d0) at splay.cpp:252
+#23 0x0000555555557b0d in InOrder (root=0x5555557cfed0) at splay.cpp:254
+#24 0x0000555555557b0d in InOrder (root=0x555555774190) at splay.cpp:254
+#25 0x0000555555557b0d in InOrder (root=0x555555774870) at splay.cpp:254
+#26 0x0000555555557abd in InOrder (root=0x55555587dcb0) at splay.cpp:252
+#27 0x0000555555557b0d in InOrder (root=0x555555693810) at splay.cpp:254
+#28 0x0000555555557b0d in InOrder (root=0x555555634c10) at splay.cpp:254
+#29 0x0000555555557b0d in InOrder (root=0x55555587dcd0) at splay.cpp:254
+#30 0x00005555555564fe in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:35
+
+1056		this->_M_getword(__pos) ^= _Base::_S_maskbit(__pos);
+1057		return *this;
+1058	      }
+1059	
+1060	      _GLIBCXX_CONSTEXPR bool
+1061	      _Unchecked_test(size_t __pos) const _GLIBCXX_NOEXCEPT
+1062	      { return ((this->_M_getword(__pos) & _Base::_S_maskbit(__pos))
+1063			!= static_cast<_WordT>(0)); }
+1064	      //@}
+1065	
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x700x480x770x550x550x550x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffdb48
+address max offset: 8
+Memory content after  bitflip:0x620x760xd20xfd0x800x900xe50x6e
+frame name: InOrder
+symbol name: root
+symbol filename: splay.cpp
+symbol line: 248
+value: 0x555555774870
+value address: 0x7fffffffdb48
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-30 22:28:52]
+Fault Injection Successful after 1.198254108428955s
+[INFO -- 2018-11-30 22:28:52]
+event type: exit
+[INFO -- 2018-11-30 22:28:52]
+exit code: 0

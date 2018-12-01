@@ -1,0 +1,56 @@
+[INFO -- 2018-11-30 18:44:09]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-30 18:44:09]
+Initialization strings:
+[INFO -- 2018-11-30 18:44:09]
+(1) file /tmp/splay/main
+[INFO -- 2018-11-30 18:44:09]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-11-30 18:44:09]
+initSignal:0
+[INFO -- 2018-11-30 18:44:09]
+endSignal:5
+[INFO -- 2018-11-30 18:44:09]
+faultModel:0
+[INFO -- 2018-11-30 18:44:09]
+Backtrace BEGIN:
+#0  0x0000555555557cd9 in LL_Rotate (k2=0x555555595070) at splay.cpp:33
+#1  0x000055555555778b in Splay (key=4871278, root=0x555555595070) at splay.cpp:85
+#2  0x0000555555557916 in Insert (key=4871278, root=0x5555556bcdd0) at splay.cpp:145
+#3  0x00005555555564bb in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:31
+
+28	          /  \                /  \
+29	         Y    Z              X    Y
+30	 */
+31	inline splay* LL_Rotate(splay* k2)
+32	{
+33		splay* k1 = k2->rchild;
+34		k2->rchild = k1->lchild;
+35		k1->lchild = k2;
+36		return k1;
+37	}
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping a bit of the value pointed by a pointer
+Memory content before bitflip:0x2f
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffe306 
+address max offset: 1
+Memory content after  bitflip:0x2e
+frame name: main
+symbol name: argv
+symbol filename: main.cpp
+symbol line: 14
+value: 0x7fffffffdfb8
+value address: 0x7fffffffdc30
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-11-30 18:44:09]
+Fault Injection Successful after 0.5525360107421875s
+[INFO -- 2018-11-30 18:44:09]
+event type: exit
+[INFO -- 2018-11-30 18:44:09]
+exit code: 0

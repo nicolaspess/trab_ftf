@@ -1,0 +1,90 @@
+[INFO -- 2018-11-30 18:37:34]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-30 18:37:34]
+Initialization strings:
+[INFO -- 2018-11-30 18:37:34]
+(1) file /tmp/splay/main
+[INFO -- 2018-11-30 18:37:34]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-11-30 18:37:34]
+initSignal:0
+[INFO -- 2018-11-30 18:37:34]
+endSignal:5
+[INFO -- 2018-11-30 18:37:34]
+faultModel:4
+[INFO -- 2018-11-30 18:37:35]
+Backtrace BEGIN:
+#0  0x0000555555557ecd in std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> > (this=0x7fffffffd580, __s="1", '0' <repeats 15 times>, __zero=48 '0', __one=49 '1') at /usr/include/c++/8/bitset:1414
+#1  0x0000555555557ded in std::operator<< <char, std::char_traits<char>, 16ul> (__os=..., __x=std::bitset = {...}) at /usr/include/c++/8/bitset:1542
+#2  0x0000555555557ae8 in InOrder (root=0x55555565f090) at splay.cpp:253
+#3  0x0000555555557abd in InOrder (root=0x55555560dbb0) at splay.cpp:252
+#4  0x0000555555557b0d in InOrder (root=0x555555590b10) at splay.cpp:254
+#5  0x0000555555557b0d in InOrder (root=0x55555575edf0) at splay.cpp:254
+#6  0x0000555555557b0d in InOrder (root=0x5555556bed10) at splay.cpp:254
+#7  0x0000555555557abd in InOrder (root=0x555555662b90) at splay.cpp:252
+#8  0x0000555555557abd in InOrder (root=0x5555555cbe90) at splay.cpp:252
+#9  0x0000555555557b0d in InOrder (root=0x55555576e9f0) at splay.cpp:254
+#10 0x0000555555557b0d in InOrder (root=0x55555586ab70) at splay.cpp:254
+#11 0x0000555555557abd in InOrder (root=0x5555557e3490) at splay.cpp:252
+#12 0x0000555555557abd in InOrder (root=0x55555586f5f0) at splay.cpp:252
+#13 0x0000555555557b0d in InOrder (root=0x5555558701d0) at splay.cpp:254
+#14 0x0000555555557b0d in InOrder (root=0x5555558711f0) at splay.cpp:254
+#15 0x0000555555557abd in InOrder (root=0x555555873b90) at splay.cpp:252
+#16 0x0000555555557abd in InOrder (root=0x555555685f50) at splay.cpp:252
+#17 0x0000555555557b0d in InOrder (root=0x555555878ab0) at splay.cpp:254
+#18 0x0000555555557b0d in InOrder (root=0x55555569ab10) at splay.cpp:254
+#19 0x0000555555557abd in InOrder (root=0x5555556b5970) at splay.cpp:252
+#20 0x0000555555557abd in InOrder (root=0x55555587c690) at splay.cpp:252
+#21 0x0000555555557abd in InOrder (root=0x555555823f30) at splay.cpp:252
+#22 0x0000555555557abd in InOrder (root=0x55555587cfd0) at splay.cpp:252
+#23 0x0000555555557abd in InOrder (root=0x555555707270) at splay.cpp:252
+#24 0x0000555555557b0d in InOrder (root=0x55555587d570) at splay.cpp:254
+#25 0x0000555555557b0d in InOrder (root=0x55555587d6b0) at splay.cpp:254
+#26 0x0000555555557abd in InOrder (root=0x5555556e1d70) at splay.cpp:252
+#27 0x0000555555557b0d in InOrder (root=0x5555555852d0) at splay.cpp:254
+#28 0x0000555555557abd in InOrder (root=0x55555587d9d0) at splay.cpp:252
+#29 0x0000555555557b0d in InOrder (root=0x5555555d7910) at splay.cpp:254
+#30 0x0000555555557b0d in InOrder (root=0x55555587d8d0) at splay.cpp:254
+#31 0x0000555555557b0d in InOrder (root=0x5555557cfed0) at splay.cpp:254
+#32 0x0000555555557b0d in InOrder (root=0x555555774190) at splay.cpp:254
+#33 0x0000555555557b0d in InOrder (root=0x555555774870) at splay.cpp:254
+#34 0x0000555555557abd in InOrder (root=0x55555587dcb0) at splay.cpp:252
+#35 0x0000555555557b0d in InOrder (root=0x555555693810) at splay.cpp:254
+#36 0x0000555555557b0d in InOrder (root=0x555555634c10) at splay.cpp:254
+#37 0x0000555555557b0d in InOrder (root=0x55555587dcd0) at splay.cpp:254
+#38 0x00005555555564fe in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:35
+
+1409				_CharT __zero, _CharT __one) const
+1410	      {
+1411		__s.assign(_Nb, __zero);
+1412		for (size_t __i = _Nb; __i > 0; --__i)
+1413		  if (_Unchecked_test(__i - 1))
+1414		    _Traits::assign(__s[_Nb - __i], __one);
+1415	      }
+1416	
+1417	  // 23.3.5.3 bitset operations:
+1418	  //@{
+
+Backtrace END
+Fliping a bit of the reference
+Memory content before bitflip:0xb00xc70xfa0xf70xff0x7f0x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7ffff7fb70a0
+address max offset: 8
+Memory content after  bitflip:0xb00xc70xfa0xf70xff0x7f0x000x10
+frame name: std::operator<< <char, std::char_traits<char>, 16ul>
+symbol name: __ct
+symbol filename: /usr/include/c++/8/bitset
+symbol line: 1541
+value: @0x7ffff7fb70a0
+value address: 0x7ffff7fb70a0
+Type: A reference type.
+Type sizeof: 8
+
+[INFO -- 2018-11-30 18:37:35]
+Fault Injection Successful after 1.6728627681732178s
+[INFO -- 2018-11-30 18:37:35]
+event type: exit
+[EXCEPTION -- 2018-11-30 18:37:35]
+exit code: no exit code available

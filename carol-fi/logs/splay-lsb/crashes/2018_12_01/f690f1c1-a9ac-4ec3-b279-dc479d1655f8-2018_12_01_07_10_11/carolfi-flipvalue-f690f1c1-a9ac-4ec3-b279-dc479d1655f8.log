@@ -1,0 +1,62 @@
+[INFO -- 2018-12-01 07:10:10]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-01 07:10:10]
+Initialization strings:
+[INFO -- 2018-12-01 07:10:10]
+(1) file /tmp/splay/main
+[INFO -- 2018-12-01 07:10:10]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-12-01 07:10:10]
+initSignal:0
+[INFO -- 2018-12-01 07:10:10]
+endSignal:5
+[INFO -- 2018-12-01 07:10:10]
+faultModel:4
+[EXCEPTION -- 2018-12-01 07:10:10]
+pythonException: Unable to exit loop in struct fields; Exiting wihtout making a bit flip
+[EXCEPTION -- 2018-12-01 07:10:10]
+pythonException: empty range for randrange() (0,0, 0)
+[INFO -- 2018-12-01 07:10:10]
+Backtrace BEGIN:
+#0  0x0000555555557756 in Splay (key=3696658, root=0x5555555aed70) at splay.cpp:77
+#1  0x0000555555557916 in Insert (key=3696658, root=0x555555654890) at splay.cpp:145
+#2  0x00005555555564bb in main (argc=3, argv=0x7fffffffdfb8) at main.cpp:31
+
+72				}
+73				/* Link to R Tree */
+74				RightTreeMin->lchild = root;
+75				RightTreeMin = RightTreeMin->lchild;
+76				root = root->lchild;
+77				RightTreeMin->lchild = NULL;
+78			}
+79			else if(key > root->key)
+80			{
+81				if(!root->rchild)
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: lchild
+Fliping a bit of the value pointed by a pointer
+Fliping value of field: rchild
+Fliping a bit of the pointer
+Memory content before bitflip:0x000x000x000x000x000x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x5555555af000
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x01
+frame name: main
+symbol name: root
+symbol filename: main.cpp
+symbol line: 22
+value: 0x555555654890
+value address: 0x7fffffffdc48
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-01 07:10:10]
+Fault Injection Successful after 0.8484320640563965s
+[INFO -- 2018-12-01 07:10:10]
+event type: exit
+[EXCEPTION -- 2018-12-01 07:10:10]
+exit code: no exit code available

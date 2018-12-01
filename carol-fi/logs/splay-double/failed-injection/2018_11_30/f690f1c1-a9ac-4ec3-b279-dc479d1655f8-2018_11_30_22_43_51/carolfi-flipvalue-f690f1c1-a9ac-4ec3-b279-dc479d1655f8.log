@@ -1,0 +1,21 @@
+[INFO -- 2018-11-30 22:43:49]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-30 22:43:49]
+Initialization strings:
+[INFO -- 2018-11-30 22:43:49]
+(1) file /tmp/splay/main
+[INFO -- 2018-11-30 22:43:49]
+(2) set args /tmp/splay/input_100000 /tmp/splay/output_100000
+[INFO -- 2018-11-30 22:43:49]
+initSignal:0
+[INFO -- 2018-11-30 22:43:49]
+endSignal:5
+[INFO -- 2018-11-30 22:43:49]
+faultModel:1
+[EXCEPTION -- 2018-11-30 22:43:50]
+gdbException: Attempt to dereference a generic pointer.
+[INFO -- 2018-11-30 22:43:50]
+event type: exit
+[INFO -- 2018-11-30 22:43:50]
+exit code: 0
