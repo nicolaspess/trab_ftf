@@ -1,0 +1,9 @@
+Variable Name;Variable File;Variable Line;Fault Injection Time(s);Injection Time Interval;Fault Model
+v_nodes;BTree_dup.cpp;660;1.9495885372161865;0-2;Zero bit-flip
+__tmp;/usr/include/c++/7/bitset;1533;3.190531015396118;0-2;Double bit-flip
+_rtld_global;rtld.c;231;0.7949175834655762;0-2;Double bit-flip
+__tmp;/usr/include/c++/7/bitset;1533;2.5004353523254395;0-2;Double bit-flip
+__last;/usr/include/c++/7/bits/stl_vector.h;1306;1.2726807594299316;0-2;LSB bit-flip
+argv;BTree_dup.cpp;691;1.8115622997283936;0-2;Single bit-flip
+argv;BTree_dup.cpp;691;2.083468198776245;0-2;Single bit-flip
+argv;BTree_dup.cpp;691;1.5466253757476807;0-2;Single bit-flip
