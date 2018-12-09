@@ -1,0 +1,3 @@
+Variable Name;Variable File;Variable Line;Fault Injection Time(s);Injection Time Interval;Fault Model
+__GI__IO_file_jumps;fileops.c;1455;1.0839653015136719;0-2;LSB bit-flip
+__GI__IO_file_jumps;fileops.c;1455;0.91066575050354;0-2;LSB bit-flip

@@ -1,0 +1,130 @@
+[INFO -- 2018-12-09 15:38:56]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 15:38:56]
+Initialization strings:
+[INFO -- 2018-12-09 15:38:56]
+(1) file /tmp/RBTree-dup/main_dup
+[INFO -- 2018-12-09 15:38:56]
+(2)  set args /tmp/RBTree-dup/input_100000 /tmp/RBTree-dup/output_100000 /tmp/RBTree-dup/RBTree-dup-detection.log tmp/RBTree-dup/output2_100000
+[INFO -- 2018-12-09 15:38:56]
+initSignal:0
+[INFO -- 2018-12-09 15:38:56]
+endSignal:2
+[INFO -- 2018-12-09 15:38:56]
+faultModel:4
+[INFO -- 2018-12-09 15:38:57]
+Backtrace BEGIN:
+#0  0x00007ffff7334154 in __GI___libc_write (fd=1, buf=0x55555576e0d0, nbytes=21) at ../sysdeps/unix/sysv/linux/write.c:27
+#1  0x00007ffff72af1bd in _IO_new_file_write (f=0x7ffff7610760 <_IO_2_1_stdout_>, data=0x55555576e0d0, n=21) at fileops.c:1203
+#2  0x00007ffff72b0f51 in new_do_write (to_do=21, data=0x55555576e0d0 "0000010001000011 001\nU", fp=0x7ffff7610760 <_IO_2_1_stdout_>) at fileops.c:457
+#3  _IO_new_do_write (fp=0x7ffff7610760 <_IO_2_1_stdout_>, data=0x55555576e0d0 "0000010001000011 001\nU", to_do=21) at fileops.c:433
+#4  0x00007ffff72ae788 in _IO_new_file_sync (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at fileops.c:813
+#5  0x00007ffff72a287d in __GI__IO_fflush (fp=0x7ffff7610760 <_IO_2_1_stdout_>) at iofflush.c:40
+#6  0x00007ffff7b5ef5e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#7  0x0000555555557d3c in RBTree::inorderBST(Node*&) ()
+#8  0x0000555555557cbc in RBTree::inorderBST(Node*&) ()
+#9  0x0000555555557cbc in RBTree::inorderBST(Node*&) ()
+#10 0x0000555555557cbc in RBTree::inorderBST(Node*&) ()
+#11 0x0000555555557cbc in RBTree::inorderBST(Node*&) ()
+#12 0x0000555555557d56 in RBTree::inorderBST(Node*&) ()
+#13 0x0000555555557cbc in RBTree::inorderBST(Node*&) ()
+#14 0x0000555555557d56 in RBTree::inorderBST(Node*&) ()
+#15 0x0000555555557d56 in RBTree::inorderBST(Node*&) ()
+#16 0x0000555555557d56 in RBTree::inorderBST(Node*&) ()
+#17 0x0000555555557d56 in RBTree::inorderBST(Node*&) ()
+#18 0x0000555555557d56 in RBTree::inorderBST(Node*&) ()
+#19 0x0000555555557d56 in RBTree::inorderBST(Node*&) ()
+#20 0x0000555555557d56 in RBTree::inorderBST(Node*&) ()
+#21 0x0000555555557cbc in RBTree::inorderBST(Node*&) ()
+#22 0x0000555555557d93 in RBTree::inorder() ()
+#23 0x0000555555555ba8 in main ()
+
+22	../sysdeps/unix/sysv/linux/write.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping value of field: __pbackfail
+Fliping a bit of the value pointed by a pointer
+Memory content before bitflip:0x41
+Fault Model: LSB bit-flip
+base address to flip value: 0x7ffff72b3c50 
+address max offset: 1
+Memory content after  bitflip:0x01
+frame name: _IO_new_do_write
+symbol name: __GI__IO_file_jumps
+symbol filename: fileops.c
+symbol line: 1455
+value: {__dummy = 0, __dummy2 = 0, __finish = 0x7ffff72b0330 <_IO_new_file_finish>, __overflow = 0x7ffff72b1300 <_IO_new_file_overflow>, __underflow = 0x7ffff72b1020 <_IO_new_file_underflow>, __uflow = 0x7ffff72b23c0 <__GI__IO_default_uflow>, __pbackfail = 0x7ffff72b3c50 <__GI__IO_default_pbackfail>, __xsputn = 0x7ffff72af930 <_IO_new_file_xsputn>, __xsgetn = 0x7ffff72af590 <__GI__IO_file_xsgetn>, __seekoff = 0x7ffff72aeb90 <_IO_new_file_seekoff>, __seekpos = 0x7ffff72b2990 <_IO_default_seekpos>, __setbuf = 0x7ffff72ae850 <_IO_new_file_setbuf>, __sync = 0x7ffff72ae6d0 <_IO_new_file_sync>, __doallocate = 0x7ffff72a2100 <__GI__IO_file_doallocate>, __read = 0x7ffff72af910 <__GI__IO_file_read>, __write = 0x7ffff72af190 <_IO_new_file_write>, __seek = 0x7ffff72ae910 <__GI__IO_file_seek>, __close = 0x7ffff72ae840 <__GI__IO_file_close>, __stat = 0x7ffff72af180 <__GI__IO_file_stat>, __showmanyc = 0x7ffff72b3dd0 <_IO_default_showmanyc>, __imbue = 0x7ffff72b3de0 <_IO_default_imbue>}
+value address: 0x7ffff760c2a0 <_IO_file_jumps>
+Type: The type is a structure.
+Type sizeof: 168
+Field name: __dummy
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: __dummy2
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: __finish
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __overflow
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __underflow
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __uflow
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __pbackfail
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __xsputn
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __xsgetn
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __seekoff
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __seekpos
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __setbuf
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __sync
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __doallocate
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __read
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __write
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __seek
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __close
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __stat
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __showmanyc
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __imbue
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+
+[INFO -- 2018-12-09 15:38:57]
+Fault Injection Successful after 1.3117058277130127s
+[INFO -- 2018-12-09 15:38:57]
+event type: exit
+[INFO -- 2018-12-09 15:38:57]
+exit code: 0

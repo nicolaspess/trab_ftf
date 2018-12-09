@@ -1,0 +1,50 @@
+[INFO -- 2018-12-09 02:16:05]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 02:16:05]
+Initialization strings:
+[INFO -- 2018-12-09 02:16:05]
+(1) file /tmp/RBTree-dup/main_dup
+[INFO -- 2018-12-09 02:16:05]
+(2)  set args /tmp/RBTree-dup/input_100000 /tmp/RBTree-dup/output_100000 /tmp/RBTree-dup/RBTree-dup-detection.log /tmp/RBTree-dup/output2_100000
+[INFO -- 2018-12-09 02:16:05]
+initSignal:0
+[INFO -- 2018-12-09 02:16:05]
+endSignal:2
+[INFO -- 2018-12-09 02:16:05]
+faultModel:4
+[INFO -- 2018-12-09 02:16:05]
+Backtrace BEGIN:
+#0  malloc (n=14) at dl-minimal.c:50
+#1  <function called from gdb>
+#2  _int_malloc (av=av@entry=0x7ffff760fc40 <main_arena>, bytes=bytes@entry=32) at malloc.c:4100
+#3  0x00007ffff72bb0fc in __GI___libc_malloc (bytes=32) at malloc.c:3057
+#4  0x00007ffff7adf1a8 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#5  0x0000555555556f25 in RBTree::insertValue(int) ()
+#6  0x000055555555584c in runner(char*) ()
+#7  0x0000555555555b77 in main ()
+
+45	dl-minimal.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x400xfc0x600xf70xff0x7f0x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7ffff7fd16e0
+address max offset: 8
+Memory content after  bitflip:0x400xfc0x600xf70xff0x7f0x000x10
+frame name: __GI___libc_malloc
+symbol name: thread_arena
+symbol filename: arena.c
+symbol line: 74
+value: 0x7ffff760fc40 <main_arena>
+value address: 0x7ffff7fd16e0
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-09 02:16:05]
+Fault Injection Successful after 0.5852832794189453s
+[INFO -- 2018-12-09 02:16:05]
+event type: exit
+[INFO -- 2018-12-09 02:16:05]
+exit code: 0

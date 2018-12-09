@@ -1,0 +1,51 @@
+[INFO -- 2018-12-09 02:07:07]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 02:07:07]
+Initialization strings:
+[INFO -- 2018-12-09 02:07:07]
+(1) file /tmp/RBTree-dup/main_dup
+[INFO -- 2018-12-09 02:07:07]
+(2)  set args /tmp/RBTree-dup/input_100000 /tmp/RBTree-dup/output_100000 /tmp/RBTree-dup/RBTree-dup-detection.log /tmp/RBTree-dup/output2_100000
+[INFO -- 2018-12-09 02:07:07]
+initSignal:0
+[INFO -- 2018-12-09 02:07:07]
+endSignal:2
+[INFO -- 2018-12-09 02:07:07]
+faultModel:4
+[INFO -- 2018-12-09 02:07:08]
+Backtrace BEGIN:
+#0  malloc (n=14) at dl-minimal.c:50
+#1  <function called from gdb>
+#2  malloc (n=14) at dl-minimal.c:50
+#3  <function called from gdb>
+#4  0x00007ffff72bb21a in __GI___libc_malloc (bytes=<optimized out>) at malloc.c:3081
+#5  0x00007ffff7adf1a8 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#6  0x0000555555556f25 in RBTree::insertValue(int) ()
+#7  0x000055555555584c in runner(char*) ()
+#8  0x0000555555555b77 in main ()
+
+45	in dl-minimal.c
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x000x000x000x000x000x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7ffff76118e8 
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x02
+frame name: __GI___libc_malloc
+symbol name: __free_hook
+symbol filename: malloc.c
+symbol line: 1864
+value: 0x0
+value address: 0x7ffff76118e8 <__free_hook>
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-09 02:07:08]
+Fault Injection Successful after 1.2827861309051514s
+[INFO -- 2018-12-09 02:07:08]
+event type: exit
+[EXCEPTION -- 2018-12-09 02:07:08]
+exit code: no exit code available

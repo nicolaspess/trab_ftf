@@ -1,0 +1,21 @@
+[INFO -- 2018-12-09 02:10:58]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 02:10:58]
+Initialization strings:
+[INFO -- 2018-12-09 02:10:58]
+(1) file /tmp/RBTree-dup/main_dup
+[INFO -- 2018-12-09 02:10:58]
+(2)  set args /tmp/RBTree-dup/input_100000 /tmp/RBTree-dup/output_100000 /tmp/RBTree-dup/RBTree-dup-detection.log /tmp/RBTree-dup/output2_100000
+[INFO -- 2018-12-09 02:10:58]
+initSignal:0
+[INFO -- 2018-12-09 02:10:58]
+endSignal:2
+[INFO -- 2018-12-09 02:10:58]
+faultModel:4
+[EXCEPTION -- 2018-12-09 02:10:58]
+gdbException: Tentativo de desreferenciar um ponteiro genérico.
+[INFO -- 2018-12-09 02:10:59]
+event type: exit
+[INFO -- 2018-12-09 02:10:59]
+exit code: 0

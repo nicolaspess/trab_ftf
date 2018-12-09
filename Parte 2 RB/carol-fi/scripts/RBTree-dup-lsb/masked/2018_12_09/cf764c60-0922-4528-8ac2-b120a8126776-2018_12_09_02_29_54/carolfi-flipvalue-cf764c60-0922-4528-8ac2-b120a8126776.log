@@ -1,0 +1,47 @@
+[INFO -- 2018-12-09 02:29:51]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 02:29:51]
+Initialization strings:
+[INFO -- 2018-12-09 02:29:51]
+(1) file /tmp/RBTree-dup/main_dup
+[INFO -- 2018-12-09 02:29:51]
+(2)  set args /tmp/RBTree-dup/input_100000 /tmp/RBTree-dup/output_100000 /tmp/RBTree-dup/RBTree-dup-detection.log /tmp/RBTree-dup/output2_100000
+[INFO -- 2018-12-09 02:29:51]
+initSignal:0
+[INFO -- 2018-12-09 02:29:51]
+endSignal:2
+[INFO -- 2018-12-09 02:29:51]
+faultModel:4
+[INFO -- 2018-12-09 02:29:51]
+Backtrace BEGIN:
+#0  _int_malloc (av=av@entry=0x7ffff760fc40 <main_arena>, bytes=bytes@entry=32) at malloc.c:3726
+#1  0x00007ffff72bb0fc in __GI___libc_malloc (bytes=32) at malloc.c:3057
+#2  0x00007ffff7adf1a8 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#3  0x0000555555556f25 in RBTree::insertValue(int) ()
+#4  0x000055555555584c in runner(char*) ()
+#5  0x0000555555555b60 in main ()
+
+3721	malloc.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Memory content before bitflip:0x000x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7ffff761192c 
+address max offset: 4
+Memory content after  bitflip:0x000x000x000x01
+frame name: _int_malloc
+symbol name: perturb_byte
+symbol filename: malloc.c
+symbol line: 1882
+value: 16777216
+value address: 0x7ffff761192c <perturb_byte>
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-12-09 02:29:51]
+Fault Injection Successful after 0.6151080131530762s
+[INFO -- 2018-12-09 02:29:51]
+event type: exit
+[INFO -- 2018-12-09 02:29:51]
+exit code: 0

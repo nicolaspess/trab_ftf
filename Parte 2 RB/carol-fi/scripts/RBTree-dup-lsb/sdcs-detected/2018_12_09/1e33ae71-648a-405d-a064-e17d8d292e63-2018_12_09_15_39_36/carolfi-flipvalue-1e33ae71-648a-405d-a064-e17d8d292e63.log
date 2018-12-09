@@ -1,0 +1,63 @@
+[INFO -- 2018-12-09 15:39:33]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 15:39:33]
+Initialization strings:
+[INFO -- 2018-12-09 15:39:33]
+(1) file /tmp/RBTree-dup/main_dup
+[INFO -- 2018-12-09 15:39:33]
+(2)  set args /tmp/RBTree-dup/input_100000 /tmp/RBTree-dup/output_100000 /tmp/RBTree-dup/RBTree-dup-detection.log tmp/RBTree-dup/output2_100000
+[INFO -- 2018-12-09 15:39:33]
+initSignal:0
+[INFO -- 2018-12-09 15:39:33]
+endSignal:2
+[INFO -- 2018-12-09 15:39:33]
+faultModel:4
+[INFO -- 2018-12-09 15:39:33]
+Backtrace BEGIN:
+#0  0x00007ffff72e1410 in ?? ()
+#1  0x00007ffff7de1b73 in elf_machine_lazy_rel (skip_ifunc=<optimized out>, reloc=0x7ffff7244cc8, l_addr=140737339604992, map=0x7ffff7fd6ef0) at ../sysdeps/x86_64/dl-machine.h:577
+#2  elf_dynamic_do_Rela (skip_ifunc=<optimized out>, lazy=<optimized out>, nrelative=<optimized out>, relsize=<optimized out>, reladdr=<optimized out>, map=0x7ffff7fd6ef0) at do-rel.h:77
+#3  _dl_relocate_object (scope=<optimized out>, reloc_mode=<optimized out>, consider_profiling=<optimized out>, consider_profiling@entry=0) at dl-reloc.c:258
+#4  0x00007ffff7dd9307 in dl_main (phdr=<optimized out>, phnum=<optimized out>, user_entry=<optimized out>, auxv=<optimized out>) at rtld.c:2190
+#5  0x00007ffff7defdd0 in _dl_sysdep_start (start_argptr=start_argptr@entry=0x7fffffffde90, dl_main=dl_main@entry=0x7ffff7dd7660 <dl_main>) at ../elf/dl-sysdep.c:253
+#6  0x00007ffff7dd7128 in _dl_start_final (arg=0x7fffffffde90) at rtld.c:414
+#7  _dl_start (arg=0x7fffffffde90) at rtld.c:521
+#8  0x00007ffff7dd6098 in _start () from /lib64/ld-linux-x86-64.so.2
+#9  0x0000000000000005 in ?? ()
+#10 0x00007fffffffe213 in ?? ()
+#11 0x00007fffffffe22c in ?? ()
+#12 0x00007fffffffe249 in ?? ()
+#13 0x00007fffffffe267 in ?? ()
+#14 0x00007fffffffe290 in ?? ()
+#15 0x0000000000000000 in ?? ()
+
+1	<built-in>: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping array at pos: 1
+Fliping value of field: lazy
+Memory content before bitflip:0x010x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffdb48
+address max offset: 4
+Memory content after  bitflip:0x010x000x000x01
+frame name: elf_dynamic_do_Rela
+symbol name: ranges
+symbol filename: dl-reloc.c
+symbol line: 258
+value: {{start = 140737339707176, size = 31824, nrelative = 1237, lazy = 0}, {start = 140737339739000, size = 1104, nrelative = 0, lazy = 16777217}}
+value address: 0x7fffffffdb10
+Type: The type is an array.
+Type sizeof: 64
+Field name: None
+Field Type: A range type, that is, an integer type with bounds.
+Field Type sizeof: 8
+Field Type range: (0, 1)
+
+[INFO -- 2018-12-09 15:39:33]
+Fault Injection Successful after 0.4268479347229004s
+[INFO -- 2018-12-09 15:39:34]
+event type: exit
+[INFO -- 2018-12-09 15:39:34]
+exit code: 0

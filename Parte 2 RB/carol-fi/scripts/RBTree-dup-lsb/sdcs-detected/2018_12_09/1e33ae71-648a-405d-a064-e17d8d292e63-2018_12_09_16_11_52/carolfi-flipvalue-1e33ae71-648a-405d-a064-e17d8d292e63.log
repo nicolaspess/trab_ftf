@@ -1,0 +1,47 @@
+[INFO -- 2018-12-09 16:11:49]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 16:11:49]
+Initialization strings:
+[INFO -- 2018-12-09 16:11:49]
+(1) file /tmp/RBTree-dup/main_dup
+[INFO -- 2018-12-09 16:11:49]
+(2)  set args /tmp/RBTree-dup/input_100000 /tmp/RBTree-dup/output_100000 /tmp/RBTree-dup/RBTree-dup-detection.log tmp/RBTree-dup/output2_100000
+[INFO -- 2018-12-09 16:11:49]
+initSignal:0
+[INFO -- 2018-12-09 16:11:49]
+endSignal:2
+[INFO -- 2018-12-09 16:11:49]
+faultModel:4
+[INFO -- 2018-12-09 16:11:49]
+Backtrace BEGIN:
+#0  0x00007ffff72b8334 in _int_malloc (av=av@entry=0x7ffff760fc40 <main_arena>, bytes=bytes@entry=32) at malloc.c:3583
+#1  0x00007ffff72bb0fc in __GI___libc_malloc (bytes=32) at malloc.c:3057
+#2  0x00007ffff7adf1a8 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#3  0x0000555555556f25 in RBTree::insertValue(int) ()
+#4  0x000055555555584c in runner(char*) ()
+#5  0x0000555555555b77 in main ()
+
+3578	malloc.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Memory content before bitflip:0x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7ffff7fd16d8
+address max offset: 1
+Memory content after  bitflip:0x01
+frame name: __GI___libc_malloc
+symbol name: tcache_shutting_down
+symbol filename: malloc.c
+symbol line: 2920
+value: true
+value address: 0x7ffff7fd16d8
+Type: A boolean type.
+Type sizeof: 1
+
+[INFO -- 2018-12-09 16:11:49]
+Fault Injection Successful after 0.9389934539794922s
+[INFO -- 2018-12-09 16:11:50]
+event type: exit
+[INFO -- 2018-12-09 16:11:50]
+exit code: 0

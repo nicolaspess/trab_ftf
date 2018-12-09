@@ -1,0 +1,53 @@
+[INFO -- 2018-12-09 15:28:58]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 15:28:58]
+Initialization strings:
+[INFO -- 2018-12-09 15:28:58]
+(1) file /tmp/RBTree-dup/main_dup
+[INFO -- 2018-12-09 15:28:58]
+(2)  set args /tmp/RBTree-dup/input_100000 /tmp/RBTree-dup/output_100000 /tmp/RBTree-dup/RBTree-dup-detection.log tmp/RBTree-dup/output2_100000
+[INFO -- 2018-12-09 15:28:58]
+initSignal:0
+[INFO -- 2018-12-09 15:28:58]
+endSignal:2
+[INFO -- 2018-12-09 15:28:58]
+faultModel:4
+[INFO -- 2018-12-09 15:28:59]
+Backtrace BEGIN:
+#0  0x00007ffff7334217 in __lseek64 (fd=4, offset=0, whence=2) at ../sysdeps/unix/sysv/linux/lseek64.c:35
+#1  0x00007ffff72b05ef in __GI__IO_file_open (is32not64=1, read_write=<optimized out>, prot=438, posix_mode=<optimized out>, filename=0x7ffff760c2a0 <_IO_file_jumps> "", fp=0x55555576e0d0) at fileops.c:199
+#2  _IO_new_file_fopen (fp=fp@entry=0x55555576e0d0, filename=filename@entry=0x7fffffffe267 "/tmp/RBTree-dup/RBTree-dup-detection.log", mode=<optimized out>, mode@entry=0x555555558ba0 "a", is32not64=is32not64@entry=1) at fileops.c:281
+#3  0x00007ffff72a2eaa in __fopen_internal (is32=1, mode=0x555555558ba0 "a", filename=0x7fffffffe267 "/tmp/RBTree-dup/RBTree-dup-detection.log") at iofopen.c:78
+#4  _IO_new_fopen (filename=0x7fffffffe267 "/tmp/RBTree-dup/RBTree-dup-detection.log", mode=0x555555558ba0 "a") at iofopen.c:89
+#5  0x0000555555555a06 in compare_output(char*, char*, char*) ()
+#6  0x0000555555555c1f in main ()
+
+30	../sysdeps/unix/sysv/linux/lseek64.c: Arquivo ou diretório inexistente.
+
+Backtrace END
+Fliping array at pos: 17
+Memory content before bitflip:0x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7ffff7224011 
+address max offset: 1
+Memory content after  bitflip:0x20
+frame name: __lseek64
+symbol name: __evoke_link_warning_llseek
+symbol filename: ../sysdeps/unix/sysv/linux/lseek64.c
+symbol line: 53
+value: "\177ELF\002\001\001\003\000\000\000\000\000\000\000\000\003 >\000\001\000\000\000\260\034\002\000\000\000\000\000@\000\000\000\000\000\000\000\220\351\036\000\000\000\000\000\000\000\000\000@\000\070\000\n\000@\000I\000H"
+value address: 0x7ffff7224000
+Type: The type is an array.
+Type sizeof: 63
+Field name: None
+Field Type: A range type, that is, an integer type with bounds.
+Field Type sizeof: 8
+Field Type range: (0, 62)
+
+[INFO -- 2018-12-09 15:28:59]
+Fault Injection Successful after 1.5741910934448242s
+[INFO -- 2018-12-09 15:28:59]
+event type: exit
+[INFO -- 2018-12-09 15:28:59]
+exit code: 0
