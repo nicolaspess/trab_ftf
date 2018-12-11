@@ -1,0 +1,89 @@
+[INFO -- 2018-12-09 11:42:59]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 11:42:59]
+Initialization strings:
+[INFO -- 2018-12-09 11:42:59]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-12-09 11:42:59]
+(2) set args /tmp/Tree234/input_100000 /tmp/Tree234/output_100000 /tmp/Tree234/detectionLog_100000.log /tmp/Tree234/output2_100000
+[INFO -- 2018-12-09 11:42:59]
+initSignal:0
+[INFO -- 2018-12-09 11:42:59]
+endSignal:5
+[INFO -- 2018-12-09 11:42:59]
+faultModel:2
+[EXCEPTION -- 2018-12-09 11:43:00]
+gdbException: Attempt to dereference a generic pointer.
+[INFO -- 2018-12-09 11:43:00]
+Backtrace BEGIN:
+#0  0x00007ffff72dc13d in __GI___libc_malloc (bytes=56) at malloc.c:2907
+#1  0x00007ffff7ae2e78 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x0000000000401b7b in Arvore234::divide(no**) ()
+#3  0x000000000040190c in Arvore234::inserir(int) ()
+#4  0x000000000040279e in runner(char*) ()
+#5  0x0000000000402a96 in main ()
+
+2902	in malloc.c
+
+Backtrace END
+Fliping value of field: mmap_threshold
+Memory content before bitflip:0x000x100x040x000x000x000x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7ffff761c170 
+address max offset: 8
+Memory content after  bitflip:0xaf0x120xc60xdc0xbb0x610xdf0xe9
+frame name: __GI___libc_malloc
+symbol name: mp_
+symbol filename: malloc.c
+symbol line: 1769
+value: {trim_threshold = 532480, top_pad = 131072, mmap_threshold = 16852295790134432431, arena_test = 8, arena_max = 0, n_mmaps = 1, n_mmaps_max = 65536, max_n_mmaps = 2, no_dyn_threshold = 0, mmapped_mem = 528384, max_mmapped_mem = 794624, max_total_mem = 0, sbrk_base = 0x607000 ""}
+value address: 0x7ffff761c160 <mp_>
+Type: The type is a structure.
+Type sizeof: 88
+Field name: trim_threshold
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: top_pad
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: mmap_threshold
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: arena_test
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: arena_max
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: n_mmaps
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+Field name: n_mmaps_max
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+Field name: max_n_mmaps
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+Field name: no_dyn_threshold
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+Field name: mmapped_mem
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: max_mmapped_mem
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: max_total_mem
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: sbrk_base
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+
+[INFO -- 2018-12-09 11:43:00]
+Fault Injection Successful after 1.1189007759094238s
+[INFO -- 2018-12-09 11:43:01]
+event type: exit
+[INFO -- 2018-12-09 11:43:01]
+exit code: 0

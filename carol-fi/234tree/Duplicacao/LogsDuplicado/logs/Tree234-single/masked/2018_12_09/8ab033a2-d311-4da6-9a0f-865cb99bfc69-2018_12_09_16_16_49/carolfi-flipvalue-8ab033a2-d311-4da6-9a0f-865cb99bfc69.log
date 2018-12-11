@@ -1,0 +1,65 @@
+[INFO -- 2018-12-09 16:16:46]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 16:16:46]
+Initialization strings:
+[INFO -- 2018-12-09 16:16:46]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-12-09 16:16:46]
+(2) set args /tmp/Tree234/input_100000 /tmp/Tree234/output_100000 /tmp/Tree234/detectionLog_100000.log /tmp/Tree234/output2_100000
+[INFO -- 2018-12-09 16:16:46]
+initSignal:0
+[INFO -- 2018-12-09 16:16:46]
+endSignal:5
+[INFO -- 2018-12-09 16:16:46]
+faultModel:0
+[INFO -- 2018-12-09 16:16:46]
+Backtrace BEGIN:
+#0  0x00007ffff7df24ba in __mmap (addr=0x0, len=len@entry=3675136, prot=prot@entry=5, flags=flags@entry=2050, fd=fd@entry=4, offset=0) at ../sysdeps/unix/sysv/linux/wordsize-64/mmap.c:34
+#1  0x00007ffff7ddd8cd in _dl_map_segments (loader=0x7ffff7fda000, has_holes=true, maplength=3675136, nloadcmds=2, loadcmds=0x7fffffffd2f0, type=<optimized out>, header=0x7fffffffd668, fd=4, l=0x7ffff7fda000) at ./dl-map-segments.h:56
+#2  _dl_map_object_from_fd (name=name@entry=0x400789 "libstdc++.so.6", origname=origname@entry=0x0, fd=4, fbp=fbp@entry=0x7fffffffd660, realname=0x7ffff7ffed60 "/usr/lib/x86_64-linux-gnu/libstdc++.so.6", loader=loader@entry=0x7ffff7ffe168, l_type=1, mode=0, stack_endp=0x7fffffffd658, nsid=0) at dl-load.c:1245
+#3  0x00007ffff7ddfc27 in _dl_map_object (loader=0x7ffff7ffe168, name=0x400789 "libstdc++.so.6", type=1, trace_mode=0, mode=<optimized out>, nsid=<optimized out>) at dl-load.c:2498
+#4  0x00007ffff7de4ba2 in openaux (a=a@entry=0x7fffffffdc40) at dl-deps.c:63
+#5  0x00007ffff7de7564 in _dl_catch_error (objname=objname@entry=0x7fffffffdc38, errstring=errstring@entry=0x7fffffffdc30, mallocedp=mallocedp@entry=0x7fffffffdc2f, operate=operate@entry=0x7ffff7de4b70 <openaux>, args=args@entry=0x7fffffffdc40) at dl-error.c:187
+#6  0x00007ffff7de51e2 in _dl_map_object_deps (map=map@entry=0x7ffff7ffe168, preloads=<optimized out>, npreloads=npreloads@entry=0, trace_mode=trace_mode@entry=0, open_mode=open_mode@entry=0) at dl-deps.c:254
+#7  0x00007ffff7ddaa29 in dl_main (phdr=<optimized out>, phnum=<optimized out>, user_entry=<optimized out>, auxv=<optimized out>) at rtld.c:1647
+#8  0x00007ffff7df0632 in _dl_sysdep_start (start_argptr=start_argptr@entry=0x7fffffffde90, dl_main=dl_main@entry=0x7ffff7dd91e0 <dl_main>) at ../elf/dl-sysdep.c:249
+#9  0x00007ffff7dd8c2a in _dl_start_final (arg=0x7fffffffde90) at rtld.c:323
+#10 _dl_start (arg=0x7fffffffde90) at rtld.c:429
+#11 0x00007ffff7dd7c38 in _start () from /lib64/ld-linux-x86-64.so.2
+#12 0x0000000000000005 in ?? ()
+#13 0x00007fffffffe21c in ?? ()
+#14 0x00007fffffffe22e in ?? ()
+#15 0x00007fffffffe248 in ?? ()
+#16 0x00007fffffffe263 in ?? ()
+#17 0x00007fffffffe288 in ?? ()
+#18 0x0000000000000000 in ?? ()
+
+29	in ../sysdeps/unix/sysv/linux/wordsize-64/mmap.c
+
+Backtrace END
+Fliping array at pos: 28
+Memory content before bitflip:0x6c
+Fault Model: Single bit-flip
+base address to flip value: 0x7ffff7df5dbc  
+address max offset: 1
+Memory content after  bitflip:0x4c
+frame name: _dl_map_object_from_fd
+symbol name: system_dirs
+symbol filename: dl-load.c
+symbol line: 111
+value: "/lib/x86_64-linux-gnu/\000/usr/Lib/x86_64-linux-gnu/\000/lib/\000/usr/lib/"
+value address: 0x7ffff7df5da0 <system_dirs>
+Type: The type is an array.
+Type sizeof: 66
+Field name: None
+Field Type: A range type, that is, an integer type with bounds.
+Field Type sizeof: 8
+Field Type range: (0, 65)
+
+[INFO -- 2018-12-09 16:16:46]
+Fault Injection Successful after 0.37825989723205566s
+[INFO -- 2018-12-09 16:16:47]
+event type: exit
+[INFO -- 2018-12-09 16:16:47]
+exit code: 0

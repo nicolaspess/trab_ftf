@@ -1,0 +1,58 @@
+[INFO -- 2018-12-09 02:09:27]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 02:09:27]
+Initialization strings:
+[INFO -- 2018-12-09 02:09:27]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-12-09 02:09:27]
+(2) set args /tmp/Tree234/input_50000 /tmp/Tree234/output_50000
+[INFO -- 2018-12-09 02:09:27]
+initSignal:0
+[INFO -- 2018-12-09 02:09:27]
+endSignal:2
+[INFO -- 2018-12-09 02:09:27]
+faultModel:0
+[INFO -- 2018-12-09 02:09:27]
+Backtrace BEGIN:
+#0  0x00007ffff7de0cec in check_match (undef_name=undef_name@entry=0x7ffff7a80ba5 "_ZTVSt7codecvtIcc11__mbstate_tE", ref=ref@entry=0x7ffff7a6ee38, version=version@entry=0x7ffff7fd8030, flags=flags@entry=1, type_class=type_class@entry=4, sym=sym@entry=0x7ffff7a6ee38, symidx=3000, strtab=0x7ffff7a7d2c8 "", map=0x7ffff7fda000, versioned_sym=0x7fffffffda48, num_versions=0x7fffffffda44) at dl-lookup.c:95
+#1  0x00007ffff7de164b in do_lookup_x (undef_name=undef_name@entry=0x7ffff7a80ba5 "_ZTVSt7codecvtIcc11__mbstate_tE", new_hash=new_hash@entry=2735907397, old_hash=old_hash@entry=0x7fffffffdb10, ref=0x7ffff7a6ee38, result=result@entry=0x7fffffffdb20, scope=<optimized out>, i=1, version=0x7ffff7fd8030, flags=1, skip=0x0, type_class=4, undef_map=0x7ffff7fda000) at dl-lookup.c:423
+#2  0x00007ffff7de1b1f in _dl_lookup_symbol_x (undef_name=0x7ffff7a80ba5 "_ZTVSt7codecvtIcc11__mbstate_tE", undef_map=undef_map@entry=0x7ffff7fda000, ref=ref@entry=0x7fffffffdc70, symbol_scope=symbol_scope@entry=0x7ffff7fda358, version=0x7ffff7fd8030, type_class=4, flags=1, skip_map=0x0) at dl-lookup.c:829
+#3  0x00007ffff7de377d in elf_machine_rela (skip_ifunc=<optimized out>, reloc_addr_arg=0x7ffff7dd04a0, version=<optimized out>, sym=0x7ffff7a6ee38, reloc=0x7ffff7ad60c0, map=0x7ffff7fda000) at ../sysdeps/x86_64/dl-machine.h:301
+#4  elf_dynamic_do_Rela (skip_ifunc=<optimized out>, lazy=<optimized out>, nrelative=<optimized out>, relsize=<optimized out>, reladdr=<optimized out>, map=0x7ffff7fda000) at do-rel.h:137
+#5  _dl_relocate_object (scope=<optimized out>, reloc_mode=<optimized out>, consider_profiling=<optimized out>, consider_profiling@entry=0) at dl-reloc.c:258
+#6  0x00007ffff7ddb0db in dl_main (phdr=<optimized out>, phnum=<optimized out>, user_entry=<optimized out>, auxv=<optimized out>) at rtld.c:2109
+#7  0x00007ffff7df0632 in _dl_sysdep_start (start_argptr=start_argptr@entry=0x7fffffffdee0, dl_main=dl_main@entry=0x7ffff7dd91e0 <dl_main>) at ../elf/dl-sysdep.c:249
+#8  0x00007ffff7dd8c2a in _dl_start_final (arg=0x7fffffffdee0) at rtld.c:323
+#9  _dl_start (arg=0x7fffffffdee0) at rtld.c:429
+#10 0x00007ffff7dd7c38 in _start () from /lib64/ld-linux-x86-64.so.2
+#11 0x0000000000000003 in ?? ()
+#12 0x00007fffffffe25f in ?? ()
+#13 0x00007fffffffe271 in ?? ()
+#14 0x00007fffffffe28a in ?? ()
+#15 0x0000000000000000 in ?? ()
+
+90	in dl-lookup.c
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Memory content before bitflip:0x000x000x000x000x000x000x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7ffff7dd04a0
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x020x000x00
+frame name: elf_machine_rela
+symbol name: reloc_addr
+symbol filename: ../sysdeps/x86_64/dl-machine.h
+symbol line: 265
+value: 0x7ffff7dd04a0
+value address: 0x7fffffffdc20
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-09 02:09:27]
+Fault Injection Successful after 0.6546399593353271s
+[INFO -- 2018-12-09 02:09:28]
+event type: exit
+[INFO -- 2018-12-09 02:09:28]
+exit code: 0

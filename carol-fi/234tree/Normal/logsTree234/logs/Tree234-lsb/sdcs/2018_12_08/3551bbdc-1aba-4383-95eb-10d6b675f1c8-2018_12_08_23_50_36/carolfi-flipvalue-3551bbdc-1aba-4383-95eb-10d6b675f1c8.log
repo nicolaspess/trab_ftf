@@ -1,0 +1,61 @@
+[INFO -- 2018-12-08 23:50:33]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-08 23:50:33]
+Initialization strings:
+[INFO -- 2018-12-08 23:50:33]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-12-08 23:50:33]
+(2) set args /tmp/Tree234/input_50000 /tmp/Tree234/output_50000
+[INFO -- 2018-12-08 23:50:33]
+initSignal:0
+[INFO -- 2018-12-08 23:50:33]
+endSignal:2
+[INFO -- 2018-12-08 23:50:33]
+faultModel:4
+[INFO -- 2018-12-08 23:50:33]
+Backtrace BEGIN:
+#0  do_lookup_x (undef_name=undef_name@entry=0x400749 "_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE", new_hash=new_hash@entry=554725641, old_hash=old_hash@entry=0x7fffffffd860, ref=0x4005c0, result=result@entry=0x7fffffffd870, scope=<optimized out>, i=1, version=0x7ffff7fd9bc0, flags=1, skip=0x0, type_class=1, undef_map=0x7ffff7ffe168) at dl-lookup.c:430
+#1  0x00007ffff7de1b1f in _dl_lookup_symbol_x (undef_name=0x400749 "_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE", undef_map=0x7ffff7ffe168, ref=ref@entry=0x7fffffffd928, symbol_scope=0x7ffff7ffe4c0, version=0x7ffff7fd9bc0, type_class=type_class@entry=1, flags=1, skip_map=0x0) at dl-lookup.c:829
+#2  0x00007ffff7de6ac6 in _dl_fixup (l=<optimized out>, reloc_arg=<optimized out>) at ../elf/dl-runtime.c:111
+#3  0x00007ffff7deeeef in _dl_runtime_resolve_sse () at ../sysdeps/x86_64/dl-trampoline.h:112
+#4  0x0000c352f7fda000 in ?? ()
+#5  0x00000000006f35a0 in ?? ()
+#6  0x0000000000001343 in ?? ()
+#7  0x00007ffff7ffe4c0 in ?? ()
+#8  0x00007fffffffdbb0 in ?? ()
+#9  0x00007fffffffdbe0 in ?? ()
+#10 0x00007f0100004ad5 in ?? ()
+#11 0x0000000000000000 in ?? ()
+
+425	in dl-lookup.c
+
+Backtrace END
+Fliping value of field: m
+Fliping a bit of the pointer
+Memory content before bitflip:0x000x000x000x000x000x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7fffffffd878
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x01
+frame name: _dl_lookup_symbol_x
+symbol name: current_value
+symbol filename: dl-lookup.c
+symbol line: 809
+value: {s = 0x0, m = 0x100000000000000}
+value address: 0x7fffffffd870
+Type: The type is a structure.
+Type sizeof: 16
+Field name: s
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: m
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+
+[INFO -- 2018-12-08 23:50:33]
+Fault Injection Successful after 0.5526168346405029s
+[INFO -- 2018-12-08 23:50:33]
+event type: exit
+[INFO -- 2018-12-08 23:50:33]
+exit code: 0

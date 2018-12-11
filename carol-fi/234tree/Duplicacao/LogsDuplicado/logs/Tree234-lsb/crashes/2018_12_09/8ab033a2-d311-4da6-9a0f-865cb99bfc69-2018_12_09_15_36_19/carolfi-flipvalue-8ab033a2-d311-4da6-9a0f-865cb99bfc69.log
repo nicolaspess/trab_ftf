@@ -1,0 +1,60 @@
+[INFO -- 2018-12-09 15:36:16]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 15:36:16]
+Initialization strings:
+[INFO -- 2018-12-09 15:36:16]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-12-09 15:36:16]
+(2) set args /tmp/Tree234/input_100000 /tmp/Tree234/output_100000 /tmp/Tree234/detectionLog_100000.log /tmp/Tree234/output2_100000
+[INFO -- 2018-12-09 15:36:16]
+initSignal:0
+[INFO -- 2018-12-09 15:36:16]
+endSignal:5
+[INFO -- 2018-12-09 15:36:16]
+faultModel:4
+[INFO -- 2018-12-09 15:36:16]
+Backtrace BEGIN:
+#0  0x00007ffff72d7de9 in _int_free (av=0x7ffff761cb20 <main_arena>, p=0x618c90, have_lock=0) at malloc.c:3923
+#1  0x00007ffff72dc53c in __GI___libc_free (mem=<optimized out>) at malloc.c:2968
+#2  0x0000000000402e90 in std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, 16ul>(std::basic_ostream<char, std::char_traits<char> >&, std::bitset<16ul> const&) ()
+#3  0x0000000000402563 in Arvore234::imprime(no*) ()
+#4  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#5  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#6  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#7  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#8  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#9  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#10 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#11 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#12 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#13 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#14 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#15 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#16 0x0000000000402610 in Arvore234::imprime() ()
+#17 0x0000000000402adc in main ()
+
+3918	in malloc.c
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x000x000x000x000x000x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7ffff761e7a8 
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x01
+frame name: __GI___libc_free
+symbol name: __free_hook
+symbol filename: malloc.c
+symbol line: 1850
+value: 0x0
+value address: 0x7ffff761e7a8 <__free_hook>
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-09 15:36:16]
+Fault Injection Successful after 0.9389653205871582s
+[INFO -- 2018-12-09 15:36:17]
+event type: exit
+[EXCEPTION -- 2018-12-09 15:36:17]
+exit code: no exit code available

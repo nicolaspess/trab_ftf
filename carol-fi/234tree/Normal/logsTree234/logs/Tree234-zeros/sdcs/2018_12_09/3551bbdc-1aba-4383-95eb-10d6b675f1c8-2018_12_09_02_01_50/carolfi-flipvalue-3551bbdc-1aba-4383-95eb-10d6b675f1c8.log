@@ -1,0 +1,47 @@
+[INFO -- 2018-12-09 02:01:48]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 02:01:48]
+Initialization strings:
+[INFO -- 2018-12-09 02:01:48]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-12-09 02:01:48]
+(2) set args /tmp/Tree234/input_50000 /tmp/Tree234/output_50000
+[INFO -- 2018-12-09 02:01:48]
+initSignal:0
+[INFO -- 2018-12-09 02:01:48]
+endSignal:2
+[INFO -- 2018-12-09 02:01:48]
+faultModel:3
+[INFO -- 2018-12-09 02:01:48]
+Backtrace BEGIN:
+#0  __GI___libc_malloc (bytes=56) at malloc.c:2911
+#1  0x00007ffff7ae2e78 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x00000000004018eb in Arvore234::divide(no**) ()
+#3  0x000000000040167c in Arvore234::inserir(int) ()
+#4  0x000000000040255a in main ()
+
+2906	in malloc.c
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x000x000x000x000x000x000x000x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x7ffff761cb10 
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x00
+frame name: __GI___libc_malloc
+symbol name: __malloc_hook
+symbol filename: malloc.c
+symbol line: 1852
+value: 0x0
+value address: 0x7ffff761cb10 <__malloc_hook>
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-09 02:01:48]
+Fault Injection Successful after 0.46728062629699707s
+[INFO -- 2018-12-09 02:01:48]
+event type: exit
+[INFO -- 2018-12-09 02:01:48]
+exit code: 0

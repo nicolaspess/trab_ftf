@@ -1,0 +1,59 @@
+[INFO -- 2018-12-09 17:37:00]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 17:37:00]
+Initialization strings:
+[INFO -- 2018-12-09 17:37:00]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-12-09 17:37:00]
+(2) set args /tmp/Tree234/input_100000 /tmp/Tree234/output_100000 /tmp/Tree234/detectionLog_100000.log /tmp/Tree234/output2_100000
+[INFO -- 2018-12-09 17:37:00]
+initSignal:0
+[INFO -- 2018-12-09 17:37:00]
+endSignal:5
+[INFO -- 2018-12-09 17:37:00]
+faultModel:2
+[INFO -- 2018-12-09 17:37:00]
+Backtrace BEGIN:
+#0  do_lookup_x (undef_name=undef_name@entry=0x7ffff7a93c96 "_ZTv0_n24_NSt18basic_stringstreamIcSt11char_traitsIcESaIcEED0Ev", new_hash=new_hash@entry=1416681055, old_hash=old_hash@entry=0x7fffffffdac0, ref=0x7ffff7a688c8, result=result@entry=0x7fffffffdad0, scope=<optimized out>, i=<optimized out>, version=0x7ffff7fd8030, flags=1, skip=0x0, type_class=0, undef_map=0x7ffff7fda000) at dl-lookup.c:469
+#1  0x00007ffff7de1b1f in _dl_lookup_symbol_x (undef_name=0x7ffff7a93c96 "_ZTv0_n24_NSt18basic_stringstreamIcSt11char_traitsIcESaIcEED0Ev", undef_map=undef_map@entry=0x7ffff7fda000, ref=ref@entry=0x7fffffffdc20, symbol_scope=symbol_scope@entry=0x7ffff7fda358, version=0x7ffff7fd8030, type_class=0, flags=1, skip_map=0x0) at dl-lookup.c:829
+#2  0x00007ffff7de377d in elf_machine_rela (skip_ifunc=<optimized out>, reloc_addr_arg=0x7ffff7dcc018, version=<optimized out>, sym=0x7ffff7a688c8, reloc=0x7ffff7ad09c0, map=0x7ffff7fda000) at ../sysdeps/x86_64/dl-machine.h:301
+#3  elf_dynamic_do_Rela (skip_ifunc=<optimized out>, lazy=<optimized out>, nrelative=<optimized out>, relsize=<optimized out>, reladdr=<optimized out>, map=0x7ffff7fda000) at do-rel.h:137
+#4  _dl_relocate_object (scope=<optimized out>, reloc_mode=<optimized out>, consider_profiling=<optimized out>, consider_profiling@entry=0) at dl-reloc.c:258
+#5  0x00007ffff7ddb0db in dl_main (phdr=<optimized out>, phnum=<optimized out>, user_entry=<optimized out>, auxv=<optimized out>) at rtld.c:2109
+#6  0x00007ffff7df0632 in _dl_sysdep_start (start_argptr=start_argptr@entry=0x7fffffffde90, dl_main=dl_main@entry=0x7ffff7dd91e0 <dl_main>) at ../elf/dl-sysdep.c:249
+#7  0x00007ffff7dd8c2a in _dl_start_final (arg=0x7fffffffde90) at rtld.c:323
+#8  _dl_start (arg=0x7fffffffde90) at rtld.c:429
+#9  0x00007ffff7dd7c38 in _start () from /lib64/ld-linux-x86-64.so.2
+#10 0x0000000000000005 in ?? ()
+#11 0x00007fffffffe21c in ?? ()
+#12 0x00007fffffffe22e in ?? ()
+#13 0x00007fffffffe248 in ?? ()
+#14 0x00007fffffffe263 in ?? ()
+#15 0x00007fffffffe288 in ?? ()
+#16 0x0000000000000000 in ?? ()
+
+464	in dl-lookup.c
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x000x000x000x000x000x000x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffdbb0
+address max offset: 8
+Memory content after  bitflip:0xb20x4e0x050xd60xb90x180x2a0x5f
+frame name: elf_dynamic_do_Rela
+symbol name: end2
+symbol filename: do-rel.h
+symbol line: 51
+value: 0x0
+value address: 0x7fffffffdbb0
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-09 17:37:00]
+Fault Injection Successful after 0.4318852424621582s
+[INFO -- 2018-12-09 17:37:01]
+event type: exit
+[INFO -- 2018-12-09 17:37:01]
+exit code: 0

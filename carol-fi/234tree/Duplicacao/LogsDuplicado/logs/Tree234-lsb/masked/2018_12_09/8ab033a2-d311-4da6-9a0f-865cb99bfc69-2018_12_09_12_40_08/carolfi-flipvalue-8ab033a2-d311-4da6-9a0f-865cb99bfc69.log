@@ -1,0 +1,60 @@
+[INFO -- 2018-12-09 12:40:06]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 12:40:06]
+Initialization strings:
+[INFO -- 2018-12-09 12:40:06]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-12-09 12:40:06]
+(2) set args /tmp/Tree234/input_100000 /tmp/Tree234/output_100000 /tmp/Tree234/detectionLog_100000.log /tmp/Tree234/output2_100000
+[INFO -- 2018-12-09 12:40:06]
+initSignal:0
+[INFO -- 2018-12-09 12:40:06]
+endSignal:5
+[INFO -- 2018-12-09 12:40:06]
+faultModel:4
+[EXCEPTION -- 2018-12-09 12:40:06]
+gdbException: No symbol "None" in current context.
+[INFO -- 2018-12-09 12:40:06]
+Backtrace BEGIN:
+#0  malloc (n=13) at dl-minimal.c:94
+#1  <function called from gdb>
+#2  0x00007ffff7359747 in munmap () at ../sysdeps/unix/syscall-template.S:84
+#3  0x00007ffff72dc5d1 in munmap_chunk (p=<optimized out>) at malloc.c:2853
+#4  __GI___libc_free (mem=<optimized out>) at malloc.c:2963
+#5  0x0000000000403634 in __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) ()
+#6  0x0000000000403509 in std::allocator_traits<std::allocator<int> >::deallocate(std::allocator<int>&, int*, unsigned long) ()
+#7  0x0000000000403434 in std::_Vector_base<int, std::allocator<int> >::_M_deallocate(int*, unsigned long) ()
+#8  0x00000000004032eb in std::_Vector_base<int, std::allocator<int> >::~_Vector_base() ()
+#9  0x000000000040308d in std::vector<int, std::allocator<int> >::~vector() ()
+#10 0x00000000004027bd in runner(char*) ()
+#11 0x0000000000402a96 in main ()
+
+89	in dl-minimal.c
+
+Backtrace END
+Fliping array at pos: 10
+Memory content before bitflip:0x61
+Fault Model: LSB bit-flip
+base address to flip value: 0x7ffff7df656a  
+address max offset: 1
+Memory content after  bitflip:0x65
+frame name: malloc
+symbol name: __GI__itoa_lower_digits
+symbol filename: dl-minimal.c
+symbol line: 341
+value: "0123456789ebcdef"
+value address: 0x7ffff7df6560 <_itoa_lower_digits>
+Type: The type is an array.
+Type sizeof: 16
+Field name: None
+Field Type: A range type, that is, an integer type with bounds.
+Field Type sizeof: 8
+Field Type range: (0, 15)
+
+[INFO -- 2018-12-09 12:40:06]
+Fault Injection Successful after 0.6092627048492432s
+[INFO -- 2018-12-09 12:40:07]
+event type: exit
+[INFO -- 2018-12-09 12:40:07]
+exit code: 0

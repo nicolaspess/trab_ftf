@@ -1,0 +1,59 @@
+[INFO -- 2018-12-09 14:57:11]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 14:57:11]
+Initialization strings:
+[INFO -- 2018-12-09 14:57:11]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-12-09 14:57:11]
+(2) set args /tmp/Tree234/input_100000 /tmp/Tree234/output_100000 /tmp/Tree234/detectionLog_100000.log /tmp/Tree234/output2_100000
+[INFO -- 2018-12-09 14:57:11]
+initSignal:0
+[INFO -- 2018-12-09 14:57:11]
+endSignal:5
+[INFO -- 2018-12-09 14:57:11]
+faultModel:2
+[INFO -- 2018-12-09 14:57:11]
+Backtrace BEGIN:
+#0  __GI___libc_free (mem=0x618ca0) at malloc.c:2968
+#1  0x0000000000402e90 in std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, 16ul>(std::basic_ostream<char, std::char_traits<char> >&, std::bitset<16ul> const&) ()
+#2  0x0000000000402563 in Arvore234::imprime(no*) ()
+#3  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#4  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#5  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#6  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#7  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#8  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#9  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#10 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#11 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#12 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#13 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#14 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#15 0x0000000000402610 in Arvore234::imprime() ()
+#16 0x0000000000402adc in main ()
+
+2963	in malloc.c
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x000x000x000x000x000x000x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7ffff761e7e8 
+address max offset: 8
+Memory content after  bitflip:0x580x300xc10x5d0x920xdf0xf30x0f
+frame name: __GI___libc_free
+symbol name: free_list
+symbol filename: arena.c
+symbol line: 78
+value: 0x0
+value address: 0x7ffff761e7e8 <free_list>
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-09 14:57:11]
+Fault Injection Successful after 0.9743013381958008s
+[INFO -- 2018-12-09 14:57:12]
+event type: exit
+[INFO -- 2018-12-09 14:57:12]
+exit code: 0

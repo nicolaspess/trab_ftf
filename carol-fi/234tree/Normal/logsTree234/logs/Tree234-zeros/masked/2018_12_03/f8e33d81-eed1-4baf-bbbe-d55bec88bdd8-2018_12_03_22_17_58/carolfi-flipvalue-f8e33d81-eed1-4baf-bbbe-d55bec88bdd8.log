@@ -1,0 +1,50 @@
+[INFO -- 2018-12-03 22:17:57]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-03 22:17:57]
+Initialization strings:
+[INFO -- 2018-12-03 22:17:57]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-12-03 22:17:57]
+(2) set args /tmp/Tree234/input_50000 /tmp/Tree234/output_50000 /tmp/Tree234/detectionLog_50000.log /tmp/Tree234/output2_50000
+[INFO -- 2018-12-03 22:17:57]
+initSignal:0
+[INFO -- 2018-12-03 22:17:57]
+endSignal:5
+[INFO -- 2018-12-03 22:17:57]
+faultModel:3
+[INFO -- 2018-12-03 22:17:57]
+Backtrace BEGIN:
+#0  strcmp () at ../sysdeps/x86_64/multiarch/../strcmp.S:174
+#1  0x00007ffff7de0e14 in check_match (undef_name=undef_name@entry=0x400cd2 "freopen", ref=ref@entry=0x4005f0, version=version@entry=0x7ffff7fd9ba8, flags=flags@entry=1, type_class=type_class@entry=1, sym=sym@entry=0x7ffff7264840, symidx=1480, strtab=0x7ffff7268ff8 "", map=0x7ffff7fd9000, versioned_sym=0x7fffffffda98, num_versions=0x7fffffffda94) at dl-lookup.c:138
+#2  0x00007ffff7de164b in do_lookup_x (undef_name=undef_name@entry=0x400cd2 "freopen", new_hash=new_hash@entry=3233963220, old_hash=old_hash@entry=0x7fffffffdb60, ref=0x4005f0, result=result@entry=0x7fffffffdb70, scope=<optimized out>, i=4, version=0x7ffff7fd9ba8, flags=1, skip=0x0, type_class=1, undef_map=0x7ffff7ffe168) at dl-lookup.c:423
+#3  0x00007ffff7de1b1f in _dl_lookup_symbol_x (undef_name=0x400cd2 "freopen", undef_map=0x7ffff7ffe168, ref=ref@entry=0x7fffffffdc28, symbol_scope=0x7ffff7ffe4c0, version=0x7ffff7fd9ba8, type_class=type_class@entry=1, flags=1, skip_map=0x0) at dl-lookup.c:829
+#4  0x00007ffff7de6ac6 in _dl_fixup (l=<optimized out>, reloc_arg=<optimized out>) at ../elf/dl-runtime.c:111
+#5  0x00007ffff7deeeef in _dl_runtime_resolve_sse () at ../sysdeps/x86_64/dl-trampoline.h:112
+#6  0x0000000000403ea0 in ?? ()
+#7  0x0000000000000000 in ?? ()
+
+169	in ../sysdeps/x86_64/multiarch/../strcmp.S
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0xf80x8f0x260xf70xff0x7f0x000x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x7fffffffda50
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x00
+frame name: do_lookup_x
+symbol name: strtab
+symbol filename: dl-lookup.c
+symbol line: 396
+value: 0x7ffff7268ff8 ""
+value address: 0x7fffffffda50
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-03 22:17:57]
+Fault Injection Successful after 0.7649192810058594s
+[INFO -- 2018-12-03 22:17:58]
+event type: exit
+[INFO -- 2018-12-03 22:17:58]
+exit code: 0

@@ -1,0 +1,54 @@
+[INFO -- 2018-12-09 02:14:01]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 02:14:01]
+Initialization strings:
+[INFO -- 2018-12-09 02:14:01]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-12-09 02:14:01]
+(2) set args /tmp/Tree234/input_50000 /tmp/Tree234/output_50000
+[INFO -- 2018-12-09 02:14:01]
+initSignal:0
+[INFO -- 2018-12-09 02:14:01]
+endSignal:2
+[INFO -- 2018-12-09 02:14:01]
+faultModel:1
+[INFO -- 2018-12-09 02:14:01]
+Backtrace BEGIN:
+#0  0x00007ffff7de36b6 in elf_machine_rela (skip_ifunc=<optimized out>, reloc_addr_arg=0x7ffff7dce308, version=0x7ffff7fd8030, sym=0x7ffff7a79ec0, reloc=0x7ffff7acd570, map=0x7ffff7fda000) at ../sysdeps/x86_64/dl-machine.h:301
+#1  elf_dynamic_do_Rela (skip_ifunc=<optimized out>, lazy=<optimized out>, nrelative=<optimized out>, relsize=<optimized out>, reladdr=<optimized out>, map=0x7ffff7fda000) at do-rel.h:137
+#2  _dl_relocate_object (scope=<optimized out>, reloc_mode=<optimized out>, consider_profiling=<optimized out>, consider_profiling@entry=0) at dl-reloc.c:258
+#3  0x00007ffff7ddb0db in dl_main (phdr=<optimized out>, phnum=<optimized out>, user_entry=<optimized out>, auxv=<optimized out>) at rtld.c:2109
+#4  0x00007ffff7df0632 in _dl_sysdep_start (start_argptr=start_argptr@entry=0x7fffffffdee0, dl_main=dl_main@entry=0x7ffff7dd91e0 <dl_main>) at ../elf/dl-sysdep.c:249
+#5  0x00007ffff7dd8c2a in _dl_start_final (arg=0x7fffffffdee0) at rtld.c:323
+#6  _dl_start (arg=0x7fffffffdee0) at rtld.c:429
+#7  0x00007ffff7dd7c38 in _start () from /lib64/ld-linux-x86-64.so.2
+#8  0x0000000000000003 in ?? ()
+#9  0x00007fffffffe25f in ?? ()
+#10 0x00007fffffffe271 in ?? ()
+#11 0x00007fffffffe28a in ?? ()
+#12 0x0000000000000000 in ?? ()
+
+296	in ../sysdeps/x86_64/dl-machine.h
+
+Backtrace END
+Memory content before bitflip:0x000x000x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7ffff7ffe0b8 
+address max offset: 4
+Memory content after  bitflip:0x600x000x000x00
+frame name: _dl_sysdep_start
+symbol name: __libc_multiple_libcs
+symbol filename: ../elf/dl-sysdep.c
+symbol line: 58
+value: 96
+value address: 0x7ffff7ffe0b8 <__libc_multiple_libcs>
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-12-09 02:14:01]
+Fault Injection Successful after 0.6149234771728516s
+[INFO -- 2018-12-09 02:14:02]
+event type: exit
+[INFO -- 2018-12-09 02:14:02]
+exit code: 0

@@ -1,0 +1,47 @@
+[INFO -- 2018-12-09 14:19:23]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 14:19:23]
+Initialization strings:
+[INFO -- 2018-12-09 14:19:23]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-12-09 14:19:23]
+(2) set args /tmp/Tree234/input_100000 /tmp/Tree234/output_100000 /tmp/Tree234/detectionLog_100000.log /tmp/Tree234/output2_100000
+[INFO -- 2018-12-09 14:19:23]
+initSignal:0
+[INFO -- 2018-12-09 14:19:23]
+endSignal:5
+[INFO -- 2018-12-09 14:19:23]
+faultModel:0
+[INFO -- 2018-12-09 14:19:23]
+Backtrace BEGIN:
+#0  __GI___libc_malloc (bytes=56) at malloc.c:2911
+#1  0x00007ffff7ae2e78 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x0000000000401b7b in Arvore234::divide(no**) ()
+#3  0x000000000040190c in Arvore234::inserir(int) ()
+#4  0x000000000040279e in runner(char*) ()
+#5  0x0000000000402a96 in main ()
+
+2906	in malloc.c
+
+Backtrace END
+Memory content before bitflip:0x010x000x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7ffff761c144 
+address max offset: 4
+Memory content after  bitflip:0x410x000x000x00
+frame name: __GI___libc_malloc
+symbol name: __libc_malloc_initialized
+symbol filename: arena.c
+symbol line: 98
+value: 65
+value address: 0x7ffff761c144 <__libc_malloc_initialized>
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-12-09 14:19:23]
+Fault Injection Successful after 0.7590847015380859s
+[INFO -- 2018-12-09 14:19:24]
+event type: exit
+[INFO -- 2018-12-09 14:19:24]
+exit code: 0

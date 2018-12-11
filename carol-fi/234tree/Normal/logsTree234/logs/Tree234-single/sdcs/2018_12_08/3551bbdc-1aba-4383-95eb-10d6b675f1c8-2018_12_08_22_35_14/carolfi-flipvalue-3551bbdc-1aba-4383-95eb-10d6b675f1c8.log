@@ -1,0 +1,61 @@
+[INFO -- 2018-12-08 22:35:12]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-08 22:35:12]
+Initialization strings:
+[INFO -- 2018-12-08 22:35:12]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-12-08 22:35:12]
+(2) set args /tmp/Tree234/input_50000 /tmp/Tree234/output_50000
+[INFO -- 2018-12-08 22:35:12]
+initSignal:0
+[INFO -- 2018-12-08 22:35:12]
+endSignal:2
+[INFO -- 2018-12-08 22:35:12]
+faultModel:0
+[INFO -- 2018-12-08 22:35:12]
+Backtrace BEGIN:
+#0  0x00007ffff7314380 in ?? ()
+#1  0x00007ffff7de3530 in elf_machine_lazy_rel (skip_ifunc=<optimized out>, reloc=0x7ffff7277710, l_addr=140737339817984, map=0x7ffff7fd9000) at ../sysdeps/x86_64/dl-machine.h:554
+#2  elf_dynamic_do_Rela (skip_ifunc=<optimized out>, lazy=<optimized out>, nrelative=<optimized out>, relsize=<optimized out>, reladdr=<optimized out>, map=0x7ffff7fd9000) at do-rel.h:77
+#3  _dl_relocate_object (scope=<optimized out>, reloc_mode=<optimized out>, consider_profiling=<optimized out>, consider_profiling@entry=0) at dl-reloc.c:258
+#4  0x00007ffff7ddb0db in dl_main (phdr=<optimized out>, phnum=<optimized out>, user_entry=<optimized out>, auxv=<optimized out>) at rtld.c:2109
+#5  0x00007ffff7df0632 in _dl_sysdep_start (start_argptr=start_argptr@entry=0x7fffffffdee0, dl_main=dl_main@entry=0x7ffff7dd91e0 <dl_main>) at ../elf/dl-sysdep.c:249
+#6  0x00007ffff7dd8c2a in _dl_start_final (arg=0x7fffffffdee0) at rtld.c:323
+#7  _dl_start (arg=0x7fffffffdee0) at rtld.c:429
+#8  0x00007ffff7dd7c38 in _start () from /lib64/ld-linux-x86-64.so.2
+#9  0x0000000000000003 in ?? ()
+#10 0x00007fffffffe25f in ?? ()
+#11 0x00007fffffffe271 in ?? ()
+#12 0x00007fffffffe28a in ?? ()
+#13 0x0000000000000000 in ?? ()
+
+1	in <built-in>
+
+Backtrace END
+Fliping array at pos: 0
+Fliping value of field: lazy
+Memory content before bitflip:0x000x000x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffdc98
+address max offset: 4
+Memory content after  bitflip:0x080x000x000x00
+frame name: elf_dynamic_do_Rela
+symbol name: ranges
+symbol filename: dl-reloc.c
+symbol line: 258
+value: {{start = 140737339916048, size = 30576, nrelative = 1189, lazy = 8}, {start = 140737339946624, size = 312, nrelative = 0, lazy = 1}}
+value address: 0x7fffffffdc80
+Type: The type is an array.
+Type sizeof: 64
+Field name: None
+Field Type: A range type, that is, an integer type with bounds.
+Field Type sizeof: 8
+Field Type range: (0, 1)
+
+[INFO -- 2018-12-08 22:35:12]
+Fault Injection Successful after 0.08798837661743164s
+[INFO -- 2018-12-08 22:35:12]
+event type: exit
+[INFO -- 2018-12-08 22:35:12]
+exit code: 0

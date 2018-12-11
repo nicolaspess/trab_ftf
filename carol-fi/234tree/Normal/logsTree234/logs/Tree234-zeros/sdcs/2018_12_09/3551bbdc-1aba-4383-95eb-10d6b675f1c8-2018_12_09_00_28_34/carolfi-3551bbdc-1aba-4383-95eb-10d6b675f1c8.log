@@ -1,0 +1,14 @@
+[INFO -- 2018-12-09 00:28:31]
+Starting GDB script
+[INFO -- 2018-12-09 00:28:31]
+initSignal:0.0
+[INFO -- 2018-12-09 00:28:31]
+endSignal:2.0
+[INFO -- 2018-12-09 00:28:31]
+sending 5 signals using command: 'killall -2 main' after 0.130111113041s
+[INFO -- 2018-12-09 00:28:32]
+sending 5 signals using command: 'killall -2 main' after 0.447224535077s
+[INFO -- 2018-12-09 00:28:32]
+sending 5 signals using command: 'killall -2 main' after 0.909336353478s
+[INFO -- 2018-12-09 00:28:34]
+Execution finished before waitTime

@@ -1,0 +1,68 @@
+[INFO -- 2018-12-09 15:15:41]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 15:15:41]
+Initialization strings:
+[INFO -- 2018-12-09 15:15:41]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-12-09 15:15:41]
+(2) set args /tmp/Tree234/input_100000 /tmp/Tree234/output_100000 /tmp/Tree234/detectionLog_100000.log /tmp/Tree234/output2_100000
+[INFO -- 2018-12-09 15:15:41]
+initSignal:0
+[INFO -- 2018-12-09 15:15:41]
+endSignal:5
+[INFO -- 2018-12-09 15:15:41]
+faultModel:4
+[EXCEPTION -- 2018-12-09 15:15:42]
+gdbException: Attempt to dereference a generic pointer.
+[EXCEPTION -- 2018-12-09 15:15:42]
+gdbException: Attempt to dereference a generic pointer.
+[EXCEPTION -- 2018-12-09 15:15:42]
+gdbException: Attempt to dereference a generic pointer.
+[EXCEPTION -- 2018-12-09 15:15:42]
+gdbException: Attempt to dereference a generic pointer.
+[INFO -- 2018-12-09 15:15:42]
+Backtrace BEGIN:
+#0  0x00007ffff72d7ea8 in _int_free (av=0x7ffff761cb20 <main_arena>, p=<optimized out>, have_lock=0) at malloc.c:4105
+#1  0x00007ffff72dc53c in __GI___libc_free (mem=<optimized out>) at malloc.c:2968
+#2  0x0000000000402e90 in std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, 16ul>(std::basic_ostream<char, std::char_traits<char> >&, std::bitset<16ul> const&) ()
+#3  0x0000000000402563 in Arvore234::imprime(no*) ()
+#4  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#5  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#6  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#7  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#8  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#9  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#10 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#11 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#12 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#13 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#14 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#15 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#16 0x0000000000402610 in Arvore234::imprime() ()
+#17 0x0000000000402adc in main ()
+
+4100	malloc.c: No such file or directory.
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x000x000x000x000x000x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7ffff761cb00 
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x40
+frame name: _int_free
+symbol name: __memalign_hook
+symbol filename: malloc.c
+symbol line: 1857
+value: 0x0
+value address: 0x7ffff761cb00 <__memalign_hook>
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-09 15:15:42]
+Fault Injection Successful after 1.2286560535430908s
+[INFO -- 2018-12-09 15:15:42]
+event type: exit
+[INFO -- 2018-12-09 15:15:42]
+exit code: 0

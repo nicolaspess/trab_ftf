@@ -1,0 +1,58 @@
+[INFO -- 2018-12-09 03:00:06]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 03:00:06]
+Initialization strings:
+[INFO -- 2018-12-09 03:00:06]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-12-09 03:00:06]
+(2) set args /tmp/Tree234/input_50000 /tmp/Tree234/output_50000
+[INFO -- 2018-12-09 03:00:06]
+initSignal:0
+[INFO -- 2018-12-09 03:00:06]
+endSignal:2
+[INFO -- 2018-12-09 03:00:06]
+faultModel:3
+[INFO -- 2018-12-09 03:00:07]
+Backtrace BEGIN:
+#0  _int_free (av=0x7ffff761cb20 <main_arena>, p=0x7d7f10, have_lock=0) at malloc.c:3841
+#1  0x00007ffff72dc53c in __GI___libc_free (mem=<optimized out>) at malloc.c:2968
+#2  0x0000000000402954 in std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, 16ul>(std::basic_ostream<char, std::char_traits<char> >&, std::bitset<16ul> const&) ()
+#3  0x00000000004022d3 in Arvore234::imprime(no*) ()
+#4  0x0000000000402340 in Arvore234::imprime(no*) ()
+#5  0x0000000000402340 in Arvore234::imprime(no*) ()
+#6  0x0000000000402340 in Arvore234::imprime(no*) ()
+#7  0x0000000000402340 in Arvore234::imprime(no*) ()
+#8  0x0000000000402340 in Arvore234::imprime(no*) ()
+#9  0x0000000000402340 in Arvore234::imprime(no*) ()
+#10 0x0000000000402340 in Arvore234::imprime(no*) ()
+#11 0x0000000000402340 in Arvore234::imprime(no*) ()
+#12 0x0000000000402340 in Arvore234::imprime(no*) ()
+#13 0x0000000000402340 in Arvore234::imprime(no*) ()
+#14 0x0000000000402340 in Arvore234::imprime(no*) ()
+#15 0x0000000000402380 in Arvore234::imprime() ()
+#16 0x0000000000402594 in main ()
+
+3836	in malloc.c
+
+Backtrace END
+Memory content before bitflip:0x030x000x000x00
+Fault Model: Zero bit-flip
+base address to flip value: 0x7ffff761c150 
+address max offset: 4
+Memory content after  bitflip:0x000x000x000x00
+frame name: __GI___libc_free
+symbol name: check_action
+symbol filename: malloc.c
+symbol line: 1869
+value: 0
+value address: 0x7ffff761c150 <check_action>
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-12-09 03:00:07]
+Fault Injection Successful after 1.3241333961486816s
+[INFO -- 2018-12-09 03:00:07]
+event type: exit
+[INFO -- 2018-12-09 03:00:07]
+exit code: 0

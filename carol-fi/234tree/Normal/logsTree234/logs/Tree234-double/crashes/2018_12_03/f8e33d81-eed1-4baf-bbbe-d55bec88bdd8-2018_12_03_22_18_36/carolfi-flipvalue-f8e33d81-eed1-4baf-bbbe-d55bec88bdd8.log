@@ -1,0 +1,126 @@
+[INFO -- 2018-12-03 22:18:34]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-03 22:18:34]
+Initialization strings:
+[INFO -- 2018-12-03 22:18:34]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-12-03 22:18:34]
+(2) set args /tmp/Tree234/input_50000 /tmp/Tree234/output_50000 /tmp/Tree234/detectionLog_50000.log /tmp/Tree234/output2_50000
+[INFO -- 2018-12-03 22:18:34]
+initSignal:0
+[INFO -- 2018-12-03 22:18:34]
+endSignal:5
+[INFO -- 2018-12-03 22:18:34]
+faultModel:1
+[INFO -- 2018-12-03 22:18:35]
+Backtrace BEGIN:
+#0  0x00007ffff734f2c0 in __write_nocancel () at ../sysdeps/unix/syscall-template.S:84
+#1  0x00007ffff72d0bff in _IO_new_file_write (f=0x7ffff761d620 <_IO_2_1_stdout_>, data=0x7d8ee0, n=17) at fileops.c:1263
+#2  0x00007ffff72d2409 in new_do_write (to_do=17, data=0x7d8ee0 "1111101010010011\n\216}", fp=0x7ffff761d620 <_IO_2_1_stdout_>) at fileops.c:518
+#3  _IO_new_do_write (fp=0x7ffff761d620 <_IO_2_1_stdout_>, data=0x7d8ee0 "1111101010010011\n\216}", to_do=17) at fileops.c:494
+#4  0x00007ffff72d0400 in _IO_new_file_sync (fp=0x7ffff761d620 <_IO_2_1_stdout_>) at fileops.c:874
+#5  0x00007ffff72c581f in __GI__IO_fflush (fp=0x7ffff761d620 <_IO_2_1_stdout_>) at iofflush.c:40
+#6  0x00007ffff7b62e3e in std::ostream::flush() () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#7  0x0000000000402570 in Arvore234::imprime(no*) ()
+#8  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#9  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#10 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#11 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#12 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#13 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#14 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#15 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#16 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#17 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#18 0x0000000000402610 in Arvore234::imprime() ()
+#19 0x0000000000402adc in main ()
+
+79	in ../sysdeps/unix/syscall-template.S
+
+Backtrace END
+Fliping value of field: __write
+Fliping a bit of the value pointed by a pointer
+Memory content before bitflip:0x48
+Fault Model: Double bit-flip
+base address to flip value: 0x7ffff72d0b70 
+address max offset: 1
+Memory content after  bitflip:0xca
+frame name: _IO_new_do_write
+symbol name: __GI__IO_file_jumps
+symbol filename: fileops.c
+symbol line: 1537
+value: {__dummy = 0, __dummy2 = 0, __finish = 0x7ffff72d19c0 <_IO_new_file_finish>, __overflow = 0x7ffff72d2730 <_IO_new_file_overflow>, __underflow = 0x7ffff72d24a0 <_IO_new_file_underflow>, __uflow = 0x7ffff72d3600 <__GI__IO_default_uflow>, __pbackfail = 0x7ffff72d4980 <__GI__IO_default_pbackfail>, __xsputn = 0x7ffff72d11e0 <_IO_new_file_xsputn>, __xsgetn = 0x7ffff72d0ec0 <__GI__IO_file_xsgetn>, __seekoff = 0x7ffff72d04c0 <_IO_new_file_seekoff>, __seekpos = 0x7ffff72d3a00 <_IO_default_seekpos>, __setbuf = 0x7ffff72d0430 <_IO_new_file_setbuf>, __sync = 0x7ffff72d0370 <_IO_new_file_sync>, __doallocate = 0x7ffff72c5180 <__GI__IO_file_doallocate>, __read = 0x7ffff72d11a0 <__GI__IO_file_read>, __write = 0x7ffff72d0b70 <_IO_new_file_write>, __seek = 0x7ffff72d0970 <__GI__IO_file_seek>, __close = 0x7ffff72d0340 <__GI__IO_file_close>, __stat = 0x7ffff72d0b60 <__GI__IO_file_stat>, __showmanyc = 0x7ffff72d4af0 <_IO_default_showmanyc>, __imbue = 0x7ffff72d4b00 <_IO_default_imbue>}
+value address: 0x7ffff761b6e0 <_IO_file_jumps>
+Type: The type is a structure.
+Type sizeof: 168
+Field name: __dummy
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: __dummy2
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: __finish
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __overflow
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __underflow
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __uflow
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __pbackfail
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __xsputn
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __xsgetn
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __seekoff
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __seekpos
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __setbuf
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __sync
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __doallocate
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __read
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __write
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __seek
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __close
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __stat
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __showmanyc
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: __imbue
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+
+[INFO -- 2018-12-03 22:18:35]
+Fault Injection Successful after 1.5585763454437256s
+[INFO -- 2018-12-03 22:18:35]
+event type: exit
+[EXCEPTION -- 2018-12-03 22:18:35]
+exit code: no exit code available

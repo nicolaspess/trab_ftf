@@ -1,0 +1,74 @@
+[INFO -- 2018-11-28 20:03:03]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-28 20:03:03]
+Initialization strings:
+[INFO -- 2018-11-28 20:03:03]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-11-28 20:03:03]
+(2) set args /tmp/Tree234/input_50000 /tmp/Tree234/output_50000 /tmp/Tree234/detectionLog_50000.log /tmp/Tree234/output2_50000
+[INFO -- 2018-11-28 20:03:03]
+initSignal:0
+[INFO -- 2018-11-28 20:03:03]
+endSignal:5
+[INFO -- 2018-11-28 20:03:03]
+faultModel:2
+[EXCEPTION -- 2018-11-28 20:03:04]
+gdbException: Attempt to dereference a generic pointer.
+[EXCEPTION -- 2018-11-28 20:03:04]
+gdbException: Attempt to dereference a generic pointer.
+[INFO -- 2018-11-28 20:03:04]
+Backtrace BEGIN:
+#0  malloc (n=14) at dl-minimal.c:94
+#1  <function called from gdb>
+#2  malloc (n=14) at dl-minimal.c:94
+#3  <function called from gdb>
+#4  0x00007ffff72dc1f5 in __GI___libc_malloc (bytes=<optimized out>) at malloc.c:2929
+#5  0x00007ffff7ae2e78 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#6  0x00007ffff7b74499 in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#7  0x00007ffff7b74c98 in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_replace_aux(unsigned long, unsigned long, unsigned long, char) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#8  0x0000000000403147 in void std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char, char) const ()
+#9  0x0000000000402e6e in std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, 16ul>(std::basic_ostream<char, std::char_traits<char> >&, std::bitset<16ul> const&) ()
+#10 0x0000000000402563 in Arvore234::imprime(no*) ()
+#11 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#12 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#13 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#14 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#15 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#16 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#17 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#18 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#19 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#20 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#21 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#22 0x0000000000402610 in Arvore234::imprime() ()
+#23 0x0000000000402adc in main ()
+
+89	in dl-minimal.c
+
+Backtrace END
+Fliping array at pos: 4
+Memory content before bitflip:0x34
+Fault Model: Random bit-flip
+base address to flip value: 0x7ffff7df6564  
+address max offset: 1
+Memory content after  bitflip:0x8d
+frame name: malloc
+symbol name: _itoa_lower_digits
+symbol filename: dl-minimal.c
+symbol line: 342
+value: "0123\215\065\066\067\070\071abcdef"
+value address: 0x7ffff7df6560 <_itoa_lower_digits>
+Type: The type is an array.
+Type sizeof: 16
+Field name: None
+Field Type: A range type, that is, an integer type with bounds.
+Field Type sizeof: 8
+Field Type range: (0, 15)
+
+[INFO -- 2018-11-28 20:03:04]
+Fault Injection Successful after 1.3529627323150635s
+[INFO -- 2018-11-28 20:03:04]
+event type: exit
+[INFO -- 2018-11-28 20:03:04]
+exit code: 0

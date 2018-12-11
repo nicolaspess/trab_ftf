@@ -1,0 +1,3 @@
+Variable Name;Variable File;Variable Line;Fault Injection Time(s);Injection Time Interval;Fault Model
+_IO_file_jumps_mmap;fileops.c;1562;1.337996244430542;0-5;Random bit-flip
+_IO_file_jumps;fileops.c;1560;0.8689851760864258;0-2;Single bit-flip

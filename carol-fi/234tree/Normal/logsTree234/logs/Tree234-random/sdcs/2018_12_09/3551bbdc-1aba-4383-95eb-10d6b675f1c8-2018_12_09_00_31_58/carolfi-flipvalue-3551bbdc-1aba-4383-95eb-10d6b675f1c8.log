@@ -1,0 +1,54 @@
+[INFO -- 2018-12-09 00:31:56]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 00:31:56]
+Initialization strings:
+[INFO -- 2018-12-09 00:31:56]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-12-09 00:31:56]
+(2) set args /tmp/Tree234/input_50000 /tmp/Tree234/output_50000
+[INFO -- 2018-12-09 00:31:56]
+initSignal:0
+[INFO -- 2018-12-09 00:31:56]
+endSignal:2
+[INFO -- 2018-12-09 00:31:56]
+faultModel:2
+[INFO -- 2018-12-09 00:31:56]
+Backtrace BEGIN:
+#0  0x00007ffff7df2557 in mprotect () at ../sysdeps/unix/syscall-template.S:84
+#1  0x00007ffff7de3cb8 in _dl_protect_relro (l=0x7ffff7fda000) at dl-reloc.c:321
+#2  _dl_relocate_object (scope=<optimized out>, reloc_mode=<optimized out>, consider_profiling=<optimized out>, consider_profiling@entry=0) at dl-reloc.c:306
+#3  0x00007ffff7ddb0db in dl_main (phdr=<optimized out>, phnum=<optimized out>, user_entry=<optimized out>, auxv=<optimized out>) at rtld.c:2109
+#4  0x00007ffff7df0632 in _dl_sysdep_start (start_argptr=start_argptr@entry=0x7fffffffdee0, dl_main=dl_main@entry=0x7ffff7dd91e0 <dl_main>) at ../elf/dl-sysdep.c:249
+#5  0x00007ffff7dd8c2a in _dl_start_final (arg=0x7fffffffdee0) at rtld.c:323
+#6  _dl_start (arg=0x7fffffffdee0) at rtld.c:429
+#7  0x00007ffff7dd7c38 in _start () from /lib64/ld-linux-x86-64.so.2
+#8  0x0000000000000003 in ?? ()
+#9  0x00007fffffffe25f in ?? ()
+#10 0x00007fffffffe271 in ?? ()
+#11 0x00007fffffffe28a in ?? ()
+#12 0x0000000000000000 in ?? ()
+
+79	in ../sysdeps/unix/syscall-template.S
+
+Backtrace END
+Memory content before bitflip:0x080xdf0xff0xff0xff0x7f0x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7fffffffdd80
+address max offset: 8
+Memory content after  bitflip:0x070xd20x3e0xc70x0a0xfa0xf90xe1
+frame name: dl_main
+symbol name: file_size
+symbol filename: rtld.c
+symbol line: 794
+value: 16283320851934138887
+value address: 0x7fffffffdd80
+Type: The type is an integer type.
+Type sizeof: 8
+
+[INFO -- 2018-12-09 00:31:56]
+Fault Injection Successful after 0.06493330001831055s
+[INFO -- 2018-12-09 00:31:56]
+event type: exit
+[INFO -- 2018-12-09 00:31:56]
+exit code: 0

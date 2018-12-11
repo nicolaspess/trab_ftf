@@ -1,0 +1,63 @@
+[INFO -- 2018-11-28 20:34:46]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-28 20:34:46]
+Initialization strings:
+[INFO -- 2018-11-28 20:34:46]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-11-28 20:34:46]
+(2) set args /tmp/Tree234/input_50000 /tmp/Tree234/output_50000 /tmp/Tree234/detectionLog_50000.log /tmp/Tree234/output2_50000
+[INFO -- 2018-11-28 20:34:46]
+initSignal:0
+[INFO -- 2018-11-28 20:34:46]
+endSignal:5
+[INFO -- 2018-11-28 20:34:46]
+faultModel:2
+[INFO -- 2018-11-28 20:34:47]
+Backtrace BEGIN:
+#0  malloc (n=10) at dl-minimal.c:94
+#1  <function called from gdb>
+#2  0x00007ffff72d7e47 in _int_free (av=0x7ffff761cb20 <main_arena>, p=0x618c90, have_lock=0) at malloc.c:3947
+#3  0x00007ffff72dc53c in __GI___libc_free (mem=<optimized out>) at malloc.c:2968
+#4  0x0000000000402e90 in std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, 16ul>(std::basic_ostream<char, std::char_traits<char> >&, std::bitset<16ul> const&) ()
+#5  0x0000000000402563 in Arvore234::imprime(no*) ()
+#6  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#7  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#8  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#9  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#10 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#11 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#12 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#13 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#14 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#15 0x0000000000402610 in Arvore234::imprime() ()
+#16 0x0000000000402adc in main ()
+
+89	in dl-minimal.c
+
+Backtrace END
+Fliping array at pos: 13
+Memory content before bitflip:0x64
+Fault Model: Random bit-flip
+base address to flip value: 0x7ffff7df656d  
+address max offset: 1
+Memory content after  bitflip:0xc8
+frame name: malloc
+symbol name: _itoa_lower_digits
+symbol filename: dl-minimal.c
+symbol line: 342
+value: "0123456789abc\310ef"
+value address: 0x7ffff7df6560 <_itoa_lower_digits>
+Type: The type is an array.
+Type sizeof: 16
+Field name: None
+Field Type: A range type, that is, an integer type with bounds.
+Field Type sizeof: 8
+Field Type range: (0, 15)
+
+[INFO -- 2018-11-28 20:34:47]
+Fault Injection Successful after 1.4205858707427979s
+[INFO -- 2018-11-28 20:34:47]
+event type: exit
+[INFO -- 2018-11-28 20:34:47]
+exit code: 0

@@ -1,0 +1,63 @@
+[INFO -- 2018-12-09 02:20:19]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 02:20:19]
+Initialization strings:
+[INFO -- 2018-12-09 02:20:19]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-12-09 02:20:19]
+(2) set args /tmp/Tree234/input_50000 /tmp/Tree234/output_50000
+[INFO -- 2018-12-09 02:20:19]
+initSignal:0
+[INFO -- 2018-12-09 02:20:19]
+endSignal:2
+[INFO -- 2018-12-09 02:20:19]
+faultModel:1
+[EXCEPTION -- 2018-12-09 02:20:19]
+gdbException: Attempt to dereference a generic pointer.
+[INFO -- 2018-12-09 02:20:19]
+Backtrace BEGIN:
+#0  malloc (n=10) at dl-minimal.c:94
+#1  <function called from gdb>
+#2  malloc (n=10) at dl-minimal.c:94
+#3  <function called from gdb>
+#4  free_perturb (n=<optimized out>, p=<optimized out>) at malloc.c:1886
+#5  _int_free (av=0x7ffff761cb20 <main_arena>, p=0x7d7f10, have_lock=0) at malloc.c:3921
+#6  0x00007ffff72dc53c in __GI___libc_free (mem=<optimized out>) at malloc.c:2968
+#7  0x0000000000402954 in std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, 16ul>(std::basic_ostream<char, std::char_traits<char> >&, std::bitset<16ul> const&) ()
+#8  0x00000000004022d3 in Arvore234::imprime(no*) ()
+#9  0x0000000000402340 in Arvore234::imprime(no*) ()
+#10 0x0000000000402340 in Arvore234::imprime(no*) ()
+#11 0x0000000000402340 in Arvore234::imprime(no*) ()
+#12 0x0000000000402340 in Arvore234::imprime(no*) ()
+#13 0x0000000000402340 in Arvore234::imprime(no*) ()
+#14 0x0000000000402340 in Arvore234::imprime(no*) ()
+#15 0x0000000000402340 in Arvore234::imprime(no*) ()
+#16 0x0000000000402340 in Arvore234::imprime(no*) ()
+#17 0x0000000000402340 in Arvore234::imprime(no*) ()
+#18 0x0000000000402380 in Arvore234::imprime() ()
+#19 0x0000000000402594 in main ()
+
+89	in dl-minimal.c
+
+Backtrace END
+Memory content before bitflip:0x030x000x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7ffff761c150 
+address max offset: 4
+Memory content after  bitflip:0x030x000x140x00
+frame name: _int_free
+symbol name: check_action
+symbol filename: malloc.c
+symbol line: 1869
+value: 1310723
+value address: 0x7ffff761c150 <check_action>
+Type: The type is an integer type.
+Type sizeof: 4
+
+[INFO -- 2018-12-09 02:20:19]
+Fault Injection Successful after 0.8042256832122803s
+[INFO -- 2018-12-09 02:20:19]
+event type: exit
+[INFO -- 2018-12-09 02:20:19]
+exit code: 0

@@ -1,0 +1,61 @@
+[INFO -- 2018-12-09 18:11:26]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 18:11:26]
+Initialization strings:
+[INFO -- 2018-12-09 18:11:26]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-12-09 18:11:26]
+(2) set args /tmp/Tree234/input_100000 /tmp/Tree234/output_100000 /tmp/Tree234/detectionLog_100000.log /tmp/Tree234/output2_100000
+[INFO -- 2018-12-09 18:11:26]
+initSignal:0
+[INFO -- 2018-12-09 18:11:26]
+endSignal:5
+[INFO -- 2018-12-09 18:11:26]
+faultModel:1
+[INFO -- 2018-12-09 18:11:26]
+Backtrace BEGIN:
+#0  0x00007ffff7df24ba in __mmap (addr=0x7ffff7256000, len=8192, prot=prot@entry=3, flags=flags@entry=2066, fd=fd@entry=4, offset=1077248) at ../sysdeps/unix/sysv/linux/wordsize-64/mmap.c:34
+#1  0x00007ffff7ddd9e1 in _dl_map_segments (loader=0x7ffff7fd94e0, has_holes=<optimized out>, maplength=<optimized out>, nloadcmds=2, loadcmds=<optimized out>, type=<optimized out>, header=<optimized out>, fd=<optimized out>, l=0x7ffff7fd94e0) at ./dl-map-segments.h:90
+#2  _dl_map_object_from_fd (name=name@entry=0x7ffff7abd2df "libm.so.6", origname=origname@entry=0x0, fd=<optimized out>, fbp=fbp@entry=0x7fffffffd480, realname=<optimized out>, loader=loader@entry=0x7ffff7fda000, l_type=1, mode=0, stack_endp=0x7fffffffd478, nsid=0) at dl-load.c:1245
+#3  0x00007ffff7ddfc27 in _dl_map_object (loader=0x7ffff7fda000, name=0x7ffff7abd2df "libm.so.6", type=1, trace_mode=0, mode=<optimized out>, nsid=<optimized out>) at dl-load.c:2498
+#4  0x00007ffff7de4ba2 in openaux (a=a@entry=0x7fffffffdc40) at dl-deps.c:63
+#5  0x00007ffff7de7564 in _dl_catch_error (objname=objname@entry=0x7fffffffdc38, errstring=errstring@entry=0x7fffffffdc30, mallocedp=mallocedp@entry=0x7fffffffdc2f, operate=operate@entry=0x7ffff7de4b70 <openaux>, args=args@entry=0x7fffffffdc40) at dl-error.c:187
+#6  0x00007ffff7de51e2 in _dl_map_object_deps (map=map@entry=0x7ffff7ffe168, preloads=<optimized out>, npreloads=npreloads@entry=0, trace_mode=trace_mode@entry=0, open_mode=open_mode@entry=0) at dl-deps.c:254
+#7  0x00007ffff7ddaa29 in dl_main (phdr=<optimized out>, phnum=<optimized out>, user_entry=<optimized out>, auxv=<optimized out>) at rtld.c:1647
+#8  0x00007ffff7df0632 in _dl_sysdep_start (start_argptr=start_argptr@entry=0x7fffffffde90, dl_main=dl_main@entry=0x7ffff7dd91e0 <dl_main>) at ../elf/dl-sysdep.c:249
+#9  0x00007ffff7dd8c2a in _dl_start_final (arg=0x7fffffffde90) at rtld.c:323
+#10 _dl_start (arg=0x7fffffffde90) at rtld.c:429
+#11 0x00007ffff7dd7c38 in _start () from /lib64/ld-linux-x86-64.so.2
+#12 0x0000000000000005 in ?? ()
+#13 0x00007fffffffe21c in ?? ()
+#14 0x00007fffffffe22e in ?? ()
+#15 0x00007fffffffe248 in ?? ()
+#16 0x00007fffffffe263 in ?? ()
+#17 0x00007fffffffe288 in ?? ()
+#18 0x0000000000000000 in ?? ()
+
+29	in ../sysdeps/unix/sysv/linux/wordsize-64/mmap.c
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0xa80xeb0xff0xf70xff0x7f0x000x00
+Fault Model: Double bit-flip
+base address to flip value: 0x7ffff7ffce30 
+address max offset: 8
+Memory content after  bitflip:0xa80xeb0xff0xf70xff0x7f0x600x00
+frame name: _dl_map_object
+symbol name: capstr
+symbol filename: dl-load.c
+symbol line: 101
+value: 0x7ffff7ffeba8
+value address: 0x7ffff7ffce30 <capstr>
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-09 18:11:26]
+Fault Injection Successful after 0.17060351371765137s
+[INFO -- 2018-12-09 18:11:27]
+event type: exit
+[INFO -- 2018-12-09 18:11:27]
+exit code: 0

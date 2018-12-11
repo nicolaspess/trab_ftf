@@ -1,0 +1,98 @@
+[INFO -- 2018-12-03 23:04:53]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-03 23:04:53]
+Initialization strings:
+[INFO -- 2018-12-03 23:04:53]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-12-03 23:04:53]
+(2) set args /tmp/Tree234/input_50000 /tmp/Tree234/output_50000 /tmp/Tree234/detectionLog_50000.log /tmp/Tree234/output2_50000
+[INFO -- 2018-12-03 23:04:53]
+initSignal:0
+[INFO -- 2018-12-03 23:04:53]
+endSignal:5
+[INFO -- 2018-12-03 23:04:53]
+faultModel:2
+[INFO -- 2018-12-03 23:04:55]
+Backtrace BEGIN:
+#0  0x00007ffff72dc1f4 in __GI___libc_malloc (bytes=31) at malloc.c:2929
+#1  0x00007ffff7ae2e78 in operator new(unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#2  0x00007ffff7b74499 in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#3  0x00007ffff7b74c98 in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_replace_aux(unsigned long, unsigned long, unsigned long, char) () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x0000000000403147 in void std::bitset<16ul>::_M_copy_to_string<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char, char) const ()
+#5  0x0000000000402e6e in std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, 16ul>(std::basic_ostream<char, std::char_traits<char> >&, std::bitset<16ul> const&) ()
+#6  0x0000000000402563 in Arvore234::imprime(no*) ()
+#7  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#8  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#9  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#10 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#11 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#12 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#13 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#14 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#15 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#16 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#17 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#18 0x0000000000402610 in Arvore234::imprime() ()
+#19 0x0000000000402b16 in main ()
+
+2924	in malloc.c
+
+Backtrace END
+Fliping value of field: max_system_mem
+Memory content before bitflip:0x000xe00x3d0x000x000x000x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7ffff761d3a8 
+address max offset: 8
+Memory content after  bitflip:0xef0x0b0x3d0xc40x330xc30xef0x7f
+frame name: __GI___libc_malloc
+symbol name: main_arena
+symbol filename: malloc.c
+symbol line: 1760
+value: {mutex = 0, flags = 0, fastbinsY = {0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, top = 0x9d6f90, last_remainder = 0x618ce0, bins = {0x618ce0, 0x618ce0, 0x7ffff761cb88 <main_arena+104>, 0x7ffff761cb88 <main_arena+104>, 0x7ffff761cb98 <main_arena+120>, 0x7ffff761cb98 <main_arena+120>, 0x7ffff761cba8 <main_arena+136>, 0x7ffff761cba8 <main_arena+136>, 0x7ffff761cbb8 <main_arena+152>, 0x7ffff761cbb8 <main_arena+152>, 0x7ffff761cbc8 <main_arena+168>, 0x7ffff761cbc8 <main_arena+168>, 0x7ffff761cbd8 <main_arena+184>, 0x7ffff761cbd8 <main_arena+184>, 0x7ffff761cbe8 <main_arena+200>, 0x7ffff761cbe8 <main_arena+200>, 0x7ffff761cbf8 <main_arena+216>, 0x7ffff761cbf8 <main_arena+216>, 0x7ffff761cc08 <main_arena+232>, 0x7ffff761cc08 <main_arena+232>, 0x7ffff761cc18 <main_arena+248>, 0x7ffff761cc18 <main_arena+248>, 0x7ffff761cc28 <main_arena+264>, 0x7ffff761cc28 <main_arena+264>, 0x7ffff761cc38 <main_arena+280>, 0x7ffff761cc38 <main_arena+280>, 0x7ffff761cc48 <main_arena+296>, 0x7ffff761cc48 <main_arena+296>, 0x7ffff761cc58 <main_arena+312>, 0x7ffff761cc58 <main_arena+312>, 0x7ffff761cc68 <main_arena+328>, 0x7ffff761cc68 <main_arena+328>, 0x7ffff761cc78 <main_arena+344>, 0x7ffff761cc78 <main_arena+344>, 0x7ffff761cc88 <main_arena+360>, 0x7ffff761cc88 <main_arena+360>, 0x7ffff761cc98 <main_arena+376>, 0x7ffff761cc98 <main_arena+376>, 0x7ffff761cca8 <main_arena+392>, 0x7ffff761cca8 <main_arena+392>, 0x7ffff761ccb8 <main_arena+408>, 0x7ffff761ccb8 <main_arena+408>, 0x7ffff761ccc8 <main_arena+424>, 0x7ffff761ccc8 <main_arena+424>, 0x7ffff761ccd8 <main_arena+440>, 0x7ffff761ccd8 <main_arena+440>, 0x7ffff761cce8 <main_arena+456>, 0x7ffff761cce8 <main_arena+456>, 0x7ffff761ccf8 <main_arena+472>, 0x7ffff761ccf8 <main_arena+472>, 0x7ffff761cd08 <main_arena+488>, 0x7ffff761cd08 <main_arena+488>, 0x7ffff761cd18 <main_arena+504>, 0x7ffff761cd18 <main_arena+504>, 0x7ffff761cd28 <main_arena+520>, 0x7ffff761cd28 <main_arena+520>, 0x7ffff761cd38 <main_arena+536>, 0x7ffff761cd38 <main_arena+536>, 0x7ffff761cd48 <main_arena+552>, 0x7ffff761cd48 <main_arena+552>, 0x7ffff761cd58 <main_arena+568>, 0x7ffff761cd58 <main_arena+568>, 0x7ffff761cd68 <main_arena+584>, 0x7ffff761cd68 <main_arena+584>, 0x7ffff761cd78 <main_arena+600>, 0x7ffff761cd78 <main_arena+600>, 0x7ffff761cd88 <main_arena+616>, 0x7ffff761cd88 <main_arena+616>, 0x7ffff761cd98 <main_arena+632>, 0x7ffff761cd98 <main_arena+632>, 0x7ffff761cda8 <main_arena+648>, 0x7ffff761cda8 <main_arena+648>, 0x7ffff761cdb8 <main_arena+664>, 0x7ffff761cdb8 <main_arena+664>, 0x7ffff761cdc8 <main_arena+680>, 0x7ffff761cdc8 <main_arena+680>, 0x7ffff761cdd8 <main_arena+696>, 0x7ffff761cdd8 <main_arena+696>, 0x7ffff761cde8 <main_arena+712>, 0x7ffff761cde8 <main_arena+712>, 0x7ffff761cdf8 <main_arena+728>, 0x7ffff761cdf8 <main_arena+728>, 0x7ffff761ce08 <main_arena+744>, 0x7ffff761ce08 <main_arena+744>, 0x7ffff761ce18 <main_arena+760>, 0x7ffff761ce18 <main_arena+760>, 0x7ffff761ce28 <main_arena+776>, 0x7ffff761ce28 <main_arena+776>, 0x7ffff761ce38 <main_arena+792>, 0x7ffff761ce38 <main_arena+792>, 0x7ffff761ce48 <main_arena+808>, 0x7ffff761ce48 <main_arena+808>, 0x7ffff761ce58 <main_arena+824>, 0x7ffff761ce58 <main_arena+824>, 0x7ffff761ce68 <main_arena+840>, 0x7ffff761ce68 <main_arena+840>, 0x7ffff761ce78 <main_arena+856>, 0x7ffff761ce78 <main_arena+856>, 0x7ffff761ce88 <main_arena+872>, 0x7ffff761ce88 <main_arena+872>, 0x7ffff761ce98 <main_arena+888>, 0x7ffff761ce98 <main_arena+888>, 0x7ffff761cea8 <main_arena+904>, 0x7ffff761cea8 <main_arena+904>, 0x7ffff761ceb8 <main_arena+920>, 0x7ffff761ceb8 <main_arena+920>, 0x7ffff761cec8 <main_arena+936>, 0x7ffff761cec8 <main_arena+936>, 0x7ffff761ced8 <main_arena+952>, 0x7ffff761ced8 <main_arena+952>, 0x7ffff761cee8 <main_arena+968>, 0x7ffff761cee8 <main_arena+968>, 0x7ffff761cef8 <main_arena+984>, 0x7ffff761cef8 <main_arena+984>, 0x7ffff761cf08 <main_arena+1000>, 0x7ffff761cf08 <main_arena+1000>, 0x7ffff761cf18 <main_arena+1016>, 0x7ffff761cf18 <main_arena+1016>, 0x7ffff761cf28 <main_arena+1032>, 0x7ffff761cf28 <main_arena+1032>, 0x7ffff761cf38 <main_arena+1048>, 0x7ffff761cf38 <main_arena+1048>, 0x7ffff761cf48 <main_arena+1064>, 0x7ffff761cf48 <main_arena+1064>, 0x7ffff761cf58 <main_arena+1080>, 0x7ffff761cf58 <main_arena+1080>, 0x7ffff761cf68 <main_arena+1096>, 0x7ffff761cf68 <main_arena+1096>, 0x7ffff761cf78 <main_arena+1112>, 0x7ffff761cf78 <main_arena+1112>, 0x7ffff761cf88 <main_arena+1128>, 0x7ffff761cf88 <main_arena+1128>, 0x7ffff761cf98 <main_arena+1144>, 0x7ffff761cf98 <main_arena+1144>, 0x7ffff761cfa8 <main_arena+1160>, 0x7ffff761cfa8 <main_arena+1160>, 0x7ffff761cfb8 <main_arena+1176>, 0x7ffff761cfb8 <main_arena+1176>, 0x7ffff761cfc8 <main_arena+1192>, 0x7ffff761cfc8 <main_arena+1192>, 0x7ffff761cfd8 <main_arena+1208>, 0x7ffff761cfd8 <main_arena+1208>, 0x7ffff761cfe8 <main_arena+1224>, 0x7ffff761cfe8 <main_arena+1224>, 0x7ffff761cff8 <main_arena+1240>, 0x7ffff761cff8 <main_arena+1240>, 0x7ffff761d008 <main_arena+1256>, 0x7ffff761d008 <main_arena+1256>, 0x7ffff761d018 <main_arena+1272>, 0x7ffff761d018 <main_arena+1272>, 0x7ffff761d028 <main_arena+1288>, 0x7ffff761d028 <main_arena+1288>, 0x7ffff761d038 <main_arena+1304>, 0x7ffff761d038 <main_arena+1304>, 0x7ffff761d048 <main_arena+1320>, 0x7ffff761d048 <main_arena+1320>, 0x7ffff761d058 <main_arena+1336>, 0x7ffff761d058 <main_arena+1336>, 0x7ffff761d068 <main_arena+1352>, 0x7ffff761d068 <main_arena+1352>, 0x7ffff761d078 <main_arena+1368>, 0x7ffff761d078 <main_arena+1368>, 0x7ffff761d088 <main_arena+1384>, 0x7ffff761d088 <main_arena+1384>, 0x7ffff761d098 <main_arena+1400>, 0x7ffff761d098 <main_arena+1400>, 0x7ffff761d0a8 <main_arena+1416>, 0x7ffff761d0a8 <main_arena+1416>, 0x7ffff761d0b8 <main_arena+1432>, 0x7ffff761d0b8 <main_arena+1432>, 0x7ffff761d0c8 <main_arena+1448>, 0x7ffff761d0c8 <main_arena+1448>, 0x7ffff761d0d8 <main_arena+1464>, 0x7ffff761d0d8 <main_arena+1464>, 0x7ffff761d0e8 <main_arena+1480>, 0x7ffff761d0e8 <main_arena+1480>, 0x7ffff761d0f8 <main_arena+1496>, 0x7ffff761d0f8 <main_arena+1496>, 0x7ffff761d108 <main_arena+1512>, 0x7ffff761d108 <main_arena+1512>, 0x7ffff761d118 <main_arena+1528>, 0x7ffff761d118 <main_arena+1528>, 0x7ffff761d128 <main_arena+1544>, 0x7ffff761d128 <main_arena+1544>, 0x7ffff761d138 <main_arena+1560>, 0x7ffff761d138 <main_arena+1560>, 0x7ffff761d148 <main_arena+1576>, 0x7ffff761d148 <main_arena+1576>, 0x7ffff761d158 <main_arena+1592>, 0x7ffff761d158 <main_arena+1592>, 0x7ffff761d168 <main_arena+1608>, 0x7ffff761d168 <main_arena+1608>, 0x7ffff761d178 <main_arena+1624>, 0x7ffff761d178 <main_arena+1624>, 0x7ffff761d188 <main_arena+1640>, 0x7ffff761d188 <main_arena+1640>, 0x7d9ee0, 0x7d9ee0, 0x7ffff761d1a8 <main_arena+1672>, 0x7ffff761d1a8 <main_arena+1672>...}, binmap = {4, 9, 0, 536872968}, next = 0x7ffff761cb20 <main_arena>, next_free = 0x0, attached_threads = 1, system_mem = 4055040, max_system_mem = 9218801589353778159}
+value address: 0x7ffff761cb20 <main_arena>
+Type: The type is a structure.
+Type sizeof: 2192
+Field name: mutex
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+Field name: flags
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+Field name: fastbinsY
+Field Type: The type is an array.
+Field Type sizeof: 80
+Field name: top
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: last_remainder
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: bins
+Field Type: The type is an array.
+Field Type sizeof: 2032
+Field name: binmap
+Field Type: The type is an array.
+Field Type sizeof: 16
+Field name: next
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: next_free
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: attached_threads
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: system_mem
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: max_system_mem
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+
+[INFO -- 2018-12-03 23:04:55]
+Fault Injection Successful after 2.2408533096313477s
+[INFO -- 2018-12-03 23:04:55]
+event type: exit
+[INFO -- 2018-12-03 23:04:55]
+exit code: 0

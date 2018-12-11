@@ -1,0 +1,51 @@
+[INFO -- 2018-11-28 20:03:49]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-11-28 20:03:49]
+Initialization strings:
+[INFO -- 2018-11-28 20:03:49]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-11-28 20:03:49]
+(2) set args /tmp/Tree234/input_50000 /tmp/Tree234/output_50000 /tmp/Tree234/detectionLog_50000.log /tmp/Tree234/output2_50000
+[INFO -- 2018-11-28 20:03:49]
+initSignal:0
+[INFO -- 2018-11-28 20:03:49]
+endSignal:5
+[INFO -- 2018-11-28 20:03:49]
+faultModel:2
+[INFO -- 2018-11-28 20:03:49]
+Backtrace BEGIN:
+#0  0x00007ffff734f040 in __open_nocancel () at ../sysdeps/unix/syscall-template.S:84
+#1  0x00007ffff72d1ace in __GI__IO_file_open (fp=fp@entry=0x7ffff761d620 <_IO_2_1_stdout_>, filename=<optimized out>, posix_mode=<optimized out>, prot=prot@entry=438, read_write=4, is32not64=is32not64@entry=1) at fileops.c:221
+#2  0x00007ffff72d1d35 in _IO_new_file_fopen (fp=fp@entry=0x7ffff761d620 <_IO_2_1_stdout_>, filename=filename@entry=0x7fffffffe289 "/tmp/Tree234/output2_50000", mode=<optimized out>, mode@entry=0x403fbf "w", is32not64=is32not64@entry=1) at fileops.c:328
+#3  0x00007ffff72cdd85 in freopen (filename=0x7fffffffe289 "/tmp/Tree234/output2_50000", mode=0x403fbf "w", fp=0x7ffff761d620 <_IO_2_1_stdout_>) at freopen.c:69
+#4  0x0000000000402b0a in main ()
+
+79	in ../sysdeps/unix/syscall-template.S
+
+Backtrace END
+Fliping array at pos: 7
+Memory content before bitflip:0x5f
+Fault Model: Random bit-flip
+base address to flip value: 0x7ffff73eb8f7  
+address max offset: 1
+Memory content after  bitflip:0x68
+frame name: _IO_new_file_fopen
+symbol name: __PRETTY_FUNCTION__
+symbol filename: fileops.c
+symbol line: 0
+value: "_IO_newhfile_fopen"
+value address: 0x7ffff73eb8f0 <__PRETTY_FUNCTION__.11652>
+Type: The type is an array.
+Type sizeof: 19
+Field name: None
+Field Type: A range type, that is, an integer type with bounds.
+Field Type sizeof: 8
+Field Type range: (0, 18)
+
+[INFO -- 2018-11-28 20:03:49]
+Fault Injection Successful after 0.9516277313232422s
+[INFO -- 2018-11-28 20:03:50]
+event type: exit
+[INFO -- 2018-11-28 20:03:50]
+exit code: 0

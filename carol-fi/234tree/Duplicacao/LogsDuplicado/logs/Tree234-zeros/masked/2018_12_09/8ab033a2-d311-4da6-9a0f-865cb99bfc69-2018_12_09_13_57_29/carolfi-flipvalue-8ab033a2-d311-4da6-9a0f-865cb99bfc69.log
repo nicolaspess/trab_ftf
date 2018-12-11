@@ -1,0 +1,59 @@
+[INFO -- 2018-12-09 13:57:26]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 13:57:26]
+Initialization strings:
+[INFO -- 2018-12-09 13:57:26]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-12-09 13:57:26]
+(2) set args /tmp/Tree234/input_100000 /tmp/Tree234/output_100000 /tmp/Tree234/detectionLog_100000.log /tmp/Tree234/output2_100000
+[INFO -- 2018-12-09 13:57:26]
+initSignal:0
+[INFO -- 2018-12-09 13:57:26]
+endSignal:5
+[INFO -- 2018-12-09 13:57:26]
+faultModel:3
+[INFO -- 2018-12-09 13:57:27]
+Backtrace BEGIN:
+#0  __GI___libc_free (mem=<optimized out>) at malloc.c:2969
+#1  0x0000000000402e90 in std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, 16ul>(std::basic_ostream<char, std::char_traits<char> >&, std::bitset<16ul> const&) ()
+#2  0x0000000000402563 in Arvore234::imprime(no*) ()
+#3  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#4  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#5  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#6  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#7  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#8  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#9  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#10 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#11 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#12 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#13 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#14 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#15 0x0000000000402610 in Arvore234::imprime() ()
+#16 0x0000000000402adc in main ()
+
+2964	in malloc.c
+
+Backtrace END
+Fliping a bit of the value pointed by a pointer
+Memory content before bitflip:0x48
+Fault Model: Zero bit-flip
+base address to flip value: 0x7ffff72df8c0 
+address max offset: 1
+Memory content after  bitflip:0x00
+frame name: __GI___libc_free
+symbol name: __morecore
+symbol filename: malloc.c
+symbol line: 412
+value: 0x7ffff72df8c0 <__GI___default_morecore>
+value address: 0x7ffff761d3b0 <__morecore>
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-09 13:57:27]
+Fault Injection Successful after 1.9491291046142578s
+[INFO -- 2018-12-09 13:57:28]
+event type: exit
+[INFO -- 2018-12-09 13:57:28]
+exit code: 0

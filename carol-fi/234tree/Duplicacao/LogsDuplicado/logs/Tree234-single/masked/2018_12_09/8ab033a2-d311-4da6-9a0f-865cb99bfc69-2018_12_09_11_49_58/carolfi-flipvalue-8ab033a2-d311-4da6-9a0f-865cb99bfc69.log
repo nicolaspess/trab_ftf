@@ -1,0 +1,62 @@
+[INFO -- 2018-12-09 11:49:56]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 11:49:56]
+Initialization strings:
+[INFO -- 2018-12-09 11:49:56]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-12-09 11:49:56]
+(2) set args /tmp/Tree234/input_100000 /tmp/Tree234/output_100000 /tmp/Tree234/detectionLog_100000.log /tmp/Tree234/output2_100000
+[INFO -- 2018-12-09 11:49:56]
+initSignal:0
+[INFO -- 2018-12-09 11:49:56]
+endSignal:5
+[INFO -- 2018-12-09 11:49:56]
+faultModel:0
+[INFO -- 2018-12-09 11:49:56]
+Backtrace BEGIN:
+#0  0x00007ffff7de36b6 in elf_machine_rela (skip_ifunc=<optimized out>, reloc_addr_arg=0x7ffff761bf50, version=0x7ffff7fd87e0, sym=0x7ffff7261f48, reloc=0x7ffff7277428, map=0x7ffff7fd9000) at ../sysdeps/x86_64/dl-machine.h:301
+#1  elf_dynamic_do_Rela (skip_ifunc=<optimized out>, lazy=<optimized out>, nrelative=<optimized out>, relsize=<optimized out>, reladdr=<optimized out>, map=0x7ffff7fd9000) at do-rel.h:137
+#2  _dl_relocate_object (scope=<optimized out>, reloc_mode=<optimized out>, consider_profiling=<optimized out>, consider_profiling@entry=0) at dl-reloc.c:258
+#3  0x00007ffff7ddb0db in dl_main (phdr=<optimized out>, phnum=<optimized out>, user_entry=<optimized out>, auxv=<optimized out>) at rtld.c:2109
+#4  0x00007ffff7df0632 in _dl_sysdep_start (start_argptr=start_argptr@entry=0x7fffffffde90, dl_main=dl_main@entry=0x7ffff7dd91e0 <dl_main>) at ../elf/dl-sysdep.c:249
+#5  0x00007ffff7dd8c2a in _dl_start_final (arg=0x7fffffffde90) at rtld.c:323
+#6  _dl_start (arg=0x7fffffffde90) at rtld.c:429
+#7  0x00007ffff7dd7c38 in _start () from /lib64/ld-linux-x86-64.so.2
+#8  0x0000000000000005 in ?? ()
+#9  0x00007fffffffe21c in ?? ()
+#10 0x00007fffffffe22e in ?? ()
+#11 0x00007fffffffe248 in ?? ()
+#12 0x00007fffffffe263 in ?? ()
+#13 0x00007fffffffe288 in ?? ()
+#14 0x0000000000000000 in ?? ()
+
+296	in ../sysdeps/x86_64/dl-machine.h
+
+Backtrace END
+Fliping array at pos: 1
+Fliping value of field: lazy
+Memory content before bitflip:0x010x000x000x00
+Fault Model: Single bit-flip
+base address to flip value: 0x7fffffffdc68
+address max offset: 4
+Memory content after  bitflip:0x010x000x100x00
+frame name: _dl_relocate_object
+symbol name: ranges
+symbol filename: dl-reloc.c
+symbol line: 258
+value: {{start = 140737339916048, size = 30576, nrelative = 1189, lazy = 0}, {start = 140737339946624, size = 312, nrelative = 0, lazy = 1048577}}
+value address: 0x7fffffffdc30
+Type: The type is an array.
+Type sizeof: 64
+Field name: None
+Field Type: A range type, that is, an integer type with bounds.
+Field Type sizeof: 8
+Field Type range: (0, 1)
+
+[INFO -- 2018-12-09 11:49:56]
+Fault Injection Successful after 0.11718583106994629s
+[INFO -- 2018-12-09 11:49:57]
+event type: exit
+[INFO -- 2018-12-09 11:49:57]
+exit code: 0

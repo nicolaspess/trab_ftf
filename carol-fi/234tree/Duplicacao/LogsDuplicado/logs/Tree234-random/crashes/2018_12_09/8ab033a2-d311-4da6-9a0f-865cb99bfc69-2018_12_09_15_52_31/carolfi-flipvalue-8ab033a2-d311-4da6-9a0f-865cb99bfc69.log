@@ -1,0 +1,60 @@
+[INFO -- 2018-12-09 15:52:28]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 15:52:28]
+Initialization strings:
+[INFO -- 2018-12-09 15:52:28]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-12-09 15:52:28]
+(2) set args /tmp/Tree234/input_100000 /tmp/Tree234/output_100000 /tmp/Tree234/detectionLog_100000.log /tmp/Tree234/output2_100000
+[INFO -- 2018-12-09 15:52:28]
+initSignal:0
+[INFO -- 2018-12-09 15:52:28]
+endSignal:5
+[INFO -- 2018-12-09 15:52:28]
+faultModel:2
+[INFO -- 2018-12-09 15:52:28]
+Backtrace BEGIN:
+#0  0x00007ffff7df2467 in close () at ../sysdeps/unix/syscall-template.S:84
+#1  0x00007ffff7ddde28 in _dl_map_object_from_fd (name=name@entry=0x400c80 "libpthread.so.0", origname=origname@entry=0x0, fd=<optimized out>, fbp=fbp@entry=0x7fffffffd600, realname=<optimized out>, loader=loader@entry=0x7ffff7ffe168, l_type=1, mode=0, stack_endp=0x7fffffffd5f8, nsid=0) at dl-load.c:1361
+#2  0x00007ffff7ddfc27 in _dl_map_object (loader=0x7ffff7ffe168, name=0x400c80 "libpthread.so.0", type=1, trace_mode=0, mode=<optimized out>, nsid=<optimized out>) at dl-load.c:2498
+#3  0x00007ffff7de4ba2 in openaux (a=a@entry=0x7fffffffdc40) at dl-deps.c:63
+#4  0x00007ffff7de7564 in _dl_catch_error (objname=objname@entry=0x7fffffffdc38, errstring=errstring@entry=0x7fffffffdc30, mallocedp=mallocedp@entry=0x7fffffffdc2f, operate=operate@entry=0x7ffff7de4b70 <openaux>, args=args@entry=0x7fffffffdc40) at dl-error.c:187
+#5  0x00007ffff7de51e2 in _dl_map_object_deps (map=map@entry=0x7ffff7ffe168, preloads=<optimized out>, npreloads=npreloads@entry=0, trace_mode=trace_mode@entry=0, open_mode=open_mode@entry=0) at dl-deps.c:254
+#6  0x00007ffff7ddaa29 in dl_main (phdr=<optimized out>, phnum=<optimized out>, user_entry=<optimized out>, auxv=<optimized out>) at rtld.c:1647
+#7  0x00007ffff7df0632 in _dl_sysdep_start (start_argptr=start_argptr@entry=0x7fffffffde90, dl_main=dl_main@entry=0x7ffff7dd91e0 <dl_main>) at ../elf/dl-sysdep.c:249
+#8  0x00007ffff7dd8c2a in _dl_start_final (arg=0x7fffffffde90) at rtld.c:323
+#9  _dl_start (arg=0x7fffffffde90) at rtld.c:429
+#10 0x00007ffff7dd7c38 in _start () from /lib64/ld-linux-x86-64.so.2
+#11 0x0000000000000005 in ?? ()
+#12 0x00007fffffffe21c in ?? ()
+#13 0x00007fffffffe22e in ?? ()
+#14 0x00007fffffffe248 in ?? ()
+#15 0x00007fffffffe263 in ?? ()
+#16 0x00007fffffffe288 in ?? ()
+#17 0x0000000000000000 in ?? ()
+
+79	in ../sysdeps/unix/syscall-template.S
+
+Backtrace END
+Fliping a bit of the pointer
+Memory content before bitflip:0x980xde0xff0xff0xff0x7f0x000x00
+Fault Model: Random bit-flip
+base address to flip value: 0x7ffff7ffcc80 
+address max offset: 8
+Memory content after  bitflip:0x470x4b0x210x350x890x4c0xda0x83
+frame name: _dl_start_final
+symbol name: _dl_argv
+symbol filename: rtld.c
+symbol line: 86
+value: 0x7fffffffde98
+value address: 0x7ffff7ffcc80 <_dl_argv>
+Type: The type is a pointer.
+Type sizeof: 8
+
+[INFO -- 2018-12-09 15:52:28]
+Fault Injection Successful after 0.9374372959136963s
+[INFO -- 2018-12-09 15:52:29]
+event type: exit
+[EXCEPTION -- 2018-12-09 15:52:29]
+exit code: no exit code available

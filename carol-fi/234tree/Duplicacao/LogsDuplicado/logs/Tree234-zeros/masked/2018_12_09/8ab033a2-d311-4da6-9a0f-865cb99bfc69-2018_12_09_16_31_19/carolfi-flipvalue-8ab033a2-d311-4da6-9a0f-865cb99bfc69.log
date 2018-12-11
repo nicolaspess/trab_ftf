@@ -1,0 +1,220 @@
+[INFO -- 2018-12-09 16:31:16]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 16:31:16]
+Initialization strings:
+[INFO -- 2018-12-09 16:31:16]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-12-09 16:31:16]
+(2) set args /tmp/Tree234/input_100000 /tmp/Tree234/output_100000 /tmp/Tree234/detectionLog_100000.log /tmp/Tree234/output2_100000
+[INFO -- 2018-12-09 16:31:16]
+initSignal:0
+[INFO -- 2018-12-09 16:31:16]
+endSignal:5
+[INFO -- 2018-12-09 16:31:16]
+faultModel:3
+[INFO -- 2018-12-09 16:31:16]
+Backtrace BEGIN:
+#0  0x00007ffff763348e in __libc_sigaction (sig=33, act=<optimized out>, oact=0x0) at ../sysdeps/unix/sysv/linux/x86_64/sigaction.c:62
+#1  0x00007ffff7627e47 in __pthread_initialize_minimal_internal () at nptl-init.c:411
+#2  0x00007ffff7627589 in _init () at ../sysdeps/x86_64/crti.S:72
+#3  0x00007ffff7dd7450 in ?? () from /lib64/ld-linux-x86-64.so.2
+#4  0x00007ffff7de767a in call_init (l=0x7ffff7fda9e8, argc=5, argv=0x7fffffffde98, env=0x7fffffffdec8) at dl-init.c:58
+#5  0x00007ffff7de7835 in call_init (env=0x7fffffffdec8, argv=0x7fffffffde98, argc=5, l=<optimized out>) at dl-init.c:104
+#6  _dl_init (main_map=0x7ffff7ffe168, argc=5, argv=0x7fffffffde98, env=0x7fffffffdec8) at dl-init.c:87
+#7  0x00007ffff7dd7c6a in _dl_start_user () from /lib64/ld-linux-x86-64.so.2
+#8  0x0000000000000005 in ?? ()
+#9  0x00007fffffffe21c in ?? ()
+#10 0x00007fffffffe22e in ?? ()
+#11 0x00007fffffffe248 in ?? ()
+#12 0x00007fffffffe263 in ?? ()
+#13 0x00007fffffffe288 in ?? ()
+#14 0x0000000000000000 in ?? ()
+
+57	in ../sysdeps/unix/sysv/linux/x86_64/sigaction.c
+
+Backtrace END
+Fliping value of field: ptr___pthread_once
+Fliping a bit of the value pointed by a pointer
+Memory content before bitflip:0x8b
+Fault Model: Zero bit-flip
+base address to flip value: 0x7ffff7630b20 
+address max offset: 1
+Memory content after  bitflip:0x00
+frame name: __pthread_initialize_minimal_internal
+symbol name: pthread_functions
+symbol filename: nptl-init.c
+symbol line: 88
+value: {ptr_pthread_attr_destroy = 0x7ffff762afb0 <__pthread_attr_destroy>, ptr___pthread_attr_init_2_0 = 0x0, ptr___pthread_attr_init_2_1 = 0x7ffff762af70 <__pthread_attr_init_2_1>, ptr_pthread_attr_getdetachstate = 0x7ffff762afd0 <__pthread_attr_getdetachstate>, ptr_pthread_attr_setdetachstate = 0x7ffff762afe0 <__pthread_attr_setdetachstate>, ptr_pthread_attr_getinheritsched = 0x7ffff762b0d0 <__pthread_attr_getinheritsched>, ptr_pthread_attr_setinheritsched = 0x7ffff762b0e0 <__pthread_attr_setinheritsched>, ptr_pthread_attr_getschedparam = 0x7ffff762b030 <__pthread_attr_getschedparam>, ptr_pthread_attr_setschedparam = 0x7ffff762b040 <__pthread_attr_setschedparam>, ptr_pthread_attr_getschedpolicy = 0x7ffff762b0a0 <__pthread_attr_getschedpolicy>, ptr_pthread_attr_setschedpolicy = 0x7ffff762b0b0 <__pthread_attr_setschedpolicy>, ptr_pthread_attr_getscope = 0x7ffff762b110 <__pthread_attr_getscope>, ptr_pthread_attr_setscope = 0x7ffff762b120 <__pthread_attr_setscope>, ptr_pthread_condattr_destroy = 0x7ffff762fdf0 <__pthread_condattr_destroy>, ptr_pthread_condattr_init = 0x7ffff762fde0 <__pthread_condattr_init>, ptr___pthread_cond_broadcast = 0x7ffff762faa0 <pthread_cond_broadcast@@GLIBC_2.3.2>, ptr___pthread_cond_destroy = 0x7ffff762f140 <__pthread_cond_destroy>, ptr___pthread_cond_init = 0x7ffff762f0c0 <__pthread_cond_init>, ptr___pthread_cond_signal = 0x7ffff762f9c0 <pthread_cond_signal@@GLIBC_2.3.2>, ptr___pthread_cond_wait = 0x7ffff762f2a0 <pthread_cond_wait@@GLIBC_2.3.2>, ptr___pthread_cond_timedwait = 0x7ffff762f5e0 <pthread_cond_timedwait@@GLIBC_2.3.2>, ptr___pthread_cond_broadcast_2_0 = 0x7ffff762fd80 <__pthread_cond_broadcast_2_0>, ptr___pthread_cond_destroy_2_0 = 0x7ffff762fc10 <__pthread_cond_destroy_2_0>, ptr___pthread_cond_init_2_0 = 0x7ffff762fbe0 <__pthread_cond_init_2_0>, ptr___pthread_cond_signal_2_0 = 0x7ffff762fd20 <__pthread_cond_signal_2_0>, ptr___pthread_cond_wait_2_0 = 0x7ffff762fc30 <__pthread_cond_wait_2_0>, ptr___pthread_cond_timedwait_2_0 = 0x7ffff762fc90 <__pthread_cond_timedwait_2_0>, ptr_pthread_equal = 0x7ffff762ac20 <__pthread_equal>, ptr___pthread_exit = 0x7ffff762a820 <__pthread_exit>, ptr_pthread_getschedparam = 0x7ffff762ac70 <__pthread_getschedparam>, ptr_pthread_setschedparam = 0x7ffff762ada0 <__pthread_setschedparam>, ptr_pthread_mutex_destroy = 0x7ffff762b6b0 <__GI___pthread_mutex_destroy>, ptr_pthread_mutex_init = 0x7ffff762b5a0 <__GI___pthread_mutex_init>, ptr_pthread_mutex_lock = 0x7ffff762bd40 <__GI___pthread_mutex_lock>, ptr_pthread_mutex_unlock = 0x7ffff762d4c0 <__GI___pthread_mutex_unlock>, ptr_pthread_self = 0x7ffff762ac10 <__pthread_self>, ptr___pthread_setcancelstate = 0x7ffff7630780 <__GI___pthread_setcancelstate>, ptr_pthread_setcanceltype = 0x7ffff76308c0 <__pthread_setcanceltype>, ptr___pthread_cleanup_upto = 0x7ffff76320a0 <__GI___pthread_cleanup_upto>, ptr___pthread_once = 0x7ffff7630b20 <__GI___pthread_once>, ptr___pthread_rwlock_rdlock = 0x7ffff762e240 <__GI___pthread_rwlock_rdlock>, ptr___pthread_rwlock_wrlock = 0x7ffff762e810 <__GI___pthread_rwlock_wrlock>, ptr___pthread_rwlock_unlock = 0x7ffff762eeb0 <__GI___pthread_rwlock_unlock>, ptr___pthread_key_create = 0x7ffff7630230 <__GI___pthread_key_create>, ptr___pthread_getspecific = 0x7ffff76302d0 <__GI___pthread_getspecific>, ptr___pthread_setspecific = 0x7ffff7630360 <__GI___pthread_setspecific>, ptr__pthread_cleanup_push_defer = 0x7ffff7631de0 <_pthread_cleanup_push_defer>, ptr__pthread_cleanup_pop_restore = 0x7ffff7631e50 <_pthread_cleanup_pop_restore>, ptr_nthreads = 0x7ffff783a258 <__nptl_nthreads>, ptr___pthread_unwind = 0x7ffff7632030 <__GI___pthread_unwind>, ptr__nptl_deallocate_tsd = 0x7ffff76293e0 <__nptl_deallocate_tsd>, ptr__nptl_setxid = 0x7ffff7628c70 <__nptl_setxid>, ptr_freeres = 0x7ffff7634a60 <nptl_freeres>, ptr_set_robust = 0x7ffff7627b30 <__nptl_set_robust>}
+value address: 0x7ffff7839ba0 <pthread_functions>
+Type: The type is a structure.
+Type sizeof: 432
+Field name: ptr_pthread_attr_destroy
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr___pthread_attr_init_2_0
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr___pthread_attr_init_2_1
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr_pthread_attr_getdetachstate
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr_pthread_attr_setdetachstate
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr_pthread_attr_getinheritsched
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr_pthread_attr_setinheritsched
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr_pthread_attr_getschedparam
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr_pthread_attr_setschedparam
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr_pthread_attr_getschedpolicy
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr_pthread_attr_setschedpolicy
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr_pthread_attr_getscope
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr_pthread_attr_setscope
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr_pthread_condattr_destroy
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr_pthread_condattr_init
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr___pthread_cond_broadcast
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr___pthread_cond_destroy
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr___pthread_cond_init
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr___pthread_cond_signal
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr___pthread_cond_wait
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr___pthread_cond_timedwait
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr___pthread_cond_broadcast_2_0
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr___pthread_cond_destroy_2_0
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr___pthread_cond_init_2_0
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr___pthread_cond_signal_2_0
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr___pthread_cond_wait_2_0
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr___pthread_cond_timedwait_2_0
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr_pthread_equal
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr___pthread_exit
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr_pthread_getschedparam
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr_pthread_setschedparam
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr_pthread_mutex_destroy
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr_pthread_mutex_init
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr_pthread_mutex_lock
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr_pthread_mutex_unlock
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr_pthread_self
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr___pthread_setcancelstate
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr_pthread_setcanceltype
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr___pthread_cleanup_upto
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr___pthread_once
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr___pthread_rwlock_rdlock
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr___pthread_rwlock_wrlock
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr___pthread_rwlock_unlock
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr___pthread_key_create
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr___pthread_getspecific
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr___pthread_setspecific
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr__pthread_cleanup_push_defer
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr__pthread_cleanup_pop_restore
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr_nthreads
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr___pthread_unwind
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr__nptl_deallocate_tsd
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr__nptl_setxid
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr_freeres
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+Field name: ptr_set_robust
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+
+[INFO -- 2018-12-09 16:31:16]
+Fault Injection Successful after 0.5750508308410645s
+[INFO -- 2018-12-09 16:31:17]
+event type: exit
+[INFO -- 2018-12-09 16:31:17]
+exit code: 0

@@ -1,0 +1,58 @@
+Faults Injected:;3022
+
+Fault Effect;#Effect;PVF
+Masked;2517;0.8328921244209133
+SDCs;5;0.0016545334215751159
+Crashes;495;0.16379880873593647
+Hangs;5;0.0016545334215751159
+
+FaultModels SDCs:
+FaultModel ;#SDCs;percentage
+Single bit-flip;3;60.0
+Random bit-flip;1;20.0
+LSB bit-flip;1;20.0
+
+FaultModels Crashes:
+FaultModel ;#Crashes;percentage
+Random bit-flip;122;24.646464646464647
+Double bit-flip;107;21.616161616161616
+Zero bit-flip;94;18.98989898989899
+LSB bit-flip;93;18.787878787878785
+Single bit-flip;79;15.95959595959596
+
+FaultModels Hangs:
+FaultModel ;#Hangs;percentage
+Double bit-flip;3;60.0
+Random bit-flip;2;40.0
+
+Variables that caused SDCs:
+PVF ;#flips ;#SDCs ;Var name ;file ;line number
+0.425531914893617;470;2;_IO_file_jumps_mmap;fileops.c;1562
+0.3913894324853229;511;2;__GI__IO_file_jumps;fileops.c;1537
+0.2004008016032064;499;1;_IO_file_jumps;fileops.c;1560
+
+Variables that caused Crash:
+PVF ;#flips ;#SDCs ;Var name ;file ;line number
+29.158512720156555;511;149;__GI__IO_file_jumps;fileops.c;1537
+27.85571142284569;499;139;_IO_file_jumps;fileops.c;1560
+12.8;500;64;_IO_file_jumps_maybe_mmap;fileops.c;1586
+100.0;37;37;user_entry;../elf/dl-sysdep.c;89
+76.19047619047619;42;32;_dl_skip_args;rtld.c;84
+6.170212765957447;470;29;_IO_file_jumps_mmap;fileops.c;1562
+28.57142857142857;35;10;__GI__dl_argv;rtld.c;83
+14.000000000000002;50;7;_dl_argv;rtld.c;86
+19.35483870967742;31;6;_rtld_local;rtld.c;162
+11.627906976744185;43;5;_rtld_global;rtld.c;140
+10.0;40;4;_rtld_global_ro;rtld.c;168
+8.571428571428571;35;3;_rtld_local_ro;rtld.c;202
+60.0;5;3;__malloc_hook;malloc.c;1852
+50.0;4;2;ranges;dl-reloc.c;258
+100.0;2;2;__free_hook;malloc.c;1850
+100.0;2;2;thread_arena;arena.c;69
+33.33333333333333;3;1;__after_morecore_hook;malloc.c;1860
+
+Variables that caused Hang:
+PVF ;#flips ;#SDCs ;Var name ;file ;line number
+0.4;500;2;_IO_file_jumps_maybe_mmap;fileops.c;1586
+0.425531914893617;470;2;_IO_file_jumps_mmap;fileops.c;1562
+2.3255813953488373;43;1;_rtld_global;rtld.c;140

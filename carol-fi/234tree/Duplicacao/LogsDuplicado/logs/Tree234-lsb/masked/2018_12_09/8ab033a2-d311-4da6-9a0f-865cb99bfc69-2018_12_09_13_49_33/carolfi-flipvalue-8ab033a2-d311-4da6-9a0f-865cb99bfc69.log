@@ -1,0 +1,100 @@
+[INFO -- 2018-12-09 13:49:30]
+Starting flip_value script
+version: 1.1
+[INFO -- 2018-12-09 13:49:30]
+Initialization strings:
+[INFO -- 2018-12-09 13:49:30]
+(1) file /tmp/Tree234/main
+[INFO -- 2018-12-09 13:49:30]
+(2) set args /tmp/Tree234/input_100000 /tmp/Tree234/output_100000 /tmp/Tree234/detectionLog_100000.log /tmp/Tree234/output2_100000
+[INFO -- 2018-12-09 13:49:30]
+initSignal:0
+[INFO -- 2018-12-09 13:49:30]
+endSignal:5
+[INFO -- 2018-12-09 13:49:30]
+faultModel:4
+[EXCEPTION -- 2018-12-09 13:49:31]
+gdbException: Attempt to dereference a generic pointer.
+[INFO -- 2018-12-09 13:49:31]
+Backtrace BEGIN:
+#0  0x00007ffff72dc546 in __GI___libc_free (mem=<optimized out>) at malloc.c:2969
+#1  0x0000000000402e90 in std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, 16ul>(std::basic_ostream<char, std::char_traits<char> >&, std::bitset<16ul> const&) ()
+#2  0x0000000000402563 in Arvore234::imprime(no*) ()
+#3  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#4  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#5  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#6  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#7  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#8  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#9  0x00000000004025d0 in Arvore234::imprime(no*) ()
+#10 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#11 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#12 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#13 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#14 0x00000000004025d0 in Arvore234::imprime(no*) ()
+#15 0x0000000000402610 in Arvore234::imprime() ()
+#16 0x0000000000402adc in main ()
+
+2964	in malloc.c
+
+Backtrace END
+Fliping value of field: mmapped_mem
+Memory content before bitflip:0x000x000x000x000x000x000x000x00
+Fault Model: LSB bit-flip
+base address to flip value: 0x7ffff761c198 
+address max offset: 8
+Memory content after  bitflip:0x000x000x000x000x000x000x000x20
+frame name: __GI___libc_free
+symbol name: mp_
+symbol filename: malloc.c
+symbol line: 1769
+value: {trim_threshold = 1056768, top_pad = 131072, mmap_threshold = 528384, arena_test = 8, arena_max = 0, n_mmaps = 0, n_mmaps_max = 65536, max_n_mmaps = 2, no_dyn_threshold = 0, mmapped_mem = 2305843009213693952, max_mmapped_mem = 794624, max_total_mem = 0, sbrk_base = 0x607000 ""}
+value address: 0x7ffff761c160 <mp_>
+Type: The type is a structure.
+Type sizeof: 88
+Field name: trim_threshold
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: top_pad
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: mmap_threshold
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: arena_test
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: arena_max
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: n_mmaps
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+Field name: n_mmaps_max
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+Field name: max_n_mmaps
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+Field name: no_dyn_threshold
+Field Type: The type is an integer type.
+Field Type sizeof: 4
+Field name: mmapped_mem
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: max_mmapped_mem
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: max_total_mem
+Field Type: The type is an integer type.
+Field Type sizeof: 8
+Field name: sbrk_base
+Field Type: The type is a pointer.
+Field Type sizeof: 8
+
+[INFO -- 2018-12-09 13:49:31]
+Fault Injection Successful after 1.4397492408752441s
+[INFO -- 2018-12-09 13:49:32]
+event type: exit
+[INFO -- 2018-12-09 13:49:32]
+exit code: 0
